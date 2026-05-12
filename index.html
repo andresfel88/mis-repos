@@ -8,28 +8,28 @@
         body { background-color: #0b0e11; color: white; font-family: sans-serif; display: flex; justify-content: center; padding: 20px; }
         .container { max-width: 500px; width: 100%; text-align: center; }
         .btn-download { display: block; background: #00ce7d; color: black; padding: 20px; margin: 20px 0; border-radius: 12px; font-weight: bold; text-decoration: none; font-size: 22px; box-shadow: 0 4px 15px rgba(0,206,125,0.3); }
-        .news-box { background: #15191c; border-radius: 12px; padding: 15px; text-align: left; border: 1px solid #2d333b; }
+        .news-box { background: #15191c; border-radius: 12px; padding: 15px; text-align: left; border: 1px solid #2d333b; min-height: 200px; }
         h2 { color: #00ce7d; margin-bottom: 5px; }
         .rss-item { border-bottom: 1px solid #2d333b; padding: 10px 0; list-style: none; }
-        .rss-title a { color: #58a6ff !important; text-decoration: none; font-weight: bold; }
+        .rss-title a { color: #58a6ff !important; text-decoration: none; font-weight: bold; font-size: 14px; }
         .rss-date { font-size: 10px; color: #8b949e; }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>TV BOX & FIRE STICK</h2>
-        <p>Noticias y Actualizaciones</p>
+        <p>Noticias y Actualizaciones de Google TV</p>
 
-        <!-- CAMBIA EL LINK ENTRE LAS COMILLAS AQUÍ ABAJO -->
-        <a href="TU_LINK_DE_DESCARGA_AQUI" class="btn-download">🚀 DESCARGAR REPOSITORIO</a>
+        <!-- CAMBIA ESTO POR TU LINK DE DESCARGA -->
+        <a href="https://t.me/TuCanalOEnlace" class="btn-download">🚀 DESCARGAR REPOSITORIO</a>
 
         <div class="news-box">
-            <h4 style="margin-top:0;">Última Hora:</h4>
-            <!-- SCRIPT DE NOTICIAS AUTOMÁTICAS -->
-            <script src="https://feed2js.org/feed2js.php?src=https%3A%2F%2Fwww.xataka.com%2Ftag%2Fstreaming%2Frss.xml&num=6&desc=0&date=y&targ=y" type="text/javascript"></script>
+            <h4 style="margin-top:0; color: #8b949e;">Última Hora:</h4>
+            <!-- SCRIPT QUE GENERA LAS NOTICIAS SOLAS -->
+            <script src="https://feed2js.org/feed2js.php?src=https%3A%2F%2Fwww.xataka.com%2Ftag%2Fstreaming%2Frss.xml&num=5&desc=0&date=y&targ=y" type="text/javascript"></script>
         </div>
         
-        <p style="font-size: 12px; color: #444; margin-top: 20px;">Esta página se actualiza automáticamente cada vez que entras.</p>
+        <p style="font-size: 11px; color: #444; margin-top: 30px;">Esta web se actualiza automáticamente.</p>
     </div>
 </body>
 </html>
