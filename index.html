@@ -3,70 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google TV a Fondo: Todo lo que puedes hacer en tu tele</title>
+    <!-- REFRESCAR PÁGINA CADA 600 SEGUNDOS (10 MINUTOS) -->
+    <meta http-equiv="refresh" content="600"> 
+    <title>Google TV & Fire Stick: Guía Definitiva 2026</title>
     <style>
-        :root { --xataka-orange: #ff6000; --xataka-black: #111; --text-gray: #444; }
-        body { background-color: #f8f9fa; color: #333; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; line-height: 1.6; }
+        :root { --xataka-orange: #ff6000; --xataka-black: #111; --bg-gray: #f4f4f4; }
+        body { background-color: var(--bg-gray); color: #222; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; line-height: 1.8; }
         
-        /* Barra superior estilo Xataka */
-        header { background: var(--xataka-black); color: white; padding: 15px 0; text-align: center; border-bottom: 4px solid var(--xataka-orange); }
-        .logo { font-weight: 900; font-size: 24px; letter-spacing: -1px; }
+        header { background: var(--xataka-black); color: white; padding: 20px 0; text-align: center; border-bottom: 5px solid var(--xataka-orange); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; font-size: 28px; text-transform: uppercase; }
         .logo span { color: var(--xataka-orange); }
 
-        /* Contenedor tipo lectura */
-        .article-container { max-width: 740px; margin: 40px auto; background: white; padding: 40px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); border-radius: 4px; }
+        .container { max-width: 850px; margin: 30px auto; background: white; padding: 50px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
         
-        .category { color: var(--xataka-orange); font-weight: bold; text-transform: uppercase; font-size: 14px; display: block; margin-bottom: 10px; }
-        h1 { font-size: 36px; line-height: 1.2; color: var(--xataka-black); margin-bottom: 20px; font-weight: 800; }
+        .meta { color: var(--xataka-orange); font-weight: bold; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; }
+        h1 { font-size: 42px; line-height: 1.1; color: var(--xataka-black); margin: 10px 0 30px 0; font-weight: 800; }
         
-        .main-img { width: 100%; border-radius: 4px; margin: 20px 0; }
+        .full-img { width: 100%; border-radius: 12px; margin: 25px 0; display: block; }
         
-        /* Botón de descarga elegante */
-        .download-box { background: #f0f0f0; border-left: 5px solid var(--xataka-orange); padding: 20px; margin: 30px 0; text-align: center; }
-        .btn-xataka { background: var(--xataka-orange); color: white; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 50px; display: inline-block; transition: 0.3s; }
-        .btn-xataka:hover { background: #e55600; transform: scale(1.05); }
+        /* Bloques de lectura */
+        .content-block { margin-bottom: 40px; }
+        h2 { font-size: 28px; border-left: 6px solid var(--xataka-orange); padding-left: 15px; margin: 40px 0 20px 0; color: var(--xataka-black); }
+        
+        /* Caja de Acción */
+        .action-box { background: #fff3ed; border: 2px dashed var(--xataka-orange); padding: 30px; border-radius: 15px; text-align: center; margin: 40px 0; }
+        .btn-premium { background: var(--xataka-orange); color: white; padding: 18px 40px; text-decoration: none; font-weight: bold; border-radius: 8px; display: inline-block; font-size: 20px; box-shadow: 0 4px 15px rgba(255, 96, 0, 0.3); }
 
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; color: var(--xataka-black); }
-        p { margin-bottom: 20px; font-size: 18px; color: var(--text-gray); }
+        /* Widget de Noticias Live */
+        .live-news { background: #fafafa; border: 1px solid #ddd; padding: 25px; border-radius: 10px; }
+        .live-tag { background: red; color: white; padding: 2px 8px; font-size: 12px; font-weight: bold; border-radius: 4px; vertical-align: middle; margin-right: 5px; }
 
-        /* Sección Noticias lateral o inferior */
-        .news-feed { background: #fdfdfd; border: 1px solid #eee; padding: 20px; border-radius: 8px; }
+        footer { text-align: center; padding: 50px; background: #111; color: #777; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">ANDRÉS<span>REPOS</span></div>
+    <div class="logo">TECHO<span>LOGY</span> LIVE</div>
 </header>
 
-<div class="article-container">
-    <span class="category">Listas y Guías</span>
-    <h1>Google TV a fondo: todo lo que puedes hacer en tu tele y cómo sacarle todo el partido</h1>
+<div class="container">
+    <span class="meta">Actualización en tiempo real • Mayo 2026</span>
+    <h1>Google TV y Fire Stick 4K: La revolución de las APKs y el streaming avanzado</h1>
     
-    <p>Google TV no es solo un sistema operativo, es el centro de entretenimiento más avanzado para tu hogar. Si tienes un Chromecast o una tele con este sistema, estás a un paso de desbloquear todo su potencial.</p>
-
-    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=1000" class="main-img" alt="Google TV Interface">
-
-    <div class="download-box">
-        <h3>¿Buscas las mejores APKs para tu sistema?</h3>
-        <p style="font-size: 14px;">Hemos preparado un repositorio exclusivo con las herramientas esenciales para 2026.</p>
-        <a href="TU_LINK_AQUI" class="btn-xataka">DESCARGAR REPOSITORIO OFICIAL</a>
+    <div class="content-block">
+        <p>El panorama del streaming ha cambiado drásticamente este año. Con la llegada de las nuevas versiones de <strong>Fire OS 8</strong> y las actualizaciones de seguridad en <strong>Android 14 para TV</strong>, los usuarios buscan desesperadamente formas de mantener sus aplicaciones favoritas funcionando sin restricciones.</p>
+        
+        <img src="https://images.unsplash.com/photo-1593784991095-a205039470b6?auto=format&fit=crop&q=80&w=1200" class="full-img" alt="Smart TV">
+        
+        <h2>Novedades en Fire Stick: ¿Qué esperar?</h2>
+        <p>Amazon ha reforzado sus capas de seguridad, pero la comunidad ha respondido con nuevos <strong>Launchers personalizados</strong> que eliminan la publicidad intrusiva. Instalar una APK externa ahora requiere pasos adicionales en los ajustes de desarrollador, pero el rendimiento ganado vale totalmente la pena.</p>
     </div>
 
-    <h2>Personaliza tu pantalla de inicio</h2>
-    <p>A diferencia de los sistemas cerrados, Google TV te permite organizar tus aplicaciones favoritas en la parte superior. Además, si activas el "Modo solo aplicaciones", tendrás una interfaz mucho más limpia y rápida, ideal para dispositivos con poco almacenamiento.</p>
+    <div class="action-box">
+        <h3>🚀 Centro de Descargas Oficial</h3>
+        <p>Accede a nuestro repositorio actualizado con <strong>Watch One</strong>, reproductores premium y herramientas de optimización.</p>
+        <a href="TU_LINK_AQUI" class="btn-premium">DESCARGAR PACK ACTUALIZADO</a>
+    </div>
 
-    <h2>Instalación de APKs externas</h2>
-    <p>Para sacarle provecho, es vital aprender a instalar archivos externos. Mediante herramientas como 'Downloader', puedes acceder a un mundo de posibilidades que no están en la tienda oficial, ampliando tu catálogo de streaming y utilidades.</p>
+    <div class="content-block">
+        <h2>Google TV: El rey de la personalización</h2>
+        <p>Google TV ha integrado ahora una sección de "Canales Gratuitos" mucho más robusta, compitiendo directamente con Pluto TV. Sin embargo, para los usuarios en Colombia y Latinoamérica, el uso de <strong>APKs de gestión de listas</strong> sigue siendo la opción preferida por su versatilidad y calidad de imagen en 4K HDR.</p>
+        
+        <img src="https://images.unsplash.com/photo-1461151304267-38535e770e79?auto=format&fit=crop&q=80&w=1200" class="full-img" alt="Tecnología">
+        
+        <h2>Calidad-Precio: La batalla final</h2>
+        <p>Si estás por comprar un dispositivo hoy, el <strong>Chromecast con Google TV 4K</strong> sigue siendo la recomendación número uno para quienes aman la simplicidad. Si prefieres potencia bruta para juegos y emuladores, el <strong>Fire Stick 4K Max</strong> es imbatible, siempre y cuando sepas cómo saltarte las limitaciones de su sistema cerrado.</p>
+    </div>
 
-    <div class="news-feed">
-        <h2 style="font-size: 20px; margin-top: 0;">Lo último en Xataka Android</h2>
-        <script src="https://feed2js.org/feed2js.php?src=https%3A%2F%2Fwww.xataka.com%2Ftag%2Fstreaming%2Frss.xml&num=3&desc=1&date=y&targ=y" type="text/javascript"></script>
+    <div class="live-news">
+        <h2><span class="live-tag">EN VIVO</span> Últimas Novedades Tecnológicas</h2>
+        <p style="font-size: 14px; color: #666;">Este bloque se actualiza automáticamente con noticias de última hora cada vez que la página se refresca.</p>
+        <hr>
+        <!-- FEED DINÁMICO -->
+        <script src="https://feed2js.org/feed2js.php?src=https%3A%2F%2Fwww.xataka.com%2Ftag%2Fstreaming%2Frss.xml&num=6&desc=1&date=y&targ=y" type="text/javascript"></script>
     </div>
 </div>
 
-<footer style="text-align: center; padding: 40px; color: #888; font-size: 13px;">
-    © 2026 Inspirado en el estilo editorial de Xataka - Contenido informativo para entusiastas de Android.
+<footer>
+    <p>Andrés Repos © 2026 - Manizales, Caldas<br>Esta página se actualiza automáticamente cada 10 minutos para ofrecerte lo último en tecnología.</p>
 </footer>
 
 </body>
