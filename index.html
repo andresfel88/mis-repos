@@ -3,33 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Streaming News & Downloads</title>
+    <title>Blog Pro Streaming - APKs & TV Box</title>
     <style>
-        body { background-color: #0b0e11; color: white; font-family: sans-serif; display: flex; justify-content: center; padding: 20px; }
-        .container { max-width: 500px; width: 100%; text-align: center; }
-        .btn-download { display: block; background: #00ce7d; color: black; padding: 20px; margin: 20px 0; border-radius: 12px; font-weight: bold; text-decoration: none; font-size: 22px; box-shadow: 0 4px 15px rgba(0,206,125,0.3); }
-        .news-box { background: #15191c; border-radius: 12px; padding: 15px; text-align: left; border: 1px solid #2d333b; min-height: 200px; }
-        h2 { color: #00ce7d; margin-bottom: 5px; }
+        :root { --primary: #00ce7d; --bg: #0b0e11; --card: #15191c; --text: #eaeaea; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+        header { background: #1b1f23; padding: 20px; text-align: center; border-bottom: 2px solid var(--primary); }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+        
+        /* Botón Destacado */
+        .main-download { display: block; background: var(--primary); color: #000; padding: 15px; text-align: center; border-radius: 10px; font-weight: bold; text-decoration: none; margin-bottom: 30px; font-size: 1.2rem; }
+        
+        /* Secciones de Blog */
+        .blog-section { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #2d333b; }
+        h2 { color: var(--primary); font-size: 1.4rem; margin-top: 0; }
+        p { line-height: 1.6; color: #adb5bd; }
+        
+        /* Estilo Noticias Auto */
         .rss-item { border-bottom: 1px solid #2d333b; padding: 10px 0; list-style: none; }
-        .rss-title a { color: #58a6ff !important; text-decoration: none; font-weight: bold; font-size: 14px; }
-        .rss-date { font-size: 10px; color: #8b949e; }
+        .rss-title a { color: #58a6ff !important; text-decoration: none; font-weight: bold; }
+        
+        .badge { background: #333; color: var(--primary); padding: 3px 8px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>TV BOX & FIRE STICK</h2>
-        <p>Noticias y Actualizaciones de Google TV</p>
 
-        <!-- CAMBIA ESTO POR TU LINK DE DESCARGA -->
-        <a href="https://t.me/TuCanalOEnlace" class="btn-download">🚀 DESCARGAR REPOSITORIO</a>
+<header>
+    <h1>Mundo Streaming & APKs</h1>
+    <p>Guías, Novedades y Repositorios</p>
+</header>
 
-        <div class="news-box">
-            <h4 style="margin-top:0; color: #8b949e;">Última Hora:</h4>
-            <!-- SCRIPT QUE GENERA LAS NOTICIAS SOLAS -->
+<div class="container">
+
+    <a href="TU_LINK_AQUI" class="main-download">🚀 DESCARGAR REPOSITORIO DE APKs (V.2026)</a>
+
+    <!-- SECCIÓN CALIDAD PRECIO -->
+    <div class="blog-section">
+        <h2><span class="badge">RECOMENDACIÓN</span> ¿Cuál comprar en 2026?</h2>
+        <p>Si buscas <strong>calidad-precio</strong>, el <strong>Chromecast con Google TV (4K)</strong> sigue siendo el rey por su interfaz. Sin embargo, para usuarios avanzados, el <strong>Fire Stick TV 4K Max</strong> permite una instalación de APKs más fluida. Si tienes presupuesto, la <strong>Nvidia Shield</strong> sigue siendo la bestia, pero para el usuario común, el Fire Stick Lite es la opción más barata que cumple.</p>
+    </div>
+
+    <!-- SECCIÓN WATCH ONE / NOVEDADES -->
+    <div class="blog-section">
+        <h2>🔥 Novedades Firestick & Watch One</h2>
+        <p>Las últimas actualizaciones de Fire OS están bloqueando algunos launchers, por lo que recomendamos usar el repositorio oficial de abajo. Sobre <strong>Watch One</strong>, la integración con sistemas Android TV ha mejorado la fluidez en listas pesadas.</p>
+    </div>
+
+    <!-- SECCIÓN NOTICIAS AUTOMÁTICAS -->
+    <div class="blog-section">
+        <h2>📰 Noticias de Google TV y Tecnología</h2>
+        <div id="news-feed">
             <script src="https://feed2js.org/feed2js.php?src=https%3A%2F%2Fwww.xataka.com%2Ftag%2Fstreaming%2Frss.xml&num=5&desc=0&date=y&targ=y" type="text/javascript"></script>
         </div>
-        
-        <p style="font-size: 11px; color: #444; margin-top: 30px;">Esta web se actualiza automáticamente.</p>
     </div>
+
+    <footer style="text-align: center; color: #555; font-size: 12px; margin-top: 50px;">
+        <p>Contenido informativo sobre Android TV, Fire OS y dispositivos de Streaming.</p>
+    </div>
+</div>
+
 </body>
 </html>
