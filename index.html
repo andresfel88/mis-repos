@@ -3,324 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagrama de Desarmado de Hardware</title>
+    <title>Mi Sitio Web - Estilo Apple</title>
     <style>
+        /* --- VARIABLES DE DISEÑO ESTILO APPLE --- */
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --accent-blue: #58a6ff;
-            --accent-orange: #f97316;
-            --accent-green: #238636;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --border-color: #30363d;
+            --bg-apple: #000000;
+            --card-apple: #161617;
+            --card-inner: #212124;
+            --text-title: #f5f5f7;
+            --text-body: #86868b;
+            --accent-blue: #0071e3;
+            --accent-orange: #ff9f0a;
+            --accent-green: #30d158;
+            --border-apple: #424245;
         }
 
+        /* --- ESTILOS GENERALES DE LA PÁGINA --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--bg-apple);
+            color: var(--text-title);
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN (NAVBAR) --- */
+        .apple-nav {
+            background-color: rgba(22, 22, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 48px;
+            z-index: 9999;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
         }
 
-        h1 {
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 1rem;
-        }
-
-        .diagram-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+        .nav-content {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
         }
 
-        .device-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        .nav-logo {
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: -0.5px;
+            color: var(--text-title);
         }
 
-        .device-card:hover {
-            transform: translateY(-5px);
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .main-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 100px 20px 60px 20px; /* Margen superior para que no tape el menú */
+            box-sizing: border-box;
         }
 
-        .card-firestick:hover { border-color: var(--accent-orange); }
-        .card-androidtv:hover { border-color: var(--accent-blue); }
-        .card-onn:hover { border-color: var(--accent-green); }
+        /* --- CABECERA (HERO SECTION) --- */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-        .device-header {
+        .hero-title {
+            font-size: 44px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-body);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* --- SECCIÓN NUEVA: DIAGRAMAS DE DESARMADO (TOTALMENTE AISLADA) --- */
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .apple-device-card {
+            background-color: var(--card-apple);
+            border-radius: 18px;
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .apple-device-card:hover {
+            transform: scale(1.02);
+        }
+
+        .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px dashed var(--border-color);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
-        .device-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #ffffff;
+        .card-header h3 {
+            font-size: 22px;
+            font-weight: 600;
             margin: 0;
+            color: #ffffff;
         }
 
-        .tech-badge {
-            font-size: 0.75rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
+        .apple-badge {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .badge-firestick { background-color: rgba(249, 115, 22, 0.15); color: var(--accent-orange); }
-        .badge-androidtv { background-color: rgba(88, 166, 255, 0.15); color: var(--accent-blue); }
-        .badge-onn { background-color: rgba(35, 134, 54, 0.15); color: var(--accent-green); }
+        .b-fire { background-color: rgba(255, 159, 10, 0.15); color: var(--accent-orange); }
+        .b-android { background-color: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .b-onn { background-color: rgba(0, 113, 227, 0.15); color: var(--accent-blue); }
 
-        /* Estilo del despiece / lista explotada */
-        .exploded-view {
+        /* Lista de despiece tipo Apple */
+        .apple-exploded-list {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            position: relative;
         }
 
-        /* Línea guía que simula el eje de desarme */
-        .exploded-view::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 10px;
-            bottom: 10px;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--border-color) 70%, transparent);
-            z-index: 1;
-        }
-
-        .component-layer {
+        .apple-layer {
+            background-color: var(--card-inner);
+            border-radius: 12px;
+            padding: 14px 16px;
             display: flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 10px 15px;
-            padding-left: 45px;
-            position: relative;
-            z-index: 2;
-            transition: background-color 0.2s ease;
+            align-items: flex-start;
+            gap: 14px;
+            border: 1px solid transparent;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
         }
 
-        .component-layer:hover {
-            background-color: rgba(255, 255, 255, 0.05);
+        .apple-layer:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            background-color: #2a2a2e;
         }
 
-        /* Indicador numérico de la capa */
-        .layer-number {
-            position: absolute;
-            left: 10px;
-            width: 22px;
-            height: 22px;
-            background-color: var(--bg-color);
-            border: 2px solid var(--border-color);
+        .apple-num {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-body);
+            background: rgba(255, 255, 255, 0.05);
+            min-width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
-            font-weight: bold;
-            color: var(--text-muted);
         }
 
-        .card-firestick .component-layer:hover .layer-number { border-color: var(--accent-orange); color: var(--accent-orange); }
-        .card-androidtv .component-layer:hover .layer-number { border-color: var(--accent-blue); color: var(--accent-blue); }
-        .card-onn .component-layer:hover .layer-number { border-color: var(--accent-green); color: var(--accent-green); }
-
-        .component-info {
+        .layer-text {
             display: flex;
             flex-direction: column;
         }
 
-        .component-name {
-            font-size: 0.95rem;
+        .layer-title {
+            font-size: 14px;
             font-weight: 600;
-            color: #e6edf3;
+            color: #ffffff;
         }
 
-        .component-desc {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 2px;
+        .layer-desc {
+            font-size: 13px;
+            color: var(--text-body);
+            margin-top: 3px;
+            line-height: 1.3;
         }
     </style>
 </head>
 <body>
 
-    <h1>Esquema Técnico de Hardware</h1>
-    <div class="subtitle">Diagrama de desarmado y componentes internos de TV Boxes y Sticks</div>
-
-    <div class="diagram-container">
-
-        <div class="device-card card-firestick">
-            <div class="device-header">
-                <h2 class="device-title">Fire TV Stick</h2>
-                <span class="tech-badge badge-firestick">Stick HDMI</span>
+    <nav class="apple-nav">
+        <div class="nav-content">
+            <div class="nav-logo">Mundo APK</div>
             </div>
-            <div class="exploded-view">
-                <div class="component-layer">
-                    <div class="layer-number">1</div>
-                    <div class="component-info">
-                        <span class="component-name">Carcasa Externa (Superior)</span>
-                        <span class="component-desc">Plástico ABS con protección térmica.</span>
-                    </div>
+    </nav>
+
+    <main class="main-container">
+
+        <section class="hero-section">
+            <h1 class="hero-title">Esquemas de Hardware</h1>
+            <p class="hero-subtitle">Análisis visual y diagramas de desarmado de componentes internos.</p>
+        </section>
+
+        <div class="diagram-grid">
+
+            <div class="apple-device-card">
+                <div class="card-header">
+                    <h3>Fire TV Stick</h3>
+                    <span class="apple-badge b-fire">Amazon</span>
                 </div>
-                <div class="component-layer">
-                    <div class="layer-number">2</div>
-                    <div class="component-info">
-                        <span class="component-name">Disipador de Calor Metálico</span>
-                        <span class="component-desc">Placa de aluminio para control de temperatura.</span>
+                <div class="apple-exploded-list">
+                    <div class="apple-layer">
+                        <div class="apple-num">1</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Carcasa Exterior</span>
+                            <span class="layer-desc">Protección de policarbonato mate.</span>
+                        </div>
                     </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">3</div>
-                    <div class="component-info">
-                        <span class="component-name">Placa Base (Placa Madre)</span>
-                        <span class="component-desc">Procesador, Memoria RAM y almacenamiento flash.</span>
+                    <div class="apple-layer">
+                        <div class="apple-num">2</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Disipador Térmico</span>
+                            <span class="layer-desc">Placa metálica superior para control de temperatura.</span>
+                        </div>
                     </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">4</div>
-                    <div class="component-info">
-                        <span class="component-name">Módulo Antena Wi-Fi / BT</span>
-                        <span class="component-desc">Integrado en el extremo opuesto al conector HDMI.</span>
+                    <div class="apple-layer">
+                        <div class="apple-num">3</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Placa Base (PCB)</span>
+                            <span class="layer-desc">Procesador Quad-Core, RAM y almacenamiento interno.</span>
+                        </div>
                     </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">5</div>
-                    <div class="component-info">
-                        <span class="component-name">Conector HDMI Macho</span>
-                        <span class="component-desc">Salida de video digital soldada directamente a la placa.</span>
-                    </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">6</div>
-                    <div class="component-info">
-                        <span class="component-name">Carcasa Inferior (Puerto Energía)</span>
-                        <span class="component-desc">Cierre con ranura de alimentación Micro-USB.</span>
+                    <div class="apple-layer">
+                        <div class="apple-num">4</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Módulo Wi-Fi / Conector</span>
+                            <span class="layer-desc">Antena integrada y salida HDMI directa.</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="apple-device-card">
+                <div class="card-header">
+                    <h3>Android TV</h3>
+                    <span class="apple-badge b-android">Smart TV</span>
+                </div>
+                <div class="apple-exploded-list">
+                    <div class="apple-layer">
+                        <div class="apple-num">1</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Panel Posterior</span>
+                            <span class="layer-desc">Chasis trasero con rejillas de ventilación.</span>
+                        </div>
+                    </div>
+                    <div class="apple-layer">
+                        <div class="apple-num">2</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Tarjeta Principal (Main)</span>
+                            <span class="layer-desc">Cerebro del TV con el SoC Android y conectores.</span>
+                        </div>
+                    </div>
+                    <div class="apple-layer">
+                        <div class="apple-num">3</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Fuente de Alimentación</span>
+                            <span class="layer-desc">Regulador y distribución de energía a los LEDs.</span>
+                        </div>
+                    </div>
+                    <div class="apple-layer">
+                        <div class="apple-num">4</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Módulo de Pantalla T-CON</span>
+                            <span class="layer-desc">Controlador de video conectado al panel por flex de datos.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="apple-device-card">
+                <div class="card-header">
+                    <h3>Watch Onn</h3>
+                    <span class="apple-badge b-onn">Onn Box</span>
+                </div>
+                <div class="apple-exploded-list">
+                    <div class="apple-layer">
+                        <div class="apple-num">1</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Cubierta Superior</span>
+                            <span class="layer-desc">Carcasa plástica de perfil ultra delgado.</span>
+                        </div>
+                    </div>
+                    <div class="apple-layer">
+                        <div class="apple-num">2</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Contrapeso y Disipador</span>
+                            <span class="layer-desc">Bloque metálico para disipación pasiva.</span>
+                        </div>
+                    </div>
+                    <div class="apple-layer">
+                        <div class="apple-num">3</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Placa Circuito Lógica</span>
+                            <span class="layer-desc">Procesador Amlogic y chips de memoria flash.</span>
+                        </div>
+                    </div>
+                    <div class="apple-layer">
+                        <div class="apple-num">4</div>
+                        <div class="layer-text">
+                            <span class="layer-title">Base de Goma</span>
+                            <span class="layer-desc">Soporte inferior antideslizante con acceso a tornillos.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-        <div class="device-card card-androidtv">
-            <div class="device-header">
-                <h2 class="device-title">Android TV (Mainboard)</h2>
-                <span class="tech-badge badge-androidtv">Smart TV</span>
-            </div>
-            <div class="exploded-view">
-                <div class="component-layer">
-                    <div class="layer-number">1</div>
-                    <div class="component-info">
-                        <span class="component-name">Panel Trasero del TV</span>
-                        <span class="component-desc">Cubierta que resguarda la electrónica principal.</span>
-                    </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">2</div>
-                    <div class="component-info">
-                        <span class="component-name">Placa Principal (Main Board)</span>
-                        <span class="component-desc">Chipset SoC Android, puertos HDMI, Ethernet y USB.</span>
-                    </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">3</div>
-                    <div class="component-info">
-                        <span class="component-name">Placa de Poder (Fuente de Poder)</span>
-                        <span class="component-desc">Transforma la energía AC de la pared a DC para los circuitos.</span>
-                    </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">4</div>
-                    <div class="component-info">
-                        <span class="component-name">Cable T-CON y Flex</span>
-                        <span class="component-desc">Envía las señales de video de la tarjeta madre hacia la pantalla.</span>
-                    </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">5</div>
-                    <div class="component-info">
-                        <span class="component-name">Módulo Receptor IR / Botonera</span>
-                        <span class="component-desc">Sensor para el control remoto y luces LED de estado.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="device-card card-onn">
-            <div class="device-header">
-                <h2 class="device-title">Watch Onn Box</h2>
-                <span class="tech-badge badge-onn">TV Box</span>
-            </div>
-            <div class="exploded-view">
-                <div class="component-layer">
-                    <div class="layer-number">1</div>
-                    <div class="component-info">
-                        <span class="component-name">Tapa Superior Cuadrada</span>
-                        <span class="component-desc">Carcasa plástica de perfil bajo con logo texturizado.</span>
-                    </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">2</div>
-                    <div class="component-info">
-                        <span class="component-name">Placa de Peso / Blindaje</span>
-                        <span class="component-desc">Estructura metálica interna para estabilidad y disipación pasiva.</span>
-                    </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">3</div>
-                    <div class="component-info">
-                        <span class="component-name">PCB Central (Procesador Amlogic)</span>
-                        <span class="component-desc">Placa de circuito con el SoC y los módulos de memoria certificados.</span>
-                    </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">4</div>
-                    <div class="component-info">
-                        <span class="component-name">Puertos I/O Integrados</span>
-                        <span class="component-desc">Salida HDMI hembra y jack de alimentación DC o USB-C.</span>
-                    </div>
-                </div>
-                <div class="component-layer">
-                    <div class="layer-number">5</div>
-                    <div class="component-info">
-                        <span class="component-name">Base de Goma Antideslizante</span>
-                        <span class="component-desc">Soporte inferior que cubre los tornillos de desarme.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    </main>
 
 </body>
 </html>
