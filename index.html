@@ -3,238 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google TV - Experiencia Premium Interactiva</title>
+    <title>MUNDO APK - Store</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
     
     <style>
         :root {
-            --google-bg: #060709;
-            --google-card: #13161d;
-            --google-blue: #8ab4f8;
-            --text-main: #f8fafc;
-            --text-sub: #9aa0a6;
-            --nav-bg: rgba(6, 7, 9, 0.75);
-            --radius-premium: 28px;
-            /* Curva de aceleración cinemática oficial de Google (fina al arrancar, suave al frenar) */
-            --cubic-cinema: cubic-bezier(0.23, 1, 0.32, 1);
+            --apple-bg: #ffffff;
+            --apple-dark: #1d1d1f;
+            --apple-gray: #f5f5f7;
+            --apple-text: #1d1d1f;
+            --apple-subtext: #86868b;
+            --apple-blue: #0066cc;
+            --apple-blue-hover: #0077ed;
+            --nav-bg: rgba(22, 22, 23, 0.8);
+            --cubic-apple: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         html, body {
-            background-color: var(--google-bg) !important;
-            color: var(--text-main) !important;
+            background-color: var(--apple-bg) !important;
+            color: var(--apple-text) !important;
             margin: 0 !important;
             padding: 0 !important;
             box-sizing: border-box !important;
-            font-family: 'Roboto', sans-serif !important;
+            font-family: 'Inter', sans-serif !important;
             overflow-x: hidden !important;
             -webkit-font-smoothing: antialiased;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* BARRA SUPERIOR */
+        /* NAV BAR ESTILO APPLE (Translúcida oscura) */
         .navbar {
             position: fixed !important;
             top: 0; left: 0; width: 100%; z-index: 1000;
             background-color: var(--nav-bg) !important;
-            backdrop-filter: blur(24px) !important;
-            -webkit-backdrop-filter: blur(24px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
-            transition: padding 0.4s var(--cubic-cinema), background-color 0.4s ease;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            transition: background-color 0.3s ease;
         }
 
         .nav-container {
-            max-width: 1300px; margin: 0 auto;
-            padding: 1.4rem 2rem;
+            max-width: 1024px; margin: 0 auto;
+            padding: 0 1.5rem; height: 48px;
             display: flex; justify-content: space-between; align-items: center;
         }
 
         .nav-logo {
-            font-size: 1.4rem !important; font-weight: 500 !important;
-            display: flex; align-items: center; gap: 0.6rem; cursor: pointer; color: #fff !important;
-            letter-spacing: -0.5px;
+            font-size: 1.1rem !important; font-weight: 600 !important;
+            display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #f5f5f7 !important;
+            opacity: 0.8; transition: opacity 0.2s;
         }
-        .nav-logo strong { font-weight: 700; }
+        .nav-logo:hover { opacity: 1; }
 
-        .text-gradient {
-            background: linear-gradient(45deg, #4285f4, #a142f4, #ea4335) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-        }
-
-        .nav-menu { display: flex; list-style: none; gap: 2.5rem; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
         .nav-menu a {
-            color: var(--text-sub) !important; text-decoration: none !important;
-            font-size: 1rem !important; font-weight: 400; transition: color 0.3s ease, border-color 0.3s ease;
-            position: relative; padding-bottom: 4px;
+            color: #f5f5f7 !important; text-decoration: none !important;
+            font-size: 0.75rem !important; font-weight: 400; opacity: 0.8;
+            letter-spacing: -0.1px; transition: opacity 0.2s;
         }
-        .nav-menu a:hover, .nav-menu a.active { color: var(--text-main) !important; }
-        .nav-menu a.active { font-weight: 500; border-bottom: 2px solid var(--google-blue); }
+        .nav-menu a:hover, .nav-menu a.active { opacity: 1; }
+        .nav-menu a.active { font-weight: 600; }
 
-        /* ================= ANIMACIÓN DE PÁGINAS (SPA FLUIDA) ================= */
+        /* SISTEMA DE PÁGINAS SPA CON ANIMACIÓN SUAVE DE ENTRADA */
         .page-section {
             display: none; 
             opacity: 0; 
-            transform: translateY(30px) scale(0.98);
-            transition: opacity 0.6s var(--cubic-cinema), transform 0.6s var(--cubic-cinema);
+            transform: scale(0.99) translateY(15px);
+            transition: opacity 0.5s var(--cubic-apple), transform 0.5s var(--cubic-apple);
             min-height: 100vh;
+            padding-top: 48px !important;
         }
         
-        /* Clase activada por JavaScript con retraso controlado */
         .page-section.show { 
             opacity: 1 !important; 
-            transform: translateY(0) scale(1) !important; 
+            transform: scale(1) translateY(0) !important; 
         }
 
-        /* HERO INTRO */
-        .hero-section {
-            position: relative; height: 100vh; min-height: 650px;
-            display: flex; align-items: center; padding: 0 4rem;
-            background: linear-gradient(to right, var(--google-bg) 35%, rgba(6, 7, 9, 0.6) 60%, transparent 100%), 
-                        linear-gradient(to top, var(--google-bg) 5%, transparent 40%),
-                        url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+        /* SECCIÓN HERO (ESTILO IPHONE / MACBOOK PRODUCTO) */
+        .hero-product {
+            height: calc(100vh - 48px); min-height: 600px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 2rem; background-color: #000000; color: #fff;
+            position: relative; overflow: hidden;
         }
 
-        .hero-content { max-width: 1300px; margin: 0 auto; width: 100%; }
-        
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.06); padding: 0.6rem 1.2rem;
-            border-radius: 100px; font-size: 0.85rem; margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;
-            color: var(--google-blue) !important;
+        .hero-product.light {
+            background-color: #fbfbfd; color: var(--apple-text);
         }
+
+        .hero-content { max-width: 800px; z-index: 2; }
+        .hero-tag { font-size: 0.95rem; font-weight: 600; color: #f5f5f7; margin-bottom: 0.5rem; }
+        .hero-product.light .hero-tag { color: #bf4800; }
         
         .hero-title { 
-            font-size: clamp(2.8rem, 6vw, 5rem) !important; line-height: 1.05; 
-            font-weight: 700; margin-bottom: 2rem; letter-spacing: -2px; 
+            font-size: clamp(2.5rem, 5vw, 3.5rem) !important; font-weight: 600; 
+            letter-spacing: -1px; line-height: 1.1; margin-bottom: 1rem; 
         }
         
         .hero-subtitle { 
-            font-size: clamp(1.1rem, 1.5vw, 1.3rem); color: var(--text-sub) !important; 
-            line-height: 1.6; margin-bottom: 3rem; max-width: 600px; 
+            font-size: clamp(1.2rem, 2vw, 1.5rem); color: #86868b; 
+            font-weight: 400; margin-bottom: 1.5rem; 
         }
+
+        .hero-links { display: flex; gap: 1.5rem; justify-content: center; font-size: 1.05rem; }
+        .apple-link {
+            color: var(--apple-blue); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 400;
+        }
+        .apple-link:hover { text-decoration: underline; color: var(--apple-blue-hover); }
+
+        /* CUADRÍCULA DE PRODUCTOS (Estilo Bloques Apple) */
+        .grid-section {
+            display: grid; grid-template-columns: 1fr; gap: 0.8rem; padding: 0.8rem; background-color: var(--apple-bg);
+        }
+        @media (min-width: 768px) { .grid-section { grid-template-columns: 1fr 1fr; } }
+
+        .apple-card {
+            background-color: var(--apple-gray); border-radius: 0px; height: 500px;
+            display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+            padding-top: 3.5rem; text-align: center; cursor: pointer; position: relative; overflow: hidden;
+            transition: opacity 0.3s ease;
+        }
+        .apple-card:hover { opacity: 0.95; }
         
-        .hero-buttons { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .apple-card h3 { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
+        .apple-card p { color: var(--apple-subtext); font-size: 1rem; margin-bottom: 1rem; max-width: 80%; }
 
-        /* BOTONES PREMIUM */
-        .btn-google-primary {
-            background-color: var(--text-main) !important; color: var(--google-bg) !important;
-            padding: 1rem 2.2rem; border-radius: 100px; font-weight: 500; font-size: 1rem;
-            border: none; cursor: pointer; text-decoration: none !important; display: inline-block;
-            transition: transform 0.3s var(--cubic-cinema), background-color 0.2s ease, box-shadow 0.3s ease;
+        .apple-card img {
+            position: absolute; bottom: 0; width: 85%; height: auto; max-height: 280px; object-fit: contain;
+            transition: transform 0.4s var(--cubic-apple);
         }
-        .btn-google-primary:hover { transform: scale(1.04); background-color: #e8eaed !important; box-shadow: 0 4px 20px rgba(255,255,255,0.15); }
+        .apple-card:hover img { transform: scale(1.02); }
 
-        .btn-google-secondary {
-            background-color: rgba(255, 255, 255, 0.07) !important; color: var(--text-main) !important;
-            padding: 1rem 2.2rem; border-radius: 100px; font-weight: 500; font-size: 1rem;
-            text-decoration: none !important; border: 1px solid rgba(255, 255, 255, 0.1);
-            display: inline-flex; align-items: center; gap: 0.6rem;
-            transition: transform 0.3s var(--cubic-cinema), background-color 0.2s ease;
-        }
-        .btn-google-secondary:hover { background-color: rgba(255, 255, 255, 0.15) !important; transform: scale(1.04); }
+        /* SECCIÓN DE SOPORTE LIMPIA */
+        .support-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+        .support-header { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.8px; margin-bottom: 3rem; text-align: center; }
+        .support-row { border-bottom: 1px solid #d2d2d7; padding: 2rem 0; }
+        .support-row h3 { font-size: 1.3rem; font-weight: 500; margin-bottom: 0.5rem; }
+        .support-row p { color: var(--apple-subtext); line-height: 1.5; font-size: 1rem; }
 
-        /* SECCIONES */
-        .content-section { max-width: 1340px; margin: 0 auto; padding: 40px 3rem 6rem 3rem; }
-        .section-header { margin-bottom: 3.5rem; }
-        .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; margin-bottom: 0.8rem; }
-        .section-header p { color: var(--text-sub) !important; font-size: 1.15rem; }
-
-        /* FILTROS ANIMADOS */
-        .filter-container { display: flex; gap: 1rem; margin-top: 2rem; }
-        
-        .filter-btn {
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-            color: var(--text-sub) !important; padding: 0.6rem 1.8rem; border-radius: 100px;
-            cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: all 0.4s var(--cubic-cinema);
-        }
-        .filter-btn.active, .filter-btn:hover { background: var(--text-main) !important; color: var(--google-bg) !important; border-color: var(--text-main); }
-
-        /* TARJETAS CON EFECTO CINEMA ZOOM */
-        .tv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 2.5rem; }
-        
-        .tv-card {
-            background-color: var(--google-card) !important; border-radius: var(--radius-premium);
-            overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.02); cursor: pointer;
-            transition: transform 0.5s var(--cubic-cinema), border-color 0.5s ease, box-shadow 0.5s ease, opacity 0.4s var(--cubic-cinema);
-            opacity: 1; transform: scale(1);
-        }
-        
-        .tv-card:hover { 
-            transform: translateY(-10px) scale(1.02); 
-            border-color: rgba(138, 180, 248, 0.4) !important;
-            box-shadow: 0 25px 50px rgba(66, 133, 244, 0.18);
-        }
-        
-        .card-img-wrapper { position: relative; width: 100%; padding-top: 56.25%; background: #181b23; overflow: hidden; }
-        .card-img-wrapper img { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; 
-            transition: transform 0.8s var(--cubic-cinema);
-        }
-        .tv-card:hover .card-img-wrapper img { transform: scale(1.06); }
-
-        .card-info { padding: 1.8rem; }
-        .card-tag { font-size: 0.8rem; text-transform: uppercase; color: var(--google-blue) !important; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: 0.5px; display: inline-block; }
-        .card-info h3 { font-size: 1.4rem; margin-bottom: 0.6rem; color: #fff !important; font-weight: 500; }
-        .card-info p { color: var(--text-sub) !important; font-size: 1rem; line-height: 1.5; }
-
-        /* MODAL CON DESENFOQUE GRADUAL */
+        /* MODAL MINIMALISTA WHITE */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(4, 5, 7, 0.0); backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
             z-index: 2000; display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; 
-            transition: opacity 0.5s var(--cubic-cinema), backdrop-filter 0.5s var(--cubic-cinema), background-color 0.5s var(--cubic-cinema);
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
         }
-        
-        .modal-overlay.open { 
-            opacity: 1; pointer-events: auto; 
-            background: rgba(4, 5, 7, 0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-        }
+        .modal-overlay.open { opacity: 1; pointer-events: auto; }
         
         .modal-window {
-            background: #171b24; width: 92%; max-width: 900px; border-radius: var(--radius-premium);
-            overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.06);
-            transform: translateY(40px) scale(0.94); 
-            transition: transform 0.5s var(--cubic-cinema);
+            background: var(--apple-bg); width: 90%; max-width: 500px; border-radius: 20px;
+            overflow: hidden; position: relative; padding: 2.5rem; text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: scale(0.95); transition: transform 0.3s var(--cubic-apple);
         }
-        .modal-overlay.open .modal-window { transform: translateY(0) scale(1); }
+        .modal-overlay.open .modal-window { transform: scale(1); }
         
         .close-modal {
-            position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255, 255, 255, 0.08);
-            border: none; color: white; width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; z-index: 10; transition: background 0.3s, transform 0.3s var(--cubic-cinema);
+            position: absolute; top: 1rem; right: 1rem; background: #e8e8ed;
+            border: none; color: #1d1d1f; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
         }
-        .close-modal:hover { background: rgba(255, 255, 255, 0.15); transform: scale(1.05); }
         
-        .modal-grid { display: grid; grid-template-columns: 1fr; }
-        @media (min-width: 768px) { .modal-grid { grid-template-columns: 1.1fr 1fr; } }
+        .modal-window h2 { font-size: 1.8rem; font-weight: 600; margin: 1rem 0 0.5rem 0; }
+        .modal-window p { color: var(--apple-subtext); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; }
         
-        .modal-banner img { width: 100%; height: 100%; object-fit: cover; min-height: 300px; }
-        .modal-details { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-        .modal-details h2 { font-size: 2.2rem; margin-bottom: 1rem; color: #fff; font-weight: 500; letter-spacing: -0.5px; }
-        .modal-details p { color: var(--text-sub); line-height: 1.6; font-size: 1.05rem; margin-bottom: 1.5rem; }
-        
-        .downloader-code-box {
-            background: rgba(138, 180, 248, 0.07); border: 1px dashed rgba(138, 180, 248, 0.3);
-            padding: 1rem 1.5rem; border-radius: 16px; display: flex; justify-content: space-between;
-            align-items: center; margin-bottom: 2rem;
+        .downloader-box {
+            background: var(--apple-gray); padding: 1rem; border-radius: 12px;
+            font-size: 1.1rem; font-weight: 600; color: var(--apple-text);
+            margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;
         }
-        .downloader-code-box span { font-weight: 500; color: var(--text-main); }
-        .downloader-code-box strong { color: var(--google-blue); font-size: 1.5rem; letter-spacing: 0.5px; }
 
-        /* SOPORTE */
-        .support-container { display: flex; flex-direction: column; gap: 2rem; }
-        .support-box { background: var(--google-card); padding: 2.5rem; border-radius: var(--radius-premium); border: 1px solid rgba(255,255,255,0.02); }
-        .support-box h3 { margin-bottom: 1rem; color: #fff; font-size: 1.5rem; font-weight: 500; display: flex; align-items: center; gap: 0.8rem; }
-        .support-box p { color: var(--text-sub); line-height: 1.7; font-size: 1.1rem; }
+        .btn-apple-download {
+            background-color: var(--apple-blue); color: #fff !important; text-decoration: none;
+            padding: 0.6rem 1.5rem; border-radius: 100px; font-size: 0.9rem; font-weight: 400;
+            display: inline-block; transition: background 0.2s;
+        }
+        .btn-apple-download:hover { background-color: var(--apple-blue-hover); }
 
-        .tv-footer { text-align: center; padding: 6rem 2rem; color: #5f6368; font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.03); }
+        .apple-footer { background-color: #f5f5f7; color: #86868b; padding: 3rem 2rem; font-size: 0.75rem; text-align: center; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -242,116 +192,91 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo" onclick="switchSection('inicio')">
-                <i class="fas fa-tv text-gradient"></i> <span>MUNDO<strong>TV</strong></span>
+                <i class="fab fa-apple"></i> <span>MUNDO<strong>APK</strong></span>
             </div>
             <ul class="nav-menu">
                 <li><a href="#" class="nav-btn active" onclick="switchSection('inicio', this)">Inicio</a></li>
                 <li><a href="#" class="nav-btn" onclick="switchSection('apps', this)">Aplicaciones</a></li>
                 <li><a href="#" class="nav-btn" onclick="switchSection('soporte', this)">Soporte</a></li>
             </ul>
-            <div class="nav-cta">
-                <button class="btn-google-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;" onclick="switchSection('apps')">Explorar</button>
-            </div>
         </div>
     </nav>
 
     <div id="inicio" class="page-section">
-        <header class="hero-section">
+        <div class="hero-product">
             <div class="hero-content">
-                <span class="hero-badge"><i class="fas fa-sparkles"></i> El entretenimiento que buscas</span>
-                <h1 class="hero-title">Todo lo que te gusta.<br>En un solo lugar.</h1>
-                <p class="hero-subtitle">Descubre una interfaz optimizada para tu Fire Stick, Android TV o TV Box. Tus aplicaciones listas para descargar, organizadas de forma impecable y sin cuentas obligatorias.</p>
-                <div class="hero-buttons">
-                    <button class="btn-google-primary" onclick="switchSection('apps')">Ver Catálogo</button>
-                    <a href="https://t.me/" target="_blank" class="btn-google-secondary"><i class="fab fa-telegram"></i> Comunidad Oficial</a>
+                <span class="hero-tag">Catálogo Oficial</span>
+                <h1 class="hero-title">Xuper TV Player</h1>
+                <p class="hero-subtitle">Carga tus listas al instante. Fluido. Diseñado sin cuenta.</p>
+                <div class="hero-links">
+                    <a href="#" class="apple-link" onclick="openAppModal('1')">Descargar APK <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i></a>
                 </div>
             </div>
-        </header>
+        </div>
+        
+        <div class="hero-product light">
+            <div class="hero-content">
+                <span class="hero-tag">Rendimiento</span>
+                <h1 class="hero-title">Herramientas v4.99.4</h1>
+                <p class="hero-subtitle">Tu Fire Stick más rápido que el primer día.</p>
+                <div class="hero-links">
+                    <a href="#" class="apple-link" onclick="openAppModal('2')">Obtener utilidad <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="apps" class="page-section">
-        <section class="content-section">
-            <div class="section-header">
-                <h2>Aplicaciones Disponibles</h2>
-                <p>Explora versiones estables y optimizadas para el control remoto de tu televisor.</p>
-                <div class="filter-container">
-                    <button class="filter-btn active" onclick="filterCategory('all', this)">Todas las Apps</button>
-                    <button class="filter-btn" onclick="filterCategory('streaming', this)">Streaming</button>
-                    <button class="filter-btn" onclick="filterCategory('tools', this)">Herramientas</button>
-                </div>
+        <div class="grid-section">
+            <div class="apple-card" onclick="openAppModal('1')">
+                <h3>Xuper TV Player</h3>
+                <p>La velocidad definitiva para canales en vivo y streaming.</p>
+                <a href="#" class="apple-link" style="font-size: 0.95rem; margin-bottom: 2rem;">Ver código Downloader</a>
+                <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80" alt="App 1">
             </div>
-
-            <div class="tv-grid">
-                <div class="tv-card" data-category="streaming" onclick="openAppModal('1')">
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80" alt="Streaming">
-                    </div>
-                    <div class="card-info">
-                        <span class="card-tag">Streaming</span>
-                        <h3>Xuper TV Player</h3>
-                        <p>Interfaz optimizada para canales en vivo y video bajo demanda. Acceso directo sin cuenta.</p>
-                    </div>
-                </div>
-
-                <div class="tv-card" data-category="tools" onclick="openAppModal('2')">
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80" alt="Herramientas">
-                    </div>
-                    <div class="card-info">
-                        <span class="card-tag">Utilidades</span>
-                        <h3>Herramientas APK v4.99.4</h3>
-                        <p>Limpia memoria interna, gestiona el caché y acelera la instalación en tu Fire Stick.</p>
-                    </div>
-                </div>
+            <div class="apple-card" onclick="openAppModal('2')">
+                <h3>Herramientas APK</h3>
+                <p>Optimiza almacenamiento borrando el caché residual del sistema.</p>
+                <a href="#" class="apple-link" style="font-size: 0.95rem; margin-bottom: 2rem;">Ver código Downloader</a>
+                <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80" alt="App 2">
             </div>
-        </section>
+        </div>
     </div>
 
     <div id="soporte" class="page-section">
-        <section class="content-section">
-            <div class="section-header">
-                <h2>Guías de Instalación</h2>
-                <p>Resuelve problemas comunes y aprende a configurar tus archivos de forma ágil.</p>
+        <div class="support-container">
+            <h2 class="support-header">Centro de respuestas rápidas</h2>
+            
+            <div class="support-row">
+                <h3>¿Cómo instalar mediante Downloader?</h3>
+                <p>Ingresa en la casilla de URL el código numérico directo asignado a cada aplicación. La descarga comenzará sin publicidad añadida.</p>
             </div>
-            <div class="support-container">
-                <div class="support-box">
-                    <h3><i class="fas fa-cloud-download-alt" style="color:var(--google-blue);"></i> Uso correcto de Downloader</h3>
-                    <p>Abre la aplicación Downloader en tu dispositivo inteligente, ingresa el código numérico directo asignado a la aplicación en la ventana de detalles y el instalador se descargará de forma automatizada sin anuncios intermedios.</p>
-                </div>
-                <div class="support-box">
-                    <h3><i class="fas fa-exclamation-circle" style="color:#f28b82;"></i> Solución al error de paquete</h3>
-                    <p>Si el sistema arroja que la app no pudo instalarse, se debe casi siempre a un conflicto de firmas. Desinstala la versión anterior por completo de tu sistema de TV antes de intentar ejecutar el nuevo archivo APK.</p>
-                </div>
+            
+            <div class="support-row">
+                <h3>Error: "El paquete entró en conflicto"</h3>
+                <p>Ocurre cuando ya existe una versión previa instalada en el TV Box. Desinstala la app vieja completamente antes de ejecutar el instalador nuevo.</p>
             </div>
-        </section>
+        </div>
     </div>
 
     <div id="app-modal" class="modal-overlay" onclick="closeModalOutside(event)">
         <div class="modal-window">
             <button class="close-modal" onclick="closeAppModal()"><i class="fas fa-times"></i></button>
-            <div class="modal-grid">
-                <div class="modal-banner">
-                    <img id="modal-img" src="" alt="Banner">
-                </div>
-                <div class="modal-details">
-                    <span id="modal-tag" class="card-tag">CATEGORÍA</span>
-                    <h2 id="modal-title">Nombre de la App</h2>
-                    <p id="modal-desc">Descripción larga oficial del contenido de la app.</p>
-                    <div class="modal-meta">
-                        <strong>Versión de actualización:</strong> <span id="modal-version" style="color:#fff;">v4.99.4</span>
-                    </div>
-                    <div class="downloader-code-box">
-                        <span>Código Downloader:</span>
-                        <strong id="modal-code">000000</strong>
-                    </div>
-                    <a href="#" id="modal-link" class="btn-google-primary" style="text-align:center;"><i class="fas fa-download"></i> Descargar archivo APK</a>
-                </div>
+            <span id="modal-tag" style="font-size: 0.8rem; font-weight:600; color:#bf4800; text-transform:uppercase;">CATEGORÍA</span>
+            <h2 id="modal-title">Nombre de la App</h2>
+            <p id="modal-desc">Descripción oficial.</p>
+            
+            <div class="downloader-box">
+                <span style="font-size: 0.9rem; font-weight:400; color:#86868b;">Código Downloader</span>
+                <strong id="modal-code" style="color:var(--apple-blue);">000000</strong>
             </div>
+            
+            <a href="#" id="modal-link" class="btn-apple-download"><i class="fas fa-download"></i> Descargar APK directo</a>
         </div>
     </div>
 
-    <footer class="tv-footer">
-        <p>Google TV es una marca comercial de Google LLC. Este sitio es un catálogo adaptado con fines de entretenimiento.</p>
+    <footer class="apple-footer">
+        <p>Copyright &copy; 2026 MUNDO APK. Todos los derechos reservados. Las marcas mencionadas pertenecen a sus respectivos desarrolladores.</p>
     </footer>
 
     <script>
@@ -359,42 +284,33 @@
             "1": {
                 title: "Xuper TV Player",
                 tag: "Streaming",
-                desc: "Un reproductor multimedia premium diseñado desde cero para pantallas grandes. Olvídate de los molestos formularios de inicio: esta versión modificada te permite cargar listas de reproducción directo y sin una cuenta obligatoria.",
-                version: "v4.34.5",
+                desc: "Un reproductor multimedia de alto rendimiento optimizado para televisores. Esta versión modificada salta las pantallas de cuenta obligatorias para dar un acceso directo y libre.",
                 code: "854123",
-                img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80",
                 link: "#"
             },
             "2": {
                 title: "Herramientas APK v4.99.4",
-                tag: "Herramientas",
-                desc: "La herramienta definitiva para mantener tus dispositivos Fire Stick y Android TV limpios de archivos basura. Libera almacenamiento borrando cachés pesados acumulados por apps de video y optimiza el consumo de memoria RAM.",
-                version: "v4.99.4",
+                tag: "Utilidades",
+                desc: "Mantén limpio tu Fire Stick o Android TV de manera simple. Libera almacenamiento borrando archivos temporales y cachés pesados que ralentizan la reproducción.",
                 code: "741258",
-                img: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80",
                 link: "#"
             }
         };
 
-        // ENRUTADOR CINEMÁTICO DE ENTRADA Y SALIDA
         function switchSection(targetId, element) {
             const currentSection = document.querySelector('.page-section.show');
             const targetSection = document.getElementById(targetId);
             
             if (currentSection) {
-                // 1. Desvanecer la página actual hacia arriba
                 currentSection.classList.remove('show');
-                
-                // 2. Esperar a que termine de ocultarse (300ms) para cambiar el display sin tirones
                 setTimeout(() => {
                     currentSection.style.display = 'none';
                     executeEntrance(targetSection);
-                }, 300);
+                }, 250); // Tiempo rápido de respuesta Apple
             } else {
                 executeEntrance(targetSection);
             }
 
-            // Actualizar menú superior de forma suave
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             if(element) {
                 element.classList.add('active');
@@ -408,48 +324,21 @@
         function executeEntrance(section) {
             if (section) {
                 section.style.display = 'block';
-                // Pequeño delay de 50ms para que el navegador registre el bloque y la transición CSS se active suavemente
                 setTimeout(() => {
                     section.classList.add('show');
-                }, 50);
+                }, 30);
             }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'instant' });
         }
 
-        // FILTROS CON TRANSICIÓN DE DESVANECIMIENTO EN TARJETAS
-        function filterCategory(category, button) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            button.classList.add('active');
-
-            document.querySelectorAll('.tv-card').forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 400);
-                }
-            });
-        }
-
-        // VENTANA EMERGENTE FLUIDA
         function openAppModal(id) {
             const data = appsData[id];
             if(data) {
-                document.getElementById('modal-img').src = data.img;
                 document.getElementById('modal-tag').innerText = data.tag;
                 document.getElementById('modal-title').innerText = data.title;
                 document.getElementById('modal-desc').innerText = data.desc;
-                document.getElementById('modal-version').innerText = data.version;
                 document.getElementById('modal-code').innerText = data.code;
                 document.getElementById('modal-link').href = data.link;
-                
                 document.getElementById('app-modal').classList.add('open');
             }
         }
@@ -457,21 +346,8 @@
         function closeAppModal() { document.getElementById('app-modal').classList.remove('open'); }
         function closeModalOutside(e) { if(e.target === document.getElementById('app-modal')) closeAppModal(); }
 
-        // Carga inicial suave de la página al abrir el sitio por primera vez
         document.addEventListener("DOMContentLoaded", () => {
             executeEntrance(document.getElementById('inicio'));
-        });
-
-        // Control dinámico del menú al bajar scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.navbar');
-            if (window.scrollY > 40) {
-                nav.style.padding = '0.5rem 0';
-                nav.style.backgroundColor = '#060709';
-            } else {
-                nav.style.padding = '1.4rem 0';
-                nav.style.backgroundColor = 'rgba(6, 7, 9, 0.75)';
-            }
         });
     </script>
 </body>
