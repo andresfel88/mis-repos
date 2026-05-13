@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUNDO APK - Store</title>
+    <title>MUNDO APK - Guía y Store</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +19,8 @@
             --apple-subtext: #86868b;
             --apple-blue: #0066cc;
             --apple-blue-hover: #0077ed;
+            --apple-green: #1d1d1f;
+            --apple-red: #de350b;
             --nav-bg: rgba(22, 22, 23, 0.8);
             --cubic-apple: cubic-bezier(0.25, 1, 0.5, 1);
         }
@@ -36,14 +38,13 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* NAV BAR ESTILO APPLE (Translúcida oscura) */
+        /* NAV BAR ESTILO APPLE */
         .navbar {
             position: fixed !important;
             top: 0; left: 0; width: 100%; z-index: 1000;
             background-color: var(--nav-bg) !important;
             backdrop-filter: blur(20px) !important;
             -webkit-backdrop-filter: blur(20px) !important;
-            transition: background-color 0.3s ease;
         }
 
         .nav-container {
@@ -68,7 +69,7 @@
         .nav-menu a:hover, .nav-menu a.active { opacity: 1; }
         .nav-menu a.active { font-weight: 600; }
 
-        /* SISTEMA DE PÁGINAS SPA CON ANIMACIÓN SUAVE DE ENTRADA */
+        /* SISTEMA DE PÁGINAS SPA ANIMADO */
         .page-section {
             display: none; 
             opacity: 0; 
@@ -83,7 +84,7 @@
             transform: scale(1) translateY(0) !important; 
         }
 
-        /* SECCIÓN HERO (ESTILO IPHONE / MACBOOK PRODUCTO) */
+        /* SECCIÓN HERO (ESTILO APPLE PRODUCTO) */
         .hero-product {
             height: calc(100vh - 48px); min-height: 600px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -91,10 +92,7 @@
             position: relative; overflow: hidden;
         }
 
-        .hero-product.light {
-            background-color: #fbfbfd; color: var(--apple-text);
-        }
-
+        .hero-product.light { background-color: #fbfbfd; color: var(--apple-text); }
         .hero-content { max-width: 800px; z-index: 2; }
         .hero-tag { font-size: 0.95rem; font-weight: 600; color: #f5f5f7; margin-bottom: 0.5rem; }
         .hero-product.light .hero-tag { color: #bf4800; }
@@ -104,21 +102,13 @@
             letter-spacing: -1px; line-height: 1.1; margin-bottom: 1rem; 
         }
         
-        .hero-subtitle { 
-            font-size: clamp(1.2rem, 2vw, 1.5rem); color: #86868b; 
-            font-weight: 400; margin-bottom: 1.5rem; 
-        }
-
+        .hero-subtitle { font-size: clamp(1.2rem, 2vw, 1.5rem); color: #86868b; font-weight: 400; margin-bottom: 1.5rem; }
         .hero-links { display: flex; gap: 1.5rem; justify-content: center; font-size: 1.05rem; }
-        .apple-link {
-            color: var(--apple-blue); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 400;
-        }
+        .apple-link { color: var(--apple-blue); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 400; }
         .apple-link:hover { text-decoration: underline; color: var(--apple-blue-hover); }
 
-        /* CUADRÍCULA DE PRODUCTOS (Estilo Bloques Apple) */
-        .grid-section {
-            display: grid; grid-template-columns: 1fr; gap: 0.8rem; padding: 0.8rem; background-color: var(--apple-bg);
-        }
+        /* CUADRÍCULA DE PRODUCTOS */
+        .grid-section { display: grid; grid-template-columns: 1fr; gap: 0.8rem; padding: 0.8rem; background-color: var(--apple-bg); }
         @media (min-width: 768px) { .grid-section { grid-template-columns: 1fr 1fr; } }
 
         .apple-card {
@@ -128,22 +118,38 @@
             transition: opacity 0.3s ease;
         }
         .apple-card:hover { opacity: 0.95; }
-        
         .apple-card h3 { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
         .apple-card p { color: var(--apple-subtext); font-size: 1rem; margin-bottom: 1rem; max-width: 80%; }
-
-        .apple-card img {
-            position: absolute; bottom: 0; width: 85%; height: auto; max-height: 280px; object-fit: contain;
-            transition: transform 0.4s var(--cubic-apple);
-        }
+        .apple-card img { position: absolute; bottom: 0; width: 85%; height: auto; max-height: 280px; object-fit: contain; transition: transform 0.4s var(--cubic-apple); }
         .apple-card:hover img { transform: scale(1.02); }
 
-        /* SECCIÓN DE SOPORTE LIMPIA */
-        .support-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
-        .support-header { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.8px; margin-bottom: 3rem; text-align: center; }
-        .support-row { border-bottom: 1px solid #d2d2d7; padding: 2rem 0; }
-        .support-row h3 { font-size: 1.3rem; font-weight: 500; margin-bottom: 0.5rem; }
-        .support-row p { color: var(--apple-subtext); line-height: 1.5; font-size: 1rem; }
+        /* SECCIÓN DE CONTENIDO EXPLICATIVO (ECOSISTEMA) */
+        .support-container { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
+        .support-header { font-size: 2.5rem; font-weight: 600; letter-spacing: -1px; margin-bottom: 1rem; text-align: center; }
+        .support-subheader { font-size: 1.2rem; color: var(--apple-subtext); text-align: center; margin-bottom: 4rem; }
+        
+        .concept-block { background-color: var(--apple-gray); padding: 3rem; border-radius: 18px; margin-bottom: 2.5rem; }
+        .concept-block h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.5px; }
+        .concept-block p { font-size: 1.05rem; color: #333336; line-height: 1.6; }
+
+        /* TABLAS COMPARATIVAS DE DISPOSITIVOS */
+        .device-comparison { margin-top: 4rem; }
+        .device-comparison h2 { font-size: 2rem; font-weight: 600; margin-bottom: 2rem; text-align: center; letter-spacing: -0.5px; }
+        
+        .device-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 768px) { .device-grid { grid-template-columns: 1fr 1fr 1fr; } }
+        
+        .device-box { background: #fff; border: 1px solid #d2d2d7; padding: 2rem; border-radius: 18px; }
+        .device-box h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 1.5rem; border-bottom: 1px solid #e8e8ed; padding-bottom: 0.5rem; }
+        
+        .list-title { font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.8rem; display: block; }
+        .list-pros { color: var(--apple-text); list-style: none; margin-bottom: 1.5rem; }
+        .list-pros li { margin-bottom: 0.6rem; font-size: 0.95rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+        .list-pros li i { color: #008000; margin-top: 3px; }
+        
+        .list-cons { color: var(--apple-text); list-style: none; }
+        .list-cons li { margin-bottom: 0.6rem; font-size: 0.95rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+        .list-cons li i { color: #d9381e; margin-top: 3px; }
 
         /* MODAL MINIMALISTA WHITE */
         .modal-overlay {
@@ -197,7 +203,7 @@
             <ul class="nav-menu">
                 <li><a href="#" class="nav-btn active" onclick="switchSection('inicio', this)">Inicio</a></li>
                 <li><a href="#" class="nav-btn" onclick="switchSection('apps', this)">Aplicaciones</a></li>
-                <li><a href="#" class="nav-btn" onclick="switchSection('soporte', this)">Soporte</a></li>
+                <li><a href="#" class="nav-btn" onclick="switchSection('soporte', this)">Ecosistema y Ayuda</a></li>
             </ul>
         </div>
     </nav>
@@ -218,7 +224,7 @@
             <div class="hero-content">
                 <span class="hero-tag">Rendimiento</span>
                 <h1 class="hero-title">Herramientas v4.99.4</h1>
-                <p class="hero-subtitle">Tu Fire Stick más rápido que el primer día.</p>
+                <p class="hero-subtitle">Tu dispositivo de streaming más rápido que el primer día.</p>
                 <div class="hero-links">
                     <a href="#" class="apple-link" onclick="openAppModal('2')">Obtener utilidad <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i></a>
                 </div>
@@ -245,17 +251,69 @@
 
     <div id="soporte" class="page-section">
         <div class="support-container">
-            <h2 class="support-header">Centro de respuestas rápidas</h2>
+            <h1 class="support-header">Entiende tu Ecosistema</h1>
+            <p class="support-subheader">Todo lo que necesitas saber sobre el software y los mejores dispositivos de streaming.</p>
             
-            <div class="support-row">
-                <h3>¿Cómo instalar mediante Downloader?</h3>
-                <p>Ingresa en la casilla de URL el código numérico directo asignado a cada aplicación. La descarga comenzará sin publicidad añadida.</p>
+            <div class="concept-block">
+                <h2>¿Qué es Google TV?</h2>
+                <p>Es una interfaz moderna basada en el sistema operativo Android TV de Google. Su principal objetivo es organizar y unificar las películas, series y canales en vivo de todas tus aplicaciones en una sola pantalla de inicio, recomendándote contenido de acuerdo a tus gustos sin necesidad de saltar de app en app.</p>
             </div>
-            
-            <div class="support-row">
-                <h3>Error: "El paquete entró en conflicto"</h3>
-                <p>Ocurre cuando ya existe una versión previa instalada en el TV Box. Desinstala la app vieja completamente antes de ejecutar el instalador nuevo.</p>
+
+            <div class="concept-block">
+                <h2>¿Qué es Downloader?</h2>
+                <p>Es una herramienta fundamental para televisores inteligentes. Incluye un navegador web integrado y un gestor de descargas que te permite bajar archivos desde internet directamente a tu dispositivo de TV. Su función más popular es la ejecución de códigos numéricos directos cortos, evitando escribir URLs largas y engorrosas con el control remoto.</p>
             </div>
+
+            <div class="device-comparison">
+                <h2>Análisis de Dispositivos</h2>
+                
+                <div class="device-grid">
+                    <div class="device-box">
+                        <h3>Amazon Fire Stick</h3>
+                        <span class="list-title">Ventajas</span>
+                        <ul class="list-pros">
+                            <li><i class="fas fa-check"></i> Rendimiento fluido y gran soporte técnico.</li>
+                            <li><i class="fas fa-check"></i> Excelente conectividad Wi-Fi.</li>
+                            <li><i class="fas fa-check"></i> Control remoto ergonómico de alta calidad.</li>
+                        </ul>
+                        <span class="list-title">Desventajas</span>
+                        <ul class="list-cons">
+                            <li><i class="fas fa-times"></i> Capa de personalización muy cargada de anuncios.</li>
+                            <li><i class="fas fa-times"></i> Sistema Fire OS restrictivo con ciertas instalaciones.</li>
+                        </ul>
+                    </div>
+
+                    <div class="device-box">
+                        <h3>Watch Onn</h3>
+                        <span class="list-title">Ventajas</span>
+                        <ul class="list-pros">
+                            <li><i class="fas fa-check"></i> Relación calidad-precio insuperable en el mercado.</li>
+                            <li><i class="fas fa-check"></i> Corre sistema Google TV puro y limpio sin trabas.</li>
+                            <li><i class="fas fa-check"></i> Control con accesos directos muy útiles.</li>
+                        </ul>
+                        <span class="list-title">Desventajas</span>
+                        <ul class="list-cons">
+                            <li><i class="fas fa-times"></i> Almacenamiento básico que se llena rápido.</li>
+                            <li><i class="fas fa-times"></i> Materiales de construcción plásticos sencillos.</li>
+                        </ul>
+                    </div>
+
+                    <div class="device-box">
+                        <h3>TV Box (Genéricas)</h3>
+                        <span class="list-title">Ventajas</span>
+                        <ul class="list-pros">
+                            <li><i class="fas fa-check"></i> Muchas ranuras de expansión (USB, MicroSD, Ethernet).</li>
+                            <li><i class="fas fa-check"></i> Permite instalar casi cualquier APK de Android móvil.</li>
+                        </ul>
+                        <span class="list-title">Desventajas</span>
+                        <ul class="list-cons">
+                            <li><i class="fas fa-times"></i> La mayoría no tiene certificaciones oficiales (Netflix/Prime en baja resolución).</li>
+                            <li><i class="fas fa-times"></i> Sistema inestable y controles remotos deficientes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -276,7 +334,7 @@
     </div>
 
     <footer class="apple-footer">
-        <p>Copyright &copy; 2026 MUNDO APK. Todos los derechos reservados. Las marcas mencionadas pertenecen a sus respectivos desarrolladores.</p>
+        <p>Copyright &copy; 2026 MUNDO APK. Todos los derechos reservados. Las marcas mencionadas pertenecen a sus respectivos desarrolladores y marcas comerciales.</p>
     </footer>
 
     <script>
@@ -306,7 +364,7 @@
                 setTimeout(() => {
                     currentSection.style.display = 'none';
                     executeEntrance(targetSection);
-                }, 250); // Tiempo rápido de respuesta Apple
+                }, 250); 
             } else {
                 executeEntrance(targetSection);
             }
