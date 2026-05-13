@@ -90,7 +90,6 @@
             100% { opacity: 0.4; }
         }
 
-        /* Ocultar menú en pantallas muy chicas para que no choque con el contador */
         @media (max-width: 600px) {
             .nav-menu { display: none; }
         }
@@ -233,11 +232,11 @@
         
         <div class="hero-product apple-fade-in">
             <div class="hero-content">
-                <span class="hero-tag">Catálogo Exclusivo</span>
-                <h1 class="hero-title">Xuper TV Player</h1>
-                <p class="hero-subtitle">Visualización optimizada. Fluidez garantizada y acceso directo sin cuenta obligatoria.</p>
+                <span class="hero-tag">Novedades y Tutoriales</span>
+                <h1 class="hero-title">Android TV BLOG</h1>
+                <p class="hero-subtitle">Análisis técnico, guías de optimización profunda y descargas directas sin trabas.</p>
                 <div class="hero-links">
-                    <span class="apple-link" onclick="openAppModal('1')">Descargar APK directo <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i></span>
+                    <span class="apple-link" onclick="smoothScrollTo('apps-section')">Ver aplicaciones disponibles <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i></span>
                 </div>
             </div>
         </div>
@@ -397,7 +396,7 @@
 
         // Navegación fluida interna
         function smoothScrollTo(id) {
-            event.preventDefault();
+            if(event) event.preventDefault();
             const target = document.getElementById(id);
             if(target) {
                 const offset = 60;
@@ -411,15 +410,11 @@
         // --- SISTEMA DE CONTADOR PREMIUM 24 HORAS ---
         function runPremiumCounter() {
             let baseCount = parseInt(localStorage.getItem('mundo_apk_24h'));
-            
-            // Si no existe o pasó mucho tiempo, generar base alta realista para crear reputación
             if (!baseCount || baseCount < 1000) {
                 baseCount = Math.floor(Math.random() * (1600 - 1200 + 1)) + 1200;
             } else {
-                // Pequeñas fluctuaciones orgánicas en cada recarga
                 baseCount += Math.floor(Math.random() * (4 - (-2) + 1)) - 2;
             }
-            
             localStorage.setItem('mundo_apk_24h', baseCount);
             document.getElementById('user-count-val').innerText = baseCount.toLocaleString('es-ES');
         }
@@ -430,7 +425,6 @@
             const loadingText = document.getElementById('news-loading');
             
             try {
-                // Apuntamos a la API con un endpoint especializado en temáticas globales de desarrollo y redes
                 const response = await fetch('https://api.spaceflightnewsapi.net/v4/articles/?limit=4');
                 const data = await response.json();
                 
@@ -438,7 +432,6 @@
                     loadingText.style.display = 'none';
                     grid.innerHTML = '';
                     
-                    // Diccionario de curación local para forzar que los titulares pesados de desarrollo queden 100% en español comprensible
                     const esTitles = [
                         "Nueva actualización del sistema de streaming optimiza el uso de memoria RAM",
                         "Desarrolladores logran evadir nuevas restricciones de Launchers en TV Box",
@@ -457,7 +450,6 @@
                             day: 'numeric', month: 'short'
                         });
                         
-                        // Usamos la estructura dinámica inyectando traducciones técnicas directas
                         const titleText = esTitles[index] || "Actualización Crítica de Software y Seguridad";
                         const descText = esDesc[index] || "Análisis técnico sobre la compatibilidad de plataformas de streaming y optimización de recursos en dispositivos de TV.";
 
@@ -510,7 +502,6 @@
         function closeAppModal() { document.getElementById('app-modal').classList.remove('open'); }
         function closeModalOutside(e) { if(e.target === document.getElementById('app-modal')) closeAppModal(); }
 
-        // Inicializar todo el ecosistema al cargar
         document.addEventListener("DOMContentLoaded", () => {
             initAppleScrollAnimations();
             runPremiumCounter();
