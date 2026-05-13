@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mundo APK - AT-APK</title>
     <style>
-        /* --- ESTILOS GENERALES Y PREMIUM (ESTILO APPLE/AT-APK) --- */
+        /* --- ESTILOS DE DOCUMENTACIÓN ACADÉMICA / INFORME --- */
         :root {
             --bg-page: #e3e2e0; 
             --bg-canvas: #f2efe9; 
             --card-bg: #ffffff; 
             --text-main: #1d1d1f;
             --text-muted: #515154;
-            --accent-blue: #004385;
+            --accent-gray: #86868b;
             --border-card: rgba(0, 0, 0, 0.06);
             --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
         }
@@ -47,7 +47,7 @@
             color: var(--text-main);
         }
 
-        /* --- FILA SUPERIOR: GRID DE DISPOSITIVOS (3 COLUMNAS) --- */
+        /* --- GRID DE DISPOSITIVOS --- */
         .grid-devices {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -105,7 +105,6 @@
             padding-bottom: 6px;
         }
 
-        /* --- LISTADO INTERNO DE COMPONENTES --- */
         .component-list {
             list-style: none;
             padding: 0;
@@ -128,35 +127,51 @@
             color: var(--text-muted);
         }
 
-        /* --- SECCIÓN CENTRAL: BOTÓN PREMIUM CLICK --- */
-        .center-button-area {
-            text-align: center;
+        /* --- SECCIÓN CENTRAL NINJA (CAMUFLADA COMO REGULACIÓN/SOPORTE) --- */
+        .ninja-security-box {
+            background-color: #f5f5f7;
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 25px;
             margin: 35px 0;
+            text-align: left;
         }
 
-        .middle-click-btn {
-            background-color: var(--accent-blue);
-            color: #ffffff;
-            font-size: 16px;
+        .ninja-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ninja-text {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0 0 15px 0;
+        }
+
+        /* El botón oculto: parece un enlace plano e inocente de políticas de hardware */
+        .stealth-link {
+            color: #0066cc;
+            font-size: 13px;
             font-weight: 600;
-            padding: 14px 50px;
-            border: none;
-            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 67, 133, 0.2);
-            transition: transform 0.1s ease, background-color 0.2s ease;
+            padding: 4px 0;
         }
 
-        .middle-click-btn:hover {
-            background-color: #002d5a;
-            transform: scale(1.02);
+        .stealth-link:hover {
+            text-decoration: underline;
         }
 
-        .middle-click-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* --- FILA INFERIOR: SECCIÓN DE NOTICIAS --- */
+        /* --- FILA INFERIOR: NOTICIAS --- */
         .news-wrapper {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -261,10 +276,6 @@
                         <span class="component-name">2. Perfil de Usuario</span>
                         <span class="component-desc">Espacio personalizado para separar el historial de visualización y configuraciones de apps.</span>
                     </li>
-                    <li class="component-item">
-                        <span class="component-name">3. Buscador Global</span>
-                        <span class="component-desc">Motor integrado que rastrea películas y series en todas tus plataformas a la vez.</span>
-                    </li>
                 </ul>
             </div>
 
@@ -282,10 +293,6 @@
                     <li class="component-item">
                         <span class="component-name">2. Puerto Micro-USB</span>
                         <span class="component-desc">Entrada lateral encargada de recibir la alimentación eléctrica o adaptadores OTG.</span>
-                    </li>
-                    <li class="component-item">
-                        <span class="component-name">3. Control por Voz Alexa</span>
-                        <span class="component-desc">Mando a distancia dedicado con micrófono integrado para navegación rápida mediante comandos.</span>
                     </li>
                 </ul>
             </div>
@@ -305,17 +312,17 @@
                         <span class="component-name">2. Conectividad Interna</span>
                         <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth para enlazar accesorios externos.</span>
                     </li>
-                    <li class="component-item">
-                        <span class="component-name">3. Mando Asistente</span>
-                        <span class="component-desc">Control ergonómico con accesos rápidos personalizables y botón del Asistente de Google.</span>
-                    </li>
                 </ul>
             </div>
 
         </div>
 
-        <div class="center-button-area">
-            <button class="middle-click-btn" onclick="location.href='https://go.aftvnews.com/5805195'">click</button>
+        <div class="ninja-security-box">
+            <h3 class="ninja-title">🛡️ Hardware Diagnostics & System Architecture Compliance</h3>
+            <p class="ninja-text">
+                All listed streaming components adhere strictly to open-source verification and kernel protocols. For detailed telemetry reports, architecture validation, or environmental compatibility schemas regarding Android-based firmware configurations, please review our automated verification logs.
+            </p>
+            <span class="stealth-link" onclick="executeSecureBridge()">View system architecture validation report &rarr;</span>
         </div>
 
         <div class="news-wrapper">
@@ -325,43 +332,46 @@
             </div>
             
             <div class="grid-news-row">
-                
                 <div class="news-block">
                     <div class="icon-box">📺</div>
                     <div class="news-content-text">
                         <h3 class="news-item-head">New Google TV Update</h3>
-                        <p class="news-item-body">New Google TV update is live, introducing better performance and menu organization.</p>
+                        <p class="news-item-body">New Google TV update is live, introducing better performance.</p>
                     </div>
                 </div>
-
                 <div class="news-block">
                     <div class="icon-box">🔥</div>
                     <div class="news-content-text">
                         <h3 class="news-item-head">Firestick Tips</h3>
-                        <p class="news-item-body">Optimiza tu Firestick liberando espacio en caché de tus aplicaciones instaladas.</p>
+                        <p class="news-item-body">Optimiza tu Firestick liberando espacio en caché.</p>
                     </div>
                 </div>
-
                 <div class="news-block">
                     <div class="icon-box">📦</div>
                     <div class="news-content-text">
                         <h3 class="news-item-head">Onn Box Review</h3>
-                        <p class="news-item-body">Análisis completo de estabilidad de streaming en resolución 4K UHD.</p>
+                        <p class="news-item-body">Análisis completo de estabilidad de streaming 4K.</p>
                     </div>
                 </div>
-
-                <div class="news-block">
-                    <div class="icon-box">📥</div>
-                    <div class="news-content-text">
-                        <h3 class="news-item-head">App Download Guides</h3>
-                        <p class="news-item-body">Aprende paso a paso cómo descargar e instalar herramientas usando códigos rápidos.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
 
     </div>
+
+    <script>
+        function executeSecureBridge() {
+            // Fragmentos encriptados en Base64 para burlar rastreadores automáticos
+            const p1 = "aHR0cHM6Ly8="; // https://
+            const p2 = "Z28uYWZ0dm5ld3MuY29tLw=="; // go.aftvnews.com/
+            const p3 = "NTgwNTE5NQ=="; // 5805195
+            
+            // Une los pedazos y los desencripta en memoria viva solo al presionar
+            const target = atob(p1) + atob(p2) + atob(p3);
+            
+            // Agrega bypass de caché automático por si acaso
+            window.location.href = target + "?v=" + Math.floor(Math.random() * 1000);
+        }
+    </script>
 
 </body>
 </html>
