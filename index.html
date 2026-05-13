@@ -3,24 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUNDO TV - Sistema Completo</title>
+    <title>MUNDO TV - Catálogo Oficial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --bg-dark: #060709;
+            --bg-card: #12151c;
+            --text-white: #f8fafc;
+            --text-gray: #94a3b8;
+            --accent-blue: #4285f4;
+            --glow-color: rgba(66, 133, 244, 0.15);
+            --nav-bg: rgba(6, 7, 9, 0.85);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            overflow-x: hidden;
+        }
+
+        /* Sistema de Páginas */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            min-height: 85vh;
+            padding-top: 100px;
+        }
+
+        .page-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Barra de Navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .text-gradient {
+            background: linear-gradient(45deg, #4285f4, #a142f4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--text-white);
+        }
+
+        .nav-menu a.active {
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 4px;
+        }
+
+        /* Sección de Inicio (Hero) */
+        .hero-section {
+            position: relative;
+            height: 80vh;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            background: url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            border-radius: 0 0 40px 40px;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, var(--bg-dark) 40%, rgba(6, 7, 9, 0.7) 70%, transparent 100%),
+                        linear-gradient(to top, var(--bg-dark) 10%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-title {
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 550px;
+        }
+
+        .hero-buttons { display: flex; gap: 1rem; }
+
+        /* Botones */
+        .btn-primary, .btn-primary-sm {
+            background-color: var(--text-white);
+            color: var(--bg-dark);
+            padding: 0.8rem 1.8rem;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-primary-sm { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+        .btn-primary:hover, .btn-primary-sm:hover { transform: scale(1.03); background-color: #e2e8f0; }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.2); transform: scale(1.03); }
+
+        /* Secciones de Contenido */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 6rem 2rem;
+        }
+
+        .section-header { margin-bottom: 2.5rem; }
+        .section-header h2 { font-size: 2.2rem; letter-spacing: -1px; margin-bottom: 0.5rem; }
+        .section-header p { color: var(--text-gray); }
+
+        /* Filtros */
+        .filter-container { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+        .filter-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-gray);
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--text-white); color: var(--bg-dark); }
+
+        /* Cuadrícula de Apps */
+        .tv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tv-card {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .card-img-wrapper {
+            position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;
+        }
+
+        .card-img-wrapper img {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-info { padding: 1.5rem; }
+        .card-tag { font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700; margin-bottom: 0.4rem; display: inline-block; }
+        .card-info h3 { font-size: 1.25rem; margin-bottom: 0.4rem; }
+        .card-info p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.5; }
+
+        .tv-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(66, 133, 244, 0.3);
+            box-shadow: 0 15px 30px var(--glow-color);
+        }
+        .tv-card:hover .card-img-wrapper img { transform: scale(1.05); }
+
+        /* Soporte */
+        .support-container { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem; }
+        .support-box { background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.04); }
+        .support-box h3 { margin-bottom: 0.8rem; }
+        .support-box p { color: var(--text-gray); line-height: 1.6; }
+
+        /* Ventana Emergente (Modal) */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            z-index: 2000; display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: auto; }
+        .modal-window {
+            background: var(--bg-card); width: 90%; max-width: 800px; border-radius: 24px;
+            overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1);
+            transform: scale(0.9); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-overlay.open .modal-window { transform: scale(1); }
+        .close-modal {
+            position: absolute; top: 1.2rem; right: 1.2rem; background: rgba(255,255,255,0.1);
+            border: none; color: white; width: 36px; height: 36px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10;
+        }
+        .modal-grid { display: grid; grid-template-columns: 1fr; }
+        @media (min-width: 768px) { .modal-grid { grid-template-columns: 1fr 1fr; } }
+        .modal-banner img { width: 100%; height: 100%; object-fit: cover; min-height: 220px; }
+        .modal-details { padding: 2.2rem; display: flex; flex-direction: column; justify-content: center; }
+        .modal-details h2 { font-size: 1.8rem; margin: 0.4rem 0 0.8rem 0; }
+        .modal-details p { color: var(--text-gray); line-height: 1.5; font-size: 0.95rem; margin-bottom: 1.2rem; }
+        .modal-meta { margin-bottom: 1.2rem; font-size: 0.9rem; color: var(--text-gray); }
+        .downloader-code-box {
+            background: rgba(66, 133, 244, 0.1); border: 1px dashed var(--accent-blue);
+            padding: 0.8rem 1.2rem; border-radius: 8px; display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 1.5rem;
+        }
+        .downloader-code-box strong { font-size: 1.2rem; }
+
+        .tv-footer { text-align: center; padding: 4rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #475569; font-size: 0.9rem; }
+    </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo" data-target="inicio">
+            <div class="nav-logo" onclick="switchSection('inicio')">
                 <i class="fas fa-tv text-gradient"></i> <span>MUNDO<strong>TV</strong></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#" class="nav-link active" data-target="inicio">Inicio</a></li>
-                <li><a href="#" class="nav-link" data-target="apps">Aplicaciones</a></li>
-                <li><a href="#" class="nav-link" data-target="soporte">Soporte</a></li>
+                <li><a href="#" class="nav-btn active" onclick="switchSection('inicio', this)">Inicio</a></li>
+                <li><a href="#" class="nav-btn" onclick="switchSection('apps', this)">Aplicaciones</a></li>
+                <li><a href="#" class="nav-btn" onclick="switchSection('soporte', this)">Soporte</a></li>
             </ul>
             <div class="nav-cta">
-                <a href="#" class="btn-primary-sm nav-link" data-target="apps">Explorar Catálogo</a>
+                <button class="btn-primary-sm" onclick="switchSection('apps')">Ver Catálogo</button>
             </div>
         </div>
     </nav>
@@ -29,12 +325,183 @@
         <header class="hero-section">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <span class="hero-badge"><i class="fas fa-sparkles"></i> Tu centro de entretenimiento</span>
-                <h1 class="hero-title">Todo tu contenido.<br>Sin límites.</h1>
-                <p class="hero-subtitle">Disfruta de una interfaz limpia, optimizada para Fire Stick, Android TV y TV Boxes. Accede directamente a tus herramientas favoritas.</p>
+                <span class="hero-badge"><i class="fas fa-sparkles"></i> Centro de Contenido</span>
+                <h1 class="hero-title">Todo tu contenido.<br>En un solo lugar.</h1>
+                <p class="hero-subtitle">Disfruta de aplicaciones optimizadas para tu Fire Stick, Android TV o TV Box. Interfaz limpia, rápida y sin complicaciones.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary" id="hero-cta">Ver Aplicaciones</button>
-                    <a href="https://t.me/" target="_blank" class="btn-secondary"><i class="fab fa-telegram"></i> Comunidad</a>
+                    <button class="btn-primary" onclick="switchSection('apps')">Explorar Apps</button>
+                    <a href="https://t.me/" target="_blank" class="btn-secondary"><i class="fab fa-telegram"></i> Grupo de Telegram</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div id="apps" class="page-section">
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Catálogo de Aplicaciones</h2>
+                <p>Versiones estables listas para tu pantalla inteligente.</p>
+                <div class="filter-container">
+                    <button class="filter-btn active" onclick="filterCategory('all', this)">Todas</button>
+                    <button class="filter-btn" onclick="filterCategory('streaming', this)">Streaming</button>
+                    <button class="filter-btn" onclick="filterCategory('tools', this)">Herramientas</button>
+                </div>
+            </div>
+
+            <div class="tv-grid">
+                <div class="tv-card" data-category="streaming" onclick="openAppModal('1')">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80" alt="Streaming">
+                    </div>
+                    <div class="card-info">
+                        <span class="card-tag">Streaming</span>
+                        <h3>Xuper TV Player</h3>
+                        <p>Reproductor fluido optimizado para control remoto. Sin cuentas forzadas.</p>
+                    </div>
+                </div>
+
+                <div class="tv-card" data-category="tools" onclick="openAppModal('2')">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80" alt="Herramientas">
+                    </div>
+                    <div class="card-info">
+                        <span class="card-tag">Herramientas</span>
+                        <h3>Optimizador APK v4.99.4</h3>
+                        <p>Herramienta para limpiar caché y agilizar descargas en tu TV Box.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="soporte" class="page-section">
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Guías y Ayuda</h2>
+                <p>¿No sabes cómo instalar las aplicaciones? Sigue estas recomendaciones.</p>
+            </div>
+            <div class="support-container">
+                <div class="support-box">
+                    <h3><i class="fas fa-download text-gradient"></i> Instalar con Downloader</h3>
+                    <p>Abre la aplicación Downloader en tu TV, escribe el código numérico directo que aparece en los detalles de cada app dentro de este catálogo y la descarga comenzará inmediatamente de forma directa.</p>
+                </div>
+                <div class="support-box">
+                    <h3><i class="fas fa-exclamation-triangle text-gradient"></i> Error de conflicto de paquete</h3>
+                    <p>Si te sale un error de instalación, recuerda desinstalar completamente cualquier versión antigua que tengas de la aplicación antes de instalar la nueva actualización.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="app-modal" class="modal-overlay" onclick="closeModalOutside(event)">
+        <div class="modal-window">
+            <button class="close-modal" onclick="closeAppModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-grid">
+                <div class="modal-banner">
+                    <img id="modal-img" src="" alt="Banner">
+                </div>
+                <div class="modal-details">
+                    <span id="modal-tag" class="card-tag">CATEGORÍA</span>
+                    <h2 id="modal-title">Nombre de la App</h2>
+                    <p id="modal-desc">Descripción detallada.</p>
+                    <div class="modal-meta">
+                        <strong>Versión:</strong> <span id="modal-version">1.0</span>
+                    </div>
+                    <div class="downloader-code-box">
+                        <span>Código Downloader:</span>
+                        <strong id="modal-code" class="text-gradient">000000</strong>
+                    </div>
+                    <a href="#" id="modal-link" class="btn-primary" style="text-align:center;"><i class="fas fa-download"></i> Descargar archivo APK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="tv-footer">
+        <p>&copy; 2026 MUNDO TV. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Datos de tus aplicaciones
+        const appsData = {
+            "1": {
+                title: "Xuper TV Player",
+                tag: "Streaming",
+                desc: "Un reproductor potente configurado sin pantallas de registro obligatorias. Diseñado para ofrecer la máxima velocidad al cargar tus listas de contenido en dispositivos de streaming.",
+                version: "v4.34.5",
+                code: "854123",
+                img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80",
+                link: "#"
+            },
+            "2": {
+                title: "Optimizador APK v4.99.4",
+                tag: "Herramientas",
+                desc: "Herramienta ideal para Fire Stick y Android TV de poco almacenamiento. Limpia basura del sistema, elimina archivos residuales y mejora el rendimiento global del dispositivo.",
+                version: "v4.99.4",
+                code: "741258",
+                img: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80",
+                link: "#"
+            }
+        };
+
+        // Cambiar de Pestaña de forma fluida
+        function switchSection(targetId, element) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById(targetId);
+            if(target) target.classList.add('active');
+
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            if(element) {
+                element.classList.add('active');
+            } else {
+                // Si se activa por botón externo, marcar en el menú
+                document.querySelectorAll('.nav-menu a').forEach(a => {
+                    if(a.getAttribute('onclick').includes(targetId)) a.classList.add('active');
+                });
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Filtrar por categorías
+        function filterCategory(category, button) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            button.classList.add('active');
+
+            document.querySelectorAll('.tv-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Ventana Emergente
+        function openAppModal(id) {
+            const data = appsData[id];
+            if(data) {
+                document.getElementById('modal-img').src = data.img;
+                document.getElementById('modal-tag').innerText = data.tag;
+                document.getElementById('modal-title').innerText = data.title;
+                document.getElementById('modal-desc').innerText = data.desc;
+                document.getElementById('modal-version').innerText = data.version;
+                document.getElementById('modal-code').innerText = data.code;
+                document.getElementById('modal-link').href = data.link;
+
+                document.getElementById('app-modal').classList.add('open');
+            }
+        }
+
+        function closeAppModal() {
+            document.getElementById('app-modal').classList.remove('open');
+        }
+
+        function closeModalOutside(e) {
+            if(e.target === document.getElementById('app-modal')) closeAppModal();
+        }
+    </script>
+</body>
+</html>                    <a href="https://t.me/" target="_blank" class="btn-secondary"><i class="fab fa-telegram"></i> Comunidad</a>
                 </div>
             </div>
         </header>
