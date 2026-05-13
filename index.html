@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google TV - Experiencia Premium</title>
+    <title>Google TV - Experiencia Premium Interactiva</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,15 +15,14 @@
             --google-bg: #060709;
             --google-card: #13161d;
             --google-blue: #8ab4f8;
-            --google-blue-hover: #aecbfa;
             --text-main: #f8fafc;
             --text-sub: #9aa0a6;
             --nav-bg: rgba(6, 7, 9, 0.75);
             --radius-premium: 28px;
-            --cubic-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+            /* Curva de aceleración cinemática oficial de Google (fina al arrancar, suave al frenar) */
+            --cubic-cinema: cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        /* Reseteo de Alta Fidelidad */
         html, body {
             background-color: var(--google-bg) !important;
             color: var(--text-main) !important;
@@ -37,7 +36,7 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Barra de Navegación Estilo Cristal */
+        /* BARRA SUPERIOR */
         .navbar {
             position: fixed !important;
             top: 0; left: 0; width: 100%; z-index: 1000;
@@ -45,7 +44,7 @@
             backdrop-filter: blur(24px) !important;
             -webkit-backdrop-filter: blur(24px) !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
-            transition: padding 0.3s var(--cubic-smooth);
+            transition: padding 0.4s var(--cubic-cinema), background-color 0.4s ease;
         }
 
         .nav-container {
@@ -59,8 +58,7 @@
             display: flex; align-items: center; gap: 0.6rem; cursor: pointer; color: #fff !important;
             letter-spacing: -0.5px;
         }
-
-        .nav-logo strong { font-weight: 700; color: var(--text-main); }
+        .nav-logo strong { font-weight: 700; }
 
         .text-gradient {
             background: linear-gradient(45deg, #4285f4, #a142f4, #ea4335) !important;
@@ -71,20 +69,28 @@
         .nav-menu { display: flex; list-style: none; gap: 2.5rem; }
         .nav-menu a {
             color: var(--text-sub) !important; text-decoration: none !important;
-            font-size: 1rem !important; font-weight: 400; transition: color 0.2s ease;
+            font-size: 1rem !important; font-weight: 400; transition: color 0.3s ease, border-color 0.3s ease;
+            position: relative; padding-bottom: 4px;
         }
         .nav-menu a:hover, .nav-menu a.active { color: var(--text-main) !important; }
-        .nav-menu a.active { font-weight: 500; }
+        .nav-menu a.active { font-weight: 500; border-bottom: 2px solid var(--google-blue); }
 
-        /* Contenedor del Sistema SPA */
+        /* ================= ANIMACIÓN DE PÁGINAS (SPA FLUIDA) ================= */
         .page-section {
-            display: none; opacity: 0; transform: translateY(30px);
-            transition: opacity 0.6s var(--cubic-smooth), transform 0.6s var(--cubic-smooth);
+            display: none; 
+            opacity: 0; 
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.6s var(--cubic-cinema), transform 0.6s var(--cubic-cinema);
             min-height: 100vh;
         }
-        .page-section.active { display: block !important; opacity: 1 !important; transform: translateY(0) !important; }
+        
+        /* Clase activada por JavaScript con retraso controlado */
+        .page-section.show { 
+            opacity: 1 !important; 
+            transform: translateY(0) scale(1) !important; 
+        }
 
-        /* SECCIÓN HERO (Cinematográfica e Inmersiva) */
+        /* HERO INTRO */
         .hero-section {
             position: relative; height: 100vh; min-height: 650px;
             display: flex; align-items: center; padding: 0 4rem;
@@ -115,90 +121,96 @@
         
         .hero-buttons { display: flex; gap: 1.2rem; flex-wrap: wrap; }
 
-        /* Botones Estilo Google Premium */
+        /* BOTONES PREMIUM */
         .btn-google-primary {
             background-color: var(--text-main) !important; color: var(--google-bg) !important;
             padding: 1rem 2.2rem; border-radius: 100px; font-weight: 500; font-size: 1rem;
             border: none; cursor: pointer; text-decoration: none !important; display: inline-block;
-            transition: transform 0.2s var(--cubic-smooth), background-color 0.2s ease;
+            transition: transform 0.3s var(--cubic-cinema), background-color 0.2s ease, box-shadow 0.3s ease;
         }
-        .btn-google-primary:hover { transform: scale(1.03); background-color: #e8eaed !important; }
+        .btn-google-primary:hover { transform: scale(1.04); background-color: #e8eaed !important; box-shadow: 0 4px 20px rgba(255,255,255,0.15); }
 
         .btn-google-secondary {
             background-color: rgba(255, 255, 255, 0.07) !important; color: var(--text-main) !important;
             padding: 1rem 2.2rem; border-radius: 100px; font-weight: 500; font-size: 1rem;
             text-decoration: none !important; border: 1px solid rgba(255, 255, 255, 0.1);
             display: inline-flex; align-items: center; gap: 0.6rem;
-            transition: transform 0.2s var(--cubic-smooth), background-color 0.2s ease;
+            transition: transform 0.3s var(--cubic-cinema), background-color 0.2s ease;
         }
-        .btn-google-secondary:hover { background-color: rgba(255, 255, 255, 0.15) !important; transform: scale(1.03); }
+        .btn-google-secondary:hover { background-color: rgba(255, 255, 255, 0.15) !important; transform: scale(1.04); }
 
-        /* SECCIONES DE CONTENIDO GENERAL */
-        .content-section { max-width: 1340px; margin: 0 auto; padding: 8px 3rem 6rem 3rem; }
-        .section-header { margin-bottom: 3.5rem; margin-top: 40px; }
+        /* SECCIONES */
+        .content-section { max-width: 1340px; margin: 0 auto; padding: 40px 3rem 6rem 3rem; }
+        .section-header { margin-bottom: 3.5rem; }
         .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; margin-bottom: 0.8rem; }
         .section-header p { color: var(--text-sub) !important; font-size: 1.15rem; }
 
-        /* Filtros Deslizantes */
-        .filter-container { display: flex; gap: 1rem; margin-top: 2rem; overflow-x: auto; padding-bottom: 0.5rem; }
-        .filter-container::-webkit-scrollbar { display: none; }
+        /* FILTROS ANIMADOS */
+        .filter-container { display: flex; gap: 1rem; margin-top: 2rem; }
         
         .filter-btn {
             background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
             color: var(--text-sub) !important; padding: 0.6rem 1.8rem; border-radius: 100px;
-            cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: all 0.3s var(--cubic-smooth);
+            cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: all 0.4s var(--cubic-cinema);
         }
         .filter-btn.active, .filter-btn:hover { background: var(--text-main) !important; color: var(--google-bg) !important; border-color: var(--text-main); }
 
-        /* CUADRÍCULA CINEMÁTICA (Formatos 16:9 de TV) */
+        /* TARJETAS CON EFECTO CINEMA ZOOM */
         .tv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 2.5rem; }
         
         .tv-card {
             background-color: var(--google-card) !important; border-radius: var(--radius-premium);
             overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.02); cursor: pointer;
-            transition: transform 0.4s var(--cubic-smooth), border-color 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.5s var(--cubic-cinema), border-color 0.5s ease, box-shadow 0.5s ease, opacity 0.4s var(--cubic-cinema);
+            opacity: 1; transform: scale(1);
         }
         
         .tv-card:hover { 
-            transform: translateY(-8px); 
-            border-color: rgba(138, 180, 248, 0.3) !important;
-            box-shadow: 0 20px 40px rgba(66, 133, 244, 0.12);
+            transform: translateY(-10px) scale(1.02); 
+            border-color: rgba(138, 180, 248, 0.4) !important;
+            box-shadow: 0 25px 50px rgba(66, 133, 244, 0.18);
         }
         
         .card-img-wrapper { position: relative; width: 100%; padding-top: 56.25%; background: #181b23; overflow: hidden; }
         .card-img-wrapper img { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; 
-            transition: transform 0.6s var(--cubic-smooth);
+            transition: transform 0.8s var(--cubic-cinema);
         }
-        .tv-card:hover .card-img-wrapper img { transform: scale(1.04); }
+        .tv-card:hover .card-img-wrapper img { transform: scale(1.06); }
 
         .card-info { padding: 1.8rem; }
         .card-tag { font-size: 0.8rem; text-transform: uppercase; color: var(--google-blue) !important; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: 0.5px; display: inline-block; }
         .card-info h3 { font-size: 1.4rem; margin-bottom: 0.6rem; color: #fff !important; font-weight: 500; }
         .card-info p { color: var(--text-sub) !important; font-size: 1rem; line-height: 1.5; }
 
-        /* INTERFAZ MODAL INTERACTIVA PREMIUM */
+        /* MODAL CON DESENFOQUE GRADUAL */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(4, 5, 7, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(4, 5, 7, 0.0); backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
             z-index: 2000; display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+            opacity: 0; pointer-events: none; 
+            transition: opacity 0.5s var(--cubic-cinema), backdrop-filter 0.5s var(--cubic-cinema), background-color 0.5s var(--cubic-cinema);
         }
-        .modal-overlay.open { opacity: 1; pointer-events: auto; }
+        
+        .modal-overlay.open { 
+            opacity: 1; pointer-events: auto; 
+            background: rgba(4, 5, 7, 0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        }
         
         .modal-window {
             background: #171b24; width: 92%; max-width: 900px; border-radius: var(--radius-premium);
             overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.06);
-            transform: scale(0.92); transition: transform 0.4s var(--cubic-smooth);
+            transform: translateY(40px) scale(0.94); 
+            transition: transform 0.5s var(--cubic-cinema);
         }
-        .modal-overlay.open .modal-window { transform: scale(1); }
+        .modal-overlay.open .modal-window { transform: translateY(0) scale(1); }
         
         .close-modal {
             position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255, 255, 255, 0.08);
             border: none; color: white; width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; z-index: 10; transition: background 0.2s;
+            display: flex; align-items: center; justify-content: center; z-index: 10; transition: background 0.3s, transform 0.3s var(--cubic-cinema);
         }
-        .close-modal:hover { background: rgba(255, 255, 255, 0.15); }
+        .close-modal:hover { background: rgba(255, 255, 255, 0.15); transform: scale(1.05); }
         
         .modal-grid { display: grid; grid-template-columns: 1fr; }
         @media (min-width: 768px) { .modal-grid { grid-template-columns: 1.1fr 1fr; } }
@@ -216,7 +228,7 @@
         .downloader-code-box span { font-weight: 500; color: var(--text-main); }
         .downloader-code-box strong { color: var(--google-blue); font-size: 1.5rem; letter-spacing: 0.5px; }
 
-        /* CENTRO DE AYUDA (SOPORTE) */
+        /* SOPORTE */
         .support-container { display: flex; flex-direction: column; gap: 2rem; }
         .support-box { background: var(--google-card); padding: 2.5rem; border-radius: var(--radius-premium); border: 1px solid rgba(255,255,255,0.02); }
         .support-box h3 { margin-bottom: 1rem; color: #fff; font-size: 1.5rem; font-weight: 500; display: flex; align-items: center; gap: 0.8rem; }
@@ -243,7 +255,7 @@
         </div>
     </nav>
 
-    <div id="inicio" class="page-section active">
+    <div id="inicio" class="page-section">
         <header class="hero-section">
             <div class="hero-content">
                 <span class="hero-badge"><i class="fas fa-sparkles"></i> El entretenimiento que buscas</span>
@@ -339,7 +351,7 @@
     </div>
 
     <footer class="tv-footer">
-        <p>Google TV es una marca comercial de Google LLC. Este sitio es un catálogo adaptado con fines de optimización.</p>
+        <p>Google TV es una marca comercial de Google LLC. Este sitio es un catálogo adaptado con fines de entretenimiento.</p>
     </footer>
 
     <script>
@@ -364,35 +376,69 @@
             }
         };
 
-        // Enrutador de secciones suave
+        // ENRUTADOR CINEMÁTICO DE ENTRADA Y SALIDA
         function switchSection(targetId, element) {
-            document.querySelectorAll('.page-section').forEach(s => {
-                s.classList.remove('active');
-            });
-            const target = document.getElementById(targetId);
-            if(target) target.classList.add('active');
-
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            if(element) element.classList.add('active');
+            const currentSection = document.querySelector('.page-section.show');
+            const targetSection = document.getElementById(targetId);
             
+            if (currentSection) {
+                // 1. Desvanecer la página actual hacia arriba
+                currentSection.classList.remove('show');
+                
+                // 2. Esperar a que termine de ocultarse (300ms) para cambiar el display sin tirones
+                setTimeout(() => {
+                    currentSection.style.display = 'none';
+                    executeEntrance(targetSection);
+                }, 300);
+            } else {
+                executeEntrance(targetSection);
+            }
+
+            // Actualizar menú superior de forma suave
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            if(element) {
+                element.classList.add('active');
+            } else {
+                document.querySelectorAll('.nav-menu a').forEach(a => {
+                    if(a.getAttribute('onclick').includes(targetId)) a.classList.add('active');
+                });
+            }
+        }
+
+        function executeEntrance(section) {
+            if (section) {
+                section.style.display = 'block';
+                // Pequeño delay de 50ms para que el navegador registre el bloque y la transición CSS se active suavemente
+                setTimeout(() => {
+                    section.classList.add('show');
+                }, 50);
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Sistema de filtros rápidos
+        // FILTROS CON TRANSICIÓN DE DESVANECIMIENTO EN TARJETAS
         function filterCategory(category, button) {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            button.add('active'); // Nota interna: se mantiene consistencia funcional
+            button.classList.add('active');
 
             document.querySelectorAll('.tv-card').forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
                     card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
                 } else {
-                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 400);
                 }
             });
         }
 
-        // Modales de visualización
+        // VENTANA EMERGENTE FLUIDA
         function openAppModal(id) {
             const data = appsData[id];
             if(data) {
@@ -403,6 +449,7 @@
                 document.getElementById('modal-version').innerText = data.version;
                 document.getElementById('modal-code').innerText = data.code;
                 document.getElementById('modal-link').href = data.link;
+                
                 document.getElementById('app-modal').classList.add('open');
             }
         }
@@ -410,14 +457,19 @@
         function closeAppModal() { document.getElementById('app-modal').classList.remove('open'); }
         function closeModalOutside(e) { if(e.target === document.getElementById('app-modal')) closeAppModal(); }
 
-        // Control dinámico de Navbar al bajar scroll
+        // Carga inicial suave de la página al abrir el sitio por primera vez
+        document.addEventListener("DOMContentLoaded", () => {
+            executeEntrance(document.getElementById('inicio'));
+        });
+
+        // Control dinámico del menú al bajar scroll
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.navbar');
             if (window.scrollY > 40) {
-                nav.style.padding = '0.4rem 0';
+                nav.style.padding = '0.5rem 0';
                 nav.style.backgroundColor = '#060709';
             } else {
-                nav.style.padding = '0';
+                nav.style.padding = '1.4rem 0';
                 nav.style.backgroundColor = 'rgba(6, 7, 9, 0.75)';
             }
         });
