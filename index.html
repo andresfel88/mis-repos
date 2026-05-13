@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web - Estilo Apple</title>
+    <title>Mundo APK - Estilo Apple</title>
     <style>
-        /* --- VARIABLES DE DISEÑO ESTILO APPLE --- */
+        /* --- ESTILO APPLE (DARK MODE) --- */
         :root {
             --bg-apple: #000000;
             --card-apple: #161617;
@@ -13,12 +13,9 @@
             --text-title: #f5f5f7;
             --text-body: #86868b;
             --accent-blue: #0071e3;
-            --accent-orange: #ff9f0a;
-            --accent-green: #30d158;
             --border-apple: #424245;
         }
 
-        /* --- ESTILOS GENERALES DE LA PÁGINA --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-apple);
@@ -28,301 +25,215 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- MENÚ DE NAVEGACIÓN (NAVBAR) --- */
-        .apple-nav {
-            background-color: rgba(22, 22, 23, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 48px;
-            z-index: 9999;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .nav-content {
-            width: 100%;
-            max-width: 1000px;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        .nav-logo {
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: -0.5px;
-            color: var(--text-title);
-        }
-
         /* --- CONTENEDOR PRINCIPAL --- */
-        .main-container {
-            max-width: 1080px;
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 100px 20px 60px 20px; /* Margen superior para que no tape el menú */
-            box-sizing: border-box;
+            padding: 40px 20px;
         }
 
-        /* --- CABECERA (HERO SECTION) --- */
-        .hero-section {
-            text-align: center;
+        /* --- SECCIÓN DISPOSITIVOS --- */
+        .device-section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
             margin-bottom: 60px;
         }
 
-        .hero-title {
-            font-size: 44px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            color: var(--text-body);
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        /* --- SECCIÓN NUEVA: DIAGRAMAS DE DESARMADO (TOTALMENTE AISLADA) --- */
-        .diagram-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .apple-device-card {
+        .device-card {
             background-color: var(--card-apple);
             border-radius: 18px;
-            padding: 28px;
+            padding: 30px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .apple-device-card:hover {
-            transform: scale(1.02);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 120px;
+            gap: 20px;
             align-items: center;
-            margin-bottom: 24px;
         }
 
-        .card-header h3 {
-            font-size: 22px;
+        @media (max-width: 600px) {
+            .device-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .device-image {
+                margin: 0 auto;
+            }
+        }
+
+        .device-info h2 {
+            font-size: 24px;
             font-weight: 600;
-            margin: 0;
+            margin: 0 0 10px 0;
             color: #ffffff;
         }
 
-        .apple-badge {
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .b-fire { background-color: rgba(255, 159, 10, 0.15); color: var(--accent-orange); }
-        .b-android { background-color: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
-        .b-onn { background-color: rgba(0, 113, 227, 0.15); color: var(--accent-blue); }
-
-        /* Lista de despiece tipo Apple */
-        .apple-exploded-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .apple-layer {
-            background-color: var(--card-inner);
-            border-radius: 12px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            border: 1px solid transparent;
-            transition: border-color 0.2s ease, background-color 0.2s ease;
-        }
-
-        .apple-layer:hover {
-            border-color: rgba(255, 255, 255, 0.1);
-            background-color: #2a2a2e;
-        }
-
-        .apple-num {
-            font-size: 13px;
-            font-weight: 700;
+        .device-info p {
+            font-size: 15px;
+            line-height: 1.5;
             color: var(--text-body);
-            background: rgba(255, 255, 255, 0.05);
-            min-width: 24px;
-            height: 24px;
-            border-radius: 50%;
+            margin: 0;
+        }
+
+        .device-image {
+            width: 120px;
+            height: 120px;
+            background-color: var(--card-inner);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 11px;
+            color: var(--text-body);
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .layer-text {
-            display: flex;
-            flex-direction: column;
+        /* --- ENLACE SUBRAYADO (LINK DE DESCARGAS) --- */
+        .download-box {
+            text-align: center;
+            margin: 40px 0 60px 0;
+            padding: 20px;
+            background: rgba(0, 113, 227, 0.05);
+            border-radius: 12px;
         }
 
-        .layer-title {
-            font-size: 14px;
+        .download-link {
+            color: var(--accent-blue);
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        .download-link:hover {
+            color: #4796ff;
+        }
+
+        /* --- SECCIÓN NOTICIAS DIARIAS --- */
+        .news-section {
+            border-top: 1px solid var(--border-apple);
+            padding-top: 40px;
+        }
+
+        .news-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background-color: var(--card-apple);
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .news-date {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-blue);
             font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .news-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
             color: #ffffff;
         }
 
-        .layer-desc {
-            font-size: 13px;
+        .news-card p {
+            font-size: 14px;
+            line-height: 1.4;
             color: var(--text-body);
-            margin-top: 3px;
-            line-height: 1.3;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-    <nav class="apple-nav">
-        <div class="nav-content">
-            <div class="nav-logo">Mundo APK</div>
-            </div>
-    </nav>
+    <div class="container">
 
-    <main class="main-container">
+        <div class="device-section">
 
-        <section class="hero-section">
-            <h1 class="hero-title">Esquemas de Hardware</h1>
-            <p class="hero-subtitle">Análisis visual y diagramas de desarmado de componentes internos.</p>
-        </section>
-
-        <div class="diagram-grid">
-
-            <div class="apple-device-card">
-                <div class="card-header">
-                    <h3>Fire TV Stick</h3>
-                    <span class="apple-badge b-fire">Amazon</span>
+            <div class="device-card">
+                <div class="device-info">
+                    <h2>Google TV</h2>
+                    <p>Es una interfaz inteligente basada en Android TV que organiza películas, series y programas en vivo de todas tus aplicaciones de streaming en una sola pantalla. Personaliza las recomendaciones según tus gustos y permite perfiles individuales.</p>
                 </div>
-                <div class="apple-exploded-list">
-                    <div class="apple-layer">
-                        <div class="apple-num">1</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Carcasa Exterior</span>
-                            <span class="layer-desc">Protección de policarbonato mate.</span>
-                        </div>
-                    </div>
-                    <div class="apple-layer">
-                        <div class="apple-num">2</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Disipador Térmico</span>
-                            <span class="layer-desc">Placa metálica superior para control de temperatura.</span>
-                        </div>
-                    </div>
-                    <div class="apple-layer">
-                        <div class="apple-num">3</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Placa Base (PCB)</span>
-                            <span class="layer-desc">Procesador Quad-Core, RAM y almacenamiento interno.</span>
-                        </div>
-                    </div>
-                    <div class="apple-layer">
-                        <div class="apple-num">4</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Módulo Wi-Fi / Conector</span>
-                            <span class="layer-desc">Antena integrada y salida HDMI directa.</span>
-                        </div>
-                    </div>
+                <div class="device-image">
+                    <img src="" alt="Google TV" style="max-width:100%; max-height:100%; display:block; margin:0 auto; font-size:10px;">
+                    <span>[Imagen Google TV]</span>
                 </div>
             </div>
 
-            <div class="apple-device-card">
-                <div class="card-header">
-                    <h3>Android TV</h3>
-                    <span class="apple-badge b-android">Smart TV</span>
+            <div class="device-card">
+                <div class="device-info">
+                    <h2>Fire TV Stick</h2>
+                    <p>El dispositivo de streaming de Amazon que se conecta directamente al puerto HDMI de tu televisor. Funciona con Fire OS (basado en Android), lo que permite la instalación de archivos APK de forma rápida para expandir las capacidades de entretenimiento y streaming.</p>
                 </div>
-                <div class="apple-exploded-list">
-                    <div class="apple-layer">
-                        <div class="apple-num">1</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Panel Posterior</span>
-                            <span class="layer-desc">Chasis trasero con rejillas de ventilación.</span>
-                        </div>
-                    </div>
-                    <div class="apple-layer">
-                        <div class="apple-num">2</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Tarjeta Principal (Main)</span>
-                            <span class="layer-desc">Cerebro del TV con el SoC Android y conectores.</span>
-                        </div>
-                    </div>
-                    <div class="apple-layer">
-                        <div class="apple-num">3</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Fuente de Alimentación</span>
-                            <span class="layer-desc">Regulador y distribución de energía a los LEDs.</span>
-                        </div>
-                    </div>
-                    <div class="apple-layer">
-                        <div class="apple-num">4</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Módulo de Pantalla T-CON</span>
-                            <span class="layer-desc">Controlador de video conectado al panel por flex de datos.</span>
-                        </div>
-                    </div>
+                <div class="device-image">
+                    <img src="" alt="Fire Stick" style="max-width:100%; max-height:100%; display:block; margin:0 auto; font-size:10px;">
+                    <span>[Imagen Fire Stick]</span>
                 </div>
             </div>
 
-            <div class="apple-device-card">
-                <div class="card-header">
-                    <h3>Watch Onn</h3>
-                    <span class="apple-badge b-onn">Onn Box</span>
+            <div class="device-card">
+                <div class="device-info">
+                    <h2>Watch Onn Box</h2>
+                    <p>El dispositivo de streaming en formato box certificado por Google. Ofrece una experiencia pura de Google TV en resolución 4K a un costo muy accesible. Cuenta con un rendimiento óptimo para la carga de aplicaciones de streaming y herramientas de descarga.</p>
                 </div>
-                <div class="apple-exploded-list">
-                    <div class="apple-layer">
-                        <div class="apple-num">1</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Cubierta Superior</span>
-                            <span class="layer-desc">Carcasa plástica de perfil ultra delgado.</span>
-                        </div>
-                    </div>
-                    <div class="apple-layer">
-                        <div class="apple-num">2</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Contrapeso y Disipador</span>
-                            <span class="layer-desc">Bloque metálico para disipación pasiva.</span>
-                        </div>
-                    </div>
-                    <div class="apple-layer">
-                        <div class="apple-num">3</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Placa Circuito Lógica</span>
-                            <span class="layer-desc">Procesador Amlogic y chips de memoria flash.</span>
-                        </div>
-                    </div>
-                    <div class="apple-layer">
-                        <div class="apple-num">4</div>
-                        <div class="layer-text">
-                            <span class="layer-title">Base de Goma</span>
-                            <span class="layer-desc">Soporte inferior antideslizante con acceso a tornillos.</span>
-                        </div>
-                    </div>
+                <div class="device-image">
+                    <img src="" alt="Watch Onn" style="max-width:100%; max-height:100%; display:block; margin:0 auto; font-size:10px;">
+                    <span>[Imagen Watch Onn]</span>
                 </div>
             </div>
 
         </div>
-    </main>
+
+        <div class="download-box">
+            <a href="https://tu-link-aqui.com/codigo" class="download-link">click aqui</a>
+        </div>
+
+        <section class="news-section">
+            <h2>Noticias del Día</h2>
+            <div class="news-grid">
+
+                <div class="news-card">
+                    <span class="news-date">Actualizado Hoy</span>
+                    <h3>Nueva actualización de apps</h3>
+                    <p>Descubre las últimas versiones disponibles para optimizar el streaming en tus dispositivos y Sticks.</p>
+                </div>
+
+                <div class="news-card">
+                    <span class="news-date">Actualizado Hoy</span>
+                    <h3>Soporte y optimización</h3>
+                    <p>Mejoras de rendimiento y soluciones de estabilidad para reproductores basados en Android TV.</p>
+                </div>
+
+                <div class="news-card">
+                    <span class="news-date">Actualizado Hoy</span>
+                    <h3>Guías de configuración</h3>
+                    <p>Nuevos métodos paso a paso para configurar herramientas de descarga sin errores en tu sistema.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
 
 </body>
 </html>
