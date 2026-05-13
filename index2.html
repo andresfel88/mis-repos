@@ -39,69 +39,24 @@
             box-sizing: border-box;
         }
 
-        /* --- BANNER PIRATAS DEL CARIBE (100% CSS PREMIUM) --- */
-        .pirate-banner {
+        /* --- CONTENEDOR DEL BANNER REAL DE PIRATAS --- */
+        .banner-container {
             width: 100%;
-            height: 220px;
-            background: linear-gradient(135px, #07111a 0%, #122533 50%, #03070d 100%);
+            height: auto;
+            max-height: 240px;
             border-radius: 20px;
-            margin-bottom: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
             overflow: hidden;
-            box-shadow: inset 0 0 40px rgba(0,0,0,0.8), 0 8px 24px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            margin-bottom: 35px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: #050b11;
         }
 
-        /* Efecto de olas sutiles de fondo */
-        .pirate-banner::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 200%;
-            height: 40px;
-            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'><path d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z' fill='%2303070d' opacity='.5'></path></svg>");
-            background-size: 50% 100%;
-        }
-
-        /* Silueta de barco pirata */
-        .pirate-ship {
-            position: absolute;
-            bottom: 15px;
-            right: 40px;
-            width: 90px;
-            height: 90px;
-            opacity: 0.15;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23ffffff' d='M20,70 C30,72 40,72 80,70 C85,65 90,50 85,45 C80,48 75,48 70,45 C65,30 55,10 50,5 C45,15 35,30 30,45 C25,48 20,48 15,45 C10,50 15,65 20,70 Z M50,5 L50,65 M35,30 L35,60 M65,30 L65,60'/></svg>");
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .pirate-title {
-            font-size: 36px;
-            font-weight: 900;
-            color: #ffd700; /* Oro Pirata */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.9), 0 0 5px rgba(255,215,0,0.4);
-            font-family: 'Georgia', serif;
-            z-index: 2;
-        }
-
-        .pirate-subtitle {
-            font-size: 14px;
-            color: #a3b8cc;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-top: 8px;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-            z-index: 2;
+        .banner-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* --- GRID DE DISPOSITIVOS --- */
@@ -306,8 +261,7 @@
         @media (max-width: 768px) {
             .apple-container { padding: 25px 20px; }
             .grid-news-row { grid-template-columns: 1fr; }
-            .pirate-title { font-size: 26px; text-align: center; }
-            .pirate-subtitle { font-size: 10px; letter-spacing: 2px; }
+            .banner-container { max-height: 140px; }
         }
     </style>
 </head>
@@ -315,10 +269,8 @@
 
     <div class="apple-container">
         
-        <div class="pirate-banner">
-            <div class="pirate-title">Mundo APK</div>
-            <div class="pirate-subtitle">Piratas del Caribe</div>
-            <div class="pirate-ship"></div>
+        <div class="banner-container">
+            <img src="https://images2.alphacoders.com/517/517170.jpg" alt="Mundo APK - Piratas del Caribe">
         </div>
 
         <div class="grid-devices">
