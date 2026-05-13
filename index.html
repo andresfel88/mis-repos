@@ -3,235 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Estilo Apple</title>
+    <title>Mundo APK - Apple Style</title>
     <style>
-        /* --- ESTILO APPLE (DARK MODE) --- */
+        /* --- ESTILOS DE SISTEMA APPLE (LIGHT MODE) --- */
         :root {
-            --bg-apple: #000000;
-            --card-apple: #161617;
-            --card-inner: #212124;
-            --text-title: #f5f5f7;
-            --text-body: #86868b;
-            --accent-blue: #0071e3;
-            --border-apple: #424245;
+            --bg-apple-screen: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --accent-blue: #0066cc;
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --shadow-apple: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-apple);
-            color: var(--text-title);
+            background-color: var(--bg-apple-screen);
+            color: var(--text-main);
             margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
             padding: 40px 20px;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
         }
 
-        /* --- SECCIÓN DISPOSITIVOS --- */
-        .device-section {
+        .canvas {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #fbfcff;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+
+        .main-title {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 0 0 30px 0;
+            color: var(--text-main);
+        }
+
+        /* --- CUADRÍCULA DE DISPOSITIVOS (3 COLUMNAS) --- */
+        .devices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .apple-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow-apple);
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            margin-bottom: 60px;
+            box-sizing: border-box;
         }
 
-        .device-card {
-            background-color: var(--card-apple);
-            border-radius: 18px;
-            padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: grid;
-            grid-template-columns: 1fr 120px;
-            gap: 20px;
-            align-items: center;
-        }
-
-        @media (max-width: 600px) {
-            .device-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .device-image {
-                margin: 0 auto;
-            }
-        }
-
-        .device-info h2 {
-            font-size: 24px;
+        .card-tag {
+            font-size: 13px;
             font-weight: 600;
-            margin: 0 0 10px 0;
-            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            margin-bottom: 16px;
         }
 
-        .device-info p {
-            font-size: 15px;
-            line-height: 1.5;
-            color: var(--text-body);
-            margin: 0;
-        }
-
-        .device-image {
-            width: 120px;
-            height: 120px;
-            background-color: var(--card-inner);
-            border-radius: 14px;
+        .image-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: #f5f5f7;
+            border-radius: 12px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
-            color: var(--text-body);
-            text-align: center;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 14px;
+            border: 1px dashed rgba(0,0,0,0.05);
+            overflow: hidden;
         }
 
-        /* --- ENLACE SUBRAYADO (LINK DE DESCARGAS) --- */
-        .download-box {
-            text-align: center;
-            margin: 40px 0 60px 0;
-            padding: 20px;
-            background: rgba(0, 113, 227, 0.05);
-            border-radius: 12px;
+        /* Si tienes URL de tus imágenes, se adaptarán aquí */
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .download-link {
-            color: var(--accent-blue);
-            font-size: 16px;
-            font-weight: 500;
-            text-decoration: underline;
-            transition: color 0.2s ease;
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.3px;
         }
 
-        .download-link:hover {
-            color: #4796ff;
+        .card-desc {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0;
         }
 
         /* --- SECCIÓN NOTICIAS DIARIAS --- */
-        .news-section {
-            border-top: 1px solid var(--border-apple);
-            padding-top: 40px;
+        .news-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow-apple);
+            margin-bottom: 40px;
+            box-sizing: border-box;
         }
 
-        .news-section h2 {
-            font-size: 28px;
+        .news-header {
+            margin-bottom: 20px;
+        }
+
+        .news-title {
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 25px;
-            letter-spacing: -0.5px;
+            margin: 0 0 4px 0;
+            letter-spacing: -0.4px;
         }
 
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .news-card {
-            background-color: var(--card-apple);
-            border-radius: 14px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-        }
-
-        .news-date {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--accent-blue);
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .news-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0 0 10px 0;
-            color: #ffffff;
-        }
-
-        .news-card p {
-            font-size: 14px;
-            line-height: 1.4;
-            color: var(--text-body);
+        .news-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
             margin: 0;
+        }
+
+        .news-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .news-item {
+            background-color: #f5f5f7;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .news-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .news-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            color: var(--text-main);
+        }
+
+        .news-item-desc {
+            font-size: 12px;
+            line-height: 1.4;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* --- ENLACE INFERIOR PRINCIPAL --- */
+        .bottom-action {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .click-here-link {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-decoration: underline;
+            letter-spacing: -0.5px;
+            display: inline-block;
+            transition: opacity 0.2s ease;
+        }
+
+        .click-here-link:hover {
+            opacity: 0.8;
+        }
+
+        .link-caption {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 6px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="canvas">
+        
+        <h1 class="main-title">Mundo APK - Apple Style</h1>
 
-        <div class="device-section">
+        <div class="devices-grid">
 
-            <div class="device-card">
-                <div class="device-info">
-                    <h2>Google TV</h2>
-                    <p>Es una interfaz inteligente basada en Android TV que organiza películas, series y programas en vivo de todas tus aplicaciones de streaming en una sola pantalla. Personaliza las recomendaciones según tus gustos y permite perfiles individuales.</p>
+            <div class="apple-card">
+                <div class="card-tag">What is Google TV?</div>
+                <div class="image-placeholder">
+                    <img src="" alt="Google TV Interface">
                 </div>
-                <div class="device-image">
-                    <img src="" alt="Google TV" style="max-width:100%; max-height:100%; display:block; margin:0 auto; font-size:10px;">
-                    <span>[Imagen Google TV]</span>
-                </div>
+                <h2 class="card-title">What is Google TV?</h2>
+                <p class="card-desc">Es una interfaz inteligente basada en Android que organiza de manera fluida tus contenidos, canales en vivo y recomendaciones personalizadas directamente en tu pantalla de inicio.</p>
             </div>
 
-            <div class="device-card">
-                <div class="device-info">
-                    <h2>Fire TV Stick</h2>
-                    <p>El dispositivo de streaming de Amazon que se conecta directamente al puerto HDMI de tu televisor. Funciona con Fire OS (basado en Android), lo que permite la instalación de archivos APK de forma rápida para expandir las capacidades de entretenimiento y streaming.</p>
+            <div class="apple-card">
+                <div class="card-tag">What is Firestick?</div>
+                <div class="image-placeholder">
+                    <img src="" alt="Fire TV Stick Hardware">
                 </div>
-                <div class="device-image">
-                    <img src="" alt="Fire Stick" style="max-width:100%; max-height:100%; display:block; margin:0 auto; font-size:10px;">
-                    <span>[Imagen Fire Stick]</span>
-                </div>
+                <h2 class="card-title">What is Firestick?</h2>
+                <p class="card-desc">El popular dongle de Amazon diseñado para conectarse al puerto HDMI de tu televisor. Corre sobre Fire OS (Android), lo que abre la puerta a la carga de múltiples formatos APK de streaming.</p>
             </div>
 
-            <div class="device-card">
-                <div class="device-info">
-                    <h2>Watch Onn Box</h2>
-                    <p>El dispositivo de streaming en formato box certificado por Google. Ofrece una experiencia pura de Google TV en resolución 4K a un costo muy accesible. Cuenta con un rendimiento óptimo para la carga de aplicaciones de streaming y herramientas de descarga.</p>
+            <div class="apple-card">
+                <div class="card-tag">Watch Onn</div>
+                <div class="image-placeholder">
+                    <img src="" alt="Onn UHD Box Hardware">
                 </div>
-                <div class="device-image">
-                    <img src="" alt="Watch Onn" style="max-width:100%; max-height:100%; display:block; margin:0 auto; font-size:10px;">
-                    <span>[Imagen Watch Onn]</span>
-                </div>
+                <h2 class="card-title">Watch Onn</h2>
+                <p class="card-desc">La caja de transmisión multimedia 4K oficial de Walmart que integra el sistema Google TV puro, destacando por su alta fluidez, compatibilidad de apps y excelente relación costo-beneficio.</p>
             </div>
 
         </div>
 
-        <div class="download-box">
-            <a href="https://tu-link-aqui.com/codigo" class="download-link">click aqui</a>
-        </div>
-
-        <section class="news-section">
-            <h2>Noticias del Día</h2>
-            <div class="news-grid">
-
-                <div class="news-card">
-                    <span class="news-date">Actualizado Hoy</span>
-                    <h3>Nueva actualización de apps</h3>
-                    <p>Descubre las últimas versiones disponibles para optimizar el streaming en tus dispositivos y Sticks.</p>
+        <div class="news-container">
+            <div class="news-header">
+                <h2 class="news-title">Daily Updated News</h2>
+                <p class="news-subtitle">Updated 2h ago</p>
+            </div>
+            
+            <div class="news-row">
+                
+                <div class="news-item">
+                    <div class="news-icon">📺</div>
+                    <div class="news-text">
+                        <h3 class="news-item-title">New Google TV Update</h3>
+                        <p class="news-item-desc">Actualizaciones recientes de parches de interfaz de usuario y rendimiento general.</p>
+                    </div>
                 </div>
 
-                <div class="news-card">
-                    <span class="news-date">Actualizado Hoy</span>
-                    <h3>Soporte y optimización</h3>
-                    <p>Mejoras de rendimiento y soluciones de estabilidad para reproductores basados en Android TV.</p>
+                <div class="news-item">
+                    <div class="news-icon">🔥</div>
+                    <div class="news-text">
+                        <h3 class="news-item-title">Firestick Tips</h3>
+                        <p class="news-item-desc">Consejos clave para evitar almacenamiento lleno en sticks 4K.</p>
+                    </div>
                 </div>
 
-                <div class="news-card">
-                    <span class="news-date">Actualizado Hoy</span>
-                    <h3>Guías de configuración</h3>
-                    <p>Nuevos métodos paso a paso para configurar herramientas de descarga sin errores en tu sistema.</p>
+                <div class="news-item">
+                    <div class="news-icon">📦</div>
+                    <div class="news-text">
+                        <h3 class="news-item-title">Onn Box Review</h3>
+                        <p class="news-item-desc">Análisis a fondo del hardware interno de la nueva versión del dispositivo UHD.</p>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-icon">📥</div>
+                    <div class="news-text">
+                        <h3 class="news-item-title">App Download Guides</h3>
+                        <p class="news-item-desc">Tutoriales sencillos para cargar códigos de forma remota y veloz.</p>
+                    </div>
                 </div>
 
             </div>
-        </section>
+        </div>
+
+        <div class="bottom-action">
+            <a href="https://tu-link-de-descargas.com" class="click-here-link">click aquí</a>
+            <div class="link-caption">Link to download apps code</div>
+        </div>
 
     </div>
 
