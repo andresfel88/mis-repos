@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Piratas del Caribe</title>
+    <title>Mundo APK - AT-APK</title>
     <style>
         /* --- ESTILOS DE DOCUMENTACIÓN TÉCNICA / INFORME SOPORTE --- */
         :root {
@@ -39,24 +39,12 @@
             box-sizing: border-box;
         }
 
-        /* --- CONTENEDOR DEL BANNER REAL DE PIRATAS --- */
-        .banner-container {
-            width: 100%;
-            height: auto;
-            max-height: 240px;
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 35px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background-color: #050b11;
-        }
-
-        .banner-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .header-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            margin: 0 0 35px 0;
+            color: var(--text-main);
         }
 
         /* --- GRID DE DISPOSITIVOS --- */
@@ -261,7 +249,7 @@
         @media (max-width: 768px) {
             .apple-container { padding: 25px 20px; }
             .grid-news-row { grid-template-columns: 1fr; }
-            .banner-container { max-height: 140px; }
+            .header-title { text-align: center; }
         }
     </style>
 </head>
@@ -269,9 +257,7 @@
 
     <div class="apple-container">
         
-        <div class="banner-container">
-            <img src="https://i.ibb.co/3kWgH9P/piratas-banner.jpg" alt="Mundo APK - Piratas del Caribe">
-        </div>
+        <h1 class="header-title">Mundo APK - AT-APK</h1>
 
         <div class="grid-devices">
 
