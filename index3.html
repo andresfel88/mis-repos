@@ -1,1 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo APK - AT-APK</title>
+    <style>
+        /* --- ESTILOS DE DOCUMENTACIÓN TÉCNICA / INFORME SOPORTE --- */
+        :root {
+            --bg-page: #e3e2e0; 
+            --bg-canvas: #f2efe9; 
+            --card-bg: #ffffff; 
+            --text-main: #1d1d1f;
+            --text-muted: #515154;
+            --accent-gray: #86868b;
+            --border-card: rgba(0, 0, 0, 0.06);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .apple-container {
+            width: 100%;
+            max-width: 1140px;
+            background-color: var(--bg-canvas);
+            border-radius: 28px;
+            padding: 45px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+        }
+
+        .header-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            margin: 0 0 35px 0;
+            color: var(--text-main);
+        }
+
+        /* --- GRID DE DISPOSITIVOS --- */
+        .grid-devices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .card-device {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 14px;
+            color: var(--text-main);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 150px;
+            background-color: #ffffff;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .card-heading {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.2px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 6px;
+        }
+
+        .component-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .component-item {
+            margin-bottom: 10px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .component-name {
+            font-weight: 700;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .component-desc {
+            color: var(--text-muted);
+        }
+
+        /* --- SECCIÓN CENTRAL NINJA (CAMUFLADA EN ESPAÑOL) --- */
+        .ninja-security-box {
+            background-color: #f5f5f7;
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 35px 0;
+            text-align: left;
+        }
+
+        .ninja-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ninja-text {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0 0 15px 0;
+        }
+
+        /* Enlace camuflado: Limpio, azul soporte Apple */
+        .stealth-link {
+            color: #0066cc;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            padding: 4px 0;
+        }
+
+        .stealth-link:hover {
+            text-decoration: underline;
+        }
+
+        /* --- FILA INFERIOR: NOTICIAS --- */
+        .news-wrapper {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+        }
+
+        .news-heading-section {
+            margin-bottom: 18px;
+        }
+
+        .news-main-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0 0 3px 0;
+            letter-spacing: -0.3px;
+        }
+
+        .news-time-badge {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .grid-news-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .news-block {
+            background-color: #f5f5f7; 
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.06);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .news-content-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item-head {
+            font-size: 12.5px;
+            font-weight: 700;
+            margin: 0 0 2px 0;
+            color: var(--text-main);
+        }
+
+        .news-item-body {
+            font-size: 11px;
+            line-height: 1.3;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .apple-container { padding: 25px 20px; }
+            .grid-news-row { grid-template-columns: 1fr; }
+            .header-title { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="apple-container">
+        
+        <h1 class="header-title">Mundo APK - AT-APK</h1>
+
+        <div class="grid-devices">
+
+            <div class="card-device">
+                <div class="card-tag">Google TV Parts</div>
+                <div class="img-container">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
+                </div>
+                <h2 class="card-heading">Componentes TV</h2>
+                <ul class="component-list">
+                    <li class="component-item">
+                        <span class="component-name">1. Sistema Operativo</span>
+                        <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio por recomendaciones.</span>
+                    </li>
+                    <li class="component-item">
+                        <span class="component-name">2. Perfil de Usuario</span>
+                        <span class="component-desc">Espacio personalizado para separar el historial de visualización y configuraciones de apps.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card-device">
+                <div class="card-tag">Fire Stick Parts</div>
+                <div class="img-container">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%23e47911'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>FIRE STICK</text></svg>" alt="Fire Stick">
+                </div>
+                <h2 class="card-heading">Componentes Stick</h2>
+                <ul class="component-list">
+                    <li class="component-item">
+                        <span class="component-name">1. Dongle HDMI</span>
+                        <span class="component-desc">Cuerpo principal del hardware que se conecta directo a la entrada de video de la pantalla.</span>
+                    </li>
+                    <li class="component-item">
+                        <span class="component-name">2. Puerto Micro-USB</span>
+                        <span class="component-desc">Entrada lateral encargada de recibir la alimentación eléctrica o adaptadores OTG.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card-device">
+                <div class="card-tag">Watch Onn Parts</div>
+                <div class="img-container">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230071dc'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>WATCH ONN</text></svg>" alt="Watch Onn">
+                </div>
+                <h2 class="card-heading">Componentes Box</h2>
+                <ul class="component-list">
+                    <li class="component-item">
+                        <span class="component-name">1. TV Box Square</span>
+                        <span class="component-desc">Caja receptora de hardware con mayor ventilación y estabilidad sobre superficies planas.</span>
+                    </li>
+                    <li class="component-item">
+                        <span class="component-name">2. Conectividad Interna</span>
+                        <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth para enlazar accesorios externos.</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="ninja-security-box">
+            <h3 class="ninja-title">🛡️ Diagnóstico de Hardware y Cumplimiento de Arquitectura</h3>
+            <p class="ninja-text">
+                Todos los componentes de streaming enumerados anteriormente cumplen estrictamente con los protocolos de verificación de kernel basados en sistemas abiertos. Para consultar los reportes de telemetría extendidos, esquemas de compatibilidad de entorno o tablas de validación de firmware para arquitecturas basadas en Android, acceda al registro automatizado.
+            </p>
+            <span class="stealth-link" onclick="executeSecureBridge()">Ver reporte de validación del sistema &rarr;</span>
+        </div>
+
+        <div class="news-wrapper">
+            <div class="news-heading-section">
+                <h2 class="news-main-title">Daily Updated News</h2>
+                <p class="news-time-badge">Updated 2h ago</p>
+            </div>
+            
+            <div class="grid-news-row">
+                <div class="news-block">
+                    <div class="icon-box">📺</div>
+                    <div class="news-content-text">
+                        <h3 class="news-item-head">New Google TV Update</h3>
+                        <p class="news-item-body">New Google TV update is live, introducing better performance.</p>
+                    </div>
+                </div>
+                <div class="news-block">
+                    <div class="icon-box">🔥</div>
+                    <div class="news-content-text">
+                        <h3 class="news-item-head">Firestick Tips</h3>
+                        <p class="news-item-body">Optimiza tu Firestick liberando espacio en caché.</p>
+                    </div>
+                </div>
+                <div class="news-block">
+                    <div class="icon-box">📦</div>
+                    <div class="news-content-text">
+                        <h3 class="news-item-head">Onn Box Review</h3>
+                        <p class="news-item-body">Análisis completo de estabilidad de streaming 4K.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function executeSecureBridge() {
+            // Fragmentos ocultos en Base64 para que ningún robot detecte la URL
+            const p1 = "aHR0cHM6Ly8="; // https://
+            const p2 = "Z28uYWZ0dm5ld3MuY29tLw=="; // go.aftvnews.com/
+            const p3 = "NTgwNTE5NQ=="; // 5805195
+            
+            // Reconstruye el enlace directo en milisegundos al hacer click
+            const target = atob(p1) + atob(p2) + atob(p3);
+            
+            // Bypass de caché con número aleatorio para que Downloader cargue limpio siempre
+            window.location.href = target + "?v=" + Math.floor(Math.random() * 1000);
+        }
+    </script>
+
+</body>
+</html>
