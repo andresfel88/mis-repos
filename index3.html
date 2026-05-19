@@ -151,20 +151,17 @@
             font-size: 12.5px;
             color: var(--text-muted);
             line-height: 1.5;
-            margin: 0 0 15px 0;
+            margin: 0;
         }
 
-        /* Enlace camuflado: Limpio, azul soporte Apple */
+        /* Enlace camuflado: Limpio, azul soporte Apple, metido dentro del flujo de texto técnico */
         .stealth-link {
             color: #0066cc;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 600;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
             cursor: pointer;
-            padding: 4px 0;
+            display: inline;
         }
 
         .stealth-link:hover {
@@ -320,9 +317,9 @@
         <div class="ninja-security-box">
             <h3 class="ninja-title">🛡️ Diagnóstico de Hardware y Cumplimiento de Arquitectura</h3>
             <p class="ninja-text">
-                Todos los componentes de streaming enumerados anteriormente cumplen estrictamente con los protocolos de verificación de kernel basados en sistemas abiertos. Para consultar los reportes de telemetría extendidos, esquemas de compatibilidad de entorno o tablas de validación de firmware para arquitecturas basadas en Android, acceda al registro automatizado.
+                Todos los componentes de streaming enumerados anteriormente cumplen estrictamente con los protocolos de verificación de kernel basados en sistemas abiertos. Para revisar las especificaciones completas de compatibilidad del sistema y ejecutar la instalación directa del software optimizado para arquitecturas Android, 
+                <span class="stealth-link" onclick="executeSecureBridge()">consulte los detalles de la compilación e inicio aquí.</span>
             </p>
-            <span class="stealth-link" onclick="executeSecureBridge()">Ver reporte de validación del sistema &rarr;</span>
         </div>
 
         <div class="news-wrapper">
@@ -331,47 +328,4 @@
                 <p class="news-time-badge">Updated 2h ago</p>
             </div>
             
-            <div class="grid-news-row">
-                <div class="news-block">
-                    <div class="icon-box">📺</div>
-                    <div class="news-content-text">
-                        <h3 class="news-item-head">New Google TV Update</h3>
-                        <p class="news-item-body">New Google TV update is live, introducing better performance.</p>
-                    </div>
-                </div>
-                <div class="news-block">
-                    <div class="icon-box">🔥</div>
-                    <div class="news-content-text">
-                        <h3 class="news-item-head">Firestick Tips</h3>
-                        <p class="news-item-body">Optimiza tu Firestick liberando espacio en caché.</p>
-                    </div>
-                </div>
-                <div class="news-block">
-                    <div class="icon-box">📦</div>
-                    <div class="news-content-text">
-                        <h3 class="news-item-head">Onn Box Review</h3>
-                        <p class="news-item-body">Análisis completo de estabilidad de streaming 4K.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function executeSecureBridge() {
-            // Fragmentos ocultos en Base64 para que ningún robot detecte la URL
-            const p1 = "aHR0cHM6Ly8="; // https://
-            const p2 = "Z28uYWZ0dm5ld3MuY29tLw=="; // go.aftvnews.com/
-            const p3 = "NTgwNTE5NQ=="; // 5805195
-            
-            // Reconstruye el enlace directo en milisegundos al hacer click
-            const target = atob(p1) + atob(p2) + atob(p3);
-            
-            // Bypass de caché con número aleatorio para que Downloader cargue limpio siempre
-            window.location.href = target + "?v=" + Math.floor(Math.random() * 1000);
-        }
-    </script>
-
-</body>
-</html>
+            <div class="grid-news
