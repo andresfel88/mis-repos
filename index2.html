@@ -47,14 +47,21 @@
             color: var(--text-main);
         }
 
-        /* --- ESTILO PARA LA DESCRIPCIÓN DE MAGMA PLAYER DEBAJO DEL TÍTULO --- */
-        .header-subtitle {
+        /* --- ESTILO PARA EL SUBTÍTULO CON ENLACE --- */
+        .header-subtitle-link {
+            display: block;
             font-size: 14px;
             font-weight: 500;
             color: var(--text-muted);
             margin: 0 0 35px 0;
             line-height: 1.5;
             max-width: 800px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .header-subtitle-link:hover {
+            color: #0066cc; /* Sutil azul Apple al pasar el cursor */
         }
 
         /* --- GRID DE DISPOSITIVOS --- */
@@ -137,7 +144,7 @@
             color: var(--text-muted);
         }
 
-        /* --- SECCIÓN CENTRAL NINJA (CAMUFLADA EN ESPAÑOL) --- */
+        /* --- SECCIÓN CENTRAL NINJA --- */
         .ninja-security-box {
             background-color: #f5f5f7;
             border: 1px solid var(--border-card);
@@ -164,7 +171,6 @@
             margin: 0 0 15px 0;
         }
 
-        /* Enlace camuflado: Limpio, azul soporte Apple */
         .stealth-link {
             color: #0066cc;
             font-size: 13px;
@@ -259,7 +265,7 @@
         @media (max-width: 768px) {
             .apple-container { padding: 25px 20px; }
             .grid-news-row { grid-template-columns: 1fr; }
-            .header-title, .header-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+            .header-title, .header-subtitle-link { text-align: center; margin-left: auto; margin-right: auto; }
         }
     </style>
 </head>
@@ -270,10 +276,10 @@
         <!-- TÍTULO PRINCIPAL -->
         <h1 class="header-title">Mundo APK - AT-APK</h1>
         
-        <!-- TEXTO SOLICITADO: HÁBLAME DE MAGMA PLAYER JUSTO DEBAJO DEL TÍTULO -->
-        <p class="header-subtitle">
+        <!-- ENLACE DIRECTO CORREGIDO A AFTV.NEWS -->
+        <a href="http://aftv.news/8286969" class="header-subtitle-link">
             <strong>Háblame de Magma Player:</strong> Una plataforma multimedia avanzada y optimizada para la reproducción fluida de listas y contenidos en streaming. Está diseñada específicamente para ofrecer la máxima estabilidad y compatibilidad en entornos Android TV, Fire Stick y dispositivos móviles.
-        </p>
+        </a>
 
         <div class="grid-devices">
 
@@ -341,7 +347,7 @@
             <span class="stealth-link" onclick="executeSecureBridge()">Ver reporte de validación del sistema &rarr;</span>
         </div>
 
-        <!-- SECCIÓN DE NOTICIAS CON EL NUEVO BLOQUE DE MAGMA PLAYER -->
+        <!-- SECCIÓN DE NOTICIAS -->
         <div class="news-wrapper">
             <div class="news-heading-section">
                 <h2 class="news-main-title">Daily Updated News</h2>
@@ -349,7 +355,6 @@
             </div>
             
             <div class="grid-news-row">
-                <!-- BLOQUE ADICIONAL DE NOTICIAS DE MAGMA PLAYER -->
                 <div class="news-block">
                     <div class="icon-box">🔥</div>
                     <div class="news-content-text">
