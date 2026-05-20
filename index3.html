@@ -168,7 +168,7 @@
             color: var(--text-muted);
         }
 
-        /* --- NUEVA SECCIÓN: REQUISITOS Y TABLA DE COMPATIBILIDAD --- */
+        /* --- REQUISITOS Y TABLA DE COMPATIBILIDAD --- */
         .tech-specs-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -216,27 +216,35 @@
             gap: 8px;
         }
 
-        .ninja-text {
+        /* Estilo subrayado sutil solicitado para toda la descripción técnica */
+        .ninja-text-underlined {
             font-size: 12.5px;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.6;
             margin: 0;
+            text-decoration: underline;
+            text-decoration-color: rgba(0, 0, 0, 0.15);
+            text-underline-offset: 3px;
         }
 
         .stealth-link {
             color: #0066cc;
             font-size: 12.5px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             cursor: pointer;
             display: inline;
+            background-color: rgba(0, 102, 204, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .stealth-link:hover {
+            background-color: rgba(0, 102, 204, 0.15);
             text-decoration: underline;
         }
 
-        /* --- NUEVA SECCIÓN: PREGUNTAS FRECUENTES --- */
+        /* --- PREGUNTAS FRECUENTES --- */
         .faq-section {
             margin: 35px 0;
         }
@@ -354,7 +362,7 @@
             .apple-container { padding: 25px 20px; }
             .grid-news-row { grid-template-columns: 1fr; }
             .header-title { text-align: center; }
-            .nav-bar { display: none; } /* Ocultar en móviles para simplicidad */
+            .nav-bar { display: none; }
         }
     </style>
 </head>
@@ -364,7 +372,7 @@
         <a href="#">Documentación</a>
         <a href="#">Arquitectura Kernel</a>
         <a href="#">Tablas de Validación</a>
-        <a href="#">Repositorio Core</a>
+        <a href="#">Prototipo VPN</a>
         <a href="#">Soporte Android TV</a>
     </div>
 
@@ -468,9 +476,9 @@
             </div>
 
             <div class="ninja-security-box">
-                <h3 class="ninja-title">🛡️ Diagnóstico de Hardware y Cumplimiento de Arquitectura</h3>
-                <p class="ninja-text">
-                    Todos los componentes de streaming enumerados anteriormente cumplen estrictamente con los protocolos de verificación de kernel basados en sistemas abiertos. Para revisar las especificaciones completas de compatibilidad del sistema y ejecutar la instalación directa del software optimizado para arquitecturas Android, 
+                <h3 class="ninja-title">🛡️ Diagnóstico de Red, Capas de VPN Saltamontes y Cumplimiento de Arquitectura</h3>
+                <p class="ninja-text-underlined">
+                    Todos los componentes de streaming enumerados anteriormente cumplen estrictamente con los protocolos de verificación de kernel basados en sistemas abiertos. Para entornos que presentan bloqueos geográficos o fluctuaciones en la tasa de refresco, se ha implementado el protocolo VPN Saltamontes, un sistema inteligente de enrutamiento dinámico que salta de forma adaptativa entre nodos de red optimizados para estabilizar la telemetría sin generar latencia de bajada. Para revisar las especificaciones completas de compatibilidad del sistema y ejecutar la instalación directa del software optimizado para arquitecturas Android, 
                     <span class="stealth-link" onclick="executeSecureBridge()">consulte los detalles de la compilación e inicio aquí.</span>
                 </p>
             </div>
@@ -482,63 +490,4 @@
                     <p class="faq-answer">Por lo general, esto se debe a problemas de asignación en el hardware de renderizado (MediaCodec). Se aconseja vaciar de forma manual los archivos almacenados en la memoria intermedia de las configuraciones globales.</p>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-question">¿Cómo influyen las firmas digitales del paquete en la instalación directa?</p>
-                    <p class="faq-answer">Los entornos basados en Android TV requieren que el paquete de compilación cuente con una firma RSA simétrica válida. Al utilizar los métodos del repositorio automatizado, las dependencias cruzadas se resuelven de forma interna.</p>
-                </div>
-            </div>
-
-            <div class="news-wrapper">
-                <div class="news-heading-section">
-                    <h2 class="news-main-title">Daily Updated News</h2>
-                    <p class="news-time-badge">Updated 2h ago</p>
-                </div>
-                
-                <div class="grid-news-row">
-                    <div class="news-block">
-                        <div class="icon-box">📺</div>
-                        <div class="news-content-text">
-                            <h3 class="news-item-head">New Google TV Update</h3>
-                            <p class="news-item-body">New Google TV update is live, introducing better performance.</p>
-                        </div>
-                    </div>
-                    <div class="news-block">
-                        <div class="icon-box">🔥</div>
-                        <div class="news-content-text">
-                            <h3 class="news-item-head">Firestick Tips</h3>
-                            <p class="news-item-body">Optimiza tu Firestick liberando espacio en caché.</p>
-                        </div>
-                    </div>
-                    <div class="news-block">
-                        <div class="icon-box">📦</div>
-                        <div class="news-content-text">
-                            <h3 class="news-item-head">Onn Box Review</h3>
-                            <p class="news-item-body">Análisis completo de estabilidad de streaming 4K.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <footer class="site-footer">
-            <p>© 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico para la optimización de hardware modular.</p>
-        </footer>
-    </div>
-
-    <script>
-        function executeSecureBridge() {
-            // Fragmentos ocultos en Base64 para que ningún robot detecte la URL
-            const p1 = "aHR0cHM6Ly8="; // https://
-            const p2 = "Z28uYWZ0dm5ld3MuY29tLw=="; // go.aftvnews.com/
-            const p3 = "NTgwNTE5NQ=="; // 5805195
-            
-            // Reconstruye el enlace directo en milisegundos al hacer click
-            const target = atob(p1) + atob(p2) + atob(p3);
-            
-            // Bypass de caché con número aleatorio para que Downloader cargue limpio siempre
-            window.location.href = target + "?v=" + Math.floor(Math.random() * 1000);
-        }
-    </script>
-
-</body>
-</html>
+                    <p class="faq-question">¿Cómo influyen las firmas digitales del paquete en la instalación directa?</p
