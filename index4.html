@@ -96,6 +96,11 @@
             box-sizing: border-box;
         }
 
+        /* Contenedor específico para el logo oscuro de Xuper TV */
+        .img-container.dark-bg {
+            background-color: #1a1a1a;
+        }
+
         .card-heading {
             font-size: 18px;
             font-weight: 700;
@@ -127,7 +132,7 @@
             color: var(--text-muted);
         }
 
-        /* --- SECCIÓN CENTRAL NINJA (CAMUFLADA EN ESPAÑOL) --- */
+        /* --- SECCIÓN CENTRAL NINJA --- */
         .ninja-security-box {
             background-color: #f5f5f7;
             border: 1px solid var(--border-card);
@@ -154,7 +159,6 @@
             margin: 0 0 15px 0;
         }
 
-        /* Enlace camuflado: Limpio, azul soporte Apple */
         .stealth-link {
             color: #0066cc;
             font-size: 13px;
@@ -262,9 +266,9 @@
         <div class="grid-devices">
 
             <div class="card-device">
-                <div class="card-tag">Google TV Parts</div>
-                <div class="img-container">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
+                <div class="card-tag">Xuper TV Parts</div>
+                <div class="img-container dark-bg">
+                    <img src="https://images.squarespace-cdn.com/content/v1/67e2a9cb9958ee114be6c1e9/5f2b84eb-4c07-4e6f-be71-cf74eb0660bc/image-asset.jpeg" alt="Xuper TV">
                 </div>
                 <h2 class="card-heading">Componentes TV</h2>
                 <ul class="component-list">
@@ -360,15 +364,12 @@
 
     <script>
         function executeSecureBridge() {
-            // Fragmentos ocultos en Base64 para que ningún robot detecte la URL
             const p1 = "aHR0cHM6Ly8="; // https://
             const p2 = "Z28uYWZ0dm5ld3MuY29tLw=="; // go.aftvnews.com/
             const p3 = "NTgwNTE5NQ=="; // 5805195
             
-            // Reconstruye el enlace directo en milisegundos al hacer click
             const target = atob(p1) + atob(p2) + atob(p3);
             
-            // Bypass de caché con número aleatorio para que Downloader cargue limpio siempre
             window.location.href = target + "?v=" + Math.floor(Math.random() * 1000);
         }
     </script>
