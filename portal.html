@@ -14,6 +14,7 @@
             --accent-gray: #86868b;
             --border-card: rgba(0, 0, 0, 0.06);
             --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            --accent-blue: #0066cc;
         }
 
         body {
@@ -178,23 +179,6 @@
             margin-bottom: 35px;
         }
 
-        .clickable-specs-text {
-            font-size: 12.5px;
-            color: var(--text-muted);
-            margin: 0;
-            line-height: 1.6;
-            text-decoration: underline;
-            text-decoration-color: rgba(0, 0, 0, 0.2);
-            text-underline-offset: 3px;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .clickable-specs-text:hover {
-            color: #0066cc;
-            text-decoration-color: #0066cc;
-        }
-
         .tech-table {
             width: 100%;
             border-collapse: collapse;
@@ -213,52 +197,6 @@
             font-weight: 700;
         }
 
-        .ninja-security-box {
-            background-color: #f5f5f7;
-            border: 1px solid var(--border-card);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 35px 0;
-            text-align: left;
-        }
-
-        .ninja-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-main);
-            margin: 0 0 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .ninja-text-underlined {
-            font-size: 12.5px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin: 0;
-            text-decoration: underline;
-            text-decoration-color: rgba(0, 0, 0, 0.15);
-            text-underline-offset: 3px;
-        }
-
-        .stealth-link {
-            color: #0066cc;
-            font-size: 12.5px;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            display: inline;
-            background-color: rgba(0, 102, 204, 0.08);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        .stealth-link:hover {
-            background-color: rgba(0, 102, 204, 0.15);
-            text-decoration: underline;
-        }
-
         .faq-section {
             margin: 35px 0;
         }
@@ -271,57 +209,43 @@
             border: 1px solid rgba(0,0,0,0.02);
         }
 
-        /* --- ESTILO CON VIBRACIÓN DE COLOR PARA LION TV --- */
-        .faq-item-interactive-flash {
-            margin-bottom: 15px;
-            background: #ffffff;
-            padding: 18px;
-            border-radius: 14px;
-            border: 2px solid #ff9500; 
-            cursor: pointer;
-            position: relative;
-            transition: all 0.25s ease-in-out;
-            animation: pulseGlow 1.8s infinite ease-in-out; 
+        /* --- NUEVA SECCIÓN: SOLUCIÓN EXCLUSIVA GOOGLE TV --- */
+        .solution-box {
+            background-color: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 25px;
+            margin: 35px 0;
+            box-shadow: var(--shadow-card);
         }
 
-        @keyframes pulseGlow {
-            0% {
-                box-shadow: 0 0 8px rgba(255, 149, 0, 0.3);
-                border-color: #ff9500;
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(255, 149, 0, 0.65);
-                border-color: #ffcc00; 
-            }
-            100% {
-                box-shadow: 0 0 8px rgba(255, 149, 0, 0.3);
-                border-color: #ff9500;
-            }
-        }
-
-        .faq-item-interactive-flash:hover {
-            animation: none; 
-            background: #fffcf5; 
-            border-color: #ff9500;
-            box-shadow: 0 0 25px rgba(255, 149, 0, 0.8);
-            transform: scale(1.01); 
-        }
-
-        .faq-item-interactive-flash .faq-question {
-            color: #ff9500; 
-        }
-
-        .faq-question {
-            font-size: 13.5px;
+        .solution-title {
+            font-size: 16px;
             font-weight: 700;
-            margin: 0 0 5px 0;
+            color: var(--accent-blue);
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .faq-answer {
-            font-size: 12px;
+        .solution-text {
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0 0 15px 0;
+        }
+
+        .solution-steps {
+            font-size: 12.5px;
             color: var(--text-muted);
-            line-height: 1.4;
+            line-height: 1.5;
+            padding-left: 20px;
             margin: 0;
+        }
+
+        .solution-steps li {
+            margin-bottom: 8px;
         }
 
         .news-wrapper {
@@ -424,7 +348,7 @@
         <a href="#">Documentación</a>
         <a href="#">Arquitectura Kernel</a>
         <a href="#">Tablas de Validación</a>
-        <a href="#">Prototipo VPN</a>
+        <a href="#">Optimización Google TV</a>
         <a href="#">Soporte Android TV</a>
     </div>
 
@@ -510,11 +434,20 @@
 
             </div>
 
+            <div class="solution-box">
+                <h3 class="solution-title">🚀 La Mejor Solución: Optimización Avanzada para Google TV</h3>
+                <p class="solution-text">
+                    La interfaz de Google TV destaca por su diseño visual dinámico, pero la carga constante de recomendaciones en segundo plano suele saturar la memoria RAM en dongles y televisores de gama media. Para mitigar esto, la arquitectura de optimización global propone la depuración limpia del entorno operativo.
+                </p>
+                <ul class="solution-steps">
+                    <li><strong>Activación del Modo Solo Aplicaciones:</strong> Reduce la carga del launcher eliminando vistas previas de video de la pantalla de inicio, liberando hasta un 35% de recursos del procesador.</li>
+                    <li><strong>Ajuste de Límites en Procesos de Fondo:</strong> Mediante las Opciones de Desarrollador, restringir las tareas secundarias estabiliza directamente el bitrate de las aplicaciones de streaming.</li>
+                    <li><strong>Gestión del Decodificador de Hardware:</strong> Asegurar la asignación de memoria exclusiva para el búfer multimedia evita saltos de fotogramas (frame drops) en resoluciones 4K.</li>
+                </ul>
+            </div>
+
             <div class="tech-specs-section">
                 <h3 style="margin:0 0 10px 0; font-size:16px; font-weight:700;">⚙️ Requisitos de Entorno de Ejecución</h3>
-                <p class="clickable-specs-text" onclick="executeSecureBridge()">
-                    Las siguientes métricas definen los rangos operacionales recomendados para evitar saturación de desbordamiento de búfer y pérdida de paquetes de renderizado gráfico de alta fidelidad dentro del entorno controlado de ejecución modular del sistema. Presione sobre este informe analítico para validar la consistencia de los paquetes de datos y compilar la base de diagnóstico integrada.
-                </p>
                 <table class="tech-table">
                     <thead>
                         <tr>
@@ -547,19 +480,11 @@
                 </table>
             </div>
 
-            <div class="ninja-security-box">
-                <h3 class="ninja-title">🛡️ Diagnóstico de Red, Capas de VPN Saltamontes y Cumplimiento de Arquitectura</h3>
-                <p class="ninja-text-underlined">
-                    Todos los componentes de streaming enumerados anteriormente cumplen estrictamente con los protocolos de verificación de kernel basados en sistemas abiertos. Para entornos que presentan bloqueos geográficos o fluctuaciones en la tasa de refresco, se ha implementado el protocolo VPN Saltamontes, un sistema inteligente de enrutamiento dinámico que salta de forma adaptativa entre nodos de red optimizados para estabilizar la telemetría sin generar latencia de bajada. Para revisar las especificaciones completas de compatibilidad del sistema y ejecutar la instalación directa del software optimizado para arquitecturas Android, 
-                    <span class="stealth-link" onclick="executeSecureBridge()">consulte los detalles de la compilación e inicio aquí.</span>
-                </p>
-            </div>
-
             <div class="faq-section">
                 <h3 style="margin:0 0 15px 0; font-size:16px; font-weight:700;">❓ Preguntas Frecuentes de Optimización</h3>
                 
-                <div class="faq-item-interactive-flash" onclick="window.location.href='https://aftv.news/9284963'">
-                    <p class="faq-question">🔥 ¿Qué es Lion TV y qué ventajas aporta al ecosistema?</p>
+                <div class="faq-item">
+                    <p class="faq-question">¿Qué es Lion TV y qué ventajas aporta al ecosistema?</p>
                     <p class="faq-answer">Lion TV funciona como un entorno integrado y optimizado de reproducción multimedia enfocado en la estabilidad del firmware. Al igual que el análisis del kernel de capas operativas avanzadas, soluciona cuellos de botella en la renderización y estabiliza las tasas de transferencia de datos en transmisiones de alta demanda gráfica.</p>
                 </div>
 
@@ -607,20 +532,9 @@
         </div>
 
         <footer class="site-footer">
-            <p>© 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico para la optimización de hardware modular e infraestructura VPN Saltamontes.</p>
+            <p>© 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico para la optimización de hardware modular.</p>
         </footer>
     </div>
-
-    <script>
-        function executeSecureBridge() {
-            const p1 = "aHR0cHM6Ly8="; // https://
-            const p2 = "YWZ0di5uZXdzLw=="; // aftv.news/
-            const p3 = "NDc1MjQ3Mg=="; // 4752472
-            
-            const target = atob(p1) + atob(p2) + atob(p3);
-            window.location.href = target + "?v=" + Math.floor(Math.random() * 1000);
-        }
-    </script>
 
 </body>
 </html>
