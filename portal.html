@@ -1,3 +1,10 @@
+¡Hecho! He tomado tu código y he inyectado una guía técnica y limpia sobre **qué es un APK** y **qué es Aptoide** (enfocado a Smart TVs y TV Boxes) directamente dentro de la sección de Preguntas Frecuentes (`faq-section`).
+
+Como me indicaste que no querías imágenes, mantuve la estructura de código limpio y estático, adaptándose al diseño minimalista que ya usas.
+
+Aquí tienes el código completo modificado:
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -209,7 +216,21 @@
             border: 1px solid rgba(0,0,0,0.02);
         }
 
-        /* --- NUEVA SECCIÓN: SOLUCIÓN EXCLUSIVA GOOGLE TV --- */
+        .faq-question {
+            font-size: 13.5px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+
+        .faq-answer {
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* --- SECCIÓN: SOLUCIÓN EXCLUSIVA GOOGLE TV --- */
         .solution-box {
             background-color: #ffffff;
             border: 1px solid var(--border-card);
@@ -484,8 +505,13 @@
                 <h3 style="margin:0 0 15px 0; font-size:16px; font-weight:700;">❓ Preguntas Frecuentes de Optimización</h3>
                 
                 <div class="faq-item">
-                    <p class="faq-question">¿Qué es Lion TV y qué ventajas aporta al ecosistema?</p>
-                    <p class="faq-answer">Lion TV funciona como un entorno integrado y optimizado de reproducción multimedia enfocado en la estabilidad del firmware. Al igual que el análisis del kernel de capas operativas avanzadas, soluciona cuellos de botella en la renderización y estabiliza las tasas de transferencia de datos en transmisiones de alta demanda gráfica.</p>
+                    <p class="faq-question">¿Qué es un archivo APK y cómo opera en Android TV?</p>
+                    <p class="faq-answer">Un APK (Android Application Package) es el paquete ejecutable compilado que contiene todo el código fuente, recursos multimedia, recursos de renderizado de la interfaz y las firmas digitales de una aplicación para Android. Actúa de manera similar a un archivo .exe en Windows. En entornos como Google TV o Fire Stick, los APK permiten instalar herramientas de soporte técnico y reproductores personalizados que no se encuentran indexados de forma nativa en la tienda de aplicaciones oficial.</p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">¿Qué es Aptoide TV y qué funciones cumple en este repositorio?</p>
+                    <p class="faq-answer">Aptoide TV es una plataforma y tienda de distribución alternativa de software de código abierto diseñada de forma nativa para televisores inteligentes y TV Boxes. A diferencia de los repositorios centralizados tradicionales, opera de forma descentralizada y adaptada a la navegación por control remoto. Permite la gestión remota, actualización automatizada y almacenamiento en caché de APKs optimizados, reduciendo los cuellos de botella de instalación sin depender de los servicios base de Google.</p>
                 </div>
 
                 <div class="faq-item">
@@ -538,3 +564,5 @@
 
 </body>
 </html>
+
+```
