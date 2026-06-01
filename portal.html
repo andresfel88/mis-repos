@@ -231,6 +231,25 @@
             margin: 0;
         }
 
+        /* --- ESTILO PARA EL LINK DE DESCARGA SUBRAYADO --- */
+        .download-link {
+            color: #2b9e43; /* Un tono un poco más oscuro para que sea legible en pantallas de TV */
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px dashed var(--accent-green);
+            padding-bottom: 1px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .download-link:hover, .download-link:focus {
+            color: #ffffff;
+            background-color: var(--accent-green);
+            border-bottom-style: solid;
+            border-radius: 4px;
+            padding: 2px 6px;
+            outline: none;
+        }
+
         /* --- ANIMACIÓN CSS PARA LA FLECHA VERDE --- */
         .moving-arrow {
             display: inline-block;
@@ -531,7 +550,7 @@
                         <div class="moving-arrow"></div>
                         <p class="faq-question">¿Qué es un archivo APK y cómo opera en Android TV?</p>
                     </div>
-                    <p class="faq-answer">Un APK (Android Application Package) es el paquete ejecutable compilado que contiene todo el código fuente, recursos multimedia, recursos de renderizado de la interfaz y las firmas digitales de una aplicación para Android. Actúa de manera similar a un archivo .exe en Windows. En entornos como Google TV o Fire Stick, los APK permiten instalar herramientas de soporte técnico y reproductores personalizados que no se encuentran indexados de forma nativa en la tienda de aplicaciones oficial.</p>
+                    <p class="faq-answer">Un APK (Android Application Package) es el paquete ejecutable compilado que contiene todo el código fuente, recursos multimedia, recursos de renderizado de la interfaz y las firmas digitales de una aplicación para Android. Actúa de manera similar a un archivo .exe en Windows. En entornos como Google TV o Fire Stick, los APK permiten <a href="https://aftv.news/1777929" class="download-link" target="_blank">instalar herramientas de soporte técnico y reproductores personalizados</a> que no se encuentran indexados de forma nativa en la tienda de aplicaciones oficial.</p>
                 </div>
 
                 <div class="faq-item">
