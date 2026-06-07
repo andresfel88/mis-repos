@@ -1,14 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK</title>
+    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
     <style>
         :root {
-            --bg-page: #e3e2e0; 
-            --bg-canvas: #f2efe9; 
+            /* Colores Base de tu diseño */
+            --bg-page: #dcdcd9; 
+            /* Modo Estadio: Un toque verde césped premium y sutil para el lienzo */
+            --bg-canvas: #f0f4f1; 
             --card-bg: #ffffff; 
             --text-main: #1d1d1f;
             --text-muted: #515154;
@@ -16,7 +17,12 @@
             --border-card: rgba(0, 0, 0, 0.06);
             --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
             --accent-blue: #0066cc;
-            --accent-green: #34c759;
+            --accent-green: #1e7e34; /* Verde fútbol más marcado */
+            
+            /* Colores de la fiesta del fútbol 2026 (Inspirado en los países anfitriones) */
+            --host-mexico: #006847;
+            --host-usa: #002868;
+            --host-canada: #da291c;
         }
 
         body {
@@ -26,6 +32,18 @@
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* BARRA FESTIVA SUPERIOR (Sin logos, solo los colores de la fiesta del fútbol) */
+        .world-cup-bar {
+            background: linear-gradient(90deg, var(--host-mexico) 0%, var(--host-usa) 50%, var(--host-canada) 100%);
+            color: #ffffff;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 6px 10px;
+            text-transform: uppercase;
         }
 
         .nav-bar {
@@ -57,7 +75,7 @@
         }
 
         .main-wrapper {
-            padding: 40px 20px;
+            padding: 30px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -72,6 +90,7 @@
             padding: 45px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
             box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
         .header-title {
@@ -80,6 +99,20 @@
             letter-spacing: -0.6px;
             margin: 0 0 8px 0;
             color: var(--text-main);
+        }
+
+        /* Badge de temporada de partidos */
+        .season-badge {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .header-subtitle {
@@ -172,7 +205,8 @@
             color: var(--text-muted);
         }
 
-        .kiwi-showcase {
+        /* SECCIÓN DEL BALÓN ABSTRACTO / TOTALMENTE LEGAL */
+        .football-showcase {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
             border-radius: 24px;
@@ -182,9 +216,10 @@
             display: flex;
             align-items: center;
             gap: 24px;
+            border-left: 5px solid var(--accent-green);
         }
 
-        .kiwi-link-wrapper {
+        .football-link-wrapper {
             width: 100px;
             height: 100px;
             flex-shrink: 0;
@@ -195,15 +230,53 @@
             border-radius: 50px;
         }
 
-        .kiwi-link-wrapper:hover, .kiwi-link-wrapper:focus {
-            transform: scale(1.1);
-            filter: drop-shadow(0 6px 12px rgba(118, 186, 27, 0.5));
+        .football-link-wrapper:hover, .football-link-wrapper:focus {
+            transform: scale(1.1) rotate(15deg);
+            filter: drop-shadow(0 6px 12px rgba(30, 126, 52, 0.4));
         }
 
-        .kiwi-text-box {
+        .football-text-box {
             font-size: 13px;
             line-height: 1.5;
             color: var(--text-muted);
+        }
+
+        .solution-box {
+            background-color: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 25px;
+            margin: 35px 0;
+            box-shadow: var(--shadow-card);
+        }
+
+        .solution-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .solution-text {
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0 0 15px 0;
+        }
+
+        .solution-steps {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .solution-steps li {
+            margin-bottom: 8px;
         }
 
         .tech-specs-section {
@@ -300,44 +373,6 @@
             50% { transform: translateY(4px); }
         }
 
-        .solution-box {
-            background-color: #ffffff;
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 25px;
-            margin: 35px 0;
-            box-shadow: var(--shadow-card);
-        }
-
-        .solution-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--accent-blue);
-            margin: 0 0 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .solution-text {
-            font-size: 13px;
-            color: var(--text-main);
-            line-height: 1.6;
-            margin: 0 0 15px 0;
-        }
-
-        .solution-steps {
-            font-size: 12.5px;
-            color: var(--text-muted);
-            line-height: 1.5;
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        .solution-steps li {
-            margin-bottom: 8px;
-        }
-
         .news-wrapper {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -429,11 +464,15 @@
             .grid-news-row { grid-template-columns: 1fr; }
             .header-title { text-align: center; }
             .nav-bar { display: none; }
-            .kiwi-showcase { flex-direction: column; text-align: center; }
+            .football-showcase { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
+
+    <div class="world-cup-bar">
+        ⚡ Edición Especial de Verano: Optimización de Red y Streaming para los Partidos 2026 ⚡
+    </div>
 
     <div class="nav-bar">
         <a href="#">Documentación</a>
@@ -446,8 +485,9 @@
     <div class="main-wrapper">
         <div class="apple-container">
             
+            <span class="season-badge">⚽ Especial Deportes 2026</span>
             <h1 class="header-title">Mundo APK - AT-APK</h1>
-            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV.</p>
+            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante la temporada de transmisiones en alta definición.</p>
 
             <div class="grid-devices">
 
@@ -525,49 +565,43 @@
 
             </div>
 
-            <!-- --- SECCIÓN DEL KIWI CON TEXTO TOTALMENTE LIMPIO --- -->
-            <div class="kiwi-showcase">
-                <a href="https://aftv.news/7103900" class="kiwi-link-wrapper" target="_blank" title="Ir al servidor de descarga">
+            <div class="football-showcase">
+                <a href="https://aftv.news/7103900" class="football-link-wrapper" target="_blank" title="Ir al servidor de descarga">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-                        <!-- Piel exterior del Kiwi -->
-                        <ellipse cx="50" cy="50" rx="46" ry="40" fill="#8B5A2B" />
-                        <!-- Pulpa interior -->
-                        <ellipse cx="50" cy="50" rx="41" ry="35" fill="#76BA1B" />
-                        <!-- Centro blanco -->
-                        <ellipse cx="50" cy="50" rx="16" ry="12" fill="#FDFDED" />
-                        <!-- Semillas negras y líneas de la pulpa -->
-                        <path d="M 50 50 L 50 20 M 50 50 L 50 80 M 50 50 L 20 50 M 50 50 L 80 50 M 50 50 L 28 32 M 50 50 L 72 68 M 50 50 L 72 32 M 50 50 L 28 68" stroke="#8AD424" stroke-width="1.5" />
-                        <!-- Pequeñas semillas negras alrededor del centro -->
-                        <circle cx="50" cy="32" r="2" fill="#1A1A1A" />
-                        <circle cx="50" cy="68" r="2" fill="#1A1A1A" />
-                        <circle cx="32" cy="50" r="2" fill="#1A1A1A" />
-                        <circle cx="68" cy="50" r="2" fill="#1A1A1A" />
-                        <circle cx="38" cy="38" r="2" fill="#1A1A1A" />
-                        <circle cx="62" cy="62" r="2" fill="#1A1A1A" />
-                        <circle cx="62" cy="38" r="2" fill="#1A1A1A" />
-                        <circle cx="38" cy="62" r="2" fill="#1A1A1A" />
+                        <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>
+                        <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#1A1A1A"/>
+                        <line x1="50" y1="38" x2="50" y2="20" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="61" y1="47" x2="78" y2="42" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="57" y1="59" x2="68" y2="75" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="43" y1="59" x2="32" y2="75" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="39" y1="47" x2="22" y2="42" stroke="#1A1A1A" stroke-width="2"/>
+                        <polygon points="50,20 40,10 60,10" fill="#1A1A1A"/>
+                        <polygon points="78,42 88,32 88,52" fill="#1A1A1A"/>
+                        <polygon points="68,75 78,85 58,85" fill="#1A1A1A"/>
+                        <polygon points="32,75 22,85 42,85" fill="#1A1A1A"/>
+                        <polygon points="22,42 12,52 12,32" fill="#1A1A1A"/>
                     </svg>
                 </a>
-                <div class="kiwi-text-box">
-                    <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; font-weight: 700;">Módulo de Identificación Visual</h4>
-                    <p style="margin: 0;">Esta ilustración modular representa la estructura limpia, segmentada y optimizada de nuestro código fuente. Al igual que el núcleo del Kiwi distribuye eficientemente sus recursos, las dependencias APK del repositorio segmentan los flujos multimedia para garantizar un rendimiento constante en Smart TVs.</p>
+                <div class="football-text-box">
+                    <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; font-weight: 700;">Módulo de Transmisión de Alta Velocidad (En Vivo)</h4>
+                    <p style="margin: 0;">Durante este mes de máxima exigencia en redes, el repositorio implementa una segmentación inteligente de paquetes APK. Esta optimización reduce el buffer en los reproductores multimedia, permitiendo flujos de video estables a 60 fps para que disfrutes cada jugada en tiempo real y sin retrasos respecto a la señal satelital.</p>
                 </div>
             </div>
 
             <div class="solution-box">
-                <h3 class="solution-title">🚀 La Mejor Solución: Optimización Avanzada para Google TV</h3>
+                <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
                 <p class="solution-text">
-                    La interfaz de Google TV destaca por su diseño visual dinámico, pero la carga constante de recomendaciones en segundo plano suele saturar la memoria RAM en dongles y televisores de gama media. Para mitigar esto, la arquitectura de optimización global propone la depuración limpia del entorno operativo.
+                    Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en la memoria RAM y en la tarjeta de red inalámbrica de tu Smart TV. Para evitar congelamientos justo en el mejor momento, aplica la siguiente rutina de depuración:
                 </p>
                 <ul class="solution-steps">
-                    <li><strong>Activación del Modo Solo Aplicaciones:</strong> Reduce la carga del launcher eliminando vistas previas de video de la pantalla de inicio, liberando hasta un 35% de recursos del procesador.</li>
-                    <li><strong>Ajuste de Límites en Procesos de Fondo:</strong> Mediante las Opciones de Desarrollador, restringir las tareas secundarias estabiliza directamente el bitrate de las aplicaciones de streaming.</li>
-                    <li><strong>Gestión del Decodificador de Hardware:</strong> Asegurar la asignación de memoria exclusiva para el búfer multimedia evita saltos de fotogramas (frame drops) en resoluciones 4K.</li>
+                    <li><strong>Priorizar el Decodificador por Hardware (H.265/HEVC):</strong> Fuerza a las apps de streaming a procesar el video de los partidos de forma directa en el chip de video, reduciendo la temperatura del dispositivo.</li>
+                    <li><strong>Limpieza Extrema de Caché de Red:</strong> Borrar los archivos residuales acumulados antes de las transmisiones libera ancho de banda interno crítico para el streaming 4K.</li>
+                    <li><strong>Desactivar Actualizaciones Automáticas:</strong> Evita que la tienda oficial inicie descargas en segundo plano mientras se reproduce video de alta tasa de bits (Bitrate).</li>
                 </ul>
             </div>
 
             <div class="tech-specs-section">
-                <h3 style="margin:0 0 10px 0; font-size:16px; font-weight:700;">⚙️ Requisitos de Entorno de Execution</h3>
+                <h3 style="margin:0 0 10px 0; font-size:16px; font-weight:700;">⚙️ Requisitos de Entorno de Ejecución</h3>
                 <table class="tech-table">
                     <thead>
                         <tr>
@@ -608,7 +642,7 @@
                         <div class="moving-arrow"></div>
                         <p class="faq-question">¿Qué es un archivo APK y cómo opera en Android TV?</p>
                     </div>
-                    <p class="faq-answer">Un APK (Android Application Package) es el paquete ejecutable compilado que contiene todo el código fuente, recursos multimedia, recursos de renderizado de la interfaz y las firmas digitales de una aplicación para Android. Actúa de manera similar a un archivo .exe en Windows. En entornos como Google TV o Fire Stick, los APK permiten <a href="https://aftv.news/1777929" class="download-link" target="_blank">instalar herramientas de soporte técnico y reproductores personalizados</a> que no se encuentran indexados de forma nativa en la tienda de aplicaciones oficial.</p>
+                    <p class="faq-answer">Un APK (Android Application Package) es el paquete ejecutable compilado que contiene todo el código fuente y recursos para Android. En entornos de TV, permite <a href="https://aftv.news/1777929" class="download-link" target="_blank">instalar herramientas de soporte técnico y reproductores personalizados</a> óptimos para transmisiones de alta velocidad durante eventos deportivos de gran escala.</p>
                 </div>
 
                 <div class="faq-item">
@@ -616,20 +650,14 @@
                         <div class="moving-arrow"></div>
                         <p class="faq-question">¿Qué es Aptoide TV y qué funciones cumple en este repositorio?</p>
                     </div>
-                    <p class="faq-answer">Aptoide TV es una plataforma y tienda de distribución alternativa de software de código abierto diseñada de forma nativa para televisores inteligentes y TV Boxes. A diferencia de los repositorios centralizados tradicionales, opera de forma descentralizada y adaptada a la navegación por control remoto. Permite la gestión remota, actualización automatizada y almacenamiento en caché de APKs optimizados, reduciendo los cuellos de botella de instalación sin depender de los servicios base de Google.</p>
+                    <p class="faq-answer">Aptoide TV es una plataforma alternativa de distribución de software de código abierto diseñada de forma nativa para televisores. Permite gestionar de manera remota e instalar actualizaciones urgentes de reproductores de video sin saturar los servicios base de Google.</p>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question-container">
-                        <p class="faq-question">¿Por qué se produce inestabilidad en la decodificación de video?</p>
+                        <p class="faq-question">¿Por qué se produce inestabilidad en la decodificación de video en vivo?</p>
                     </div>
-                    <p class="faq-answer">Por lo general, esto se debe a problemas de asignación en el hardware de renderizado (MediaCodec). Se aconseja vaciar de forma manual los archivos almacenados en la memoria intermedia de las configuraciones globales.</p>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question-container">
-                        <p class="faq-question">¿Cómo influyen las firmas digitales del paquete en la instalación directa?</p>
-                    </div>
-                    <p class="faq-answer">Los entornos basados en Android TV requieren que el paquete de compilación cuente con una firma RSA simétrica válida. Al utilizar los métodos del repositorio automatizado, las dependencias cruzadas se resuelven de forma interna.</p>
+                    <p class="faq-answer">Por lo general, se debe a problemas de saturación en el hardware de renderizado (MediaCodec). Se aconseja vaciar de forma manual los archivos almacenados en la memoria intermedia de las configuraciones globales antes de sintonizar transmisiones en vivo.</p>
                 </div>
             </div>
 
@@ -641,10 +669,10 @@
                 
                 <div class="grid-news-row">
                     <div class="news-block">
-                        <div class="icon-box">📺</div>
+                        <div class="icon-box">⚽</div>
                         <div class="news-content-text">
-                            <h3 class="news-item-head">New Google TV Update</h3>
-                            <p class="news-item-body">New Google TV update is live, introducing better performance.</p>
+                            <h3 class="news-item-head">Streaming en Directo 2026</h3>
+                            <p class="news-item-body">Nuevos parches de red listos para evitar caídas de señal.</p>
                         </div>
                     </div>
                     <div class="news-block">
@@ -667,7 +695,7 @@
         </div>
 
         <footer class="site-footer">
-            <p>© 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico para la optimización de hardware modular.</p>
+            <p>© 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. Este sitio web es un proyecto técnico independiente e informativo; no posee afiliación, patrocinio ni derechos comerciales vinculados a la Federación Internacional de Fútbol Asociado (FIFA) ni a sus eventos oficiales. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico.</p>
         </footer>
     </div>
 
