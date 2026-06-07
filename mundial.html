@@ -1,4 +1,574 @@
-<div class="grid-devices">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
+    <style>
+        :root {
+            /* Paleta Premium Estilo Apple adaptada a la temporada */
+            --bg-page: #e5e5e0; 
+            --bg-canvas: #fafdfa; 
+            --card-bg: #ffffff; 
+            --text-main: #1d1d1f;
+            --text-muted: #6e6e73;
+            --accent-gray: #86868b;
+            --border-card: rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --accent-blue: #0066cc;
+            --accent-green: #1d7032; 
+            
+            /* Colores de los países anfitriones de la fiesta del fútbol */
+            --host-mexico: #006847;
+            --host-usa: #002868;
+            --host-canada: #da291c;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* BARRA SUPERIOR EXCLUSIVA */
+        .world-cup-bar {
+            background: linear-gradient(90deg, var(--host-mexico) 0%, var(--host-usa) 50%, var(--host-canada) 100%);
+            color: #ffffff;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            padding: 8px 10px;
+            text-transform: uppercase;
+        }
+
+        .nav-bar {
+            background-color: rgba(29, 29, 31, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 14px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-bar a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-bar a:hover {
+            opacity: 1;
+        }
+
+        .main-wrapper {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .apple-container {
+            width: 100%;
+            max-width: 1100px;
+            background-color: var(--bg-canvas);
+            border-radius: 28px;
+            padding: 50px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
+            box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .header-title {
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin: 0 0 10px 0;
+            color: var(--text-main);
+        }
+
+        .season-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(29, 112, 50, 0.1);
+            color: var(--accent-green);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .header-subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin: 0 0 45px 0;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        /* GRID ORIGINAL DE 4 COLUMNAS TOTALMENTE RECUPERADO */
+        .grid-devices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card-device {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card-device:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+        }
+
+        .card-tag {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 130px;
+            background-color: #f5f5f7;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .img-container.dark-bg {
+            background-color: #1a1a1a;
+        }
+
+        .card-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 14px 0;
+            letter-spacing: -0.3px;
+            color: var(--text-main);
+        }
+
+        .component-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .component-item {
+            margin-bottom: 12px;
+            font-size: 12.5px;
+            line-height: 1.4;
+        }
+
+        .component-name {
+            font-weight: 600;
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .component-desc {
+            color: var(--text-muted);
+        }
+
+        /* ========================================================
+           NUEVO WIDGET EXCLUSIVO PARA EL CALENDARIO (Premium e Independiente)
+           ======================================================== */
+        .match-calendar-widget {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+            border-top: 4px solid var(--accent-green);
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 12px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .grid-matches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .match-box {
+            background: #f5f5f7;
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .match-date {
+            font-size: 10.5px;
+            color: var(--accent-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .match-teams {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .team-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13.5px;
+            font-weight: 500;
+        }
+
+        .vs-badge {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            align-self: center;
+            margin: 2px 0;
+            text-align: center;
+            width: fit-content;
+        }
+
+        /* SECCIÓN DEL BALÓN ABSTRACTO */
+        .football-showcase {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .football-link-wrapper {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            display: block;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .football-link-wrapper:hover {
+            transform: scale(1.08) rotate(10deg);
+        }
+
+        .football-text-box {
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .solution-box {
+            background-color: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-card);
+        }
+
+        .solution-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin: 0 0 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .solution-text {
+            font-size: 14px;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+
+        .solution-steps {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .solution-steps li {
+            margin-bottom: 10px;
+        }
+
+        .tech-specs-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+            margin-top: 18px;
+        }
+
+        .tech-table th, .tech-table td {
+            padding: 14px;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .tech-table th {
+            background-color: #f5f5f7;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .faq-section {
+            margin: 40px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            background: rgba(255,255,255,0.6);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.01);
+        }
+
+        .faq-question-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .faq-answer {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0;
+            padding-left: 24px;
+        }
+
+        .download-link {
+            color: var(--accent-green); 
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .download-link:hover {
+            opacity: 0.8;
+        }
+
+        .moving-arrow {
+            display: inline-block;
+            width: 0; 
+            height: 0; 
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid var(--accent-green);
+            animation: bounceArrow 1.2s infinite ease-in-out;
+            flex-shrink: 0;
+        }
+
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateY(-3px); }
+            50% { transform: translateY(3px); }
+        }
+
+        .news-wrapper {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+        }
+
+        .news-heading-section {
+            margin-bottom: 20px;
+        }
+
+        .news-main-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            letter-spacing: -0.4px;
+        }
+
+        .news-time-badge {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .grid-news-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .news-block {
+            background-color: #f5f5f7; 
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.04);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .news-content-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item-head {
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0 0 3px 0;
+            color: var(--text-main);
+        }
+
+        .news-item-body {
+            font-size: 11.5px;
+            line-height: 1.4;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 11px;
+            color: #86868b;
+            line-height: 1.6;
+            width: 100%;
+            max-width: 1100px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            .apple-container { padding: 30px 20px; }
+            .grid-devices { grid-template-columns: 1fr; }
+            .grid-matches { grid-template-columns: 1fr; }
+            .header-title { font-size: 26px; }
+            .nav-bar { display: none; }
+            .football-showcase { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="world-cup-bar">
+        ⚡ Edición Especial: Optimización de Streaming para los Partidos de la Temporada de Verano 2026 ⚡
+    </div>
+
+    <div class="nav-bar">
+        <a href="#">Documentación</a>
+        <a href="#">Arquitectura Kernel</a>
+        <a href="#">Tablas de Validación</a>
+        <a href="#">Optimización Google TV</a>
+        <a href="#">Soporte Android TV</a>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="apple-container">
+            
+            <span class="season-badge">⚽ Especial Temporada Deportiva 2026</span>
+            <h1 class="header-title">Mundo APK - AT-APK</h1>
+            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
+
+            <!-- CONTENEDOR DE 4 COLUMNAS TOTALMENTE REPARADO Y SIMÉTRICO -->
+            <div class="grid-devices">
 
                 <!-- 1. LION TV -->
                 <div class="card-device">
@@ -10,11 +580,11 @@
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Arquitectura de Streaming</span>
-                            <span class="component-desc">Entorno de distribución multimedia alternativo diseñado para maximizar el rendimiento gráfico en hardware con recursos limitados.</span>
+                            <span class="component-desc">Entorno multimedia alternativo para maximizar el rendimiento gráfico en hardware limitado.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Núcleo Optimizado</span>
-                            <span class="component-desc">Estructura adaptativa de buffers y decodificación nativa para flujos estables sin caídas de frames en ecosistemas Android.</span>
+                            <span class="component-desc">Estructura adaptativa de buffers para evitar caídas de frames en Android.</span>
                         </li>
                     </ul>
                 </div>
@@ -29,11 +599,11 @@
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Sistema Operativo</span>
-                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio por recomendaciones.</span>
+                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Perfil de Usuario</span>
-                            <span class="component-desc">Espacio personalizado para separar el historial de visualización y configuraciones de apps.</span>
+                            <span class="component-desc">Espacio personalizado para separar historiales y configuraciones de apps.</span>
                         </li>
                     </ul>
                 </div>
@@ -48,11 +618,11 @@
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Dongle HDMI</span>
-                            <span class="component-desc">Cuerpo principal del hardware que se conecta directo a la entrada de video de la pantalla.</span>
+                            <span class="component-desc">Cuerpo de hardware que se conecta directo a la entrada de video de la pantalla.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Puerto Micro-USB</span>
-                            <span class="component-desc">Entrada lateral encargada de recibir la alimentación eléctrica o adaptadores OTG.</span>
+                            <span class="component-desc">Entrada lateral encargada de recibir alimentación eléctrica o adaptadores.</span>
                         </li>
                     </ul>
                 </div>
@@ -67,60 +637,193 @@
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. TV Box Square</span>
-                            <span class="component-desc">Caja receptora de hardware con mayor ventilación y estabilidad sobre superficies planas.</span>
+                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad en superficies planas.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Conectividad Interna</span>
-                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth para enlazar accesorios externos.</span>
+                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth para accesorios.</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- 5. TARJETA ESTÉTICA: PARTIDOS DE PRIMERA RONDA -->
-                <div class="card-device" style="border-top: 3px solid var(--accent-green);">
-                    <div class="card-tag" style="color: var(--accent-green); display: flex; align-items: center; gap: 6px; font-size: 11px;">
-                        <span>📅 Rol de Partidos (Fase 1)</span>
-                    </div>
-                    <div class="img-container" style="background-color: #f5f5f7; height: 110px;">
-                        <!-- Icono minimalista de un silbato y campo en SVG -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 10h-3V7a3 3 0 0 0-3-3H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3z"></path>
-                            <path d="M14 10V4"></path>
-                            <path d="M2 10h12"></path>
-                        </svg>
-                    </div>
-                    <h2 class="card-heading" style="margin-bottom: 8px;">Próximos Juegos</h2>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <!-- Partido 1 -->
-                        <div style="background: rgba(0,0,0,0.02); padding: 8px 10px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.03);">
-                            <div style="font-size: 10px; color: var(--text-muted); font-weight: 600; margin-bottom: 3px; text-transform: uppercase;">Jueves 11 de Junio (Inaugural)</div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; color: var(--text-main);">
-                                <span>🇲🇽 México</span>
-                                <span style="font-weight: 500; font-size: 11px; color: var(--accent-blue); background: #e6f0fa; padding: 1px 6px; border-radius: 4px;">vs</span>
-                                <span>Por definir 🏳️</span>
-                            </div>
-                        </div>
+            </div>
 
-                        <!-- Partido 2 -->
-                        <div style="background: rgba(0,0,0,0.02); padding: 8px 10px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.03);">
-                            <div style="font-size: 10px; color: var(--text-muted); font-weight: 600; margin-bottom: 3px; text-transform: uppercase;">Viernes 12 de Junio</div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; color: var(--text-main);">
-                                <span>🇨🇦 Canadá</span>
-                                <span style="font-weight: 500; font-size: 11px; color: var(--accent-blue); background: #e6f0fa; padding: 1px 6px; border-radius: 4px;">vs</span>
-                                <span>Por definir 🏳️</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; color: var(--text-main); margin-top: 5px; padding-top: 5px; border-top: 1px dashed rgba(0,0,0,0.05);">
-                                <span>🇺🇸 EE. UU.</span>
-                                <span style="font-weight: 500; font-size: 11px; color: var(--accent-blue); background: #e6f0fa; padding: 1px 6px; border-radius: 4px;">vs</span>
-                                <span>Por definir 🏳️</span>
-                            </div>
+            <!-- ========================================================
+               NUEVO SECTOR: WIDGET DE JUEGOS DE PRIMERA RONDA (ANCHURA COMPLETA)
+               ======================================================== */ -->
+            <div class="match-calendar-widget">
+                <div class="widget-header">
+                    <h3 class="widget-title">📅 Próximos Encuentros Destacados - Primera Ronda</h3>
+                    <span style="font-size: 12px; font-weight: 500; color: var(--text-muted);">Fase de Grupos</span>
+                </div>
+                
+                <div class="grid-matches">
+                    <!-- Partido 1 -->
+                    <div class="match-box">
+                        <div class="match-date">Jueves 11 de Junio • Inaugural</div>
+                        <div class="match-teams">
+                            <div class="team-row"><span>🇲🇽 México</span> <span>--</span></div>
+                            <div class="vs-badge">VS</div>
+                            <div class="team-row"><span>Rival de Grupo</span> <span>--</span></div>
                         </div>
                     </div>
 
-                    <p style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4; margin: 12px 0 0 0; font-style: italic; text-align: center;">
-                        *Configura los buffers de tu app de TV antes de las transmisiones en vivo.
-                    </p>
+                    <!-- Partido 2 -->
+                    <div class="match-box">
+                        <div class="match-date">Viernes 12 de Junio</div>
+                        <div class="match-teams">
+                            <div class="team-row"><span>🇨🇦 Canadá</span> <span>--</span></div>
+                            <div class="vs-badge">VS</div>
+                            <div class="team-row"><span>Rival de Grupo</span> <span>--</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Partido 3 -->
+                    <div class="match-box">
+                        <div class="match-date">Viernes 12 de Junio</div>
+                        <div class="match-teams">
+                            <div class="team-row"><span>🇺🇸 Estados Unidos</span> <span>--</span></div>
+                            <div class="vs-badge">VS</div>
+                            <div class="team-row"><span>Rival de Grupo</span> <span>--</span></div>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin: 15px 0 0 0; font-size: 11px; color: var(--text-muted); text-align: center; font-style: italic;">
+                    *Verifica la estabilidad de tu conexión antes del pitazo inicial para transmisiones UHD fluidas.
+                </p>
+            </div>
+
+            <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
+            <div class="football-showcase">
+                <a href="https://aftv.news/7103900" class="football-link-wrapper" target="_blank" title="Ir al servidor de descarga">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+                        <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>
+                        <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#1A1A1A"/>
+                        <line x1="50" y1="38" x2="50" y2="20" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="61" y1="47" x2="78" y2="42" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="57" y1="59" x2="68" y2="75" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="43" y1="59" x2="32" y2="75" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="39" y1="47" x2="22" y2="42" stroke="#1A1A1A" stroke-width="2"/>
+                        <polygon points="50,20 40,10 60,10" fill="#1A1A1A"/>
+                        <polygon points="78,42 88,32 88,52" fill="#1A1A1A"/>
+                        <polygon points="68,75 78,85 58,85" fill="#1A1A1A"/>
+                        <polygon points="32,75 22,85 42,85" fill="#1A1A1A"/>
+                        <polygon points="22,42 12,52 12,32" fill="#1A1A1A"/>
+                    </svg>
+                </a>
+                <div class="football-text-box">
+                    <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; font-weight: 600;">Módulo de Transmisión de Alta Velocidad (En Vivo)</h4>
+                    <p style="margin: 0;">Durante este mes de máxima exigencia en redes, el repositorio implementa una segmentación inteligente de paquetes APK. Esta optimización reduce el buffer en los reproductores multimedia, permitiendo flujos de video estables a 60 fps para que disfrutes cada jugada en tiempo real.</p>
+                </div>
+            </div>
+
+            <!-- SECCIÓN SOLUCIÓN -->
+            <div class="solution-box">
+                <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
+                <p class="solution-text">
+                    Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en la memoria RAM y en la tarjeta de red inalámbrica de tu Smart TV. Sigue estos pasos clave:
+                </p>
+                <ul class="solution-steps">
+                    <li><strong>Priorizar el Decodificador por Hardware (H.265/HEVC):</strong> Procesa el video de los partidos de forma directa en el chip gráfico, reduciendo la fatiga del procesador.</li>
+                    <li><strong>Limpieza Extrema de Caché de Red:</strong> Borrar los archivos temporales acumulados libera ancho de banda interno crítico para el streaming UHD.</li>
+                    <li><strong>Desactivar Actualizaciones Automáticas:</strong> Evita descargas molestas en segundo plano en medio del partido.</li>
+                </ul>
+            </div>
+
+            <!-- TABLA DE REQUISITOS -->
+            <div class="tech-specs-section">
+                <h3 style="margin:0 0 10px 0; font-size:16px; font-weight:600;">⚙️ Requisitos de Entorno de Ejecución</h3>
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Arquitectura SoC</th>
+                            <th>RAM Mínima</th>
+                            <th>Espacio de Caché</th>
+                            <th>Nivel de API</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ARM Cortex-A53 / A55</td>
+                            <td>1.5 GB LPDDR3</td>
+                            <td>120 MB libres</td>
+                            <td>API 26 (Android 8.0+)</td>
+                        </tr>
+                        <tr>
+                            <td>AmLogic S905Y4 / S905X4</td>
+                            <td>2.0 GB DDR4</td>
+                            <td>250 MB libres</td>
+                            <td>API 29 (Android 10.0+)</td>
+                        </tr>
+                        <tr>
+                            <td>AllWinner H616 / H618</td>
+                            <td>2.0 GB DDR3</td>
+                            <td>90 MB libres</td>
+                            <td>API 28 (Android 9.0+)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PREGUNTAS FRECUENTES -->
+            <div class="faq-section">
+                <h3 style="margin:0 0 15px 0; font-size:16px; font-weight:600;">❓ Preguntas Frecuentes de Optimización</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question-container">
+                        <div class="moving-arrow"></div>
+                        <p class="faq-question">¿Qué es un archivo APK y cómo opera en Android TV?</p>
+                    </div>
+                    <p class="faq-answer">Un APK (Android Application Package) es el paquete ejecutable compilado para Android. En entornos de TV, permite <a href="https://aftv.news/1777929" class="download-link" target="_blank">instalar herramientas de soporte técnico y reproductores personalizados</a> óptimos para transmisiones de alta velocidad.</p>
                 </div>
 
+                <div class="faq-item">
+                    <div class="faq-question-container">
+                        <div class="moving-arrow"></div>
+                        <p class="faq-question">¿Qué es Aptoide TV y qué funciones cumple en este repositorio?</p>
+                    </div>
+                    <p class="faq-answer">Es una plataforma de distribución de software de código abierto nativa para televisores, útil para gestionar de manera remota actualizaciones de apps de video independientes sin saturar el sistema.</p>
+                </div>
             </div>
+
+            <!-- SECCIÓN NOTICIAS -->
+            <div class="news-wrapper">
+                <div class="news-heading-section">
+                    <h2 class="news-main-title">Daily Updated News</h2>
+                    <p class="news-time-badge">Updated 2h ago</p>
+                </div>
+                
+                <div class="grid-news-row">
+                    <div class="news-block">
+                        <div class="icon-box">⚽</div>
+                        <div class="news-content-text">
+                            <h3 class="news-item-head">Streaming en Directo 2026</h3>
+                            <p class="news-item-body">Nuevos parches de red listos para evitar caídas de señal.</p>
+                        </div>
+                    </div>
+                    <div class="news-block">
+                        <div class="icon-box">🔥</div>
+                        <div class="news-content-text">
+                            <h3 class="news-item-head">Firestick Tips</h3>
+                            <p class="news-item-body">Optimiza tu Firestick liberando espacio en caché.</p>
+                        </div>
+                    </div>
+                    <div class="news-block">
+                        <div class="icon-box">📦</div>
+                        <div class="news-content-text">
+                            <h3 class="news-item-head">Onn Box Review</h3>
+                            <p class="news-item-body">Análisis de estabilidad en transmisiones 4K.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="site-footer">
+            <p>© 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. Este sitio web es un proyecto técnico independiente e informativo; no posee afiliación, patrocinio ni derechos comerciales vinculados a la FIFA ni a sus eventos oficiales. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
