@@ -1,6 +1,496 @@
-<div class="grid-devices">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
+    <style>
+        :root {
+            /* Colores Base de tu diseño */
+            --bg-page: #dcdcd9; 
+            /* Modo Estadio: Un toque verde césped premium y sutil para el lienzo */
+            --bg-canvas: #f0f4f1; 
+            --card-bg: #ffffff; 
+            --text-main: #1d1d1f;
+            --text-muted: #515154;
+            --accent-gray: #86868b;
+            --border-card: rgba(0, 0, 0, 0.06);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            --accent-blue: #0066cc;
+            --accent-green: #1e7e34; /* Verde fútbol más marcado */
+            
+            /* Colores de la fiesta del fútbol 2026 (Inspirado en los países anfitriones) */
+            --host-mexico: #006847;
+            --host-usa: #002868;
+            --host-canada: #da291c;
+        }
 
-                <!-- 1. LION TV -->
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* BARRA FESTIVA SUPERIOR (Sin logos, solo los colores de la fiesta del fútbol) */
+        .world-cup-bar {
+            background: linear-gradient(90deg, var(--host-mexico) 0%, var(--host-usa) 50%, var(--host-canada) 100%);
+            color: #ffffff;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 6px 10px;
+            text-transform: uppercase;
+        }
+
+        .nav-bar {
+            background-color: rgba(29, 29, 31, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-bar a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-bar a:hover {
+            opacity: 1;
+        }
+
+        .main-wrapper {
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .apple-container {
+            width: 100%;
+            max-width: 1140px;
+            background-color: var(--bg-canvas);
+            border-radius: 28px;
+            padding: 45px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .header-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+
+        /* Badge de temporada de partidos */
+        .season-badge {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0 0 35px 0;
+            line-height: 1.4;
+        }
+
+        .grid-devices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .card-device {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 14px;
+            color: var(--text-main);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 150px;
+            background-color: #ffffff;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .img-container.dark-bg {
+            background-color: #1a1a1a;
+        }
+
+        .card-heading {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.2px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 6px;
+        }
+
+        .component-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .component-item {
+            margin-bottom: 10px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .component-name {
+            font-weight: 700;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .component-desc {
+            color: var(--text-muted);
+        }
+
+        /* SECCIÓN DEL BALÓN ABSTRACTO / TOTALMENTE LEGAL */
+        .football-showcase {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            border-left: 5px solid var(--accent-green);
+        }
+
+        .football-link-wrapper {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            display: block;
+            transition: transform 0.2s ease-in-out, filter 0.2s;
+            cursor: pointer;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .football-link-wrapper:hover, .football-link-wrapper:focus {
+            transform: scale(1.1) rotate(15deg);
+            filter: drop-shadow(0 6px 12px rgba(30, 126, 52, 0.4));
+        }
+
+        .football-text-box {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .solution-box {
+            background-color: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 25px;
+            margin: 35px 0;
+            box-shadow: var(--shadow-card);
+        }
+
+        .solution-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .solution-text {
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0 0 15px 0;
+        }
+
+        .solution-steps {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .solution-steps li {
+            margin-bottom: 8px;
+        }
+
+        .tech-specs-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 35px;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .tech-table th, .tech-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .tech-table th {
+            background-color: #f5f5f7;
+            font-weight: 700;
+        }
+
+        .faq-section {
+            margin: 35px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.5);
+            padding: 15px;
+            border-radius: 14px;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .faq-question-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .faq-question {
+            font-size: 13.5px;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .faq-answer {
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .download-link {
+            color: #2b9e43; 
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px dashed var(--accent-green);
+            padding-bottom: 1px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .download-link:hover, .download-link:focus {
+            color: #ffffff;
+            background-color: var(--accent-green);
+            border-bottom-style: solid;
+            border-radius: 4px;
+            padding: 2px 6px;
+            outline: none;
+        }
+
+        .moving-arrow {
+            display: inline-block;
+            width: 0; 
+            height: 0; 
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 10px solid var(--accent-green);
+            animation: bounceArrow 1.2s infinite ease-in-out;
+            flex-shrink: 0;
+        }
+
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateY(-4px); }
+            50% { transform: translateY(4px); }
+        }
+
+        .news-wrapper {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        .news-heading-section {
+            margin-bottom: 18px;
+        }
+
+        .news-main-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0 0 3px 0;
+            letter-spacing: -0.3px;
+        }
+
+        .news-time-badge {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .grid-news-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .news-block {
+            background-color: #f5f5f7; 
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.06);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .news-content-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item-head {
+            font-size: 12.5px;
+            font-weight: 700;
+            margin: 0 0 2px 0;
+            color: var(--text-main);
+        }
+
+        .news-item-body {
+            font-size: 11px;
+            line-height: 1.3;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 11px;
+            color: #86868b;
+            line-height: 1.5;
+            width: 100%;
+            max-width: 1140px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            .apple-container { padding: 25px 20px; }
+            .grid-news-row { grid-template-columns: 1fr; }
+            .header-title { text-align: center; }
+            .nav-bar { display: none; }
+            .football-showcase { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="world-cup-bar">
+        ⚡ Edición Especial de Verano: Optimización de Red y Streaming para los Partidos 2026 ⚡
+    </div>
+
+    <div class="nav-bar">
+        <a href="#">Documentación</a>
+        <a href="#">Arquitectura Kernel</a>
+        <a href="#">Tablas de Validación</a>
+        <a href="#">Optimización Google TV</a>
+        <a href="#">Soporte Android TV</a>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="apple-container">
+            
+            <span class="season-badge">⚽ Especial Deportes 2026</span>
+            <h1 class="header-title">Mundo APK - AT-APK</h1>
+            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante la temporada de transmisiones en alta definición.</p>
+
+            <div class="grid-devices">
+
                 <div class="card-device">
                     <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container dark-bg">
@@ -19,7 +509,6 @@
                     </ul>
                 </div>
 
-                <!-- 2. GOOGLE TV -->
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
@@ -29,7 +518,7 @@
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Sistema Operativo</span>
-                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio por recommendations.</span>
+                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio por recomendaciones.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Perfil de Usuario</span>
@@ -38,7 +527,6 @@
                     </ul>
                 </div>
 
-                <!-- 3. FIRE STICK -->
                 <div class="card-device">
                     <div class="card-tag">Fire Stick Parts</div>
                     <div class="img-container">
@@ -57,7 +545,6 @@
                     </ul>
                 </div>
 
-                <!-- 4. WATCH ONN -->
                 <div class="card-device">
                     <div class="card-tag">Watch Onn Parts</div>
                     <div class="img-container">
@@ -76,45 +563,141 @@
                     </ul>
                 </div>
 
-                <!-- 5. NUEVA TARJETA: CALENDARIO DE LA TEMPORADA (Al lado de Watch Onn) -->
-                <div class="card-device" style="border-top: 3px solid var(--accent-green);">
-                    <div class="card-tag" style="color: var(--accent-green); display: flex; align-items: center; gap: 4px;">
-                        <span>📅 Fixture Global</span>
+            </div>
+
+            <div class="football-showcase">
+                <a href="https://aftv.news/7103900" class="football-link-wrapper" target="_blank" title="Ir al servidor de descarga">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+                        <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>
+                        <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#1A1A1A"/>
+                        <line x1="50" y1="38" x2="50" y2="20" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="61" y1="47" x2="78" y2="42" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="57" y1="59" x2="68" y2="75" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="43" y1="59" x2="32" y2="75" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="39" y1="47" x2="22" y2="42" stroke="#1A1A1A" stroke-width="2"/>
+                        <polygon points="50,20 40,10 60,10" fill="#1A1A1A"/>
+                        <polygon points="78,42 88,32 88,52" fill="#1A1A1A"/>
+                        <polygon points="68,75 78,85 58,85" fill="#1A1A1A"/>
+                        <polygon points="32,75 22,85 42,85" fill="#1A1A1A"/>
+                        <polygon points="22,42 12,52 12,32" fill="#1A1A1A"/>
+                    </svg>
+                </a>
+                <div class="football-text-box">
+                    <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; font-weight: 700;">Módulo de Transmisión de Alta Velocidad (En Vivo)</h4>
+                    <p style="margin: 0;">Durante este mes de máxima exigencia en redes, el repositorio implementa una segmentación inteligente de paquetes APK. Esta optimización reduce el buffer en los reproductores multimedia, permitiendo flujos de video estables a 60 fps para que disfrutes cada jugada en tiempo real y sin retrasos respecto a la señal satelital.</p>
+                </div>
+            </div>
+
+            <div class="solution-box">
+                <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
+                <p class="solution-text">
+                    Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en la memoria RAM y en la tarjeta de red inalámbrica de tu Smart TV. Para evitar congelamientos justo en el mejor momento, aplica la siguiente rutina de depuración:
+                </p>
+                <ul class="solution-steps">
+                    <li><strong>Priorizar el Decodificador por Hardware (H.265/HEVC):</strong> Fuerza a las apps de streaming a procesar el video de los partidos de forma directa en el chip de video, reduciendo la temperatura del dispositivo.</li>
+                    <li><strong>Limpieza Extrema de Caché de Red:</strong> Borrar los archivos residuales acumulados antes de las transmisiones libera ancho de banda interno crítico para el streaming 4K.</li>
+                    <li><strong>Desactivar Actualizaciones Automáticas:</strong> Evita que la tienda oficial inicie descargas en segundo plano mientras se reproduce video de alta tasa de bits (Bitrate).</li>
+                </ul>
+            </div>
+
+            <div class="tech-specs-section">
+                <h3 style="margin:0 0 10px 0; font-size:16px; font-weight:700;">⚙️ Requisitos de Entorno de Ejecución</h3>
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Arquitectura SoC</th>
+                            <th>RAM Mínima</th>
+                            <th>Espacio de Caché</th>
+                            <th>Nivel de API</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ARM Cortex-A53 / A55</td>
+                            <td>1.5 GB LPDDR3</td>
+                            <td>120 MB libres</td>
+                            <td>API 26 (Android 8.0+)</td>
+                        </tr>
+                        <tr>
+                            <td>AmLogic S905Y4 / S905X4</td>
+                            <td>2.0 GB DDR4</td>
+                            <td>250 MB libres</td>
+                            <td>API 29 (Android 10.0+)</td>
+                        </tr>
+                        <tr>
+                            <td>AllWinner H616 / H618</td>
+                            <td>2.0 GB DDR3</td>
+                            <td>90 MB libres</td>
+                            <td>API 28 (Android 9.0+)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="faq-section">
+                <h3 style="margin:0 0 15px 0; font-size:16px; font-weight:700;">❓ Preguntas Frecuentes de Optimización</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question-container">
+                        <div class="moving-arrow"></div>
+                        <p class="faq-question">¿Qué es un archivo APK y cómo opera en Android TV?</p>
                     </div>
-                    <div class="img-container" style="background-color: #f5f5f7;">
-                        <!-- Icono minimalista de calendario y balón en SVG -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-muted);">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                            <circle cx="12" cy="16" r="2" fill="var(--accent-green)" stroke="none"></circle>
-                        </svg>
-                    </div>
-                    <h2 class="card-heading">Fases de Torneo</h2>
-                    <div style="font-size: 11px; line-height: 1.4; color: var(--text-muted);">
-                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 12px;">
-                            <tr style="border-bottom: 1px solid rgba(0,0,0,0.04);">
-                                <td style="padding: 4px 0; font-weight: 700; color: var(--text-main);">Fase de Grupos</td>
-                                <td style="padding: 4px 0; text-align: right;">Jun 11 - Jun 27</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid rgba(0,0,0,0.04);">
-                                <td style="padding: 4px 0; font-weight: 700; color: var(--text-main);">Dieciseisavos</td>
-                                <td style="padding: 4px 0; text-align: right;">Jun 28 - Jul 03</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid rgba(0,0,0,0.04);">
-                                <td style="padding: 4px 0; font-weight: 700; color: var(--text-main);">Octavos y Cuartos</td>
-                                <td style="padding: 4px 0; text-align: right;">Jul 04 - Jul 11</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 4px 0; font-weight: 700; color: var(--accent-green);">Gran Final</td>
-                                <td style="padding: 4px 0; text-align: right; font-weight: 700; color: var(--text-main);">Julio 19</td>
-                            </tr>
-                        </table>
-                        <a href="#" class="download-link" style="display: inline-block; font-size: 11px; margin-top: 5px;">
-                            📥 Descargar Fixture Completo (.pdf)
-                        </a>
-                    </div>
+                    <p class="faq-answer">Un APK (Android Application Package) es el paquete ejecutable compilado que contiene todo el código fuente y recursos para Android. En entornos de TV, permite <a href="https://aftv.news/1777929" class="download-link" target="_blank">instalar herramientas de soporte técnico y reproductores personalizados</a> óptimos para transmisiones de alta velocidad durante eventos deportivos de gran escala.</p>
                 </div>
 
+                <div class="faq-item">
+                    <div class="faq-question-container">
+                        <div class="moving-arrow"></div>
+                        <p class="faq-question">¿Qué es Aptoide TV y qué funciones cumple en este repositorio?</p>
+                    </div>
+                    <p class="faq-answer">Aptoide TV es una plataforma alternativa de distribución de software de código abierto diseñada de forma nativa para televisores. Permite gestionar de manera remota e instalar actualizaciones urgentes de reproductores de video sin saturar los servicios base de Google.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question-container">
+                        <p class="faq-question">¿Por qué se produce inestabilidad en la decodificación de video en vivo?</p>
+                    </div>
+                    <p class="faq-answer">Por lo general, se debe a problemas de saturación en el hardware de renderizado (MediaCodec). Se aconseja vaciar de forma manual los archivos almacenados en la memoria intermedia de las configuraciones globales antes de sintonizar transmisiones en vivo.</p>
+                </div>
             </div>
+
+            <div class="news-wrapper">
+                <div class="news-heading-section">
+                    <h2 class="news-main-title">Daily Updated News</h2>
+                    <p class="news-time-badge">Updated 2h ago</p>
+                </div>
+                
+                <div class="grid-news-row">
+                    <div class="news-block">
+                        <div class="icon-box">⚽</div>
+                        <div class="news-content-text">
+                            <h3 class="news-item-head">Streaming en Directo 2026</h3>
+                            <p class="news-item-body">Nuevos parches de red listos para evitar caídas de señal.</p>
+                        </div>
+                    </div>
+                    <div class="news-block">
+                        <div class="icon-box">🔥</div>
+                        <div class="news-content-text">
+                            <h3 class="news-item-head">Firestick Tips</h3>
+                            <p class="news-item-body">Optimiza tu Firestick liberando espacio en caché.</p>
+                        </div>
+                    </div>
+                    <div class="news-block">
+                        <div class="icon-box">📦</div>
+                        <div class="news-content-text">
+                            <h3 class="news-item-head">Onn Box Review</h3>
+                            <p class="news-item-body">Análisis completo de estabilidad de streaming 4K.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="site-footer">
+            <p>© 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. Este sitio web es un proyecto técnico independiente e informativo; no posee afiliación, patrocinio ni derechos comerciales vinculados a la Federación Internacional de Fútbol Asociado (FIFA) ni a sus eventos oficiales. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
