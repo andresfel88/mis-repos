@@ -1,1 +1,882 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK</title>
+    <style>
+        :root {
+            --bg-page: #e3e2e0; 
+            --bg-canvas: #f2efe9; 
+            --card-bg: #ffffff; 
+            --text-main: #1d1d1f;
+            --text-muted: #515154;
+            --accent-gray: #86868b;
+            --border-card: rgba(0, 0, 0, 0.06);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            --accent-blue: #0066cc;
+            --accent-green: #34c759; /* Verde llamativo estilo Apple */
+            --accent-orange: #ff9500;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAV BAR OPTIMIZADA --- */
+        .nav-bar {
+            background-color: rgba(29, 29, 31, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            opacity: 0.8;
+            outline: none;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-bar a:hover, .nav-bar a:focus {
+            opacity: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Botón de menú móvil (oculto por defecto) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #f5f5f7;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .main-wrapper {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .apple-container {
+            width: 100%;
+            max-width: 1140px;
+            background-color: var(--bg-canvas);
+            border-radius: 28px;
+            padding: 45px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+        }
+
+        .header-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0 0 35px 0;
+            line-height: 1.4;
+        }
+
+        .grid-devices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .card-device {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 14px;
+            color: var(--text-main);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 150px;
+            background-color: #ffffff;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .img-container.dark-bg {
+            background-color: #1a1a1a;
+        }
+
+        .card-heading {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.2px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 6px;
+        }
+
+        .component-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .component-item {
+            margin-bottom: 10px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .component-name {
+            font-weight: 700;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .component-desc {
+            color: var(--text-muted);
+        }
+
+        .solution-box {
+            background-color: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 25px;
+            margin: 35px 0;
+            box-shadow: var(--shadow-card);
+        }
+
+        .solution-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .solution-text {
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0 0 15px 0;
+        }
+
+        .solution-steps {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .solution-steps li {
+            margin-bottom: 8px;
+        }
+
+        .tech-specs-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 35px;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .tech-table th, .tech-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .tech-table th {
+            background-color: #f5f5f7;
+            font-weight: 700;
+        }
+
+        /* --- SECCIÓN FAQ ACCORDION INTERACTIVO --- */
+        .faq-section {
+            margin: 35px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.6);
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: background 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        .faq-question-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .faq-question {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .faq-answer {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, margin-top 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            margin-top: 12px;
+            max-height: 500px;
+        }
+
+        .download-link {
+            color: #2b9e43;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px dashed var(--accent-green);
+            padding-bottom: 1px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .download-link:hover, .download-link:focus {
+            color: #ffffff;
+            background-color: var(--accent-green);
+            border-bottom-style: solid;
+            border-radius: 4px;
+            padding: 2px 6px;
+            outline: none;
+        }
+
+        .moving-arrow {
+            display: inline-block;
+            width: 0; 
+            height: 0; 
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 10px solid var(--accent-green);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .moving-arrow {
+            transform: rotate(-180deg);
+        }
+
+        /* --- SECCIÓN NOTICIAS --- */
+        .news-wrapper {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        .news-heading-section {
+            margin-bottom: 18px;
+        }
+
+        .news-main-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0 0 3px 0;
+            letter-spacing: -0.3px;
+        }
+
+        .news-time-badge {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .grid-news-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .news-block {
+            background-color: #f5f5f7; 
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.06);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .news-content-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item-head {
+            font-size: 12.5px;
+            font-weight: 700;
+            margin: 0 0 2px 0;
+            color: var(--text-main);
+        }
+
+        .news-item-body {
+            font-size: 11px;
+            line-height: 1.3;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 11px;
+            color: #86868b;
+            line-height: 1.5;
+            width: 100%;
+            max-width: 1140px;
+            box-sizing: border-box;
+        }
+
+        /* --- 🍍 WIDGET DE LA PIÑA INTERACTIVA --- */
+        .pineapple-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            cursor: pointer;
+            z-index: 999;
+            user-select: none;
+            border: 1px solid var(--border-card);
+            outline: none;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+
+        .pineapple-widget:hover, .pineapple-widget:focus {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+            background-color: #fffdec;
+        }
+
+        /* --- 🍍 MODAL/VENTANA DE PIÑA OS --- */
+        .pineapple-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .pineapple-modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: var(--bg-canvas);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .pineapple-modal.open .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .modal-icon {
+            font-size: 40px;
+        }
+
+        .modal-title {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .modal-body {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--text-main);
+        }
+
+        .modal-body p {
+            margin: 0 0 15px 0;
+        }
+
+        .modal-features {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 15px;
+            margin: 15px 0 0 0;
+            list-style: none;
+            border: 1px solid var(--border-card);
+        }
+
+        .modal-features li {
+            margin-bottom: 10px;
+            font-size: 12.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-features li:last-child {
+            margin-bottom: 0;
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0,0,0,0.05);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .close-modal-btn:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        /* --- RESPONSIVE DESIGN (MOBILE & SMART TV) --- */
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                align-items: flex-start;
+                display: none; 
+            }
+
+            .nav-bar.open {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                background-color: rgba(29, 29, 31, 0.95);
+                position: sticky;
+                top: 0;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: right;
+                z-index: 101;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .apple-container { padding: 25px 20px; }
+            .grid-news-row { grid-template-columns: 1fr; }
+            .header-title { text-align: center; }
+            .header-subtitle { text-align: center; }
+            
+            .pineapple-widget {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú">☰</button>
+
+    <div class="nav-bar" id="navBar">
+        <a href="#">Documentación</a>
+        <a href="#">Arquitectura Kernel</a>
+        <a href="#">Tablas de Validación</a>
+        <a href="#">Optimización Google TV</a>
+        <a href="#">Soporte Android TV</a>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="apple-container">
+            
+            <h1 class="header-title">Mundo APK - AT-APK</h1>
+            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV.</p>
+
+            <div class="grid-devices">
+                <div class="card-device">
+                    <div class="card-tag">Lion TV Ecosystem</div>
+                    <div class="img-container dark-bg">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff9500' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
+                    </div>
+                    <h2 class="card-heading">Resumen Operativo</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Arquitectura de Streaming</span>
+                            <span class="component-desc">Entorno de distribución multimedia alternativo diseñado para maximizar el rendimiento gráfico en hardware con recursos limitados.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Núcleo Optimizado</span>
+                            <span class="component-desc">Estructura adaptativa de buffers y decodificación nativa para flujos estables sin caídas de frames en ecosistemas Android.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-device">
+                    <div class="card-tag">Google TV Parts</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
+                    </div>
+                    <h2 class="card-heading">Componentes TV</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Sistema Operativo</span>
+                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio por recomendaciones.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Perfil de Usuario</span>
+                            <span class="component-desc">Espacio personalizado para separar el historial de visualización y configuraciones de apps.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-device">
+                    <div class="card-tag">Fire Stick Parts</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%23e47911'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>FIRE STICK</text></svg>" alt="Fire Stick">
+                    </div>
+                    <h2 class="card-heading">Componentes Stick</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Dongle HDMI</span>
+                            <span class="component-desc">Cuerpo principal del hardware que se conecta directo a la entrada de video de la pantalla.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Puerto Micro-USB</span>
+                            <span class="component-desc">Entrada lateral encargada de recibir la alimentación eléctrica o adaptadores OTG.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-device">
+                    <div class="card-tag">Watch Onn Parts</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230071dc'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>WATCH ONN</text></svg>" alt="Watch Onn">
+                    </div>
+                    <h2 class="card-heading">Componentes Box</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. TV Box Square</span>
+                            <span class="component-desc">Caja receptora de hardware con mayor ventilación y estabilidad sobre superficies planas.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Conectividad Interna</span>
+                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth para enlazar accesorios externos.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="solution-box">
+                <h3 class="solution-title">🚀 La Mejor Solución: Optimización Avanzada para Google TV</h3>
+                <p class="solution-text">
+                    La interfaz de Google TV destaca por su diseño visual dinámico, pero la carga constante de recomendaciones en segundo plano suele saturar la memoria RAM en dongles y televisores de gama media. Para mitigar esto, la arquitectura de optimización global propone la depuración limpia del entorno operativo.
+                </p>
+                <ul class="solution-steps">
+                    <li><strong>Activación del Modo Solo Aplicaciones:</strong> Reduce la carga del launcher eliminando vistas previas de video de la pantalla de inicio, liberando hasta un 35% de recursos del procesador.</li>
+                    <li><strong>Ajuste de Límites en Procesos de Fondo:</strong> Mediante las Opciones de Desarrollador, restringir las tareas secundarias estabiliza directamente el bitrate de las aplicaciones de streaming.</li>
+                    <li><strong>Gestión del Decodificador de Hardware:</strong> Asegurar la asignación de memoria exclusiva para el búfer multimedia evita saltos de fotogramas (frame drops) en resoluciones 4K.</li>
+                </ul>
+            </div>
+
+            <div class="tech-specs-section">
+                <h3 style="margin:0 0 10px 0; font-size:16px; font-weight:700;">⚙️ Requisitos de Entorno de Ejecución</h3>
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Arquitectura SoC</th>
+                            <th>RAM Mínima</th>
+                            <th>Espacio de Caché</th>
+                            <th>Nivel de API</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ARM Cortex-A53 / A55</td>
+                            <td>1.5 GB LPDDR3</td>
+                            <td>120 MB libres</td>
+                            <td>API 26 (Android 8.0+)</td>
+                        </tr>
+                        <tr>
+                            <td>AmLogic S905Y4 / S905X4</td>
+                            <td>2.0 GB DDR4</td>
+                            <td>250 MB libres</td>
+                            <td>API 29 (Android 10.0+)</td>
+                        </tr>
+                        <tr>
+                            <td>AllWinner H616 / H618</td>
+                            <td>2.0 GB DDR3</td>
+                            <td>90 MB libres</td>
+                            <td>API 28 (Android 9.0+)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="faq-section">
+                <h3 style="margin:0 0 15px 0; font-size:16px; font-weight:700;">❓ Preguntas Frecuentes de Optimización</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question-container" onclick="toggleFaq(this)">
+                        <div class="moving-arrow"></div>
+                        <p class="faq-question">¿Qué es un archivo APK y cómo opera en Android TV?</p>
+                    </div>
+                    <p class="faq-answer">Un APK (Android Application Package) es el paquete ejecutable compilado que contiene todo el código fuente, recursos multimedia, recursos de renderizado de la interfaz y las firmas digitales de una aplicación para Android. Actúa de manera similar a un archivo .exe en Windows. En entornos como Google TV o Fire Stick, los APK permiten <a href="https://aftv.news/1777929" class="download-link" target="_blank">instalar herramientas de soporte técnico y reproductores personalizados</a> que no se encuentran indexados de forma nativa en la tienda de aplicaciones oficial.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question-container" onclick="toggleFaq(this)">
+                        <div class="moving-arrow"></div>
+                        <p class="faq-question">¿Qué es Aptoide TV y qué funciones cumple en este repositorio?</p>
+                    </div>
+                    <p class="faq-answer">Aptoide TV es una plataforma y tienda de distribución alternativa de software de código abierto diseñada de forma nativa para televisores inteligentes y TV Boxes. A diferencia de los repositorios centralizados tradicionales, opera de forma descentralizada y adaptada a la navegación por control remoto. Permite la gestión remota, actualización automatizada y almacenamiento en caché de APKs optimizados, reduciendo los cuellos de botella de instalación sin depender de los servicios base de Google.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question-container" onclick="toggleFaq(this)">
+                        <div class="moving-arrow"></div>
+                        <p class="faq-question">¿Por qué se produce inestabilidad en la decodificación de video?</p>
+                    </div>
+                    <p class="faq-answer">Por lo general, esto se debe a problemas de asignación en el hardware de renderizado (MediaCodec). Se aconseja vaciar de forma manual los archivos almacenados en la memoria intermedia de las configuraciones globales.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question-container" onclick="toggleFaq(this)">
+                        <div class="moving-arrow"></div>
+                        <p class="faq-question">¿Cómo influyen las firmas digitales del paquete en la instalación directa?</p>
+                    </div>
+                    <p class="faq-answer">Los entornos basados en Android TV requieren que el paquete de compilación cuente con una firma RSA simétrica válida. Al utilizar los métodos del repositorio automatizado, las dependencias cruzadas se resuelven de forma interna.</p>
+                </div>
+            </div>
+
+            <div class="news-wrapper">
+                <div class="news-heading-section">
+                    <h2 class="news-main-title">Daily Updated News</h2>
+                    <p class="news-time-badge">Updated 2h ago</p>
+                </div>
+                
+                <div class="grid-news-row">
+                    <div class="news-block">
+                        <div class="icon-box">📺</div>
+                        <div class="news-content-text">
+                            <h3 class="news-item-head">New Google TV Update</h3>
+                            <p class="news-item-body">New Google TV update is live, introducing better performance.</p>
+                        </div>
+                    </div>
+                    <div class="news-block">
+                        <div class="icon-box">🔥</div>
+                        <div class="news-content-text">
+                            <h3 class="news-item-head">Firestick Tips</h3>
+                            <p class="news-item-body">Optimiza tu Firestick liberando espacio en caché.</p>
+                        </div>
+                    </div>
+                    <div class="news-block">
+                        <div class="icon-box">📦</div>
+                        <div class="news-content-text">
+                            <h3 class="news-item-head">Onn Box Review</h3>
+                            <p class="news-item-body">Análisis completo de estabilidad de streaming 4K.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="site-footer">
+            <p>© 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico para la optimización de hardware modular.</p>
+        </footer>
+    </div>
+
+    <div class="pineapple-widget" id="pineappleBtn" role="button" tabindex="0" aria-label="Información de Piña OS">🍍</div>
+
+    <div class="pineapple-modal" id="pineappleModal">
+        <div class="modal-content">
+            <button class="close-modal-btn" id="closeModalBtn">&times;</button>
+            <div class="modal-header">
+                <span class="modal-icon">🍍</span>
+                <div>
+                    <h2 class="modal-title">Piña OS</h2>
+                    <span style="font-size: 11px; color: var(--accent-orange); font-weight: 700; text-transform: uppercase;">Custom TV Firmware Concept</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p><strong>¿Qué es Piña OS?</strong> Es un concepto de entorno operativo optimizado y personalizado para Smart TVs y TV Boxes (Android TV / Fire OS).</p>
+                <p>Su arquitectura elimina procesos innecesarios del fabricante para garantizar una decodificación de video limpia y la máxima tasa de frames posible en streaming.</p>
+                
+                <ul class="modal-features">
+                    <li>🟢 <strong>Zero Bloatware:</strong> Adiós a las apps basura de fábrica.</li>
+                    <li>⚡ <strong>RAM Ultra-Libre:</strong> Hasta 40% más memoria para tus reproductores.</li>
+                    <li>🎬 <strong>MediaCodec Puro:</strong> Prioridad absoluta al renderizado de video 4K.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica para el Acordeón de FAQs
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+        }
+
+        // Lógica para el Menú Móvil
+        const menuBtn = document.getElementById('menuBtn');
+        const navBar = document.getElementById('navBar');
+
+        menuBtn.addEventListener('click', () => {
+            navBar.classList.toggle('open');
+            menuBtn.textContent = navBar.classList.contains('open') ? '✕' : '☰';
+        });
+
+        // 🍍 Lógica Interactiva de la Piña y el Modal
+        const pineappleBtn = document.getElementById('pineappleBtn');
+        const pineappleModal = document.getElementById('pineappleModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        const openModal = () => pineappleModal.classList.add('open');
+        const closeModal = () => pineappleModal.classList.remove('open');
+
+        pineappleBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Cerrar modal al hacer clic fuera del contenido
+        pineappleModal.addEventListener('click', (e) => {
+            if (e.target === pineappleModal) closeModal();
+        });
+
+        // Soporte para teclado/control de TV (tecla Enter)
+        pineappleBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') openModal();
+        });
+    </script>
+</body>
+</html>
