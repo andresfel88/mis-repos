@@ -15,7 +15,7 @@
             --border-card: rgba(0, 0, 0, 0.06);
             --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
             --accent-blue: #0066cc;
-            --accent-green: #34c759; /* Verde llamativo estilo Apple */
+            --accent-green: #34c759;
             --accent-orange: #ff9500;
         }
 
@@ -62,7 +62,7 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* Botón de menú móvil (oculto por defecto) */
+        /* Botón de menú móvil */
         .menu-toggle {
             display: none;
             background: none;
@@ -422,8 +422,8 @@
             box-sizing: border-box;
         }
 
-        /* --- 🍍 WIDGET DE LA PIÑA INTERACTIVA --- */
-        .pineapple-widget {
+        /* --- 🍍 ENLACE FLOTANTE DE LA PIÑA INTERACTIVA --- */
+        .pineapple-link {
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -440,127 +440,15 @@
             z-index: 999;
             user-select: none;
             border: 1px solid var(--border-card);
+            text-decoration: none; /* Elimina subrayado nativo de enlaces */
             outline: none;
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
         }
 
-        .pineapple-widget:hover, .pineapple-widget:focus {
+        .pineapple-link:hover, .pineapple-link:focus {
             transform: scale(1.15) rotate(10deg);
             box-shadow: 0 12px 30px rgba(0,0,0,0.25);
             background-color: #fffdec;
-        }
-
-        /* --- 🍍 MODAL/VENTANA DE PIÑA OS --- */
-        .pineapple-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .pineapple-modal.open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-content {
-            background-color: var(--bg-canvas);
-            width: 90%;
-            max-width: 500px;
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.4);
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        .pineapple-modal.open .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .modal-icon {
-            font-size: 40px;
-        }
-
-        .modal-title {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .modal-body {
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: var(--text-main);
-        }
-
-        .modal-body p {
-            margin: 0 0 15px 0;
-        }
-
-        .modal-features {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            padding: 15px;
-            margin: 15px 0 0 0;
-            list-style: none;
-            border: 1px solid var(--border-card);
-        }
-
-        .modal-features li {
-            margin-bottom: 10px;
-            font-size: 12.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .modal-features li:last-child {
-            margin-bottom: 0;
-        }
-
-        .close-modal-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0,0,0,0.05);
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-
-        .close-modal-btn:hover {
-            background-color: rgba(0,0,0,0.1);
         }
 
         /* --- RESPONSIVE DESIGN (MOBILE & SMART TV) --- */
@@ -594,7 +482,7 @@
             .header-title { text-align: center; }
             .header-subtitle { text-align: center; }
             
-            .pineapple-widget {
+            .pineapple-link {
                 bottom: 20px;
                 right: 20px;
                 width: 50px;
@@ -816,30 +704,7 @@
         </footer>
     </div>
 
-    <div class="pineapple-widget" id="pineappleBtn" role="button" tabindex="0" aria-label="Información de Piña OS">🍍</div>
-
-    <div class="pineapple-modal" id="pineappleModal">
-        <div class="modal-content">
-            <button class="close-modal-btn" id="closeModalBtn">&times;</button>
-            <div class="modal-header">
-                <span class="modal-icon">🍍</span>
-                <div>
-                    <h2 class="modal-title">Piña OS</h2>
-                    <span style="font-size: 11px; color: var(--accent-orange); font-weight: 700; text-transform: uppercase;">Custom TV Firmware Concept</span>
-                </div>
-            </div>
-            <div class="modal-body">
-                <p><strong>¿Qué es Piña OS?</strong> Es un concepto de entorno operativo optimizado y personalizado para Smart TVs y TV Boxes (Android TV / Fire OS).</p>
-                <p>Su arquitectura elimina procesos innecesarios del fabricante para garantizar una decodificación de video limpia y la máxima tasa de frames posible en streaming.</p>
-                
-                <ul class="modal-features">
-                    <li>🟢 <strong>Zero Bloatware:</strong> Adiós a las apps basura de fábrica.</li>
-                    <li>⚡ <strong>RAM Ultra-Libre:</strong> Hasta 40% más memoria para tus reproductores.</li>
-                    <li>🎬 <strong>MediaCodec Puro:</strong> Prioridad absoluta al renderizado de video 4K.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <a href="https://aftv.news/8459100" class="pineapple-link" target="_blank" title="Descargar Piña OS" aria-label="Descargar Piña OS">🍍</a>
 
     <script>
         // Lógica para el Acordeón de FAQs
@@ -855,27 +720,6 @@
         menuBtn.addEventListener('click', () => {
             navBar.classList.toggle('open');
             menuBtn.textContent = navBar.classList.contains('open') ? '✕' : '☰';
-        });
-
-        // 🍍 Lógica Interactiva de la Piña y el Modal
-        const pineappleBtn = document.getElementById('pineappleBtn');
-        const pineappleModal = document.getElementById('pineappleModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-
-        const openModal = () => pineappleModal.classList.add('open');
-        const closeModal = () => pineappleModal.classList.remove('open');
-
-        pineappleBtn.addEventListener('click', openModal);
-        closeModalBtn.addEventListener('click', closeModal);
-
-        // Cerrar modal al hacer clic fuera del contenido
-        pineappleModal.addEventListener('click', (e) => {
-            if (e.target === pineappleModal) closeModal();
-        });
-
-        // Soporte para teclado/control de TV (tecla Enter)
-        pineappleBtn.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') openModal();
         });
     </script>
 </body>
