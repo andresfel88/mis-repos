@@ -102,6 +102,7 @@
 
         .season-badge {
             display: inline-flex;
+
             align-items: center;
             gap: 6px;
             background-color: rgba(29, 112, 50, 0.1);
@@ -123,10 +124,10 @@
             max-width: 800px;
         }
 
-        /* GRID DE 4 COLUMNAS TOTALMENTE SIMÉTRICO */
+        /* GRID TOTALMENTE SIMÉTRICO ADAPTATIVO */
         .grid-devices {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
             margin-bottom: 40px;
         }
@@ -639,6 +640,25 @@
                     </ul>
                 </div>
 
+                <!-- NUEVA TARJETA: TELEÑECOS Y TELEVIZIO -->
+                <div class="card-device">
+                    <div class="card-tag">Televizio Ecosystem</div>
+                    <div class="img-container dark-bg" style="background-color: #3b1c5c;">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%233b1c5c'/><text x='50%' y='40%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>TELEVIZIO</text><text x='50%' y='65%' font-family='sans-serif' font-size='8' fill='%2300ffcc' font-weight='600' text-anchor='middle'>TELEÑECOS</text></svg>" alt="Televizio Teleñecos">
+                    </div>
+                    <h2 class="card-heading">Teleñecos App</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Integración con Televizio</span>
+                            <span class="component-desc">Configuración optimizada de listas y contenidos personalizados mediante el motor de reproducción Televizio.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Estabilidad de Señal</span>
+                            <span class="component-desc">Ajuste de buffers específico para evitar cortes en el ecosistema Teleñecos durante eventos en vivo.</span>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
 
             <div class="match-calendar-widget">
@@ -805,7 +825,7 @@
         </div>
 
         <footer class="site-footer">
-            <p>© 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. Este sitio web es un proyecto técnico independiente e informativo; no posee afiliación, patrocinio ni derechos comerciales vinculados a la FIFA ni a sus eventos oficiales. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico.</p>
+            <p>©️ 2026 Mundo APK Open Source Project. Desarrollado bajo licencias de distribución de código libre. Android, Google TV y Fire OS son marcas comerciales de sus respectivos titulares. Este sitio web es un proyecto técnico independiente e informativo; no posee afiliación, patrocinio ni derechos comerciales vinculados a la FIFA ni a sus eventos oficiales. El uso de este repositorio es estrictamente con propósitos educativos y de soporte técnico.</p>
         </footer>
     </div>
 
