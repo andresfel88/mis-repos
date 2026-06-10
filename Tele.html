@@ -3,1049 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
+    <title>Tutorial de Instalación - Downloader</title>
     <style>
         :root {
-            /* Paleta Premium Estilo Apple adaptada a la temporada */
-            --bg-page: #e5e5e0; 
-            --bg-canvas: #fafdfa; 
-            --card-bg: #ffffff; 
-            --text-main: #1d1d1f;
-            --text-muted: #6e6e73;
-            --accent-gray: #86868b;
-            --border-card: rgba(0, 0, 0, 0.05);
-            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-            --accent-blue: #0066cc;
-            --accent-green: #1d7032; 
-            
-            /* Colores de los países anfitriones de la fiesta del fútbol */
-            --host-mexico: #006847;
-            --host-usa: #002868;
-            --host-canada: #da291c;
+            --primary-color: #ff6600; /* Color naranja característico de Downloader */
+            --bg-color: #f4f5f7;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --accent-color: #0066cc;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
+            padding: 20px;
         }
 
-        /* BARRA SUPERIOR EXCLUSIVA */
-        .world-cup-bar {
-            background: linear-gradient(90deg, var(--host-mexico) 0%, var(--host-usa) 50%, var(--host-canada) 100%);
-            color: #ffffff;
-            text-align: center;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.2px;
-            padding: 8px 10px;
-            text-transform: uppercase;
-        }
-
-        .nav-bar {
-            background-color: rgba(29, 29, 31, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 14px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .nav-bar a {
-            color: #f5f5f7;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .nav-bar a:hover {
-            opacity: 1;
-        }
-
-        .main-wrapper {
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .apple-container {
-            width: 100%;
-            max-width: 1100px;
-            background-color: var(--bg-canvas);
-            border-radius: 28px;
-            padding: 50px;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
-            box-sizing: border-box;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-
-        .header-title {
-            font-size: 34px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin: 0 0 10px 0;
-            color: var(--text-main);
-        }
-
-        .season-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background-color: rgba(29, 112, 50, 0.1);
-            color: var(--accent-green);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-
-        .header-subtitle {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin: 0 0 45px 0;
-            line-height: 1.5;
+        .container {
             max-width: 800px;
+            margin: 0 auto;
         }
 
-        /* GRID ACTUALIZADO ADAPTATIVO */
-        .grid-devices {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .card-device {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: var(--shadow-card);
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .card-device:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-        }
-
-        /* Ajuste de enlace para la tarjeta cliqueable */
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .card-tag {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            color: var(--text-muted);
-        }
-
-        .img-container {
-            width: 100%;
-            height: 130px;
-            background-color: #f5f5f7;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-
-        .img-container img, .img-container svg {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .img-container.dark-bg {
-            background-color: #1a1a1a;
-        }
-
-        .card-heading {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0 0 14px 0;
-            letter-spacing: -0.3px;
-            color: var(--text-main);
-        }
-
-        .component-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .component-item {
-            margin-bottom: 12px;
-            font-size: 12.5px;
-            line-height: 1.4;
-        }
-
-        .component-name {
-            font-weight: 600;
-            color: var(--text-main);
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .component-desc {
-            color: var(--text-muted);
-        }
-
-        /* WIDGET EXCLUSIVO PARA EL CALENDARIO REAL */
-        .match-calendar-widget {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
-            border-top: 4px solid var(--accent-green);
-        }
-
-        .widget-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding-bottom: 12px;
-        }
-
-        .widget-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .grid-matches {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .match-box {
-            background: #f5f5f7;
-            padding: 16px;
-            border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-
-        .match-date {
-            font-size: 11px;
-            color: var(--accent-green);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-
-        .match-teams {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .team-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .vs-badge {
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--text-muted);
-            background: rgba(0,0,0,0.05);
-            padding: 2px 6px;
-            border-radius: 4px;
-            align-self: center;
-            margin: 2px 0;
+        h1, h2 {
             text-align: center;
-            width: fit-content;
+            color: #111;
         }
 
-        /* SECCIÓN DEL BALÓN ABSTRACTO */
-        .football-showcase {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .football-link-wrapper {
-            width: 80px;
-            height: 80px;
-            flex-shrink: 0;
-            display: block;
-            transition: transform 0.2s ease;
-            cursor: pointer;
-        }
-
-        .football-link-wrapper:hover {
-            transform: scale(1.08) rotate(10deg);
-        }
-
-        .football-text-box {
-            font-size: 13.5px;
-            line-height: 1.5;
-            color: var(--text-muted);
-        }
-
-        .solution-box {
-            background-color: #ffffff;
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0;
-            box-shadow: var(--shadow-card);
-        }
-
-        .solution-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--accent-blue);
-            margin: 0 0 14px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .solution-text {
-            font-size: 14px;
-            color: var(--text-main);
-            line-height: 1.6;
-            margin: 0 0 20px 0;
-        }
-
-        .solution-steps {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        .solution-steps li {
-            margin-bottom: 10px;
-        }
-
-        .tech-specs-section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
-        }
-
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-            text-align: left;
-            margin-top: 18px;
-        }
-
-        .tech-table th, .tech-table td {
-            padding: 14px;
-            border-bottom: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .tech-table th {
-            background-color: #f5f5f7;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        /* ESTILOS EXCLUSIVOS SECCIÓN NUEVA: TUTORIAL CACHÉ */
-        .cache-tutorial-container {
-            background-color: #1a1a1c;
-            border-radius: 24px;
-            padding: 35px;
-            color: #f5f5f7;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .cache-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin: 0 0 8px 0;
-            color: #ffffff;
-            letter-spacing: -0.5px;
-        }
-
-        .cache-subtitle {
-            font-size: 14px;
-            color: #a1a1a6;
-            margin: 0 0 25px 0;
-            line-height: 1.5;
-        }
-
-        .cache-tabs {
-            display: flex;
-            gap: 8px;
-            border-bottom: 2px solid #2d2d30;
-            margin-bottom: 25px;
-        }
-
-        .cache-tab-btn {
-            background: none;
-            border: none;
-            color: #a1a1a6;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 12px 18px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-bottom: 3px solid transparent;
-            margin-bottom: -2px;
-        }
-
-        .cache-tab-btn:hover {
-            color: #ffffff;
-        }
-
-        .cache-tab-btn.active {
-            color: #ff9500;
-            border-bottom: 3px solid #ff9500;
-        }
-
-        .cache-tab-content {
-            display: none;
-        }
-
-        .cache-tab-content.active {
-            display: block;
-        }
-
-        .cache-step {
-            background-color: #232326;
-            border-left: 4px solid #ff9500;
+        .step-card {
+            background: var(--card-bg);
             border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             padding: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
         }
 
-        .cache-step-num {
-            display: inline-block;
-            background-color: rgba(255, 149, 0, 0.15);
-            color: #ff9500;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .cache-step-text {
-            font-size: 14px;
-            line-height: 1.5;
-            margin: 0 0 14px 0;
-            color: #e5e5e7;
-        }
-
-        .cache-img-box {
-            background-color: #111112;
-            color: #68686e;
-            border: 1px dashed #3a3a3c;
-            border-radius: 12px;
-            padding: 30px 15px;
-            text-align: center;
-            font-size: 13px;
-            font-style: italic;
-        }
-
-        .cache-alert-box {
-            display: flex;
-            gap: 12px;
-            background-color: rgba(0, 102, 204, 0.1);
-            border: 1px solid rgba(0, 102, 204, 0.3);
-            border-radius: 12px;
-            padding: 16px;
-            margin-top: 25px;
-            align-items: flex-start;
-        }
-
-        .cache-alert-box p {
-            margin: 0;
-            font-size: 13px;
-            line-height: 1.5;
-            color: #98cafc;
-        }
-
-        /* CONFIGURACIÓN DE ELEMENTOS TRADICIONALES */
-        .faq-section {
-            margin: 40px 0;
-        }
-
-        .faq-item {
-            margin-bottom: 16px;
-            background: rgba(255,255,255,0.6);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.01);
-        }
-
-        .faq-question-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .step-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
             margin-bottom: 10px;
         }
 
-        .faq-question {
-            font-size: 14px;
-            font-weight: 600;
-            margin: 0;
-            color: var(--text-main);
-        }
-
-        .faq-answer {
-            font-size: 13px;
-            line-height: 1.5;
-            color: var(--text-muted);
-            margin: 0;
-            padding-left: 24px;
-        }
-
-        .download-link {
-            color: var(--accent-green); 
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
-
-        .download-link:hover {
-            opacity: 0.8;
-        }
-
-        .moving-arrow {
-            display: inline-block;
-            width: 0; 
-            height: 0; 
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 8px solid var(--accent-green);
-            animation: bounceArrow 1.2s infinite ease-in-out;
-            flex-shrink: 0;
-        }
-
-        @keyframes bounceArrow {
-            0%, 100% { transform: translateY(-3px); }
-            50% { transform: translateY(3px); }
-        }
-
-        .news-wrapper {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: var(--shadow-card);
-            box-sizing: border-box;
-        }
-
-        .news-heading-section {
-            margin-bottom: 20px;
-        }
-
-        .news-main-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin: 0 0 4px 0;
-            letter-spacing: -0.4px;
-        }
-
-        .news-time-badge {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        .grid-news-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-        }
-
-        .news-block {
-            background-color: #f5f5f7; 
-            border-radius: 16px;
-            padding: 16px;
-            display: flex;
-            gap: 14px;
-            align-items: center;
-        }
-
-        .icon-box {
-            width: 44px;
-            height: 44px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.04);
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .news-content-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .news-item-head {
-            font-size: 13px;
-            font-weight: 600;
-            margin: 0 0 3px 0;
-            color: var(--text-main);
-        }
-
-        .news-item-body {
-            font-size: 11.5px;
-            line-height: 1.4;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        .site-footer {
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 11px;
-            color: #86868b;
-            line-height: 1.6;
+        .step-img {
             width: 100%;
-            max-width: 1100px;
-            box-sizing: border-box;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: #ddd;
         }
 
-        @media (max-width: 992px) {
-            .grid-devices { grid-template-columns: repeat(2, 1fr); }
+        /* SECCIÓN ESPECIAL PARA TELEÑECOS (UBICACIÓN CENTRAL Y DIFERENCIADA) */
+        .telenecos-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 2px solid #00d2ff;
         }
 
-        @media (max-width: 768px) {
-            .apple-container { padding: 30px 20px; }
-            .grid-devices { grid-template-columns: 1fr; }
-            .grid-matches { grid-template-columns: 1fr; }
-            .header-title { font-size: 26px; }
-            .nav-bar { display: none; }
-            .football-showcase { flex-direction: column; text-align: center; }
+        .telenecos-section h2 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .telenecos-content {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            opacity: 0.9;
+        }
+
+        .telenecos-btn {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #111;
+            padding: 12px 30px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+        }
+
+        .telenecos-btn:hover {
+            transform: scale(1.05);
+            background-color: #ffa600;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .telenecos-section { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="world-cup-bar">
-        ⚡ Edición Especial: Optimización de Streaming para los Partidos de la Temporada de Verano 2026 ⚡
-    </div>
+    <div class="container">
+        <h1>Guía de Instalación de Aplicaciones en TV Box / Fire TV</h1>
+        <p style="text-align: center; color: #666;">Sigue estos pasos sencillos para configurar tu dispositivo usando la app Downloader.</p>
 
-    <div class="nav-bar">
-        <a href="#">Documentación</a>
-        <a href="#">Arquitectura Kernel</a>
-        <a href="#">Tablas de Validación</a>
-        <a href="#">Optimización Google TV</a>
-        <a href="#">Soporte Android TV</a>
-    </div>
-
-    <div class="main-wrapper">
-        <div class="apple-container">
-            
-            <span class="season-badge">⚽ Especial Temporada Deportiva 2026</span>
-            <h1 class="header-title">Mundo APK - AT-APK</h1>
-            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
-
-            <div class="grid-devices">
-
-                <div class="card-device">
-                    <a href="https://aftv.news/5871100" class="card-link" target="_blank" title="Abrir portal Televizio">
-                        <div class="card-tag">Ecosistema Televizio</div>
-                        <div class="img-container dark-bg">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60">
-                                <rect width="100%" height="100%" fill="#1a1a1a"/>
-                                <polygon points="32,22 32,38 48,30" fill="#ffffff"/>
-                                <rect x="52" y="24" width="16" height="3" fill="#0066cc" rx="1.5"/>
-                                <rect x="52" y="32" width="12" height="3" fill="#ffffff" rx="1.5"/>
-                                <text x="50%" y="54%" font-family="sans-serif" font-size="8" fill="#86868b" font-weight="600" text-anchor="middle" letter-spacing="0.5">TELEVIZIO OS</text>
-                            </svg>
-                        </div>
-                        <h2 class="card-heading">Teleñecos Premium</h2>
-                        <ul class="component-list">
-                            <li class="component-item">
-                                <span class="component-name">1. Integración de Listas</span>
-                                <span class="component-desc">Configuración avanzada de pasarelas y enlaces optimizados dentro de la interfaz Televizio.</span>
-                            </li>
-                            <li class="component-item">
-                                <span class="component-name">2. Soporte Técnico</span>
-                                <span class="component-desc">Módulos de aceleración de vídeo dedicados para prevenir cortes de buffer en canales en vivo.</span>
-                            </li>
-                        </ul>
-                    </a>
-                </div>
-
-                <div class="card-device">
-                    <div class="card-tag">Lion TV Ecosystem</div>
-                    <div class="img-container dark-bg">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff9500' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
-                    </div>
-                    <h2 class="card-heading">Resumen Operativo</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. Arquitectura de Streaming</span>
-                            <span class="component-desc">Entorno multimedia alternativo para maximizar el rendimiento gráfico en hardware limitado.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Núcleo Optimizado</span>
-                            <span class="component-desc">Estructura adaptativa de buffers para evitar caídas de frames en Android.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-device">
-                    <div class="card-tag">Google TV Parts</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
-                    </div>
-                    <h2 class="card-heading">Componentes TV</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. Sistema Operativo</span>
-                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Perfil de Usuario</span>
-                            <span class="component-desc">Espacio personalizado para separar historiales y configuraciones de apps.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-device">
-                    <div class="card-tag">Fire Stick Parts</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%23e47911'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>FIRE STICK</text></svg>" alt="Fire Stick">
-                    </div>
-                    <h2 class="card-heading">Componentes Stick</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. Dongle HDMI</span>
-                            <span class="component-desc">Cuerpo de hardware que se conecta directo a la entrada de video de la pantalla.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Puerto Micro-USB</span>
-                            <span class="component-desc">Entrada lateral encargada de recibir alimentación eléctrica o adaptadores.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-device">
-                    <div class="card-tag">Watch Onn Parts</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230071dc'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>WATCH ONN</text></svg>" alt="Watch Onn">
-                    </div>
-                    <h2 class="card-heading">Componentes Box</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. TV Box Square</span>
-                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad en superficies planas.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Conectividad Interna</span>
-                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth para accesorios.</span>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="match-calendar-widget">
-                <div class="widget-header">
-                    <a href="https://aftv.news/6683837" target="_blank" style="text-decoration: none; color: inherit; transition: color 0.2s ease;" onmouseover="this.style.color='var(--accent-green)'" onmouseout="this.style.color='inherit'">
-                        <h3 class="widget-title">📅 Próximos Encuentros Destacados - Primera Ronda</h3>
-                    </a>
-                    <span style="font-size: 12px; font-weight: 500; color: var(--text-muted);">Fase de Grupos</span>
-                </div>
-                
-                <div class="grid-matches">
-                    <div class="match-box">
-                        <div class="match-date">Jueves 11 de Junio • Estadio Azteca</div>
-                        <div class="match-teams">
-                            <div class="team-row"><span>🇲🇽 México</span> <span style="color: var(--accent-green); font-weight:600;">Anfitrión</span></div>
-                            <div class="vs-badge">VS</div>
-                            <div class="team-row"><span>🇿🇦 Sudáfrica</span> <span style="color: var(--text-muted); font-weight:400;">Grupo A</span></div>
-                        </div>
-                    </div>
-
-                    <div class="match-box">
-                        <div class="match-date">Viernes 12 de Junio • Estadio de Toronto</div>
-                        <div class="match-teams">
-                            <div class="team-row"><span>🇨🇦 Canadá</span> <span style="color: var(--accent-green); font-weight:600;">Anfitrión</span></div>
-                            <div class="vs-badge">VS</div>
-                            <div class="team-row"><span>🇧🇦 Bosnia y Herz.</span> <span style="color: var(--text-muted); font-weight:400;">Grupo B</span></div>
-                        </div>
-                    </div>
-
-                    <div class="match-box">
-                        <div class="match-date">Viernes 12 de Junio • Estadio de Los Ángeles</div>
-                        <div class="match-teams">
-                            <div class="team-row"><span>🇺🇸 Estados Unidos</span> <span style="color: var(--accent-green); font-weight:600;">Anfitrión</span></div>
-                            <div class="vs-badge">VS</div>
-                            <div class="team-row"><span>🇵🇾 Paraguay</span> <span style="color: var(--text-muted); font-weight:400;">Grupo D</span></div>
-                        </div>
-                    </div>
-                </div>
-                <p style="margin: 15px 0 0 0; font-size: 11px; color: var(--text-muted); text-align: center; font-style: italic;">
-                    *Verifica la estabilidad de tu conexión antes del pitazo inicial para transmisiones UHD fluidas.
-                </p>
-            </div>
-
-            <div class="football-showcase">
-                <a href="https://aftv.news/7103900" class="football-link-wrapper" target="_blank" title="Ir al servidor de descarga">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-                        <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>
-                        <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#1A1A1A"/>
-                        <line x1="50" y1="38" x2="50" y2="20" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="61" y1="47" x2="78" y2="42" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="57" y1="59" x2="68" y2="75" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="43" y1="59" x2="32" y2="75" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="39" y1="47" x2="22" y2="42" stroke="#1A1A1A" stroke-width="2"/>
-                        <polygon points="50,20 40,10 60,10" fill="#1A1A1A"/>
-                        <polygon points="78,42 88,32 88,52" fill="#1A1A1A"/>
-                        <polygon points="68,75 78,85 58,85" fill="#1A1A1A"/>
-                        <polygon points="32,75 22,85 42,85" fill="#1A1A1A"/>
-                        <polygon points="22,42 12,52 12,32" fill="#1A1A1A"/>
-                    </svg>
-                </a>
-                <div class="football-text-box">
-                    <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; font-weight: 600;">Módulo de Transmisión de Alta Velocidad (En Vivo)</h4>
-                    <p style="margin: 0;">Durante este mes de máxima exigencia en redes, el repositorio implementa una segmentación inteligente de paquetes APK. Esta optimización reduce el buffer en los reproductores multimedia, permitiendo flujos de video estables a 60 fps para que disfrutes cada jugada en tiempo real.</p>
-                </div>
-            </div>
-
-            <div class="solution-box">
-                <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
-                <p class="solution-text">
-                    Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en la memoria RAM y en la tarjeta de red inalámbrica de tu Smart TV. Sigue estos pasos clave:
-                </p>
-                <ul class="solution-steps">
-                    <li><strong>Priorizar el Decodificador por Hardware (H.265/HEVC):</strong> Procesa el video de los partidos de forma directa en el chip gráfico, reduciendo la fatiga del procesador.</li>
-                    <li><strong>Limpieza Extrema de Caché de Red:</strong> Borrar los archivos temporales acumulados libera ancho de banda interno crítico para el streaming UHD.</li>
-                    <li><strong>Desactivar Actualizaciones Automáticas:</strong> Evita descargas molestas en segundo plano en medio del partido.</li>
-                </ul>
-            </div>
-
-            <div class="tech-specs-section">
-                <h3 style="margin:0 0 10px 0; font-size:16px; font-weight:600;">⚙️ Requisitos de Entorno de Ejecución</h3>
-                <table class="tech-table">
-                    <thead>
-                        <tr>
-                            <th>Arquitectura SoC</th>
-                            <th>RAM Mínima</th>
-                            <th>Espacio de Caché</th>
-                            <th>Nivel de API</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>ARM Cortex-A53 / A55</td>
-                            <td>1.5 GB LPDDR3</td>
-                            <td>120 MB libres</td>
-                            <td>API 26 (Android 8.0+)</td>
-                        </tr>
-                        <tr>
-                            <td>AmLogic S905Y4 / S905X4</td>
-                            <td>2.0 GB DDR4</td>
-                            <td>250 MB libres</td>
-                            <td>API 29 (Android 10.0+)</td>
-                        </tr>
-                        <tr>
-                            <td>AllWinner H616 / H618</td>
-                            <td>2.0 GB DDR3</td>
-                            <td>90 MB libres</td>
-                            <td>API 28 (Android 9.0+)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="cache-tutorial-container">
-                <h3 class="cache-title">Manual de Limpieza: Liberación de Memoria Caché</h3>
-                <p class="cache-subtitle">Sigue la guía visual paso a paso según la interfaz de tu dispositivo para solucionar congelamientos, pantallas en negro o lentitud en las transmisiones.</p>
-
-                <div class="cache-tabs">
-                    <button class="cache-tab-btn active" onclick="toggleCacheTab('gui-google-tv')">Google TV / Android TV</button>
-                    <button class="cache-tab-btn" onclick="toggleCacheTab('gui-fire-stick')">Amazon Fire TV Stick</button>
-                </div>
-
-                <div id="gui-google-tv" class="cache-tab-content active">
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 1</span>
-                        <p class="cache-step-text">Desde el panel superior de la pantalla de inicio, desplázate al extremo derecho y selecciona el ícono de la <strong>rueda dentada (Configuración / Ajustes)</strong>.</p>
-                        <div class="cache-img-box">[ Imagen: Interfaz principal con el cursor enfocado en Ajustes del Sistema ]</div>
-                    </div>
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 2</span>
-                        <p class="cache-step-text">En la barra lateral de opciones desplegada, busca y accede al apartado de <strong>"Apps"</strong> o <strong>"Aplicaciones"</strong>.</p>
-                        <div class="cache-img-box">[ Imagen: Menú de configuración resaltando el ícono de Aplicaciones ]</div>
-                    </div>
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 3</span>
-                        <p class="cache-step-text">Haz clic en <strong>"Ver todas las aplicaciones"</strong> y selecciona la app o reproductor multimedia que presente inestabilidad.</p>
-                        <div class="cache-img-box">[ Imagen: Listado interno de aplicaciones instaladas en la TV ]</div>
-                    </div>
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 4</span>
-                        <p class="cache-step-text">Baja por las opciones de almacenamiento interno de la app seleccionada y pulsa sobre <strong>"Borrar caché"</strong>.</p>
-                        <div class="cache-img-box">[ Imagen: Detalle de memoria con el botón Borrar Caché activo ]</div>
-                    </div>
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 5</span>
-                        <p class="cache-step-text">Confirma la acción seleccionando <strong>"Aceptar"</strong>. Verás de inmediato que los datos residuales pasan a marcar <code>0 B</code>.</p>
-                        <div class="cache-img-box">[ Imagen: Ventana de confirmación y estado de memoria restablecido ]</div>
-                    </div>
-                </div>
-
-                <div id="gui-fire-stick" class="cache-tab-content">
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 1</span>
-                        <p class="cache-step-text">En el menú central de tu Fire Stick, sitúate en el extremo derecho del menú de iconos y haz clic en la **Rueda dentada de Configuración**.</p>
-                        <div class="cache-img-box">[ Imagen: Barra de Fire OS apuntando a la sección de Configuración ]</div>
-                    </div>
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 2</span>
-                        <p class="cache-step-text">Entre la cuadrícula de configuraciones del sistema, localiza y presiona la casilla de <strong>"Aplicaciones"</strong>.</p>
-                        <div class="cache-img-box">[ Imagen: Mosaico de opciones enfocando el icono Aplicaciones ]</div>
-                    </div>
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 3</span>
-                        <p class="cache-step-text">Desplázate hacia abajo hasta la última opción del menú técnico y entra en <strong>"Gestionar las aplicaciones instaladas"</strong>.</p>
-                        <div class="cache-img-box">[ Imagen: Lista de opciones de apps con la sección de gestión marcada ]</div>
-                    </div>
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 4</span>
-                        <p class="cache-step-text">Ubica en la lista general la aplicación que deseas limpiar y pulsa el botón central de selección de tu control.</p>
-                        <div class="cache-img-box">[ Imagen: Listado de apps mostrando el almacenamiento individual consumido ]</div>
-                    </div>
-                    <div class="cache-step">
-                        <span class="cache-step-num">PASO 5</span>
-                        <p class="cache-step-text">En el menú flotante de la derecha, pulsa sobre la opción <strong>"Borrar caché"</strong>. Notarás al instante que la memoria se libera.</p>
-                        <div class="cache-img-box">[ Imagen: Panel de comandos finales con el indicador de caché en cero ]</div>
-                    </div>
-                </div>
-
-                <div class="cache-alert-box">
-                    <p>💡 <strong>Análisis Técnico Preventivo:</strong> La función <em>"Borrar caché"</em> únicamente destruye el almacenamiento temporal y archivos basura optimizando el rendimiento. **No selecciones "Borrar datos"**, ya que esta segunda acción restaurará la app a fábrica obligándote a introducir de nuevo credenciales de cuentas o configuraciones.</p>
-                </div>
-            </div>
-
-            <div class="faq-section">
-                <h3 style="margin:0 0 15px 0; font-size:16px; font-weight:600;">❓ Preguntas Frecuentes de Optimización</h3>
-                
-                <div class="faq-item">
-                    <div class="faq-question-container">
-                        <div class="moving-arrow"></div>
-                        <p class="faq-question">¿Qué es un archivo APK y cómo opera en Android TV?</p>
-                    </div>
-                    <p class="faq-answer">Un APK (Android Application Package) es el paquete ejecutable compilado para Android. En entornos de TV, permite <a href="https://aftv.news/1777929" class="download-link" target="_blank">instalar herramientas de soporte técnico y reproductores personalizados</a> óptimos para transmisiones de alta velocidad.</p>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question-container">
-                        <div class="moving-arrow"></div>
-                        <p class="faq-question">¿Qué es Aptoide TV y qué funciones cumple en este repositorio?</p>
-                    </div>
-                    <p class="faq-answer">Es una plataforma de distribución de software de código abierto nativa para televisores, útil para gestionar de manera remota actualizaciones de apps de video independientes sin saturar el sistema.</p>
-                </div>
-            </div>
-
-            <div class="news-wrapper">
-                <div class="news-heading-section">
-                    <h2 class="news-main-title">Daily Updated News</h2>
-                    <p class="news-time-badge">Updated 2h ago</p>
-                </div>
-                
-                <div class="grid-news-row">
-                    <div class="news-block">
-                        <div class="icon-box">⚽</div>
-                        <div class="news-content-text">
-                            <h5 class="news-item-head">Optimización de Redes</h5>
-                            <p class="news-item-body">Análisis de latencia de CDN globales completado para evitar saturaciones durante picos de tráfico.</p>
-                        </div>
-                    </div>
-                    <div class="news-block">
-                        <div class="icon-box">📺</div>
-                        <div class="news-content-text">
-                            <h5 class="news-item-head">Firmware Smart TV</h5>
-                            <p class="news-item-body">Lanzamiento de parches de decodificación de video para procesadores de gama de entrada.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="step-card">
+            <div class="step-number">Paso 1: Instalar Downloader</div>
+            <p>Ve a la tienda de aplicaciones de tu dispositivo (Google Play Store o Amazon Appstore), busca la aplicación <strong>Downloader</strong> por su nombre e instálala.</p>
+            <img class="step-img" src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80" alt="Buscar Downloader en la Tienda">
         </div>
 
-        <footer class="site-footer">
-            <p>© 2026 AT-APK Repositorio Multimedia Global. Desarrollado bajo estándares de alto rendimiento.</p>
-        </footer>
+        <div class="step-card">
+            <div class="step-number">Paso 2: Activar Orígenes Desconocidos</div>
+            <p>Antes de abrirla, ve a los <strong>Ajustes</strong> de tu TV Box > <strong>Mi Fire TV / Sistema</strong> > <strong>Opciones de desarrollador</strong> y activa la opción de "Instalar aplicaciones desconocidas" para la app Downloader.</p>
+            <img class="step-img" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Activar Permisos de Desarrollador">
+        </div>
+
+        <div class="telenecos-section">
+            <h2>Sección Teleñecos</h2>
+            <div class="telenecos-content">
+                <p>¡Accede a todo el contenido exclusivo y la configuración directa para la comunidad de Teleñecos aquí mismo! Haz clic abajo para cargar los repositorios de entretenimiento.</p>
+            </div>
+            <a href="#" class="telenecos-btn">Acceder a Teleñecos</a>
+        </div>
+        <div class="step-card">
+            <div class="step-number">Paso 3: Introducir el Código de Descarga</div>
+            <p>Abre la aplicación Downloader. En la barra de direcciones de la pantalla principal (URL), escribe el código numérico asignado o el enlace corto de nuestro repositorio y presiona <strong>GO</strong>.</p>
+            <img class="step-img" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=600&q=80" alt="Introducir Código en Downloader">
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">Paso 4: Instalar y Disfrutar</div>
+            <p>Espera a que la descarga del archivo APK termine por completo. Automáticamente se abrirá la ventana de instalación, selecciona <strong>"Instalar"</strong> y listo, ya puedes abrir tu nueva app.</p>
+            <img class="step-img" src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=600&q=80" alt="Instalación Completa">
+        </div>
+
     </div>
 
-    <script>
-        function toggleCacheTab(targetId) {
-            // Desactivar todos los bloques de contenido de caché
-            document.querySelectorAll('.cache-tab-content').forEach(function(content) {
-                content.classList.remove('active');
-            });
-            // Desactivar todos los botones de las pestañas
-            document.querySelectorAll('.cache-tab-btn').forEach(function(btn) {
-                btn.classList.remove('active');
-            });
-            
-            // Activar el bloque correspondiente
-            document.getElementById(targetId).classList.add('active');
-            // Activar el botón que desencadenó el evento
-            event.currentTarget.classList.add('active');
-        }
-    </script>
 </body>
 </html>
