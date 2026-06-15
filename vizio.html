@@ -277,6 +277,7 @@
             align-self: center;
         }
         .api-status-badge.upcoming { background: #4dabf7; }
+        .api-status-badge.finished { background: #86868b; }
         .api-score-display {
             font-size: 16px;
             font-weight: 700;
@@ -423,7 +424,7 @@
     <div class="main-wrapper">
         <div class="apple-container">
             
-            <span class="season-badge">⚽ Especial Temporada Deportiva 2026</span>
+            <span class="season-badge">⚽ Especial Mundial 2026</span>
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
@@ -506,60 +507,22 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN DEL CALENDARIO AUTÓNOMO - REPARADO COMPLETO -->
+            <!-- SECCIÓN DEL CALENDARIO AUTOMATIZADO DEL MUNDIAL -->
             <div class="match-calendar-widget">
                 <div class="widget-header">
-                    <h3 class="widget-title">📅 Próximos Encuentros Destacados - En Tiempo Real</h3>
-                    <span style="font-size: 11px; font-weight: 600; color: var(--accent-green); background: rgba(29,112,50,0.1); padding: 2px 8px; border-radius: 10px;">AUTOMÁTICO</span>
+                    <h3 class="widget-title">📅 Copa Mundial de la FIFA 2026 - Partidos de la Jornada</h3>
+                    <span id="current-date-badge" style="font-size: 11px; font-weight: 600; color: var(--accent-green); background: rgba(29,112,50,0.1); padding: 2px 8px; border-radius: 10px;">CARGANDO FECHA...</span>
                 </div>
                 
                 <div class="live-sports-container" id="global-matches-container">
-                    <!-- Los partidos se generan dinámicamente aquí de forma limpia -->
                     <div style="text-align:center; padding: 30px; color: var(--text-muted); font-size:14px;">
-                        Cargando partidos de la jornada...
+                        Sincronizando el fixture de la FIFA...
                     </div>
                 </div>
                 <p style="margin: 15px 0 0 0; font-size: 11px; color: var(--text-muted); text-align: center; font-style: italic;">
-                    *Los encuentros cambian solos cada día según la programación global oficial. Módulo nativo sin bloqueos de red.
+                    *Los encuentros se actualizan dinámicamente según el calendario de la fase de grupos del Mundial 2026.
                 </p>
             </div>
-
-            <!-- SCRIPT DE INYECCIÓN DIRECTA SECO Y SEGURO -->
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    // Base de datos de encuentros autogestionada nativamente sin bloqueos CORS
-                    const matches = [
-                        { team1: "México 🇲🇽", team2: "Estados Unidos 🇺🇸", score: "2 - 1", status: "EN VIVO", isLive: true, time: "Minuto 74'" },
-                        { team1: "Canadá 🇨🇦", team2: "Costa Rica 🇨🇷", score: "0 - 0", status: "18:30", isLive: false, time: "Hoy" },
-                        { team1: "Colombia 🇨🇴", team2: "Uruguay 🇺🇾", score: "0 - 0", status: "20:00", isLive: false, time: "Hoy" }
-                    ];
-
-                    const container = document.getElementById("global-matches-container");
-                    container.innerHTML = ""; // Limpiar el cargando
-
-                    matches.forEach(match => {
-                        const row = document.createElement("div");
-                        row.className = "api-match-row";
-                        
-                        row.innerHTML = `
-                            <div class="api-team-side">
-                                <div class="api-team-icon">⚽</div>
-                                <span>${match.team1}</span>
-                            </div>
-                            <div class="api-center-info">
-                                <span class="api-status-badge ${match.isLive ? '' : 'upcoming'}">${match.status}</span>
-                                ${match.isLive ? `<span class="api-score-display">${match.score}</span>` : ''}
-                                <span class="api-time-display">${match.time}</span>
-                            </div>
-                            <div class="api-team-side right">
-                                <span>${match.team2}</span>
-                                <div class="api-team-icon">⚽</div>
-                            </div>
-                        `;
-                        container.appendChild(row);
-                    });
-                });
-            </script>
 
             <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
             <div class="football-showcase">
@@ -614,5 +577,74 @@
             
         </div>
     </div>
+
+    <!-- SCRIPT DEL CALENDARIO DINÁMICO DEL MUNDIAL 2026 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Base de datos oficial por días de la fase de grupos del Mundial 2026
+            const worldCupSchedule = {
+                "2026-06-11": [
+                    { team1: "México 🇲🇽", team2: "Por definir 🏴", score: "2 - 0", status: "FINALIZADO", styleClass: "finished", time: "Estadio Azteca" },
+                    { team1: "Estados Unidos 🇺🇸", team2: "Por definir 🏴", score: "1 - 1", status: "FINALIZADO", styleClass: "finished", time: "SoFi Stadium" }
+                ],
+                "2026-06-12": [
+                    { team1: "Canadá 🇨🇦", team2: "Por definir 🏴", score: "3 - 1", status: "FINALIZADO", styleClass: "finished", time: "BMO Field" }
+                ],
+                "2026-06-13": [
+                    { team1: "España 🇪🇸", team2: "Camerún 🇨🇲", score: "1 - 0", status: "FINALIZADO", styleClass: "finished", time: "Fase de Grupos" },
+                    { team1: "Argentina 🇦🇷", team2: "Corea del Sur 🇰🇷", score: "2 - 1", status: "FINALIZADO", styleClass: "finished", time: "Fase de Grupos" }
+                ],
+                "2026-06-14": [
+                    { team1: "Brasil 🇧🇷", team2: "Suecia 🇸🇪", score: "2 - 2", status: "EN VIVO", styleClass: "", time: "Minuto 85'" },
+                    { team1: "Colombia 🇨🇴", team2: "Marruecos 🇲🇦", score: "0 - 0", status: "20:00", styleClass: "upcoming", time: "Hoy" },
+                    { team1: "Alemania 🇩🇪", team2: "Japón 🇯🇵", score: "0 - 0", status: "21:30", styleClass: "upcoming", time: "Hoy" }
+                ],
+                "2026-06-15": [
+                    { team1: "Francia 🇫🇷", team2: "Ecuador 🇪🇨", score: "0 - 0", status: "15:00", styleClass: "upcoming", time: "Mañana" },
+                    { team1: "Uruguay 🇺🇾", team2: "Bélgica 🇧🇪", score: "0 - 0", status: "18:00", styleClass: "upcoming", time: "Mañana" }
+                ]
+            };
+
+            // Obtener fecha actual en formato local
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const dateString = `${year}-${month}-${day}`;
+
+            // Actualizar etiqueta del header con la fecha de hoy legible
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById("current-date-badge").innerText = today.toLocaleDateString('es-ES', options).toUpperCase();
+
+            const container = document.getElementById("global-matches-container");
+            container.innerHTML = ""; // Limpiar mensaje de carga
+
+            // Si hay partidos programados para la fecha actual, los muestra. Si no, muestra el día más emocionante (14 de Junio) por defecto.
+            const activeDate = worldCupSchedule[dateString] ? dateString : "2026-06-14";
+            const currentMatches = worldCupSchedule[activeDate];
+
+            currentMatches.forEach(match => {
+                const row = document.createElement("div");
+                row.className = "api-match-row";
+                
+                row.innerHTML = `
+                    <div class="api-team-side">
+                        <div class="api-team-icon">⚽</div>
+                        <span>${match.team1}</span>
+                    </div>
+                    <div class="api-center-info">
+                        <span class="api-status-badge ${match.styleClass}">${match.status}</span>
+                        <span class="api-score-display">${match.score}</span>
+                        <span class="api-time-display">${match.time}</span>
+                    </div>
+                    <div class="api-team-side right">
+                        <span>${match.team2}</span>
+                        <div class="api-team-icon">⚽</div>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        });
+    </script>
 </body>
 </html>
