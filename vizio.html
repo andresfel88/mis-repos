@@ -102,8 +102,8 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background-color: rgba(29, 112, 50, 0.1);
-            color: var(--accent-green);
+            background-color: rgba(0, 40, 104, 0.1);
+            color: var(--host-usa);
             font-size: 11px;
             font-weight: 600;
             padding: 4px 10px;
@@ -191,102 +191,70 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        /* WIDGET TOTALMENTE AUTÓNOMO */
-        .match-calendar-widget {
+        /* NUEVA SECCIÓN DETALLADA DEL MUNDIAL 2026 */
+        .world-cup-info-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
             border-radius: 24px;
-            padding: 30px;
+            padding: 35px;
             box-shadow: var(--shadow-card);
             margin-bottom: 40px;
-            border-top: 4px solid var(--accent-green);
+            border-top: 4px solid var(--host-usa);
         }
 
-        .widget-header {
+        .wc-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding-bottom: 12px;
+            padding-bottom: 15px;
         }
 
-        .widget-title {
-            font-size: 18px;
-            font-weight: 600;
+        .wc-title {
+            font-size: 20px;
+            font-weight: 700;
             margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
         }
 
-        .live-sports-container {
-            width: 100%;
-            border-radius: 16px;
+        .host-flags-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .host-flag-card {
+            flex: 1;
             background: #f5f5f7;
-            padding: 5px;
-            box-sizing: border-box;
+            padding: 15px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.02);
         }
 
-        /* Estilos del sub-widget interno */
-        .api-match-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #ffffff;
-            margin: 8px 0;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.04);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
-        }
-        .api-team-side {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            width: 40%;
+        .host-flag-card h4 {
+            margin: 0 0 6px 0;
             font-size: 14px;
             font-weight: 600;
         }
-        .api-team-side.right { justify-content: flex-end; text-align: right; }
-        .api-team-icon {
-            width: 24px;
-            height: 24px;
-            background: #f0f0f2;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .host-flag-card p {
+            margin: 0;
             font-size: 12px;
-        }
-        .api-center-info {
-            width: 20%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-        }
-        .api-status-badge {
-            font-size: 10px;
-            font-weight: 700;
-            color: #ffffff;
-            background: #e03131;
-            padding: 2px 6px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            align-self: center;
-        }
-        .api-status-badge.upcoming { background: #4dabf7; }
-        .api-status-badge.finished { background: #86868b; }
-        .api-score-display {
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-main);
-        }
-        .api-time-display {
-            font-size: 11px;
             color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .wc-tech-note {
+            background: rgba(0, 102, 204, 0.04);
+            border-left: 4px solid var(--accent-blue);
+            padding: 15px 20px;
+            border-radius: 0 16px 16px 0;
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--text-main);
         }
 
         /* SECCIÓN DEL BALÓN ABSTRACTO */
@@ -394,23 +362,20 @@
 
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
+            .host-flags-container { flex-direction: column; gap: 15px; }
         }
         @media (max-width: 768px) {
             .apple-container { padding: 30px 20px; }
             .grid-devices { grid-template-columns: 1fr; }
             .header-title { font-size: 26px; }
             .football-showcase { flex-direction: column; text-align: center; }
-            .api-match-row { flex-direction: column; gap: 10px; }
-            .api-team-side { width: 100%; justify-content: center; }
-            .api-team-side.right { justify-content: center; text-align: center; }
-            .api-center-info { width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <div class="world-cup-bar">
-        ⚡ Edición Especial: Optimización de Streaming para los Partidos de la Temporada de Verano 2026 ⚡
+        ⚡ Edición Especial: Infraestructura Multimedia y Optimización para el Mundial de la FIFA 2026 ⚡
     </div>
 
     <div class="nav-bar">
@@ -424,7 +389,7 @@
     <div class="main-wrapper">
         <div class="apple-container">
             
-            <span class="season-badge">⚽ Especial Mundial 2026</span>
+            <span class="season-badge">⚽ Megatorneo Anfitrión Norteamérica 2026</span>
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
@@ -507,21 +472,35 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN DEL CALENDARIO AUTOMATIZADO DEL MUNDIAL -->
-            <div class="match-calendar-widget">
-                <div class="widget-header">
-                    <h3 class="widget-title">📅 Copa Mundial de la FIFA 2026 - Partidos de la Jornada</h3>
-                    <span id="current-date-badge" style="font-size: 11px; font-weight: 600; color: var(--accent-green); background: rgba(29,112,50,0.1); padding: 2px 8px; border-radius: 10px;">CARGANDO FECHA...</span>
+            <!-- NUEVA SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
+            <div class="world-cup-info-section">
+                <div class="wc-header">
+                    <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
+                    <span style="font-size: 11px; font-weight: 700; color: #ffffff; background: var(--host-usa); padding: 4px 10px; border-radius: 20px;">EDICIÓN HISTÓRICA</span>
                 </div>
                 
-                <div class="live-sports-container" id="global-matches-container">
-                    <div style="text-align:center; padding: 30px; color: var(--text-muted); font-size:14px;">
-                        Sincronizando el fixture de la FIFA...
+                <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-main);">
+                    La Copa Mundial de 2026 marca un hito sin precedentes al ser el primer torneo de la historia coorganizado por tres naciones en simultáneo y expandido a 48 selecciones. Este despliegue continental plantea un desafío tecnológico colosal para las redes globales de transmisión de contenidos multimedia en Ultra Alta Definición (4K UHD).
+                </p>
+
+                <div class="host-flags-container">
+                    <div class="host-flag-card" style="border-top: 3px solid var(--host-usa);">
+                        <h4>Estados Unidos 🇺🇸</h4>
+                        <p>Aporta la mayor cantidad de sedes, incluyendo imponentes estadios tecnológicos como el MetLife Stadium de Nueva York y el SoFi Stadium de Los Ángeles. Epicentro de los flujos de distribución troncal hacia América Latina.</p>
+                    </div>
+                    <div class="host-flag-card" style="border-top: 3px solid var(--host-mexico);">
+                        <h4>México 🇲🇽</h4>
+                        <p>Aporta el misticismo histórico con el colosal Estadio Azteca de Ciudad de México, convirtiéndose en el primer estadio del planeta en albergar tres partidos inaugurales de Copas del Mundo (1970, 1986 y 2026).</p>
+                    </div>
+                    <div class="host-flag-card" style="border-top: 3px solid var(--host-canada);">
+                        <h4>Canadá 🇨🇦</h4>
+                        <p>Suma la infraestructura moderna del BMO Field en Toronto y el BC Place en Vancouver, garantizando transmisiones estables y seguras con altos estándares de codificación digital de última generación.</p>
                     </div>
                 </div>
-                <p style="margin: 15px 0 0 0; font-size: 11px; color: var(--text-muted); text-align: center; font-style: italic;">
-                    *Los encuentros se actualizan dinámicamente según el calendario de la fase de grupos del Mundial 2026.
-                </p>
+
+                <div class="wc-tech-note">
+                    <strong>Nota del Repositorio para Creadores y Desarrolladores:</strong> La dispersión geográfica entre las zonas horarias de los tres países anfitriones obliga a los servidores e infraestructura de streaming a soportar cargas asíncronas masivas. Se recomienda la constante depuración de la memoria caché y el uso de reproductores basados en ExoPlayer para gestionar de forma eficiente las CDN alternativas de vídeo en Smart TVs.
+                </div>
             </div>
 
             <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
@@ -577,74 +556,5 @@
             
         </div>
     </div>
-
-    <!-- SCRIPT DEL CALENDARIO DINÁMICO DEL MUNDIAL 2026 -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Base de datos oficial por días de la fase de grupos del Mundial 2026
-            const worldCupSchedule = {
-                "2026-06-11": [
-                    { team1: "México 🇲🇽", team2: "Por definir 🏴", score: "2 - 0", status: "FINALIZADO", styleClass: "finished", time: "Estadio Azteca" },
-                    { team1: "Estados Unidos 🇺🇸", team2: "Por definir 🏴", score: "1 - 1", status: "FINALIZADO", styleClass: "finished", time: "SoFi Stadium" }
-                ],
-                "2026-06-12": [
-                    { team1: "Canadá 🇨🇦", team2: "Por definir 🏴", score: "3 - 1", status: "FINALIZADO", styleClass: "finished", time: "BMO Field" }
-                ],
-                "2026-06-13": [
-                    { team1: "España 🇪🇸", team2: "Camerún 🇨🇲", score: "1 - 0", status: "FINALIZADO", styleClass: "finished", time: "Fase de Grupos" },
-                    { team1: "Argentina 🇦🇷", team2: "Corea del Sur 🇰🇷", score: "2 - 1", status: "FINALIZADO", styleClass: "finished", time: "Fase de Grupos" }
-                ],
-                "2026-06-14": [
-                    { team1: "Brasil 🇧🇷", team2: "Suecia 🇸🇪", score: "2 - 2", status: "EN VIVO", styleClass: "", time: "Minuto 85'" },
-                    { team1: "Colombia 🇨🇴", team2: "Marruecos 🇲🇦", score: "0 - 0", status: "20:00", styleClass: "upcoming", time: "Hoy" },
-                    { team1: "Alemania 🇩🇪", team2: "Japón 🇯🇵", score: "0 - 0", status: "21:30", styleClass: "upcoming", time: "Hoy" }
-                ],
-                "2026-06-15": [
-                    { team1: "Francia 🇫🇷", team2: "Ecuador 🇪🇨", score: "0 - 0", status: "15:00", styleClass: "upcoming", time: "Mañana" },
-                    { team1: "Uruguay 🇺🇾", team2: "Bélgica 🇧🇪", score: "0 - 0", status: "18:00", styleClass: "upcoming", time: "Mañana" }
-                ]
-            };
-
-            // Obtener fecha actual en formato local
-            const today = new Date();
-            const year = today.getFullYear();
-            const month = String(today.getMonth() + 1).padStart(2, '0');
-            const day = String(today.getDate()).padStart(2, '0');
-            const dateString = `${year}-${month}-${day}`;
-
-            // Actualizar etiqueta del header con la fecha de hoy legible
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById("current-date-badge").innerText = today.toLocaleDateString('es-ES', options).toUpperCase();
-
-            const container = document.getElementById("global-matches-container");
-            container.innerHTML = ""; // Limpiar mensaje de carga
-
-            // Si hay partidos programados para la fecha actual, los muestra. Si no, muestra el día más emocionante (14 de Junio) por defecto.
-            const activeDate = worldCupSchedule[dateString] ? dateString : "2026-06-14";
-            const currentMatches = worldCupSchedule[activeDate];
-
-            currentMatches.forEach(match => {
-                const row = document.createElement("div");
-                row.className = "api-match-row";
-                
-                row.innerHTML = `
-                    <div class="api-team-side">
-                        <div class="api-team-icon">⚽</div>
-                        <span>${match.team1}</span>
-                    </div>
-                    <div class="api-center-info">
-                        <span class="api-status-badge ${match.styleClass}">${match.status}</span>
-                        <span class="api-score-display">${match.score}</span>
-                        <span class="api-time-display">${match.time}</span>
-                    </div>
-                    <div class="api-team-side right">
-                        <span>${match.team2}</span>
-                        <div class="api-team-icon">⚽</div>
-                    </div>
-                `;
-                container.appendChild(row);
-            });
-        });
-    </script>
 </body>
 </html>
