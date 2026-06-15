@@ -191,7 +191,7 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        /* WIDGET DINÁMICO AUTO-ACTUALIZABLE */
+        /* WIDGET DINÁMICO NATIVO */
         .match-calendar-widget {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -222,9 +222,11 @@
 
         .live-sports-container {
             width: 100%;
-            overflow: hidden;
+            min-height: 380px;
             border-radius: 16px;
             background: #f5f5f7;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         /* SECCIÓN DEL BALÓN ABSTRACTO */
@@ -439,7 +441,7 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN DEL CALENDARIO DINÁMICO AUTO-ACTUALIZABLE (HTTPS GARANTIZADO) -->
+            <!-- SECCIÓN DEL CALENDARIO DINÁMICO REPARADO CON SCRIPT COMPATIBLE -->
             <div class="match-calendar-widget">
                 <div class="widget-header">
                     <h3 class="widget-title">📅 Próximos Encuentros Destacados - En Tiempo Real</h3>
@@ -447,11 +449,12 @@
                 </div>
                 
                 <div class="live-sports-container">
-                    <!-- Iframe seguro configurado con HTTPS para evitar bloqueos en GitHub Pages -->
-                    <iframe id="scoreaxis-widget" src="https://www.scoreaxis.com/widget/live-match-list/8?autoHeight=1&amp;links=0&amp;bodyBackground=%23f5f5f7&amp;textColor=%231d1d1f&amp;font=sans-serif" style="width: 100%; border: none; transition: all 0.3s ease; min-height: 450px;"></iframe>
+                    <!-- Script interactivo y seguro de widget deportivo externo sin bloqueos de iframe -->
+                    <div id="fs-fixtures"></div>
+                    <script>(function(w,d,s,o,f,js,fjs){w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);}(window,document,'script','_fs','https://embed.footystats.org/widget/competitions'));_fs('fixtures', {competitionId: '7434', teamId: '', status: 'all', limit: '3', tz: 'America/Bogota', theme: 'light', font: 'Segoe UI', container: 'fs-fixtures'});</script>
                 </div>
                 <p style="margin: 15px 0 0 0; font-size: 11px; color: var(--text-muted); text-align: center; font-style: italic;">
-                    *Los partidos cambian solos cada día según el calendario oficial. Datos actualizados minuto a minuto.
+                    *Los encuentros cambian solos cada día según la programación global oficial del torneo.
                 </p>
             </div>
 
