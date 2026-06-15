@@ -69,9 +69,7 @@
             transition: opacity 0.2s;
         }
 
-        .nav-bar a:hover {
-            opacity: 1;
-        }
+        .nav-bar a:hover { opacity: 1; }
 
         .main-wrapper {
             padding: 40px 20px;
@@ -178,9 +176,7 @@
             box-sizing: border-box;
         }
 
-        .img-container.dark-bg {
-            background-color: #1a1a1a;
-        }
+        .img-container.dark-bg { background-color: #1a1a1a; }
 
         .card-heading {
             font-size: 18px;
@@ -190,30 +186,12 @@
             color: var(--text-main);
         }
 
-        .component-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+        .component-list { list-style: none; padding: 0; margin: 0; }
+        .component-item { margin-bottom: 12px; font-size: 12.5px; line-height: 1.4; }
+        .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
+        .component-desc { color: var(--text-muted); }
 
-        .component-item {
-            margin-bottom: 12px;
-            font-size: 12.5px;
-            line-height: 1.4;
-        }
-
-        .component-name {
-            font-weight: 600;
-            color: var(--text-main);
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .component-desc {
-            color: var(--text-muted);
-        }
-
-        /* WIDGET PARA EL CALENDARIO */
+        /* WIDGET DINÁMICO AUTO-ACTUALIZABLE */
         .match-calendar-widget {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -242,53 +220,12 @@
             gap: 8px;
         }
 
-        .grid-matches {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .match-box {
-            background: #f5f5f7;
-            padding: 16px;
+        /* ESTILOS DEL IFRAME DE SCOREBOARD EN VIVO */
+        .live-sports-container {
+            width: 100%;
+            overflow: hidden;
             border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-
-        .match-date {
-            font-size: 11px;
-            color: var(--accent-green);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-
-        .match-teams {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .team-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .vs-badge {
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--text-muted);
-            background: rgba(0,0,0,0.05);
-            padding: 2px 6px;
-            border-radius: 4px;
-            align-self: center;
-            margin: 2px 0;
-            text-align: center;
-            width: fit-content;
+            background: #f5f5f7;
         }
 
         /* SECCIÓN DEL BALÓN ABSTRACTO */
@@ -313,15 +250,8 @@
             cursor: pointer;
         }
 
-        .football-link-wrapper:hover {
-            transform: scale(1.08) rotate(10deg);
-        }
-
-        .football-text-box {
-            font-size: 13.5px;
-            line-height: 1.5;
-            color: var(--text-muted);
-        }
+        .football-link-wrapper:hover { transform: scale(1.08) rotate(10deg); }
+        .football-text-box { font-size: 13.5px; line-height: 1.5; color: var(--text-muted); }
 
         .solution-box {
             background-color: #ffffff;
@@ -342,24 +272,9 @@
             gap: 8px;
         }
 
-        .solution-text {
-            font-size: 14px;
-            color: var(--text-main);
-            line-height: 1.6;
-            margin: 0 0 20px 0;
-        }
-
-        .solution-steps {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        .solution-steps li {
-            margin-bottom: 10px;
-        }
+        .solution-text { font-size: 14px; color: var(--text-main); line-height: 1.6; margin: 0 0 20px 0; }
+        .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
+        .solution-steps li { margin-bottom: 10px; }
 
         /* ESTILOS PREMIUM PARA LA TARJETA DE LA LEYENDA HISTÓRICA */
         .history-legend-card {
@@ -403,25 +318,9 @@
             color: var(--text-main);
         }
 
-        .legend-text {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text-muted);
-            margin: 0 0 16px 0;
-        }
-
-        .legend-action-text {
-            font-size: 12.5px;
-            font-weight: 600;
-            color: var(--accent-blue);
-            display: inline-block;
-            transition: color 0.2s;
-        }
-
-        .history-legend-card:hover .legend-action-text {
-            color: #004499;
-            text-decoration: underline;
-        }
+        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
+        .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
+        .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
 
         .tech-specs-section {
             background-color: var(--card-bg);
@@ -432,14 +331,10 @@
             margin-bottom: 40px;
         }
 
-        @media (max-width: 992px) {
-            .grid-devices { grid-template-columns: repeat(2, 1fr); }
-        }
-
+        @media (max-width: 992px) { .grid-devices { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
             .apple-container { padding: 30px 20px; }
             .grid-devices { grid-template-columns: 1fr; }
-            .grid-matches { grid-template-columns: 1fr; }
             .header-title { font-size: 26px; }
             .football-showcase { flex-direction: column; text-align: center; }
         }
@@ -468,7 +363,7 @@
 
             <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
-
+                <!-- Tarjeta Lion TV -->
                 <div class="card-device">
                     <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container dark-bg">
@@ -487,6 +382,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Google TV -->
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
@@ -505,6 +401,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Fire Stick -->
                 <div class="card-device">
                     <div class="card-tag">Fire Stick Parts</div>
                     <div class="img-container">
@@ -523,6 +420,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Watch Onn -->
                 <div class="card-device">
                     <div class="card-tag">Watch Onn Parts</div>
                     <div class="img-container">
@@ -540,46 +438,21 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
 
-            <!-- WIDGET DEL CALENDARIO -->
+            <!-- SECCIÓN DEL CALENDARIO DINÁMICO AUTO-ACTUALIZABLE (WIDGET DE SCOREAXIS) -->
             <div class="match-calendar-widget">
                 <div class="widget-header">
-                    <h3 class="widget-title">📅 Próximos Encuentros Destacados - Primera Ronda</h3>
-                    <span style="font-size: 12px; font-weight: 500; color: var(--text-muted);">Fase de Grupos</span>
+                    <h3 class="widget-title">📅 Próximos Encuentros Destacados - En Tiempo Real</h3>
+                    <span style="font-size: 11px; font-weight: 600; color: var(--accent-green); background: rgba(29,112,50,0.1); padding: 2px 8px; border-radius: 10px;">AUTOMÁTICO</span>
                 </div>
                 
-                <div class="grid-matches">
-                    <div class="match-box">
-                        <div class="match-date">Jueves 11 de Junio • Estadio Azteca</div>
-                        <div class="match-teams">
-                            <div class="team-row"><span>🇲🇽 México</span> <span style="color: var(--accent-green); font-weight:600;">Anfitrión</span></div>
-                            <div class="vs-badge">VS</div>
-                            <div class="team-row"><span>🇿🇦 Sudáfrica</span> <span style="color: var(--text-muted); font-weight:400;">Grupo A</span></div>
-                        </div>
-                    </div>
-
-                    <div class="match-box">
-                        <div class="match-date">Viernes 12 de Junio • Estadio de Toronto</div>
-                        <div class="match-teams">
-                            <div class="team-row"><span>🇨🇦 Canadá</span> <span style="color: var(--accent-green); font-weight:600;">Anfitrión</span></div>
-                            <div class="vs-badge">VS</div>
-                            <div class="team-row"><span>🇧🇦 Bosnia y Herz.</span> <span style="color: var(--text-muted); font-weight:400;">Grupo B</span></div>
-                        </div>
-                    </div>
-
-                    <div class="match-box">
-                        <div class="match-date">Viernes 12 de Junio • Estadio de Los Ángeles</div>
-                        <div class="match-teams">
-                            <div class="team-row"><span>🇺🇸 Estados Unidos</span> <span style="color: var(--accent-green); font-weight:600;">Anfitrión</span></div>
-                            <div class="vs-badge">VS</div>
-                            <div class="team-row"><span>🇵🇾 Paraguay</span> <span style="color: var(--text-muted); font-weight:400;">Grupo D</span></div>
-                        </div>
-                    </div>
+                <div class="live-sports-container">
+                    <!-- Widget completamente libre de Scoreaxis que lee la copa del mundo y muestra fixture/resultados del día -->
+                    <iframe id="scoreaxis-widget" src="https://www.scoreaxis.com/widget/live-match-list/8?autoHeight=1&amp;links=0&amp;bodyBackground=%23f5f5f7&amp;textColor=%231d1d1f&amp;font=sans-serif" style="width: 100%; border: none; transition: all 0.3s ease; min-height: 450px;"></iframe>
                 </div>
                 <p style="margin: 15px 0 0 0; font-size: 11px; color: var(--text-muted); text-align: center; font-style: italic;">
-                    *Verifica la estabilidad de tu conexión antes del pitazo inicial para transmisiones UHD fluidas.
+                    *Los partidos cambian solos cada día según el calendario oficial. Datos actualizados minuto a minuto.
                 </p>
             </div>
 
