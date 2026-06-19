@@ -17,6 +17,7 @@
             --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
             --accent-blue: #0066cc;
             --accent-green: #1d7032; 
+            --accent-orange: #ff9500;
             
             /* Colores de los países anfitriones de la fiesta del fútbol */
             --host-mexico: #006847;
@@ -116,12 +117,83 @@
         .header-subtitle {
             font-size: 15px;
             color: var(--text-muted);
-            margin: 0 0 45px 0;
+            margin: 0 0 35px 0;
             line-height: 1.5;
             max-width: 800px;
         }
 
-        /* GRID ADAPTATIVO */
+        /* SECCIÓN DE SOPORTE TÉCNICO URGENTE (NUEVA) */
+        .quick-support-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .support-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+        }
+
+        .support-card.cache-style { border-top: 4px solid var(--accent-blue); }
+        .support-card.reset-style { border-top: 4px solid var(--accent-orange); }
+
+        .support-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-main);
+        }
+
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .step-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            background-color: #f5f5f7;
+            color: var(--text-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            flex-shrink: 0;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .cache-style .step-number { background-color: rgba(0, 102, 204, 0.08); color: var(--accent-blue); }
+        .reset-style .step-number { background-color: rgba(255, 149, 0, 0.08); color: var(--accent-orange); }
+
+        .step-text {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .step-text strong {
+            color: var(--text-main);
+        }
+
+        /* GRID ADAPTATIVO DE DISPOSITIVOS */
         .grid-devices {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -305,7 +377,7 @@
         .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
         .solution-steps li { margin-bottom: 10px; }
 
-        /* ESTILOS PREMIUM PARA LAS TARJETAS DE CRÓNICAS / LEYENDAS */
+        /* ESTILOS PREMIUM PARA LAS TARJETAS DE LEYENDAS */
         .history-legend-card {
             display: block;
             background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
@@ -358,6 +430,7 @@
 
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
+            .quick-support-section { grid-template-columns: 1fr; gap: 20px; }
             .host-flags-container { flex-direction: column; gap: 15px; }
         }
         @media (max-width: 768px) {
@@ -389,9 +462,55 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
-            <!-- CONTENEDOR GRID DE HARDWARE -->
+            <div class="quick-support-section">
+                
+                <div class="support-card cache-style">
+                    <h3>⚡ Mantenimiento: Liberar Memoria Caché</h3>
+                    <div class="steps-container">
+                        <div class="step-row">
+                            <div class="step-number">1</div>
+                            <p class="step-text">Ve a la pantalla principal y abre la sección de <strong>Ajustes / Configuración</strong> (ícono de engranaje).</p>
+                        </div>
+                        <div class="step-row">
+                            <div class="step-number">2</div>
+                            <p class="step-text">Ingresa al apartado de <strong>Aplicaciones</strong> y selecciona <strong>Ver todas las aplicaciones</strong>.</p>
+                        </div>
+                        <div class="step-row">
+                            <div class="step-number">3</div>
+                            <p class="step-text">Busca la app de streaming que presenta lentitud o fallas y selecciónala.</p>
+                        </div>
+                        <div class="step-row">
+                            <div class="step-number">4</div>
+                            <p class="step-text">Baja hasta encontrar la opción <strong>Borrar Caché</strong> y confirma la acción (No borra tus cuentas).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="support-card reset-style">
+                    <h3>⚠️ Recuperación: Restaurar TV de Fábrica</h3>
+                    <div class="steps-container">
+                        <div class="step-row">
+                            <div class="step-number">1</div>
+                            <p class="step-text">Entra a los <strong>Ajustes</strong> del sistema desde el control remoto.</p>
+                        </div>
+                        <div class="step-row">
+                            <div class="step-number">2</div>
+                            <p class="step-text">Navega hasta <strong>Preferencias del dispositivo</strong> o <strong>Sistema</strong>.</p>
+                        </div>
+                        <div class="step-row">
+                            <div class="step-number">3</div>
+                            <p class="step-text">Selecciona la pestaña llamada <strong>Información / Acerca de</strong>.</p>
+                        </div>
+                        <div class="step-row">
+                            <div class="step-number">4</div>
+                            <p class="step-text">Haz clic en <strong>Restablecer estado de fábrica</strong>. <em>(Nota: Esto borrará todas las apps instaladas).</em></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <div class="grid-devices">
-                <!-- Tarjeta Lion TV -->
                 <div class="card-device">
                     <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container dark-bg">
@@ -410,7 +529,6 @@
                     </ul>
                 </div>
 
-                <!-- Tarjeta Google TV -->
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
@@ -429,7 +547,6 @@
                     </ul>
                 </div>
 
-                <!-- Tarjeta Fire Stick -->
                 <div class="card-device">
                     <div class="card-tag">Fire Stick Parts</div>
                     <div class="img-container">
@@ -448,7 +565,6 @@
                     </ul>
                 </div>
 
-                <!-- Tarjeta Watch Onn -->
                 <div class="card-device">
                     <div class="card-tag">Watch Onn Parts</div>
                     <div class="img-container">
@@ -468,7 +584,6 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
             <div class="world-cup-info-section">
                 <div class="wc-header">
                     <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
@@ -499,7 +614,6 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
             <div class="football-showcase">
                 <div class="football-link-wrapper" title="Módulo Multimedia">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
@@ -518,7 +632,6 @@
                 </div>
             </div>
 
-            <!-- CAJA DE SOLUCIONES -->
             <div class="solution-box">
                 <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
                 <p class="solution-text">Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en tu Smart TV:</p>
@@ -528,7 +641,6 @@
                 </ul>
             </div>
 
-            <!-- NUEVA TARJETA DE LEYENDA: EXPLICACIÓN DE RESOLUCIONES (VINCULADA A TU ENLACE) -->
             <a href="https://aftv.news/9135696" target="_blank" class="history-legend-card video-theme">
                 <div class="legend-badge">📺 Estándares de Video</div>
                 <h3 class="legend-title">Entendiendo la Calidad de Imagen: 1080p vs. 4K vs. HDR</h3>
@@ -538,7 +650,6 @@
                 <span class="legend-action-text">Haz clic aquí para ver la guía completa de configuración en tu TVBox →</span>
             </a>
 
-            <!-- TARJETA DE LA LEYENDA HISTÓRICA ORIGINAL -->
             <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card uruguay-theme">
                 <div class="legend-badge">📜 Crónica Histórica</div>
                 <h3 class="legend-title">El Nacimiento de un Mito: Uruguay 1930</h3>
