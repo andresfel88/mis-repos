@@ -122,7 +122,7 @@
             max-width: 800px;
         }
 
-        /* SECCIÓN DE SOPORTE TÉCNICO URGENTE (NUEVA) */
+        /* SECCIÓN DE SOPORTE TÉCNICO URGENTE */
         .quick-support-section {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -377,7 +377,7 @@
         .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
         .solution-steps li { margin-bottom: 10px; }
 
-        /* ESTILOS PREMIUM PARA LAS TARJETAS DE LEYENDAS */
+        /* ESTILOS PREMIUM PARA LAS TARJETAS DE LEYENDAS Y SUS FORMULARIOS */
         .history-legend-card {
             display: block;
             background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
@@ -416,10 +416,48 @@
         }
 
         .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
+        
+        /* ESTILOS DE LOS CAMPOS DE TEXTO ADICIONADOS */
+        .user-inputs-container {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 400px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .input-group input {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #d2d2d7;
+            font-size: 13px;
+            background-color: #ffffff;
+            color: var(--text-main);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+        }
+
         .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
         .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
 
-        /* Variantes de color para cada tipo de tarjeta Leyenda */
+        /* Variantes de color */
         .uruguay-theme { border-left: 4px solid #b39211; }
         .uruguay-theme .legend-badge { background-color: rgba(179, 146, 17, 0.1); color: #b39211; }
         .uruguay-theme:hover { border-left-color: #d4af37; }
@@ -462,8 +500,9 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
+            <!-- SECCIÓN DE SOPORTE TÉCNICO RÁPIDO: CACHÉ Y RESTAURACIÓN -->
             <div class="quick-support-section">
-                
+                <!-- Tarjeta Borrar Caché -->
                 <div class="support-card cache-style">
                     <h3>⚡ Mantenimiento: Liberar Memoria Caché</h3>
                     <div class="steps-container">
@@ -486,6 +525,7 @@
                     </div>
                 </div>
 
+                <!-- Tarjeta Restaurar TV -->
                 <div class="support-card reset-style">
                     <h3>⚠️ Recuperación: Restaurar TV de Fábrica</h3>
                     <div class="steps-container">
@@ -507,10 +547,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
+            <!-- CONTENEDOR GRID DE HARDWARE ORIGINAL -->
             <div class="grid-devices">
+                <!-- Tarjeta Lion TV -->
                 <div class="card-device">
                     <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container dark-bg">
@@ -529,6 +570,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Google TV -->
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
@@ -547,6 +589,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Fire Stick -->
                 <div class="card-device">
                     <div class="card-tag">Fire Stick Parts</div>
                     <div class="img-container">
@@ -565,6 +608,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Watch Onn -->
                 <div class="card-device">
                     <div class="card-tag">Watch Onn Parts</div>
                     <div class="img-container">
@@ -584,6 +628,7 @@
                 </div>
             </div>
 
+            <!-- SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
             <div class="world-cup-info-section">
                 <div class="wc-header">
                     <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
@@ -614,6 +659,7 @@
                 </div>
             </div>
 
+            <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
             <div class="football-showcase">
                 <div class="football-link-wrapper" title="Módulo Multimedia">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
@@ -632,6 +678,7 @@
                 </div>
             </div>
 
+            <!-- CAJA DE SOLUCIONES -->
             <div class="solution-box">
                 <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
                 <p class="solution-text">Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en tu Smart TV:</p>
@@ -641,15 +688,35 @@
                 </ul>
             </div>
 
+            <!-- TARJETA DE ESTÁNDARES DE VIDEO (CON LOS CAMPOS DE TEXTO NUEVOS) -->
+            <!-- Nota: Para evitar que hacer clic en los campos active el enlace, se intercepta con 'onclick' -->
             <a href="https://aftv.news/9135696" target="_blank" class="history-legend-card video-theme">
                 <div class="legend-badge">📺 Estándares de Video</div>
                 <h3 class="legend-title">Entendiendo la Calidad de Imagen: 1080p vs. 4K vs. HDR</h3>
                 <p class="legend-text">
                     Para disfrutar de transmisiones y aplicaciones de streaming al máximo nivel, es vital comprender la evolución del video. <strong>1080p (Full HD)</strong> ofrece una resolución sólida de 1920x1080 píxeles, ideal para conexiones estándar. Por otro lado, el formato <strong>4K (Ultra HD)</strong> cuadriplica esa nitidez con un lienzo masivo de 3840x2160 píxeles, entregando texturas ultra definidas. Sin embargo, la verdadera revolución la hace el <strong>HDR (High Dynamic Range)</strong>, tecnología que no añade más píxeles, sino que expande el contraste y la paleta de colores para lograr blancos brillantes y negros puros y profundos.
                 </p>
+                
+                <!-- SECCIÓN DE CAMPOS DE TEXTO SOLICITADOS -->
+                <div class="user-inputs-container" onclick="event.stopPropagation();">
+                    <div class="input-group">
+                        <label for="userName">Escribe tu nombre:</label>
+                        <input type="text" id="userName" placeholder="Tu nombre completo">
+                    </div>
+                    <div class="input-group">
+                        <label for="userAge">Edad:</label>
+                        <input type="number" id="userAge" placeholder="Tu edad">
+                    </div>
+                    <div class="input-group">
+                        <label for="userEmail">Correo Electrónico:</label>
+                        <input type="email" id="userEmail" placeholder="ejemplo@correo.com">
+                    </div>
+                </div>
+
                 <span class="legend-action-text">Haz clic aquí para ver la guía completa de configuración en tu TVBox →</span>
             </a>
 
+            <!-- TARJETA DE LA LEYENDA HISTÓRICA ORIGINAL -->
             <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card uruguay-theme">
                 <div class="legend-badge">📜 Crónica Histórica</div>
                 <h3 class="legend-title">El Nacimiento de un Mito: Uruguay 1930</h3>
