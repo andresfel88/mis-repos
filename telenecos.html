@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -192,7 +191,7 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        /* NUEVA SECCIÓN DETALLADA DEL MUNDIAL 2026 */
+        /* SECCIÓN DETALLADA DEL MUNDIAL 2026 */
         .world-cup-info-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -306,31 +305,27 @@
         .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
         .solution-steps li { margin-bottom: 10px; }
 
-        /* ESTILOS PREMIUM PARA LA TARJETA DE LA LEYENDA HISTÓRICA */
+        /* ESTILOS PREMIUM PARA LAS TARJETAS DE CRÓNICAS / LEYENDAS */
         .history-legend-card {
             display: block;
             background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
             border: 1px solid var(--border-card);
             border-radius: 24px;
             padding: 30px;
-            margin: 40px 0;
+            margin: 40px 0 0 0;
             text-decoration: none;
             color: var(--text-main);
             box-shadow: var(--shadow-card);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-left: 4px solid #b39211;
         }
 
         .history-legend-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
-            border-left-color: #d4af37;
         }
 
         .legend-badge {
             display: inline-block;
-            background-color: rgba(179, 146, 17, 0.1);
-            color: #b39211;
             font-size: 11px;
             font-weight: 600;
             padding: 4px 10px;
@@ -352,14 +347,14 @@
         .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
         .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
 
-        .tech-specs-section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
-        }
+        /* Variantes de color para cada tipo de tarjeta Leyenda */
+        .uruguay-theme { border-left: 4px solid #b39211; }
+        .uruguay-theme .legend-badge { background-color: rgba(179, 146, 17, 0.1); color: #b39211; }
+        .uruguay-theme:hover { border-left-color: #d4af37; }
+
+        .video-theme { border-left: 4px solid var(--accent-blue); }
+        .video-theme .legend-badge { background-color: rgba(0, 102, 204, 0.1); color: var(--accent-blue); }
+        .video-theme:hover { border-left-color: #3385ff; }
 
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
@@ -400,7 +395,7 @@
                 <div class="card-device">
                     <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container dark-bg">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff9500' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='11' fill='%23ff9500' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
                     </div>
                     <h2 class="card-heading">Resumen Operativo</h2>
                     <ul class="component-list">
@@ -473,7 +468,7 @@
                 </div>
             </div>
 
-            <!-- NUEVA SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
+            <!-- SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
             <div class="world-cup-info-section">
                 <div class="wc-header">
                     <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
@@ -481,26 +476,26 @@
                 </div>
                 
                 <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-main);">
-                    La Copa Mundial de 2026 marca un hito sin precedentes al ser el primer torneo de la historia coorganizado por tres naciones en simultáneo y expandido a 48 selecciones. Este despliegue continental plantea un desafío tecnológico colosal para las redes globales de transmisión de contenidos multimedia en Ultra Alta Definición (4K UHD).
+                    La Copa Mundial de 2026 plantea un desafío tecnológico colosal para las redes globales de transmisión de contenidos multimedia en Ultra Alta Definición (4K UHD).
                 </p>
 
                 <div class="host-flags-container">
                     <div class="host-flag-card" style="border-top: 3px solid var(--host-usa);">
                         <h4>Estados Unidos 🇺🇸</h4>
-                        <p>Aporta la mayor cantidad de sedes, incluyendo imponentes estadios tecnológicos como el MetLife Stadium de Nueva York y el SoFi Stadium de Los Ángeles. Epicentro de los flujos de distribución troncal hacia América Latina.</p>
+                        <p>Aporta la mayor cantidad de sedes, incluyendo imponentes estadios tecnológicos como el MetLife Stadium de Nueva York y el SoFi Stadium de Los Ángeles.</p>
                     </div>
                     <div class="host-flag-card" style="border-top: 3px solid var(--host-mexico);">
                         <h4>México 🇲🇽</h4>
-                        <p>Aporta el misticismo histórico con el colosal Estadio Azteca de Ciudad de México, convirtiéndose en el primer estadio del planeta en albergar tres partidos inaugurales de Copas del Mundo (1970, 1986 y 2026).</p>
+                        <p>Aporta el misticismo histórico con el colosal Estadio Azteca de Ciudad de México, convirtiéndose en el primer estadio en albergar tres partidos inaugurales.</p>
                     </div>
                     <div class="host-flag-card" style="border-top: 3px solid var(--host-canada);">
                         <h4>Canadá 🇨🇦</h4>
-                        <p>Suma la infraestructura moderna del BMO Field en Toronto y el BC Place en Vancouver, garantizando transmisiones estables y seguras con altos estándares de codificación digital de última generación.</p>
+                        <p>Suma la infraestructura moderna del BMO Field en Toronto y el BC Place en Vancouver, garantizando transmisiones estables y seguras.</p>
                     </div>
                 </div>
 
                 <div class="wc-tech-note">
-                    <strong>Nota del Repositorio para Creadores y Desarrolladores:</strong> La dispersión geográfica entre las zonas horarias de los tres países anfitriones obliga a los servidores e infraestructura de streaming a soportar cargas asíncronas masivas. Se recomienda la constante depuración de la memoria caché y el uso de reproductores basados en ExoPlayer para gestionar de forma eficiente las CDN alternativas de vídeo en Smart TVs.
+                    <strong>Nota del Repositorio para Creadores y Desarrolladores:</strong> La dispersión geográfica obliga a los servidores a soportar cargas asíncronas masivas. Se recomienda usar reproductores eficientes para gestionar las CDN alternativas de vídeo en Smart TVs.
                 </div>
             </div>
 
@@ -515,45 +510,43 @@
                         <line x1="57" y1="59" x2="68" y2="75" stroke="#1A1A1A" stroke-width="2"/>
                         <line x1="43" y1="59" x2="32" y2="75" stroke="#1A1A1A" stroke-width="2"/>
                         <line x1="39" y1="47" x2="22" y2="42" stroke="#1A1A1A" stroke-width="2"/>
-                        <polygon points="50,20 40,10 60,10" fill="#1A1A1A"/>
-                        <polygon points="78,42 88,32 88,52" fill="#1A1A1A"/>
-                        <polygon points="68,75 78,85 58,85" fill="#1A1A1A"/>
-                        <polygon points="32,75 22,85 42,85" fill="#1A1A1A"/>
-                        <polygon points="22,42 12,52 12,32" fill="#1A1A1A"/>
                     </svg>
                 </div>
                 <div class="football-text-box">
                     <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; font-weight: 600;">Módulo de Transmisión de Alta Velocidad (En Vivo)</h4>
-                    <p style="margin: 0;">Durante este mes de máxima exigencia en redes, el repositorio implementa una segmentación inteligente de paquetes APK. Esta optimización reduce el buffer en los reproductores multimedia, permitiendo flujos de video estables a 60 fps para que disfrutes cada jugada en tiempo real.</p>
+                    <p style="margin: 0;">Durante este mes de máxima exigencia en redes, el repositorio implementa una segmentación inteligente de paquetes APK que reduce el buffer.</p>
                 </div>
             </div>
 
             <!-- CAJA DE SOLUCIONES -->
             <div class="solution-box">
                 <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
-                <p class="solution-text">
-                    Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en la memoria RAM y en la tarjeta de red inalámbrica de tu Smart TV. Sigue estos pasos clave:
-                </p>
+                <p class="solution-text">Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en tu Smart TV:</p>
                 <ul class="solution-steps">
-                    <li><strong>Priorizar el Decodificador por Hardware (H.265/HEVC):</strong> Procesa el video de los partidos de forma directa en el chip gráfico, reduciendo la fatiga del procesador.</li>
-                    <li><strong>Limpieza Extrema de Caché de Red:</strong> Borrar los archivos temporales acumulados libera ancho de banda interno crítico para el streaming UHD.</li>
-                    <li><strong>Desactivar Actualizaciones Automáticas:</strong> Evita descargas molestas en segundo plano en medio del partido.</li>
+                    <li><strong>Priorizar el Decodificador por Hardware (H.265/HEVC):</strong> Procesa el video de los partidos de forma directa en el chip gráfico.</li>
+                    <li><strong>Limpieza Extrema de Caché de Red:</strong> Borrar archivos temporales libera ancho de banda interno crítico.</li>
                 </ul>
             </div>
 
-            <!-- TARJETA DE LA LEYENDA HISTÓRICA ASIGNADA A LA URL ADJUNTA -->
-            <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card">
+            <!-- NUEVA TARJETA DE LEYENDA: EXPLICACIÓN DE RESOLUCIONES (VINCULADA A TU ENLACE) -->
+            <a href="https://aftv.news/9135696" target="_blank" class="history-legend-card video-theme">
+                <div class="legend-badge">📺 Estándares de Video</div>
+                <h3 class="legend-title">Entendiendo la Calidad de Imagen: 1080p vs. 4K vs. HDR</h3>
+                <p class="legend-text">
+                    Para disfrutar de transmisiones y aplicaciones de streaming al máximo nivel, es vital comprender la evolución del video. <strong>1080p (Full HD)</strong> ofrece una resolución sólida de 1920x1080 píxeles, ideal para conexiones estándar. Por otro lado, el formato <strong>4K (Ultra HD)</strong> cuadriplica esa nitidez con un lienzo masivo de 3840x2160 píxeles, entregando texturas ultra definidas. Sin embargo, la verdadera revolución la hace el <strong>HDR (High Dynamic Range)</strong>, tecnología que no añade más píxeles, sino que expande el contraste y la paleta de colores para lograr blancos brillantes y negros puros y profundos.
+                </p>
+                <span class="legend-action-text">Haz clic aquí para ver la guía completa de configuración en tu TVBox →</span>
+            </a>
+
+            <!-- TARJETA DE LA LEYENDA HISTÓRICA ORIGINAL -->
+            <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card uruguay-theme">
                 <div class="legend-badge">📜 Crónica Histórica</div>
                 <h3 class="legend-title">El Nacimiento de un Mito: Uruguay 1930</h3>
                 <p class="legend-text">
-                    En julio de 1930, el sueño de Jules Rimet cobró vida en Sudamérica. Trece selecciones desafiaron las distancias de la época para inaugurar el primer Campeonato Mundial de Fútbol. En una final mítica teñida de pasión rioplatense, <strong>Uruguay</strong> derrotó 4-2 a Argentina en el Estadio Centenario, coronándose como el primer campeón del mundo en la historia.
+                    En julio de 1930, el sueño de Jules Rimet cobró vida en Sudamérica. Trece selecciones desafiaron las distancias de la época para inaugurar el primer Campeonato Mundial de Fútbol. En una final mítica teñida de pasión rioplatense, <strong>Uruguay</strong> derrotó 4-2 a Argentina en el Estadio Centenario.
                 </p>
                 <span class="legend-action-text">Haz clic aquí para descubrir la historia completa del origen de los mundiales →</span>
             </a>
-
-            <div class="tech-specs-section">
-                <!-- Fin del diseño del contenedor -->
-            </div>
             
         </div>
     </div>
