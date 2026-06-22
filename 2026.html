@@ -305,6 +305,59 @@
         .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
         .solution-steps li { margin-bottom: 10px; }
 
+        /* ESTILOS PREMIUM PARA LA TARJETA DE PAÍSES BAJOS */
+        .netherlands-champion-card {
+            display: block;
+            background: linear-gradient(135deg, #ffffff 0%, #fffaf5 100%);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 0;
+            color: var(--text-main);
+            box-shadow: var(--shadow-card);
+            border-left: 4px solid #ff6600;
+        }
+
+        .nl-badge {
+            display: inline-block;
+            background-color: rgba(255, 102, 0, 0.1);
+            color: #ff6600;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .nl-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .nl-text { 
+            font-size: 14px; 
+            line-height: 1.6; 
+            color: var(--text-muted); 
+            margin: 0 0 16px 0; 
+        }
+
+        .nl-reasons-list {
+            font-size: 13.5px;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-left: 20px;
+            margin: 0 0 20px 0;
+        }
+
+        .nl-reasons-list li { margin-bottom: 10px; }
+        .nl-reasons-list strong { color: #ff6600; }
+        .nl-footer-note { font-size: 12.5px; font-style: italic; color: var(--text-muted); display: inline-block; }
+
         /* ESTILOS PREMIUM PARA LA TARJETA DE LA LEYENDA HISTÓRICA */
         .history-legend-card {
             display: block;
@@ -351,15 +404,6 @@
         .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
         .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
 
-        .tech-specs-section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
-        }
-
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
             .host-flags-container { flex-direction: column; gap: 15px; }
@@ -393,9 +437,7 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
-            <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
-                <!-- Tarjeta Lion TV -->
                 <div class="card-device">
                     <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container dark-bg">
@@ -414,7 +456,6 @@
                     </ul>
                 </div>
 
-                <!-- Tarjeta Google TV -->
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
@@ -433,7 +474,6 @@
                     </ul>
                 </div>
 
-                <!-- Tarjeta Fire Stick -->
                 <div class="card-device">
                     <div class="card-tag">Fire Stick Parts</div>
                     <div class="img-container">
@@ -452,7 +492,6 @@
                     </ul>
                 </div>
 
-                <!-- Tarjeta Watch Onn -->
                 <div class="card-device">
                     <div class="card-tag">Watch Onn Parts</div>
                     <div class="img-container">
@@ -472,7 +511,6 @@
                 </div>
             </div>
 
-            <!-- NUEVA SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
             <div class="world-cup-info-section">
                 <div class="wc-header">
                     <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
@@ -503,7 +541,6 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
             <div class="football-showcase">
                 <div class="football-link-wrapper" title="Módulo Multimedia">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
@@ -527,7 +564,6 @@
                 </div>
             </div>
 
-            <!-- CAJA DE SOLUCIONES -->
             <div class="solution-box">
                 <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
                 <p class="solution-text">
@@ -540,7 +576,20 @@
                 </ul>
             </div>
 
-            <!-- TARJETA DE LA LEYENDA HISTÓRICA ASIGNADA A LA URL ADJUNTA -->
+            <div class="netherlands-champion-card">
+                <div class="nl-badge">🔮 Proyección Mundial 2026</div>
+                <h3 class="nl-title">¿Países Bajos finalmente campeón del mundo?</h3>
+                <p class="nl-text">
+                    Históricamente conocida como la "Naranja Mecánica", la selección de <strong>Países Bajos</strong> es el gigante que tiene una deuda pendiente con la Copa del Mundo tras haber disputado y perdido tres finales (1974, 1978 y 2010). Para este megatorneo de 48 selecciones, el equipo europeo se perfila como un candidato sólido para romper su maldición debido a tres factores clave:
+                </p>
+                <ul class="nl-reasons-list">
+                    <li><strong>Renovación y madurez táctica:</strong> Cuentan con una generación que combina la solidez de defensores de élite mundial con un mediocampo dinámico y jóvenes atacantes criados en la filosofía del fútbol total.</li>
+                    <li><strong>Adaptabilidad climática y logística:</strong> Al tener gran parte de sus figuras militando en las ligas más exigentes del planeta, el desgaste físico de los viajes continentales entre EE. UU., México y Canadá les afectará menos que a selecciones con ligas locales menos intensas.</li>
+                    <li><strong>Estructura competitiva:</strong> El formato expandido de 48 equipos premiará la profundidad de la plantilla. Países Bajos destaca por tener un banquillo de alto nivel que permite rotaciones clave sin perder volumen de juego en las fases de eliminación directa.</li>
+                </ul>
+                <span class="nl-footer-note">Un fútbol vistoso y efectivo que podría consagrar un nuevo monarca en la historia del balompié.</span>
+            </div>
+
             <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card">
                 <div class="legend-badge">📜 Crónica Histórica</div>
                 <h3 class="legend-title">El Nacimiento de un Mito: Uruguay 1930</h3>
@@ -549,10 +598,6 @@
                 </p>
                 <span class="legend-action-text">Haz clic aquí para descubrir la historia completa del origen de los mundiales →</span>
             </a>
-
-            <div class="tech-specs-section">
-                <!-- Fin del diseño del contenedor -->
-            </div>
             
         </div>
     </div>
