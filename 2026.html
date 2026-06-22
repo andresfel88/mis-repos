@@ -1,1 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
+    <style>
+        :root {
+            /* Paleta Premium Estilo Apple adaptada a la temporada */
+            --bg-page: #e5e5e0; 
+            --bg-canvas: #fafdfa; 
+            --card-bg: #ffffff; 
+            --text-main: #1d1d1f;
+            --text-muted: #6e6e73;
+            --accent-gray: #86868b;
+            --border-card: rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --accent-blue: #0066cc;
+            --accent-green: #1d7032; 
+            
+            /* Colores de los países anfitriones de la fiesta del fútbol */
+            --host-mexico: #006847;
+            --host-usa: #002868;
+            --host-canada: #da291c;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* BARRA SUPERIOR EXCLUSIVA */
+        .world-cup-bar {
+            background: linear-gradient(90deg, var(--host-mexico) 0%, var(--host-usa) 50%, var(--host-canada) 100%);
+            color: #ffffff;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            padding: 8px 10px;
+            text-transform: uppercase;
+        }
+
+        .nav-bar {
+            background-color: rgba(29, 29, 31, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 14px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-bar a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-bar a:hover { opacity: 1; }
+
+        .main-wrapper {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .apple-container {
+            width: 100%;
+            max-width: 1100px;
+            background-color: var(--bg-canvas);
+            border-radius: 28px;
+            padding: 50px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
+            box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .header-title {
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin: 0 0 10px 0;
+            color: var(--text-main);
+        }
+
+        .season-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(0, 40, 104, 0.1);
+            color: var(--host-usa);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .header-subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin: 0 0 45px 0;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        /* GRID ADAPTATIVO */
+        .grid-devices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card-device {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card-device:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+        }
+
+        .card-tag {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 130px;
+            background-color: #f5f5f7;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .img-container img, .img-container svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .img-container.dark-bg { background-color: #1a1a1a; }
+
+        .card-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 14px 0;
+            letter-spacing: -0.3px;
+            color: var(--text-main);
+        }
+
+        .component-list { list-style: none; padding: 0; margin: 0; }
+        .component-item { margin-bottom: 12px; font-size: 12.5px; line-height: 1.4; }
+        .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
+        .component-desc { color: var(--text-muted); }
+
+        /* NUEVA SECCIÓN DETALLADA DEL MUNDIAL 2026 */
+        .world-cup-info-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+            border-top: 4px solid var(--host-usa);
+        }
+
+        .wc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 15px;
+        }
+
+        .wc-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .host-flags-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .host-flag-card {
+            flex: 1;
+            background: #f5f5f7;
+            padding: 15px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .host-flag-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .host-flag-card p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .wc-tech-note {
+            background: rgba(0, 102, 204, 0.04);
+            border-left: 4px solid var(--accent-blue);
+            padding: 15px 20px;
+            border-radius: 0 16px 16px 0;
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--text-main);
+        }
+
+        /* SECCIÓN DEL BALÓN ABSTRACTO */
+        .football-showcase {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .football-link-wrapper {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            display: block;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .football-link-wrapper:hover { transform: scale(1.08) rotate(10deg); }
+        .football-text-box { font-size: 13.5px; line-height: 1.5; color: var(--text-muted); }
+
+        .solution-box {
+            background-color: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-card);
+        }
+
+        .solution-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin: 0 0 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .solution-text { font-size: 14px; color: var(--text-main); line-height: 1.6; margin: 0 0 20px 0; }
+        .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
+        .solution-steps li { margin-bottom: 10px; }
+
+        /* ESTILOS PREMIUM PARA LA TARJETA DE LA LEYENDA HISTÓRICA */
+        .history-legend-card {
+            display: block;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 0;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-left: 4px solid #b39211;
+        }
+
+        .history-legend-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+            border-left-color: #d4af37;
+        }
+
+        .legend-badge {
+            display: inline-block;
+            background-color: rgba(179, 146, 17, 0.1);
+            color: #b39211;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .legend-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
+        .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
+        .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
+
+        .tech-specs-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .grid-devices { grid-template-columns: repeat(2, 1fr); } 
+            .host-flags-container { flex-direction: column; gap: 15px; }
+        }
+        @media (max-width: 768px) {
+            .apple-container { padding: 30px 20px; }
+            .grid-devices { grid-template-columns: 1fr; }
+            .header-title { font-size: 26px; }
+            .football-showcase { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="world-cup-bar">
+        ⚡ Edición Especial: Infraestructura Multimedia y Optimización para el Mundial de la FIFA 2026 ⚡
+    </div>
+
+    <div class="nav-bar">
+        <a href="#">Documentación</a>
+        <a href="#">Arquitectura Kernel</a>
+        <a href="#">Tablas de Validación</a>
+        <a href="#">Optimización Google TV</a>
+        <a href="#">Soporte Android TV</a>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="apple-container">
+            
+            <span class="season-badge">⚽ Megatorneo Anfitrión Norteamérica 2026</span>
+            <h1 class="header-title">Mundo APK - AT-APK</h1>
+            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
+
+            <!-- CONTENEDOR GRID DE HARDWARE -->
+            <div class="grid-devices">
+                <!-- Tarjeta Lion TV -->
+                <div class="card-device">
+                    <div class="card-tag">Lion TV Ecosystem</div>
+                    <div class="img-container dark-bg">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff9500' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
+                    </div>
+                    <h2 class="card-heading">Resumen Operativo</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Arquitectura de Streaming</span>
+                            <span class="component-desc">Entorno multimedia alternativo para maximizar el rendimiento gráfico en hardware limitado.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Núcleo Optimizado</span>
+                            <span class="component-desc">Estructura adaptativa de buffers para evitar caídas de frames en Android.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Google TV -->
+                <div class="card-device">
+                    <div class="card-tag">Google TV Parts</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
+                    </div>
+                    <h2 class="card-heading">Componentes TV</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Sistema Operativo</span>
+                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Perfil de Usuario</span>
+                            <span class="component-desc">Espacio personalizado para separar historiales y configuraciones de apps.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Fire Stick -->
+                <div class="card-device">
+                    <div class="card-tag">Fire Stick Parts</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%23e47911'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>FIRE STICK</text></svg>" alt="Fire Stick">
+                    </div>
+                    <h2 class="card-heading">Componentes Stick</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Dongle HDMI</span>
+                            <span class="component-desc">Cuerpo de hardware que se conecta directo a la entrada de video de la pantalla.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Puerto Micro-USB</span>
+                            <span class="component-desc">Entrada lateral encargada de recibir alimentación eléctrica o adaptadores.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Watch Onn -->
+                <div class="card-device">
+                    <div class="card-tag">Watch Onn Parts</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230071dc'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>WATCH ONN</text></svg>" alt="Watch Onn">
+                    </div>
+                    <h2 class="card-heading">Componentes Box</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. TV Box Square</span>
+                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad en superficies planas.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Conectividad Interna</span>
+                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth para accesorios.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- NUEVA SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
+            <div class="world-cup-info-section">
+                <div class="wc-header">
+                    <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
+                    <span style="font-size: 11px; font-weight: 700; color: #ffffff; background: var(--host-usa); padding: 4px 10px; border-radius: 20px;">EDICIÓN HISTÓRICA</span>
+                </div>
+                
+                <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-main);">
+                    La Copa Mundial de 2026 marca un hito sin precedentes al ser el primer torneo de la historia coorganizado por tres naciones en simultáneo y expandido a 48 selecciones. Este despliegue continental plantea un desafío tecnológico colosal para las redes globales de transmisión de contenidos multimedia en Ultra Alta Definición (4K UHD).
+                </p>
+
+                <div class="host-flags-container">
+                    <div class="host-flag-card" style="border-top: 3px solid var(--host-usa);">
+                        <h4>Estados Unidos 🇺🇸</h4>
+                        <p>Aporta la mayor cantidad de sedes, incluyendo imponentes estadios tecnológicos como el MetLife Stadium de Nueva York y el SoFi Stadium de Los Ángeles. Epicentro de los flujos de distribución troncal hacia América Latina.</p>
+                    </div>
+                    <div class="host-flag-card" style="border-top: 3px solid var(--host-mexico);">
+                        <h4>México 🇲🇽</h4>
+                        <p>Aporta el misticismo histórico con el colosal Estadio Azteca de Ciudad de México, convirtiéndose en el primer estadio del planeta en albergar tres partidos inaugurales de Copas del Mundo (1970, 1986 y 2026).</p>
+                    </div>
+                    <div class="host-flag-card" style="border-top: 3px solid var(--host-canada);">
+                        <h4>Canadá 🇨🇦</h4>
+                        <p>Suma la infraestructura moderna del BMO Field en Toronto y el BC Place en Vancouver, garantizando transmisiones estables y seguras con altos estándares de codificación digital de última generación.</p>
+                    </div>
+                </div>
+
+                <div class="wc-tech-note">
+                    <strong>Nota del Repositorio para Creadores y Desarrolladores:</strong> La dispersión geográfica entre las zonas horarias de los tres países anfitriones obliga a los servidores e infraestructura de streaming a soportar cargas asíncronas masivas. Se recomienda la constante depuración de la memoria caché y el uso de reproductores basados en ExoPlayer para gestionar de forma eficiente las CDN alternativas de vídeo en Smart TVs.
+                </div>
+            </div>
+
+            <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
+            <div class="football-showcase">
+                <div class="football-link-wrapper" title="Módulo Multimedia">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+                        <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>
+                        <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#1A1A1A"/>
+                        <line x1="50" y1="38" x2="50" y2="20" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="61" y1="47" x2="78" y2="42" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="57" y1="59" x2="68" y2="75" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="43" y1="59" x2="32" y2="75" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="39" y1="47" x2="22" y2="42" stroke="#1A1A1A" stroke-width="2"/>
+                        <polygon points="50,20 40,10 60,10" fill="#1A1A1A"/>
+                        <polygon points="78,42 88,32 88,52" fill="#1A1A1A"/>
+                        <polygon points="68,75 78,85 58,85" fill="#1A1A1A"/>
+                        <polygon points="32,75 22,85 42,85" fill="#1A1A1A"/>
+                        <polygon points="22,42 12,52 12,32" fill="#1A1A1A"/>
+                    </svg>
+                </div>
+                <div class="football-text-box">
+                    <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; font-weight: 600;">Módulo de Transmisión de Alta Velocidad (En Vivo)</h4>
+                    <p style="margin: 0;">Durante este mes de máxima exigencia en redes, el repositorio implementa una segmentación inteligente de paquetes APK. Esta optimización reduce el buffer en los reproductores multimedia, permitiendo flujos de video estables a 60 fps para que disfrutes cada jugada en tiempo real.</p>
+                </div>
+            </div>
+
+            <!-- CAJA DE SOLUCIONES -->
+            <div class="solution-box">
+                <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
+                <p class="solution-text">
+                    Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en la memoria RAM y en la tarjeta de red inalámbrica de tu Smart TV. Sigue estos pasos clave:
+                </p>
+                <ul class="solution-steps">
+                    <li><strong>Priorizar el Decodificador por Hardware (H.265/HEVC):</strong> Procesa el video de los partidos de forma directa en el chip gráfico, reduciendo la fatiga del procesador.</li>
+                    <li><strong>Limpieza Extrema de Caché de Red:</strong> Borrar los archivos temporales acumulados libera ancho de banda interno crítico para el streaming UHD.</li>
+                    <li><strong>Desactivar Actualizaciones Automáticas:</strong> Evita descargas molestas en segundo plano en medio del partido.</li>
+                </ul>
+            </div>
+
+            <!-- TARJETA DE LA LEYENDA HISTÓRICA ASIGNADA A LA URL ADJUNTA -->
+            <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card">
+                <div class="legend-badge">📜 Crónica Histórica</div>
+                <h3 class="legend-title">El Nacimiento de un Mito: Uruguay 1930</h3>
+                <p class="legend-text">
+                    En julio de 1930, el sueño de Jules Rimet cobró vida en Sudamérica. Trece selecciones desafiaron las distancias de la época para inaugurar el primer Campeonato Mundial de Fútbol. En una final mítica teñida de pasión rioplatense, <strong>Uruguay</strong> derrotó 4-2 a Argentina en el Estadio Centenario, coronándose como el primer campeón del mundo en la historia.
+                </p>
+                <span class="legend-action-text">Haz clic aquí para descubrir la historia completa del origen de los mundiales →</span>
+            </a>
+
+            <div class="tech-specs-section">
+                <!-- Fin del diseño del contenedor -->
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
