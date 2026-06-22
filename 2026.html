@@ -331,12 +331,24 @@
             margin-bottom: 14px;
         }
 
+        .nl-title-link {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: color 0.2s ease-in-out;
+            margin: 0 0 12px 0;
+        }
+
+        .nl-title-link:hover, .nl-title-link:focus {
+            color: #ff6600;
+            outline: none;
+        }
+
         .nl-title {
             font-size: 20px;
             font-weight: 700;
-            margin: 0 0 10px 0;
+            margin: 0;
             letter-spacing: -0.5px;
-            color: var(--text-main);
         }
 
         .nl-text { 
@@ -437,7 +449,9 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
+            <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
+                <!-- Tarjeta Lion TV -->
                 <div class="card-device">
                     <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container dark-bg">
@@ -456,6 +470,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Google TV -->
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
@@ -474,6 +489,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Fire Stick -->
                 <div class="card-device">
                     <div class="card-tag">Fire Stick Parts</div>
                     <div class="img-container">
@@ -492,6 +508,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Watch Onn -->
                 <div class="card-device">
                     <div class="card-tag">Watch Onn Parts</div>
                     <div class="img-container">
@@ -511,6 +528,7 @@
                 </div>
             </div>
 
+            <!-- NUEVA SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
             <div class="world-cup-info-section">
                 <div class="wc-header">
                     <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
@@ -541,6 +559,7 @@
                 </div>
             </div>
 
+            <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
             <div class="football-showcase">
                 <div class="football-link-wrapper" title="Módulo Multimedia">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
@@ -564,6 +583,7 @@
                 </div>
             </div>
 
+            <!-- CAJA DE SOLUCIONES -->
             <div class="solution-box">
                 <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
                 <p class="solution-text">
@@ -576,9 +596,12 @@
                 </ul>
             </div>
 
+            <!-- TARJETA DE PREDICCIÓN: PAÍSES BAJOS CAMPEÓN -->
             <div class="netherlands-champion-card">
                 <div class="nl-badge">🔮 Proyección Mundial 2026</div>
-                <h3 class="nl-title">¿Países Bajos finalmente campeón del mundo?</h3>
+                <a href="https://aftv.news/1759129" target="_blank" class="nl-title-link">
+                    <h3 class="nl-title">¿Países Bajos finalmente campeón del mundo? →</h3>
+                </a>
                 <p class="nl-text">
                     Históricamente conocida como la "Naranja Mecánica", la selección de <strong>Países Bajos</strong> es el gigante que tiene una deuda pendiente con la Copa del Mundo tras haber disputado y perdido tres finales (1974, 1978 y 2010). Para este megatorneo de 48 selecciones, el equipo europeo se perfila como un candidato sólido para romper su maldición debido a tres factores clave:
                 </p>
@@ -590,6 +613,7 @@
                 <span class="nl-footer-note">Un fútbol vistoso y efectivo que podría consagrar un nuevo monarca en la historia del balompié.</span>
             </div>
 
+            <!-- TARJETA DE LA LEYENDA HISTÓRICA ASIGNADA A LA URL ADJUNTA -->
             <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card">
                 <div class="legend-badge">📜 Crónica Histórica</div>
                 <h3 class="legend-title">El Nacimiento de un Mito: Uruguay 1930</h3>
