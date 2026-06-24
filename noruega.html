@@ -174,14 +174,27 @@
         }
         .hydra-feat { background: #f5f5f7; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 500; }
 
-        /* NUEVA SECCIÓN: NORUEGA EN EL MUNDIAL */
+        /* SECCIÓN INTERACTIVA: NORUEGA EN EL MUNDIAL */
+        .norway-section-link {
+            text-decoration: none; 
+            display: block;        
+            margin-bottom: 40px;   
+        }
+
         .norway-section {
             background: linear-gradient(135deg, #121212 0%, #1c1c1e 100%);
             border-radius: 24px;
             padding: 35px;
             color: #ffffff;
-            margin-bottom: 40px;
             border-left: 4px solid var(--norway-red);
+            margin-bottom: 0 !important; 
+            cursor: pointer;             
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .norway-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
         }
 
         .norway-badge {
@@ -197,8 +210,19 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .norway-title { font-size: 24px; font-weight: 700; margin: 0 0 12px 0; }
-        .norway-text { font-size: 14px; line-height: 1.6; color: #e5e5ea; margin: 0; }
+        .norway-title { 
+            font-size: 24px; 
+            font-weight: 700; 
+            margin: 0 0 12px 0; 
+            color: #ffffff;
+        }
+        
+        .norway-text { 
+            font-size: 14px; 
+            line-height: 1.6; 
+            color: #e5e5ea; 
+            margin: 0; 
+        }
 
         /* GUÍA DE CACHÉ DE SOPORTE */
         .cache-section {
@@ -373,13 +397,15 @@
                 </div>
             </div>
 
-            <div class="norway-section">
-                <span class="norway-badge">🇳🇴 Análisis Cultural en el Fútbol 2026</span>
-                <h3 class="norway-title">Noruega en el Mundial: El Impacto del Trueno Vikingo</h3>
-                <p class="norway-text">
-                    La participación de la selección de <strong>Noruega</strong> en el Mundial de la FIFA 2026 trae consigo una de las postales más imponentes fuera de la cancha: la icónica <strong>celebración vikinga (Viking Clap)</strong>. Este rito se ejecuta mediante aplausos sincronizados que inician de manera pausada y van acelerando el ritmo de forma matemática, acompañados al unísono por un grito profundo proveniente de las gradas. Aunque fue popularizada globalmente por la afición de Islandia años atrás, sus raíces culturales e históricas pertenecen al folclore nórdico tradicional. Hoy en día, la marea noruega adopta este imponente despliegue acústico como un símbolo de comunión grupal e identidad competitiva en los estadios de Norteamérica.
-                </p>
-            </div>
+            <a href="https://aftv.news/8791632" target="_blank" class="norway-section-link">
+                <div class="norway-section">
+                    <span class="norway-badge">🇳🇴 Análisis Cultural en el Fútbol 2026</span>
+                    <h3 class="norway-title">Noruega en el Mundial: El Impacto del Trueno Vikingo</h3>
+                    <p class="norway-text">
+                        La participación de la selección de <strong>Noruega</strong> en el Mundial de la FIFA 2026 trae consigo una de las postales más imponentes fuera de la cancha: la icónica <strong>celebración vikinga (Viking Clap)</strong>. Este rito se ejecuta mediante aplausos sincronizados que inician de manera pausada y van acelerando el ritmo de forma matemática, acompañados al unísono por un grito profundo proveniente de las gradas. Aunque fue popularizada globalmente por la afición de Islandia años atrás, sus raíces culturales e históricas pertenecen al folclore nórdico tradicional. Hoy en día, la marea noruega adopta este imponente despliegue acústico como un símbolo de comunión grupal e identidad competitiva en los estadios de Norteamérica.
+                    </p>
+                </div>
+            </a>
 
             <div class="worldcup-section">
                 <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
