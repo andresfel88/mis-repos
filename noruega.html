@@ -23,9 +23,9 @@
             --host-usa: #002868;
             --host-canada: #da291c;
 
-            /* Identidad Titan Hydra */
-            --hydra-silver: #a1a1a6;
-            --hydra-dark: #121212;
+            /* Identidad Noruega */
+            --norway-red: #ba0c2f;
+            --norway-blue: #00205b;
         }
 
         body {
@@ -125,6 +125,56 @@
             max-width: 800px;
         }
 
+        /* SECCIÓN LIMPIEZA CACHÉ */
+        .cache-section {
+            background-color: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-card);
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .cache-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cache-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .cache-box {
+            background: #f5f5f7;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .cache-box h4 {
+            margin: 0 0 10px 0;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .cache-steps {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        .cache-steps li { margin-bottom: 6px; }
+
         /* GRID ADAPTATIVO */
         .grid-devices {
             display: grid;
@@ -195,9 +245,9 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        /* SECCIÓN DESTACADA CENTRAL: TITAN HYDRA */
-        .titan-hydra-section {
-            background: linear-gradient(135deg, var(--hydra-dark) 0%, #1c1c1e 100%);
+        /* SECCIÓN NORUEGA MUNDIAL */
+        .norway-section {
+            background: linear-gradient(135deg, #121212 0%, #1c1c1e 100%);
             border-radius: 24px;
             padding: 35px;
             color: #ffffff;
@@ -206,12 +256,13 @@
             border: 1px solid rgba(255,255,255,0.05);
             position: relative;
             overflow: hidden;
+            border-left: 5px solid var(--norway-red);
         }
 
-        .titan-badge {
+        .norway-badge {
             display: inline-block;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--hydra-silver);
+            background-color: rgba(186, 12, 47, 0.2);
+            color: #ffffff;
             font-size: 11px;
             font-weight: 600;
             padding: 4px 12px;
@@ -222,30 +273,30 @@
             border: 1px solid rgba(255,255,255,0.15);
         }
 
-        .titan-title {
+        .norway-title {
             font-size: 26px;
             font-weight: 700;
             margin: 0 0 12px 0;
             letter-spacing: -0.5px;
-            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #ba0c2f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .titan-summary {
+        .norway-summary {
             font-size: 14.5px;
             line-height: 1.6;
             color: #e5e5ea;
             margin: 0 0 20px 0;
         }
 
-        .titan-features {
+        .norway-features {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
 
-        .titan-feature-tag {
+        .norway-feature-tag {
             background: rgba(255,255,255,0.05);
             padding: 8px 14px;
             border-radius: 12px;
@@ -254,7 +305,7 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* NUEVA SECCIÓN DETALLADA DEL MUNDIAL */
+        /* SECCIÓN DETALLADA DEL MUNDIAL */
         .world-cup-info-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -320,7 +371,6 @@
             color: var(--text-main);
         }
 
-        /* SECCIÓN DEL BALÓN ABSTRACTO */
         .football-showcase {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -345,143 +395,10 @@
         .football-link-wrapper:hover { transform: scale(1.08) rotate(10deg); }
         .football-text-box { font-size: 13.5px; line-height: 1.5; color: var(--text-muted); }
 
-        .solution-box {
-            background-color: #ffffff;
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0;
-            box-shadow: var(--shadow-card);
-        }
-
-        .solution-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--accent-blue);
-            margin: 0 0 14px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .solution-text { font-size: 14px; color: var(--text-main); line-height: 1.6; margin: 0 0 20px 0; }
-        .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
-        .solution-steps li { margin-bottom: 10px; }
-
-        /* ESTILOS PREMIUM PARA LA TARJETA DE PAÍSES BAJOS */
-        .netherlands-champion-card {
-            display: block;
-            background: linear-gradient(135deg, #ffffff 0%, #fffaf5 100%);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0;
-            color: var(--text-main);
-            box-shadow: var(--shadow-card);
-            border-left: 4px solid #ff6600;
-        }
-
-        .nl-badge {
-            display: inline-block;
-            background-color: rgba(255, 102, 0, 0.1);
-            color: #ff6600;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-        }
-
-        .nl-title-link {
-            display: inline-block;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: color 0.2s ease-in-out;
-            margin: 0 0 12px 0;
-        }
-
-        .nl-title-link:hover, .nl-title-link:focus {
-            color: #ff6600;
-            outline: none;
-        }
-
-        .nl-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0;
-            letter-spacing: -0.5px;
-        }
-
-        .nl-text { 
-            font-size: 14px; 
-            line-height: 1.6; 
-            color: var(--text-muted); 
-            margin: 0 0 16px 0; 
-        }
-
-        .nl-reasons-list {
-            font-size: 13.5px;
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-left: 20px;
-            margin: 0 0 20px 0;
-        }
-
-        .nl-reasons-list li { margin-bottom: 10px; }
-        .nl-reasons-list strong { color: #ff6600; }
-        .nl-footer-note { font-size: 12.5px; font-style: italic; color: var(--text-muted); display: inline-block; }
-
-        /* ESTILOS PREMIUM PARA LA TARJETA DE LA LEYENDA HISTÓRICA */
-        .history-legend-card {
-            display: block;
-            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0;
-            text-decoration: none;
-            color: var(--text-main);
-            box-shadow: var(--shadow-card);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-left: 4px solid #b39211;
-        }
-
-        .history-legend-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
-            border-left-color: #d4af37;
-        }
-
-        .legend-badge {
-            display: inline-block;
-            background-color: rgba(179, 146, 17, 0.1);
-            color: #b39211;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-        }
-
-        .legend-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-            color: var(--text-main);
-        }
-
-        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
-        .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
-        .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
-
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
             .host-flags-container { flex-direction: column; gap: 15px; }
+            .cache-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .apple-container { padding: 30px 20px; }
@@ -511,6 +428,30 @@
             <span class="season-badge">⚽ Megatorneo Anfitrión Norteamérica 2026</span>
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
+
+            <div class="cache-section">
+                <div class="cache-title">⚙️ Guía de Soporte: Mantenimiento Preventivo de Memoria Caché</div>
+                <div class="cache-grid">
+                    <div class="cache-box">
+                        <h4>Google TV / Android TV</h4>
+                        <ol class="cache-steps">
+                            <li>Ve al menú de <strong>Ajustes</strong> (icono de engranaje) en la esquina superior derecha.</li>
+                            <li>Selecciona la opción de <strong>Aplicaciones</strong> y haz clic en <strong>Ver todas las aplicaciones</strong>.</li>
+                            <li>Busca y selecciona la app de reproducción multimedia que esté fallando.</li>
+                            <li>Desplázate hacia abajo y selecciona <strong>Borrar caché</strong> (evita borrar datos a menos que desees reiniciar la cuenta).</li>
+                        </ol>
+                    </div>
+                    <div class="cache-box">
+                        <h4>Amazon Fire TV Stick</h4>
+                        <ol class="cache-steps">
+                            <li>Mantén presionado el botón de Inicio y dirígete a <strong>Configuración</strong>.</li>
+                            <li>Selecciona el apartado de <strong>Aplicaciones</strong>.</li>
+                            <li>Haz clic sobre <strong>Gestionar las aplicaciones instaladas</strong>.</li>
+                            <li>Busca la aplicación correspondiente, selecciónala y pulsa en la opción <strong>Borrar memoria caché</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
 
             <div class="grid-devices">
                 <div class="card-device">
@@ -586,16 +527,16 @@
                 </div>
             </div>
 
-            <div class="titan-hydra-section">
-                <div class="titan-badge">🛡️ Infraestructura Núcleo</div>
-                <h3 class="titan-title">TITAN HYDRA: Sistema de Alto Rendimiento Multimedia</h3>
-                <p class="titan-summary">
-                    <strong>TITAN HYDRA</strong> representa la cúspide en optimización de arquitectura para streaming y distribución APK en Smart TVs y TV Boxes. Diseñado de forma nativa para soportar los entornos de red más exigentes del 2026, actúa como una capa inteligente que fragmenta cargas de procesamiento, estabiliza los buffers de reproducción UHD y elimina por completo los cuellos de botella en dispositivos con hardware limitado. Su motor adaptable con múltiples cabezas de procesamiento garantiza una decodificación fluida, estable y segura bajo cualquier escenario de tráfico masivo.
+            <div class="norway-section">
+                <div class="norway-badge">🇳🇴 Proyección Mundialista 2026</div>
+                <h3 class="norway-title">Noruega en el Mundial 2026: El Despertar del Trueno Vikingo</h3>
+                <p class="norway-summary">
+                    La presencia de la selección de <strong>Noruega</strong> en la Copa del Mundo de la FIFA 2026 marca un retorno épico de los escandinavos a la máxima cita del fútbol global, impulsados por una generación dorada. Más allá del espectáculo en la cancha, su afición inunda los estadios norteamericanos con la famosa <strong>celebración vikinga (Viking Clap)</strong>. Este rito, consistente en aplausos sincronizados de ritmo creciente acompañados por un grito unísono y profundo, evoca la antigua intimidación psicológica y comunión guerrera nórdica. Aunque popularizado originalmente por Islandia, los noruegos reclaman este festejo como un símbolo de orgullo e identidad cultural indomable en el fútbol moderno.
                 </p>
-                <div class="titan-features">
-                    <span class="titan-feature-tag">⚙️ Buffer Inteligente</span>
-                    <span class="titan-feature-tag">🚀 Decodificación Ultra Fluida</span>
-                    <span class="titan-feature-tag">🔒 Máxima Estabilidad UHD</span>
+                <div class="norway-features">
+                    <span class="norway-feature-tag">⚔️ Identidad Nórdica</span>
+                    <span class="norway-feature-tag">🔊 Viking Clap Sincronizado</span>
+                    <span class="norway-feature-tag">⚽ Generación de Oro 2026</span>
                 </div>
             </div>
 
@@ -626,8 +567,20 @@
 
                 <div class="wc-tech-note">
                     <strong>Nota del Repositorio para Creadores y Desarrolladores:</strong> La dispersión geográfica entre las zonas horarias de los tres países anfitriones obliga a los servidores e infraestructura de streaming a soportar cargas asíncronas masivas. Se recomienda la constante depuración de la memoria caché y el uso de reproductores basados en ExoPlayer para gestionar de forma eficiente las CDN alternativas de vídeo en Smart TVs.
-                </div>
+                </p>
             </div>
 
             <div class="football-showcase">
-                <div class="football-link-wrapper"
+                <div class="football-link-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="var(--text-muted)"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 28c110.5 0 200 89.5 200 200 0 21.3-3.4 41.8-9.6 61.2L358 218.8l-48.4 28.1v56.2L256 339.4l-53.6-36.3v-56.2L154 218.8 65.6 297.2c-6.2-19.4-9.6-39.9-9.6-61.2 0-110.5 89.5-200 200-200z"/></svg>
+                </div>
+                <div class="football-text-box">
+                    Espacio de optimización de transmisiones asíncronas para el despliegue continental 2026. Revise periódicamente las tablas de buffering del kernel para evitar el estrangulamiento de paquetes IP de vídeo.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
