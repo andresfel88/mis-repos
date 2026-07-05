@@ -540,6 +540,40 @@
                 </ul>
             </div>
 
+            <!-- NUEVA SECCIÓN INTEGRADA: VPN PARA SMART TV (ENFOQUE LEGAL Y TÉCNICO) -->
+            <div class="solution-box" style="border-top: 4px solid var(--accent-blue);">
+                <h3 class="solution-title" style="color: var(--text-main);">
+                    🔒 Implementación e Integración de VPN en Ecosistemas Android TV
+                </h3>
+                <p class="solution-text">
+                    La integración de servicios de red virtual privada dentro del flujo de una aplicación debe realizarse utilizando las herramientas nativas del sistema operativo para garantizar la legalidad, la transparencia y la máxima velocidad de transferencia de datos en transmisiones 4K.
+                </p>
+                
+                <div class="host-flags-container" style="margin-bottom: 0; gap: 15px;">
+                    <div class="host-flag-card" style="background: rgba(0, 102, 204, 0.02); text-align: left; padding: 20px;">
+                        <h4 style="color: var(--accent-blue); display: flex; align-items: center; gap: 6px;">
+                            ⚙️ API Nativa VpnService
+                        </h4>
+                        <p style="font-size: 13px; margin-top: 5px;">
+                            Para enlazar una VPN de forma legítima en Android, se debe invocar la API oficial <code>android.net.VpnService</code>. Esto permite que la aplicación gestione el túnel de tráfico cifrado de manera segura, solicitando siempre el consentimiento explícito del usuario mediante el diálogo estándar del sistema.
+                        </p>
+                    </div>
+                    
+                    <div class="host-flag-card" style="background: rgba(0, 102, 204, 0.02); text-align: left; padding: 20px;">
+                        <h4 style="color: var(--accent-green); display: flex; align-items: center; gap: 6px;">
+                            🚀 Split Tunneling (Túnel Dividido)
+                        </h4>
+                        <p style="font-size: 13px; margin-top: 5px;">
+                            Es fundamental configurar la exclusión o inclusión selectiva de paquetes. Al permitir que solo el tráfico de la app de streaming pase por el nodo seguro y dejar el resto de procesos de la Smart TV en la red local, se reduce drásticamente la latencia y se evitan pérdidas de frames a 60 fps.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="wc-tech-note" style="margin-top: 20px; background: rgba(29, 112, 50, 0.04); border-left-color: var(--accent-green);">
+                    <strong>Cumplimiento de Políticas:</strong> Integrar configuraciones de seguridad mediante archivos legibles (como perfiles públicos <code>.ovpn</code> o claves WireGuard) asegura que el usuario mantenga el control total de sus credenciales, respetando las directrices de distribución de Google Play y Amazon Appstore.
+                </div>
+            </div>
+
             <!-- TARJETA DE LA LEYENDA HISTÓRICA ASIGNADA A LA URL ADJUNTA -->
             <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card">
                 <div class="legend-badge">📜 Crónica Histórica</div>
