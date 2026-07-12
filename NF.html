@@ -257,7 +257,7 @@
             color: var(--text-main);
         }
 
-        /* SECCIÓN SIMULACIÓN FRANCIA VS MARRUECOS (CON ENLACE EXTERNO) */
+        /* SECCIÓN SIMULACIÓN FRANCIA VS MARRUECOS */
         .match-simulation-card {
             background: linear-gradient(135deg, #101524 0%, #1c2642 100%);
             color: #ffffff;
@@ -372,59 +372,15 @@
         .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
         .solution-steps li { margin-bottom: 10px; }
 
-        /* ESTILOS PREMIUM PARA LA TARJETA DE LA LEYENDA HISTÓRICA */
-        .history-legend-card {
-            display: block;
-            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+        /* ESTILOS PREMIUM PARA LA SECCIÓN DE ARQUITECTURA DE DATOS (NF) */
+        .db-norm-section {
+            background-color: var(--card-bg);
             border: 1px solid var(--border-card);
             border-radius: 24px;
             padding: 30px;
             margin: 40px 0;
-            text-decoration: none;
-            color: var(--text-main);
             box-shadow: var(--shadow-card);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-left: 4px solid #b39211;
-        }
-
-        .history-legend-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
-            border-left-color: #d4af37;
-        }
-
-        .legend-badge {
-            display: inline-block;
-            background-color: rgba(179, 146, 17, 0.1);
-            color: #b39211;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-        }
-
-        .legend-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-            color: var(--text-main);
-        }
-
-        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
-        .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
-        .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
-
-        .tech-specs-section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
+            border-top: 4px solid var(--accent-green);
         }
 
         @media (max-width: 992px) { 
@@ -449,7 +405,7 @@
     <div class="nav-bar">
         <a href="#">Documentación</a>
         <a href="#">Arquitectura Kernel</a>
-        <a href="#">Tablas de Validación</a>
+        <a href="#">Tablas de Validation</a>
         <a href="#">Optimización Google TV</a>
         <a href="#">Soporte Android TV</a>
     </div>
@@ -461,9 +417,7 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
-            <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
-                <!-- Tarjeta Lion TV -->
                 <div class="card-device">
                     <div class="card-tag">Item TV Ecosystem</div>
                     <div class="img-container dark-bg">
@@ -482,7 +436,6 @@
                     </ul>
                 </div>
 
-                <!-- Tarjeta Google TV -->
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
@@ -501,7 +454,6 @@
                     </ul>
                 </div>
 
-                <!-- Tarjeta Fire Stick -->
                 <div class="card-device">
                     <div class="card-tag">Fire Stick Parts</div>
                     <div class="img-container">
@@ -520,7 +472,6 @@
                     </ul>
                 </div>
 
-                <!-- Tarjeta Watch Onn -->
                 <div class="card-device">
                     <div class="card-tag">Watch Onn Parts</div>
                     <div class="img-container">
@@ -540,7 +491,6 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
             <div class="world-cup-info-section">
                 <div class="wc-header">
                     <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
@@ -571,9 +521,6 @@
                 </div>
             </div>
 
-            <!-- ========================================== -->
-            <!-- SECCIÓN INTERACTIVA CON ENLACE A MEDIAFIRE -->
-            <!-- ========================================== -->
             <a href="https://app.mediafire.com/folder/3q086iqibcd0x" target="_blank" class="match-simulation-card">
                 <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #ffcc00; letter-spacing: -0.5px;">🧪 Laboratorio Core: Simulación de Evento Crítico de Red</h3>
                 <p style="font-size: 13px; color: #e2e8f0; margin: 0 0 20px 0; line-height: 1.5;">
@@ -612,9 +559,7 @@
                     }
                 }
             </script>
-            <!-- ========================================== -->
 
-            <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
             <div class="football-showcase">
                 <div class="football-link-wrapper" title="Módulo Multimedia">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
@@ -638,7 +583,6 @@
                 </div>
             </div>
 
-            <!-- CAJA DE SOLUCIONES -->
             <div class="solution-box">
                 <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
                 <p class="solution-text">
@@ -651,7 +595,20 @@
                 </ul>
             </div>
 
-            <!-- SECCIÓN CON ENLACE REDIRIGIDO: INTEGRACIÓN DE ARQUITECTURA VPN TIPO ANYDESK -->
+            <div class="db-norm-section">
+                <h3 class="solution-title" style="color: var(--accent-green); margin-bottom: 6px;">
+                    📊 Arquitectura de Datos: Marco NF (Normal Forms) e Informática Teórica
+                </h3>
+                <p class="solution-text" style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
+                    En la ingeniería de software y optimización de servidores, las siglas <strong>NF</strong> definen los estándares de estructuración que previenen colapsos lógicos y redundancia en bases de datos relacionales de alta concurrencia.
+                </p>
+                <ul class="solution-steps" style="padding-left: 20px;">
+                    <li><strong>1NF (Primera Forma Normal):</strong> Asegura la atomicidad de los datos. Cada celda de la tabla debe contener un único valor indivisible, eliminando grupos repetitivos de metadatos de usuario.</li>
+                    <li><strong>2NF (Segunda Forma Normal):</strong> Cumple la 1NF y remueve dependencias parciales. Cada columna que no sea clave debe depender por completo de la clave primaria principal de la tabla.</li>
+                    <li><strong>3NF (Tercera Forma Normal):</strong> Cumple la 2NF y elimina dependencias transitivas. Ideal para sistemas de backend multimedia, asegurando que las columnas no clave dependan <em>únicamente</em> de la clave primaria directa para acelerar consultas SQL masivas.</li>
+                </ul>
+            </div>
+
             <a href="https://aftv.news/7766987" target="_blank" class="vpn-interactivity-card">
                 <h3 class="solution-title" style="color: #5856d6; margin-bottom: 4px;">
                     🔒 Integración de Redes Virtuales y Conectividad Remota Segura
@@ -680,26 +637,13 @@
                     </div>
                 </div>
 
-                <div class="wc-tech-note" style="background: rgba(88, 86, 214, 0.04); border-left-color: #5856d6; color: var(--text-main);">
-                    <strong>⚖️ Directriz de Privacidad "Zero Logs":</strong> Para garantizar la completa legitimidad ante auditorías de las tiendas oficiales, los servidores de señalización intermedia nunca deben registrar, inspeccionar ni almacenar el historial de navegación de los clientes, operando bajo un esquema estricto de no-registro de datos.
+                <div class="wc-tech-note" style="background: rgba(88, 86, 214, 0.04); border-left-color: #5856d6;">
+                    <strong>Nota de Seguridad:</strong> La transparencia y la validación manual del usuario final son requisitos ineludibles para la aprobación de módulos de conectividad remota en ecosistemas de Smart TV.
                 </div>
             </a>
 
-            <!-- TARJETA DE LA LEYENDA HISTÓRICA ASIGNADA A LA URL ADJUNTA -->
-            <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card">
-                <div class="legend-badge">📜 Crónica Histórica</div>
-                <div class="legend-title">El Nacimiento de un Mito: Uruguay 1930</div>
-                <p class="legend-text">
-                    En julio de 1930, el sueño de Jules Rimet cobró vida en Sudamérica. Trece selecciones desafiaron las distancias de la época para inaugurar el primer Campeonato Mundial de Fútbol. En una final mítica teñida de pasión rioplatense, <strong>Uruguay</strong> derrotó 4-2 a Argentina en el Estadio Centenario, coronándose como el primer campeón del mundo en la historia.
-                </p>
-                <span class="legend-action-text">Haz clic aquí para descubrir la historia completa del origen de los mundiales →</span>
-            </a>
-
-            <div class="tech-specs-section">
-                <!-- Fin del diseño del contenedor -->
-            </div>
-            
         </div>
     </div>
+
 </body>
 </html>
