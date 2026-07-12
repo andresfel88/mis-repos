@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Qué es NTFS? - Información Técnica</title>
+    <title>NTFS - Tecnología de Almacenamiento</title>
     <style>
         :root {
             --bg-color: #000000;
-            --card-bg: #161617;
             --text-color: #f5f5f7;
             --text-secondary: #86868b;
-            --accent-color: #0071e3;
+            --accent-color: #2997ff;
+            --card-bg: #1d1d1f;
         }
 
         * {
@@ -23,130 +23,180 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.5;
-            padding: 40px 20px;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Contenedor principal de una sola página */
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Secciones con efectos de entrada */
+        .hero-section {
+            min-height: 90vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background: var(--card-bg);
-            border-radius: 18px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 10px;
             text-align: center;
-            background: linear-gradient(90deg, #fff, var(--text-secondary));
+            padding: 60px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: appleFadeIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .scroll-section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: appleFadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.2s;
+        }
+
+        /* Tipografías estilo Apple */
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            line-height: 1.08;
+            background: linear-gradient(180deg, #ffffff 30%, #a1a1a6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
+        .hero-section p {
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: .004em;
             color: var(--text-secondary);
-            text-align: center;
+            max-width: 700px;
             margin-bottom: 40px;
         }
 
-        .section {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #2d2d2f;
-        }
-
-        .section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
         h2 {
-            font-size: 1.4rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+            margin-bottom: 50px;
+            text-align: center;
         }
 
-        p {
-            color: #e8e8ed;
-            margin-bottom: 15px;
-            font-size: 1.05rem;
+        /* Grid de Tarjetas Limpias */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
         }
 
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        li {
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 22px;
+            padding: 35px;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s;
             position: relative;
-            padding-left: 25px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            background-color: #242426;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
             margin-bottom: 12px;
-            color: #e8e8ed;
+            color: #ffffff;
         }
 
-        li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
+        .card p {
+            font-size: 1.05rem;
+            line-height: 1.47;
+            color: var(--text-secondary);
+        }
+
+        /* Bloque destacado continuo */
+        .featured-box {
+            background: linear-gradient(145deg, #1d1d1f, #111112);
+            border-radius: 26px;
+            padding: 50px;
+            margin-top: 40px;
+            border: 1px solid #2d2d2f;
+        }
+
+        .featured-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
             color: var(--accent-color);
-            font-weight: bold;
         }
 
-        @keyframes fadeInUp {
+        /* Animaciones */
+        @keyframes appleFadeIn {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 25px;
-            }
+        /* Adaptabilidad móvil */
+        @media (max-width: 768px) {
             h1 {
+                font-size: 2.8rem;
+            }
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+            h2 {
                 font-size: 2rem;
+            }
+            .featured-box {
+                padding: 30px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Sistema de Archivos NTFS</h1>
-        <p class="subtitle">Tecnología de almacenamiento y organización de datos</p>
+    <div class="wrapper">
+        
+        <section class="hero-section">
+            <h1>NTFS.</h1>
+            <p>El sistema de archivos de nueva tecnología diseñado para organizar, proteger y maximizar el almacenamiento de datos.</p>
+        </section>
 
-        <div class="section">
-            <h2>¿Qué es NTFS?</h2>
-            <p><strong>NTFS</strong> (<em>New Technology File System</em> o Sistema de Archivos de Nueva Tecnología) es el sistema de almacenamiento desarrollado por Microsoft, utilizado de manera predeterminada en el sistema operativo Windows desde las versiones de Windows NT y adoptado masivamente a partir de Windows XP.</p>
-            <p>Se encarga de organizar, guardar y buscar los archivos en las unidades de almacenamiento (como discos duros y SSD) de forma eficiente y segura.</p>
-        </div>
+        <section class="scroll-section">
+            <h2>Capacidad y rendimiento avanzado.</h2>
+            
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Sin límites de espacio</h3>
+                    <p>Soporta archivos y particiones de tamaños masivos, superando por completo las antiguas restricciones de 4 GB de formatos anteriores.</p>
+                </div>
 
-        <div class="section">
-            <h2>Características Principales</h2>
-            <ul>
-                <li><strong>Soporte de archivos grandes:</strong> A diferencia del antiguo formato FAT32 (que solo permite archivos de hasta 4 GB), NTFS admite archivos y particiones de tamaños extremadamente grandes, ideal para videos en alta definición o bases de datos.</li>
-                <li><strong>Seguridad y Permisos:</strong> Permite asignar controles de acceso a usuarios específicos, definiendo quién puede leer, modificar o ejecutar un archivo o carpeta en particular.</li>
-                <li><strong>Tolerancia a fallos (Journaling):</strong> Utiliza un sistema de registro de transacciones. Si el equipo se apaga repentinamente por un corte de energía, NTFS puede recuperar la consistencia del sistema de archivos rápidamente evitando que los datos se corrompan.</li>
-                <li><strong>Compresión y Cifrado:</strong> Ofrece la capacidad nativa de comprimir archivos para ahorrar espacio en disco y cifrarlos (EFS) para proteger la información confidencial.</li>
-            </ul>
-        </div>
+                <div class="card">
+                    <h3>Tolerancia a fallos</h3>
+                    <p>Incorpora un sistema de registro automático (Journaling) que protege la integridad de tus datos ante apagones o desconexiones repentinas.</p>
+                </div>
 
-        <div class="section">
-            <h2>Compatibilidad</h2>
-            <p>Es totalmente compatible con **Windows** para lectura y escritura. En sistemas **macOS**, de manera nativa los discos NTFS solo se pueden leer (requieren software de terceros para escribir datos), mientras que la mayoría de los dispositivos **Android** y reproductores de televisión modernos prefieren formatos como FAT32 o exFAT para una compatibilidad directa y óptima.</p>
-        </div>
+                <div class="card">
+                    <h3>Seguridad nativa</h3>
+                    <p>Permite gestionar permisos avanzados de usuario y control de accesos directos para cifrar o comprimir archivos de forma eficiente.</p>
+                </div>
+            </div>
+
+            <div class="featured-box">
+                <h3>Compatibilidad del sistema</h3>
+                <p>Estructurado principalmente para entornos de alto rendimiento. Ofrece soporte completo de lectura y escritura en sistemas operativos Windows, compatibilidad de lectura nativa en macOS, y un despliegue optimizado en unidades de almacenamiento avanzadas.</p>
+            </div>
+        </section>
+
     </div>
 
 </body>
