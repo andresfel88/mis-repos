@@ -191,7 +191,7 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        /* SECCIÓN DETALLADA DEL MUNDIAL 2026 */
+        /* NUEVA SECCIÓN DETALLADA DEL MUNDIAL */
         .world-cup-info-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -257,52 +257,6 @@
             color: var(--text-main);
         }
 
-        /* SECCIÓN SIMULACIÓN FRANCIA VS MARRUECOS */
-        .match-simulation-card {
-            background: linear-gradient(135deg, #101524 0%, #1c2642 100%);
-            color: #ffffff;
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            display: block;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-        }
-
-        .match-simulation-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-        }
-
-        .match-grid {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .team-box h3 { margin: 10px 0 5px 0; font-size: 22px; color: #ffffff; }
-        .team-box span { font-size: 12px; color: #a0aec0; }
-        
-        .score-box { font-size: 48px; font-weight: 800; letter-spacing: 4px; color: #ffcc00; }
-
-        .btn-cdn {
-            background-color: var(--accent-blue);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
-            margin-top: 15px;
-            transition: background 0.2s;
-        }
-        .btn-cdn:hover { background-color: #0052a3; }
-
         /* SECCIÓN DEL BALÓN ABSTRACTO */
         .football-showcase {
             background-color: var(--card-bg);
@@ -337,27 +291,6 @@
             box-shadow: var(--shadow-card);
         }
 
-        /* TARJETA INTERACTIVA DE INTEGRACIÓN VPN TIPO ANYDESK */
-        .vpn-interactivity-card {
-            display: block;
-            background-color: #ffffff;
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0;
-            box-shadow: var(--shadow-card);
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-top: 4px solid #5856d6;
-        }
-
-        .vpn-interactivity-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
-            background: rgba(88, 86, 214, 0.01);
-        }
-
         .solution-title {
             font-size: 18px;
             font-weight: 600;
@@ -372,16 +305,121 @@
         .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
         .solution-steps li { margin-bottom: 10px; }
 
-        /* ESTILOS PREMIUM PARA LA SECCIÓN DE ARQUITECTURA DE DATOS (NF) */
-        .db-norm-section {
-            background-color: var(--card-bg);
+        /* ESTILOS PREMIUM PARA LAS TARJETAS DE PREDICCIÓN */
+        .netherlands-champion-card {
+            display: block;
+            background: linear-gradient(135deg, #ffffff 0%, #fffaf5 100%);
             border: 1px solid var(--border-card);
             border-radius: 24px;
             padding: 30px;
             margin: 40px 0;
+            color: var(--text-main);
             box-shadow: var(--shadow-card);
-            border-top: 4px solid var(--accent-green);
+            border-left: 4px solid #ff6600;
         }
+
+        .nl-badge {
+            display: inline-block;
+            background-color: rgba(255, 102, 0, 0.1);
+            color: #ff6600;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .nl-title-link {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: color 0.2s ease-in-out;
+            margin: 0 0 12px 0;
+        }
+
+        .nl-title-link:hover, .nl-title-link:focus {
+            color: #ff6600;
+            outline: none;
+        }
+
+        /* Estilo enfocado para el enlace de Argentina */
+        .arg-title-link:hover, .arg-title-link:focus {
+            color: var(--accent-blue) !important;
+        }
+
+        .nl-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .nl-text { 
+            font-size: 14px; 
+            line-height: 1.6; 
+            color: var(--text-muted); 
+            margin: 0 0 16px 0; 
+        }
+
+        .nl-reasons-list {
+            font-size: 13.5px;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-left: 20px;
+            margin: 0 0 20px 0;
+        }
+
+        .nl-reasons-list li { margin-bottom: 10px; }
+        .nl-reasons-list strong { color: #ff6600; }
+        .nl-footer-note { font-size: 12.5px; font-style: italic; color: var(--text-muted); display: inline-block; }
+
+        /* ESTILOS PREMIUM PARA LA TARJETA DE LA LEYENDA HISTÓRICA */
+        .history-legend-card {
+            display: block;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 0;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-left: 4px solid #b39211;
+        }
+
+        .history-legend-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+            border-left-color: #d4af37;
+        }
+
+        .legend-badge {
+            display: inline-block;
+            background-color: rgba(179, 146, 17, 0.1);
+            color: #b39211;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .legend-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
+        .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
+        .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
 
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
@@ -392,7 +430,6 @@
             .grid-devices { grid-template-columns: 1fr; }
             .header-title { font-size: 26px; }
             .football-showcase { flex-direction: column; text-align: center; }
-            .match-grid { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
@@ -405,7 +442,7 @@
     <div class="nav-bar">
         <a href="#">Documentación</a>
         <a href="#">Arquitectura Kernel</a>
-        <a href="#">Tablas de Validation</a>
+        <a href="#">Tablas de Validación</a>
         <a href="#">Optimización Google TV</a>
         <a href="#">Soporte Android TV</a>
     </div>
@@ -417,9 +454,11 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
+            <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
+                <!-- Tarjeta Lion TV -->
                 <div class="card-device">
-                    <div class="card-tag">Item TV Ecosystem</div>
+                    <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container dark-bg">
                         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff9500' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
                     </div>
@@ -436,6 +475,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Google TV -->
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
@@ -454,6 +494,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Fire Stick -->
                 <div class="card-device">
                     <div class="card-tag">Fire Stick Parts</div>
                     <div class="img-container">
@@ -472,6 +513,7 @@
                     </ul>
                 </div>
 
+                <!-- Tarjeta Watch Onn -->
                 <div class="card-device">
                     <div class="card-tag">Watch Onn Parts</div>
                     <div class="img-container">
@@ -491,6 +533,7 @@
                 </div>
             </div>
 
+            <!-- NUEVA SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA -->
             <div class="world-cup-info-section">
                 <div class="wc-header">
                     <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
@@ -498,7 +541,7 @@
                 </div>
                 
                 <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-main);">
-                    La Copa Mundial de 2026 marca un hito sin precedentes al ser el primer torneo de la historia coorganizado por tres naciones en simultáneo y expandido a 48 selecciones. Este despliegue continental plantea un desafío tecnológico colosal para las redes globales de transmisión de contenidos multimedia en Ultra Alta Definición (4K UHD).
+                    La Copa Mundial marca un hito sin precedentes al ser el primer torneo de la historia coorganizado por tres naciones en simultáneo y expandido a 48 selecciones. Este despliegue continental plantea un desafío tecnológico colosal para las redes globales de transmisión de contenidos multimedia en Ultra Alta Definición (4K UHD).
                 </p>
 
                 <div class="host-flags-container">
@@ -512,7 +555,7 @@
                     </div>
                     <div class="host-flag-card" style="border-top: 3px solid var(--host-canada);">
                         <h4>Canadá 🇨🇦</h4>
-                        <p>Suma la infraestructura moderna del BMO Field en Toronto y el BC Place en Vancouver, garantizando transmisiones estables y seguras con altos estándares de codificación digital de última generación.</p>
+                        <p>Suma la infraestructura moderna del BMO Field en Toronto y el BC Place en Vancouver, generando transmisiones estables y seguras con altos estándares de codificación digital.</p>
                     </div>
                 </div>
 
@@ -521,45 +564,7 @@
                 </div>
             </div>
 
-            <a href="https://app.mediafire.com/folder/3q086iqibcd0x" target="_blank" class="match-simulation-card">
-                <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #ffcc00; letter-spacing: -0.5px;">🧪 Laboratorio Core: Simulación de Evento Crítico de Red</h3>
-                <p style="font-size: 13px; color: #e2e8f0; margin: 0 0 20px 0; line-height: 1.5;">
-                    Usamos este cruce de alta demanda (Francia vs Marruecos) para estresar los decodificadores y validar la latencia del buffer en las capas de Android TV / Fire Stick.
-                </p>
-                
-                <div class="match-grid">
-                    <div class="team-box">
-                        <div style="font-size: 32px;">🇫🇷</div>
-                        <h3>Francia</h3>
-                        <span>Región: UEFA</span>
-                    </div>
-                    <div class="score-box" id="live-score">2 - 1</div>
-                    <div class="team-box">
-                        <div style="font-size: 32px;">🇲🇦</div>
-                        <h3>Marruecos</h3>
-                        <span>Región: CAF</span>
-                    </div>
-                </div>
-
-                <div style="text-align: center;">
-                    <p style="font-size: 12px; color: #cbd5e0; margin: 5px 0;">CDN Activa: <span id="cdn-status" style="font-weight: bold; color: #4cdf79;">Edge Node - París</span></p>
-                    <button class="btn-cdn" onclick="event.preventDefault(); toggleCDN();">Conmutar Nodo de Video (Balanceo P2P)</button>
-                </div>
-            </a>
-            
-            <script>
-                function toggleCDN() {
-                    const cdn = document.getElementById('cdn-status');
-                    if (cdn.innerText.includes('París')) {
-                        cdn.innerText = 'Edge Node - Rabat (Optimizado WireGuard)';
-                        cdn.style.color = '#ff9500';
-                    } else {
-                        cdn.innerText = 'Edge Node - París';
-                        cdn.style.color = '#4cdf79';
-                    }
-                }
-            </script>
-
+            <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
             <div class="football-showcase">
                 <div class="football-link-wrapper" title="Módulo Multimedia">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
@@ -583,6 +588,7 @@
                 </div>
             </div>
 
+            <!-- CAJA DE SOLUCIONES -->
             <div class="solution-box">
                 <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
                 <p class="solution-text">
@@ -595,55 +601,51 @@
                 </ul>
             </div>
 
-            <div class="db-norm-section">
-                <h3 class="solution-title" style="color: var(--accent-green); margin-bottom: 6px;">
-                    📊 Arquitectura de Datos: Marco NF (Normal Forms) e Informática Teórica
-                </h3>
-                <p class="solution-text" style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
-                    En la ingeniería de software y optimización de servidores, las siglas <strong>NF</strong> definen los estándares de estructuración que previenen colapsos lógicos y redundancia en bases de datos relacionales de alta concurrencia.
+            <!-- TARJETA DE PREDICCIÓN: PAÍSES BAJOS -->
+            <div class="netherlands-champion-card">
+                <div class="nl-badge">🔮 Proyección Mundial 2026</div>
+                <a href="https://aftv.news/1759129" target="_blank" class="nl-title-link">
+                    <h3 class="nl-title">¿Países Bajos finalmente campeón del mundo? →</h3>
+                </a>
+                <p class="nl-text">
+                    Históricamente conocida como la "Naranja Mecánica", la selección de <strong>Países Bajos</strong> es el gigante que tiene una deuda pendiente con la Copa del Mundo tras haber disputado y perdido tres finales (1974, 1978 y 2010). Para este megatorneo de 48 selecciones, el equipo europeo se perfila como un candidato sólido para romper su maldición debido a tres factores clave:
                 </p>
-                <ul class="solution-steps" style="padding-left: 20px;">
-                    <li><strong>1NF (Primera Forma Normal):</strong> Asegura la atomicidad de los datos. Cada celda de la tabla debe contener un único valor indivisible, eliminando grupos repetitivos de metadatos de usuario.</li>
-                    <li><strong>2NF (Segunda Forma Normal):</strong> Cumple la 1NF y remueve dependencias parciales. Cada columna que no sea clave debe depender por completo de la clave primaria principal de la tabla.</li>
-                    <li><strong>3NF (Tercera Forma Normal):</strong> Cumple la 2NF y elimina dependencias transitivas. Ideal para sistemas de backend multimedia, asegurando que las columnas no clave dependan <em>únicamente</em> de la clave primaria directa para acelerar consultas SQL masivas.</li>
+                <ul class="nl-reasons-list">
+                    <li><strong>Renovación y madurez táctica:</strong> Cuentan con una generación que combina la solidez de defensores de élite mundial con un mediocampo dinámico y jóvenes atacantes criados en la filosofía del fútbol total.</li>
+                    <li><strong>Adaptabilidad climática y logística:</strong> Al tener gran parte de sus figuras militando en las ligas más exigentes del planeta, el desgaste físico de los viajes continentales entre EE. UU., México y Canadá les afectará menos.</li>
+                    <li><strong>Estructura competitiva:</strong> El formato expandido de 48 equipos premiará la profundidad de la plantilla. Países Bajos destaca por tener un banquillo de alto nivel que permite rotaciones clave sin perder volumen de juego.</li>
                 </ul>
+                <span class="nl-footer-note">Un fútbol vistoso y efectivo que podría consagrar un nuevo monarca en la historia del balompié.</span>
             </div>
 
-            <a href="https://aftv.news/7766987" target="_blank" class="vpn-interactivity-card">
-                <h3 class="solution-title" style="color: #5856d6; margin-bottom: 4px;">
-                    🔒 Integración de Redes Virtuales y Conectividad Remota Segura
-                </h3>
-                <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: #5856d6; letter-spacing: 0.5px; margin: 0 0 16px 0;">
-                    🔗 Clic aquí para acceder a la guía de integración externa →
+            <!-- TARJETA DE PREDICCIÓN EXCLUSIVA: EL GANADOR SEGÚN LA IA (AHORA CON ENLACE) -->
+            <div class="netherlands-champion-card" style="border-left: 4px solid var(--accent-blue); background: linear-gradient(135deg, #ffffff 0%, #f4f8ff 100%);">
+                <div class="nl-badge" style="background-color: rgba(0, 102, 204, 0.1); color: var(--accent-blue);">🏆 Predicción de la Inteligencia Artificial</div>
+                <a href="https://aftv.news/7533296" target="_blank" class="nl-title-link arg-title-link">
+                    <h3 class="nl-title" style="margin-bottom: 12px;">El Candidato al Trono: ¿Por qué Argentina logrará el Bicampeonato? →</h3>
+                </a>
+                <p class="nl-text">
+                    Aunque el formato de 48 equipos es una ruleta rusa logística, los datos, el recambio generacional y la localía comercial apuntan a que la <strong>Selección Argentina</strong> retendrá la corona por tres razones fundamentales:
                 </p>
-                <p class="solution-text">
-                    Tomando como referencia los esquemas de asistencia global como <strong>AnyDesk</strong>, la integración de una infraestructura de red interna debe fundamentarse bajo un marco legal transparente, enfocado estrictamente en la privacidad del usuario y en el rendimiento de datos punto a punto (P2P).
+                <ul class="nl-reasons-list">
+                    <li><strong style="color: var(--accent-blue);">Sinergia en Suelo Norteamericano:</strong> Argentina juega prácticamente como local en los Estados Unidos. La familiaridad con los estadios, los campos de entrenamiento y el apoyo masivo del público en las sedes clave les dará un impulso anímico superior.</li>
+                    <li><strong style="color: var(--accent-blue);">Madurez del Bloque Central:</strong> A diferencia de otros mundos en transición, la base que ganó todo llega en su punto máximo de madurez futbolística y física, liderando los clubes más importantes de Europa y con un esquema táctico ultra automatizado.</li>
+                    <li><strong>Jerarquía en Eliminación Directa:</strong> En un torneo largo, el "saber sufrir" y la experiencia en tandas de penales o prórrogas es el recurso más valioso. La albiceleste posee un gen competitivo curtido en finales que se activa en los momentos de máxima presión.</li>
+                </ul>
+                <span class="nl-footer-note" style="color: var(--accent-gray);">Una estructura blindada lista para hacer historia en la final.</span>
+            </div>
+
+            <!-- TARJETA DE LA LEYENDA HISTÓRICA ASIGNADA A LA URL ADJUNTA -->
+            <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card">
+                <div class="legend-badge">📜 Crónica Histórica</div>
+                <h3 class="legend-title">El Nacimiento de un Mito: Uruguay 1930</h3>
+                <p class="legend-text">
+                    En julio de 1930, el sueño de Jules Rimet cobró vida en Sudamérica. Trece selecciones desafiaron las distancias de la época para inaugurar el primer Campeonato Mundial de Fútbol. En una final mítica teñida de pasión rioplatense, <strong>Uruguay</strong> derrotó 4-2 a Argentina en el Estadio Centenario, coronándose como el primer campeón del mundo en la historia.
                 </p>
-                
-                <div class="host-flags-container" style="gap: 20px; margin-bottom: 20px;">
-                    <div class="host-flag-card" style="background: #fafdfa; text-align: left; padding: 20px; border-top: 3px solid var(--accent-blue);">
-                        <h4 style="color: var(--accent-blue); margin-bottom: 8px;">🛠️ Propósito Tecnológico (P2P)</h4>
-                        <p style="font-size: 12.5px; color: var(--text-muted);">El túnel encriptado se implementa exclusivamente para interconectar dispositivos remotos, diagnosticar problemas en tiempo real o transferir metadatos de forma aislada mediante cifrado de extremo a extremo (E2EE), evitando firewalls sin alterar la IP externa del usuario.</p>
-                    </div>
-
-                    <div class="host-flag-card" style="background: #fafdfa; text-align: left; padding: 20px; border-top: 3px solid var(--accent-green);">
-                        <h4 style="color: var(--accent-green); margin-bottom: 8px;">📲 Flujo Obligatorio Android</h4>
-                        <p style="font-size: 12.5px; color: var(--text-muted);">Cumpliendo con las directrices de Google Play, el desarrollo invoca la API nativa <code>VpnService</code> antecedida de una pantalla de divulgación explícita (Prominent Disclosure). El usuario debe otorgar de manera manual el consentimiento en el cuadro de diálogo inalterable del sistema.</p>
-                    </div>
-
-                    <div class="host-flag-card" style="background: #fafdfa; text-align: left; padding: 20px; border-top: 3px solid #ff9500;">
-                        <h4 style="color: #ff9500; margin-bottom: 8px;">🛰️ Protocolos Abiertos y Split</h4>
-                        <p style="font-size: 12.5px; color: var(--text-muted);">Se recomienda compilar librerías públicas de alta velocidad como <strong>WireGuard SDK</strong> u OpenVPN. Mediante el filtrado de aplicaciones (Split Tunneling), solo los datos específicos de la app son procesados por el nodo de enlace, manteniendo intacta la velocidad de internet base.</p>
-                    </div>
-                </div>
-
-                <div class="wc-tech-note" style="background: rgba(88, 86, 214, 0.04); border-left-color: #5856d6;">
-                    <strong>Nota de Seguridad:</strong> La transparencia y la validación manual del usuario final son requisitos ineludibles para la aprobación de módulos de conectividad remota en ecosistemas de Smart TV.
-                </div>
+                <span class="legend-action-text">Haz clic aquí para descubrir la historia completa del origen de los mundiales →</span>
             </a>
-
+            
         </div>
     </div>
-
 </body>
 </html>
