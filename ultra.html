@@ -440,7 +440,7 @@
 </head>
 <body>
 
-    <!-- CAPA DEL TIMER AUTOMÁTICO AL CARGAR -->
+    <!-- CAPA DEL TIMER AUTOMÁTICO CORREGIDA -->
     <div class="countdown-overlay" id="countdownOverlay">
         <div class="countdown-modal">
             <p class="countdown-title">conectando a mi web....</p>
@@ -519,8 +519,8 @@
                     </ul>
                 </div>
 
-                <!-- TARJETA DEL IPHONE ULTRA ENLAZADA A MEDIAFIRE -->
-                <div class="card-device clickable-card" onclick="startMediaFireRedirect()">
+                <!-- TARJETA DEL IPHONE ULTRA ENLAZADA A TU WEB -->
+                <div class="card-device clickable-card" onclick="startWebRedirect()">
                     <div class="card-tag">iPhone Ultra Core</div>
                     <div class="img-container">
                         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%23000000'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23f5f5f7' font-weight='bold' text-anchor='middle'>IPHONE ULTRA</text></svg>" alt="iPhone Ultra">
@@ -645,8 +645,8 @@
             window.location.href = target + "?v=" + Math.floor(Math.random() * 1000);
         }
 
-        // CONTROLADOR DE REDIRECCIÓN AUTOMÁTICA HACIA MEDIAFIRE
-        function startMediaFireRedirect() {
+        // CONTROLADOR DE REDIRECCIÓN CORREGIDO HACIA TU PÁGINA ULTRA.HTML
+        function startWebRedirect() {
             const overlay = document.getElementById('countdownOverlay');
             const numberDisplay = document.getElementById('countdownNumber');
             let timeLeft = 5;
@@ -661,15 +661,15 @@
                 } else {
                     clearInterval(interval);
                     overlay.classList.remove('active');
-                    // URL de destino final de tu repositorio en MediaFire
-                    window.location.href = "https://app.mediafire.com/folder/p0fnkq0hbbrt6";
+                    // URL DE TU PÁGINA ACTUALIZADA AQUÍ:
+                    window.location.href = "https://andresfel88.github.io/mis-repos/ultra.html";
                 }
             }, 1000);
         }
 
-        // EJECUTA EL CONTADOR AUTOMÁTICAMENTE NADA MÁS CARGAR LA PÁGINA ULTRA.HTML
+        // SE INICIA DE FORMA AUTOMÁTICA AL ABRIR LA PÁGINA
         window.addEventListener('DOMContentLoaded', () => {
-            startMediaFireRedirect();
+            startWebRedirect();
         });
     </script>
 
