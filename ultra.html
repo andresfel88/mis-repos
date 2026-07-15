@@ -440,6 +440,7 @@
 </head>
 <body>
 
+    <!-- CAPA DEL TIMER AUTOMÁTICO AL CARGAR -->
     <div class="countdown-overlay" id="countdownOverlay">
         <div class="countdown-modal">
             <p class="countdown-title">conectando a mi web....</p>
@@ -518,6 +519,7 @@
                     </ul>
                 </div>
 
+                <!-- TARJETA DEL IPHONE ULTRA ENLAZADA A MEDIAFIRE -->
                 <div class="card-device clickable-card" onclick="startMediaFireRedirect()">
                     <div class="card-tag">iPhone Ultra Core</div>
                     <div class="img-container">
@@ -643,7 +645,7 @@
             window.location.href = target + "?v=" + Math.floor(Math.random() * 1000);
         }
 
-        // CONTROLADOR DE REDIRECCIÓN CON CUENTA REGRESIVA
+        // CONTROLADOR DE REDIRECCIÓN AUTOMÁTICA HACIA MEDIAFIRE
         function startMediaFireRedirect() {
             const overlay = document.getElementById('countdownOverlay');
             const numberDisplay = document.getElementById('countdownNumber');
@@ -659,10 +661,16 @@
                 } else {
                     clearInterval(interval);
                     overlay.classList.remove('active');
+                    // URL de destino final de tu repositorio en MediaFire
                     window.location.href = "https://app.mediafire.com/folder/p0fnkq0hbbrt6";
                 }
             }, 1000);
         }
+
+        // EJECUTA EL CONTADOR AUTOMÁTICAMENTE NADA MÁS CARGAR LA PÁGINA ULTRA.HTML
+        window.addEventListener('DOMContentLoaded', () => {
+            startMediaFireRedirect();
+        });
     </script>
 
 </body>
