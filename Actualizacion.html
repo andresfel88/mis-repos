@@ -18,10 +18,11 @@
             --accent-blue: #2997ff;
             --accent-green: #30d158; 
             
-            /* Colores de los países anfitriones de la fiesta del fútbol */
+            /* Colores de los países anfitriones de la fiesta del fútbol y campeones */
             --host-mexico: #006847;
             --host-usa: #002868;
             --host-canada: #da291c;
+            --champion-spain: #f1bf00;
         }
 
         * {
@@ -222,6 +223,18 @@
             letter-spacing: -0.5px;
         }
 
+        .champion-banner {
+            background: linear-gradient(135deg, #8b0000 0%, #da291c 100%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-left: 6px solid var(--champion-spain);
+        }
+
         .host-flags-container {
             display: flex;
             gap: 20px;
@@ -269,7 +282,6 @@
             padding: 35px;
             margin: 40px 0;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            text-decoration: none;
             border: 1px solid rgba(255,255,255,0.05);
             transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
@@ -291,6 +303,7 @@
         .score-box { font-size: 54px; font-weight: 800; letter-spacing: 4px; color: #f59e0b; }
 
         .btn-cdn {
+            display: inline-block;
             background-color: var(--accent-blue);
             color: white;
             border: none;
@@ -300,9 +313,18 @@
             font-weight: 600;
             font-size: 13px;
             margin-top: 15px;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.1s;
+            text-decoration: none;
         }
         .btn-cdn:hover { background-color: #0071e3; }
+        .btn-cdn:active { transform: scale(0.98); }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            margin-left: 10px;
+        }
+        .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.2); }
 
         /* BALÓN ABSTRACTO */
         .football-showcase {
@@ -513,9 +535,18 @@
                 <div class="wc-header">
                     <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
                 </div>
+
+                <!-- BANNER DE ESPAÑA CAMPEÓN -->
+                <div class="champion-banner">
+                    <div style="font-size: 38px;">🏆🇪🇸</div>
+                    <div>
+                        <h4 style="color: #ffffff; font-size: 16px; font-weight: 700; margin-bottom: 4px;">¡ESPAÑA CAMPEÓN DEL MUNDO 2026!</h4>
+                        <p style="color: #ffe6e6; font-size: 13.5px; margin: 0; line-height: 1.4;">El torneo continental cierra con broche de oro histórico. España se corona en lo más alto del fútbol mundial tras vencer 1-0 con un gol magistral de Ferran Torres.</p>
+                    </div>
+                </div>
                 
                 <p style="font-size: 14.5px; line-height: 1.6; margin: 0 0 20px 0; color: #e8e8ed;">
-                    La Copa Mundial de 2026 marca un hito sin precedentes al ser el primer torneo de la historia coorganizado por tres naciones en simultáneo y expandido a 48 selecciones. This despliegue continental plantea un desafío tecnológico colosal para las redes globales de transmisión de contenidos multimedia en Ultra Alta Definición (4K UHD).
+                    La Copa Mundial de 2026 marca un hito sin precedentes al ser el primer torneo de la historia coorganizado por tres naciones en simultáneo y expandido a 48 selecciones. Este despliegue continental plantea un desafío tecnológico colosal para las redes globales de transmisión de contenidos multimedia en Ultra Alta Definición (4K UHD).
                 </p>
 
                 <div class="host-flags-container">
@@ -538,8 +569,8 @@
                 </div>
             </div>
 
-            <!-- ENLACE INTERACTIVO MEDIAFIRE -->
-            <a href="https://app.mediafire.com/folder/3q086iqibcd0x" target="_blank" class="match-simulation-card">
+            <!-- TARJETA INTERACTIVA DE SIMULACIÓN (CORREGIDA SIN ANIDACIONES DE BOTONES) -->
+            <div class="match-simulation-card">
                 <h3 style="margin: 0 0 10px 0; font-size: 19px; color: #f59e0b; letter-spacing: -0.5px;">🧪 Laboratorio Core: Simulación de Evento Crítico de Red</h3>
                 <p style="font-size: 14px; color: #94a3b8; margin: 0 0 20px 0; line-height: 1.5;">
                     Usamos este cruce de alta demanda (Francia vs Marruecos) para estresar los decodificadores y validar la latencia del buffer en las capas de Android TV / Fire Stick.
@@ -561,9 +592,14 @@
 
                 <div style="text-align: center;">
                     <p style="font-size: 13px; color: #cbd5e0; margin: 5px 0;">CDN Activa: <span id="cdn-status" style="font-weight: bold; color: #30d158;">Edge Node - París</span></p>
-                    <button class="btn-cdn" onclick="event.preventDefault(); toggleCDN();">Conmutar Nodo de Video (Balanceo P2P)</button>
+                    
+                    <!-- Botón 1: Lógica JS sin interferencia de enlaces externos -->
+                    <button class="btn-cdn" onclick="toggleCDN();">Conmutar Nodo de Video (Balanceo P2P)</button>
+                    
+                    <!-- Botón 2: Enlace externo limpio a MediaFire -->
+                    <a href="https://app.mediafire.com/folder/3q086iqibcd0x" target="_blank" class="btn-cdn btn-secondary">Abrir Repositorio MediaFire</a>
                 </div>
-            </a>
+            </div>
             
             <script>
                 function toggleCDN() {
@@ -572,8 +608,8 @@
                         cdn.innerText = 'Edge Node - Rabat (Optimizado WireGuard)';
                         cdn.style.color = '#ff9500';
                     } else {
-                        cdn.innerText = 'Edge Node - París';
                         cdn.style.color = '#30d158';
+                        cdn.innerText = 'Edge Node - París';
                     }
                 }
             </script>
@@ -662,7 +698,7 @@
                 </div>
 
                 <div class="wc-tech-note" style="background: rgba(191, 90, 242, 0.05); border-left-color: #bf5af2;">
-                    <strong>Nota de Seguridad:</strong> La transparencia total de red y el uso exclusivo de librerías abiertas (como WireGuard SDK) garantizan la máxima velocidad sin comprometer el hardware.
+                    <strong>Nota de Seguridad:</strong> La transparencia total de red y el uso exclusivo de librerías abiertas (como WireGuard) garantizan sesiones limpias, auditables y libres de filtraciones.
                 </div>
             </a>
 
