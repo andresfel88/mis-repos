@@ -387,6 +387,20 @@
             box-shadow: var(--shadow-card);
         }
 
+        /* INTERACTIVIDAD VPN HOGAR */
+        .vpn-home-clickable {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s;
+        }
+
+        .vpn-home-clickable:hover {
+            transform: translateY(-4px);
+            background-color: #242426;
+        }
+
         .solution-title {
             font-size: 20px;
             font-weight: 600;
@@ -397,7 +411,6 @@
             gap: 8px;
         }
 
-        .solution-text { font-size: 14.5px; color: #e8e8ed; line-height: 1.6; margin: 0 0 20px 0; }
         .solution-steps { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; }
         .solution-steps li { margin-bottom: 12px; }
         .solution-steps strong { color: #ffffff; }
@@ -474,12 +487,12 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV.</p>
 
-            <!-- BANNER DE ESPAÑA CAMPEÓN CON ENLACE DIRECTO A MEDIAFIRE -->
-            <a href="https://app.mediafire.com/folder/81nqmw1l0c9wi" target="_blank" rel="noopener noreferrer" class="champion-banner">
+            <!-- BANNER DE ESPAÑA CAMPEÓN CON MUESTRA DE ALERTA AL HACER CLIC -->
+            <a href="javascript:void(0);" onclick="alert('pagina en desarrollo');" class="champion-banner">
                 <div class="champion-emoji">🏆🇪🇸</div>
                 <div>
                     <h4 class="champion-title">¡ESPAÑA CAMPEÓN DEL MUNDO 2026!</h4>
-                    <div class="champion-action">Acceder al repositorio en MediaFire ↗</div>
+                    <div class="champion-action">Acceder al repositorio →</div>
                     <p class="champion-text">El torneo continental cierra con broche de oro histórico. España se corona en lo más alto del fútbol mundial tras vencer 1-0 con un gol magistral de Ferran Torres.</p>
                 </div>
             </a>
@@ -698,8 +711,8 @@
                 </div>
             </div>
 
-            <!-- NUEVO APARTADO: MEJOR VPN PARA TU INTERNET HOGAR -->
-            <div class="solution-box" style="border-top: 4px solid var(--accent-blue);">
+            <!-- APARTADO CLICABLE: MEJOR VPN PARA TU INTERNET HOGAR -->
+            <a href="https://app.mediafire.com/folder/gfp4sukxzi14j" target="_blank" rel="noopener noreferrer" class="solution-box vpn-home-clickable" style="border-top: 4px solid var(--accent-blue);">
                 <h3 class="solution-title" style="color: var(--accent-blue); font-size: 22px;">
                     🌐 ¿Cuál es la Mejor VPN para tu Internet Hogar?
                 </h3>
@@ -737,7 +750,7 @@
                 <div class="wc-tech-note" style="margin-top: 25px;">
                     <strong>Criterio Técnico:</strong> Para evitar caídas de velocidad en tu red doméstica, asegúrate de que el proveedor o tu router utilicen el protocolo <strong>NordLynx o WireGuard</strong> en lugar de OpenVPN (que genera mayor sobrecarga de procesamiento).
                 </div>
-            </div>
+            </a>
 
         </div>
     </div>
