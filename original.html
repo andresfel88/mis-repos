@@ -3,216 +3,330 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soporte Técnico, Noticias y Descargas</title>
-  <!-- Google Fonts & Font Awesome Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   
   <style>
     :root {
-      --bg-dark: #0f172a;
-      --card-bg: #1e293b;
-      --accent-color: #10b981;
-      --accent-hover: #059669;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --border-color: #334155;
+      --bg-body: #0b0f17;
+      --bg-card: #151c28;
+      --bg-card-hover: #1c2637;
+      --border-card: rgba(255, 255, 255, 0.08);
+      --accent-green: #10b981;
+      --accent-green-hover: #059669;
+      --accent-blue: #38bdf8;
+      --text-title: #f8fafc;
+      --text-body: #94a3b8;
+      --text-muted: #64748b;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
+      background-color: var(--bg-body);
+      color: var(--text-body);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      padding-bottom: 3rem;
     }
 
-    .main-container {
-      max-width: 950px;
+    .container {
+      max-width: 900px;
       margin: 0 auto;
+      padding: 0 1.25rem;
     }
 
-    /* Header Estilo Portal Tech */
-    .header-box {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 2.5rem 1.5rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    /* Navbar / Header */
+    .navbar {
+      background: rgba(21, 28, 40, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-card);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
     }
 
-    .header-title {
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-title);
       font-weight: 800;
-      letter-spacing: -0.5px;
-      background: linear-gradient(90deg, #38bdf8, #10b981);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 1.25rem;
+      text-decoration: none;
     }
 
-    /* Cards Personalizadas */
-    .tech-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    .brand-logo i {
+      color: var(--accent-blue);
+    }
+
+    .badge-status {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Cards Pro */
+    .card-pro {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      transition: all 0.25s ease;
+      position: relative;
       overflow: hidden;
     }
 
-    .tech-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.4);
-      border-color: #475569;
+    .card-pro:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
     }
 
-    /* Botón Estilo 2025 */
-    .btn-action {
-      background-color: var(--accent-color);
-      color: #ffffff;
+    .card-header-pro {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-md);
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .card-icon.green {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-green);
+    }
+
+    .card-icon.warning {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+    }
+
+    .card-title {
+      color: var(--text-title);
       font-weight: 700;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 28px;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      font-size: 1.2rem;
     }
 
-    .btn-action:hover {
-      background-color: var(--accent-hover);
-      color: #ffffff;
-      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
-      transform: scale(1.02);
+    .card-text {
+      color: var(--text-body);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
     }
 
-    /* Badges de hardware */
-    .badge-chip {
-      background-color: #334155;
-      color: #38bdf8;
-      border: 1px solid #475569;
-      font-size: 0.85rem;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-weight: 600;
+    /* Botón 2025 Custom */
+    .btn-pro {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 0.5rem;
+      background: var(--accent-green);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      transition: all 0.2s ease;
     }
 
-    /* Pasos de guía */
-    .step-list {
+    .btn-pro:hover {
+      background: var(--accent-green-hover);
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Chips y Badges de Dispositivos */
+    .chips-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .chip-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-card);
+      color: var(--text-title);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .chip-item i {
+      color: var(--accent-blue);
+    }
+
+    /* Pasos ordenados */
+    .steps-list {
       list-style: none;
-      padding-left: 0;
+      counter-reset: step-counter;
     }
 
-    .step-list li {
+    .steps-list li {
+      counter-increment: step-counter;
       position: relative;
-      padding-left: 30px;
-      margin-bottom: 12px;
-      color: var(--text-muted);
+      padding-left: 2.25rem;
+      margin-bottom: 0.85rem;
+      color: var(--text-body);
+      font-size: 0.95rem;
     }
 
-    .step-list li::before {
-      content: "\f058";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
+    .steps-list li::before {
+      content: counter(step-counter);
       position: absolute;
       left: 0;
-      color: var(--accent-color);
+      top: 0.15rem;
+      width: 22px;
+      height: 22px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
     }
 
-    .code-tag {
-      background-color: #0f172a;
+    .code-inline {
+      background: #090d14;
       color: #f43f5e;
-      padding: 2px 8px;
+      padding: 0.2rem 0.5rem;
       border-radius: 6px;
-      font-size: 0.9em;
-      border: 1px solid #334155;
+      font-family: monospace;
+      font-size: 0.85em;
+      border: 1px solid var(--border-card);
     }
   </style>
 </head>
 <body>
 
-  <div class="container main-container py-5">
-
-    <!-- Header Principal estilo Blog Tech -->
-    <div class="header-box text-center mb-4">
-      <h1 class="header-title display-5 mb-2"><i class="fa-solid fa-microchip me-2"></i>Portal de Soporte & Configuración</h1>
-      <p class="text-secondary mb-0 fs-5">Optimización, utilidades y enlaces verificados para Android TV, Google TV y Fire TV</p>
+  <!-- Navegación Superior Estilo Apple -->
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <a href="#" class="brand-logo">
+        <i class="fa-solid fa-cube"></i> AT-APK Soporte
+      </a>
+      <span class="badge-status"><i class="fa-solid fa-circle-check me-1"></i> Servidor Activo</span>
     </div>
+  </nav>
+
+  <main class="container">
 
     <!-- Sección Listas 2025 -->
-    <div class="card tech-card my-4 shadow">
-      <div class="card-body p-4">
-        <div class="d-flex align-items-center mb-3">
-          <i class="fa-solid fa-list-check text-warning fs-3 me-3"></i>
-          <h4 class="card-title fw-bold m-0">Listas 2025</h4>
+    <div class="card-pro">
+      <div class="card-header-pro">
+        <div class="card-icon green">
+          <i class="fa-solid fa-folder-tree"></i>
         </div>
-        <p class="card-text text-secondary mb-3">
-          <strong>Procesamiento de Instrucciones:</strong> Cuando solicites agregar el parámetro <code class="code-tag">lista2025</code>, este se copiará exactamente sin espacios adicionales.<br>
-          <strong>Generación de Resumen:</strong> Acto seguido, el sistema generará automáticamente un resumen completo de los elementos procesados.
-        </p>
-        <a href="https://app.mediafire.com/folder/3haonxq0hd2zl" 
-           class="btn btn-action mt-2" 
-           onclick="alert('lista2025');" 
-           target="_blank" 
-           rel="noopener noreferrer">
-          <i class="fa-solid fa-folder-open me-1"></i> 2025
-        </a>
+        <h2 class="card-title">Listas 2025</h2>
       </div>
+      <p class="card-text">
+        <strong>Procesamiento de Instrucciones:</strong> Cuando solicites agregar el parámetro <code class="code-inline">lista2025</code>, este se copiará exactamente sin espacios adicionales.<br>
+        <strong>Generación de Resumen:</strong> Acto seguido, el sistema generará automáticamente un resumen completo de los elementos procesados.
+      </p>
+      <a href="https://app.mediafire.com/folder/3haonxq0hd2zl" 
+         class="btn-pro" 
+         onclick="alert('lista2025');" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        <i class="fa-solid fa-download"></i> 2025
+      </a>
     </div>
 
     <!-- Guía: Limpieza de Memoria Caché -->
-    <div class="card tech-card my-4 shadow">
-      <div class="card-body p-4">
-        <div class="d-flex align-items-center mb-3">
-          <i class="fa-solid fa-broom text-info fs-3 me-3"></i>
-          <h4 class="card-title fw-bold m-0">Guía Rápida: Limpieza de Caché</h4>
+    <div class="card-pro">
+      <div class="card-header-pro">
+        <div class="card-icon warning">
+          <i class="fa-solid fa-broom"></i>
         </div>
-        <p class="text-secondary mb-3">
-          Si notas lentitud, congelamientos o cierres inesperados en tus aplicaciones, sigue esta ruta de optimización:
-        </p>
-        <ul class="step-list">
-          <li>Ingresa al menú de <strong class="text-white">Ajustes / Configuración</strong> de tu dispositivo.</li>
-          <li>Dirígete al apartado de <strong class="text-white">Aplicaciones</strong> y selecciona "Ver todas las aplicaciones".</li>
-          <li>Busca la aplicación que quieras acelerar o limpiar.</li>
-          <li>Haz clic exclusivamente en <strong class="text-white">Borrar memoria caché</strong> (no uses "Borrar datos" para evitar perder credenciales).</li>
-        </ul>
+        <h2 class="card-title">Guía Rápida: Limpieza de Caché</h2>
+      </div>
+      <p class="card-text" style="margin-bottom: 0.85rem;">
+        Paso a paso para resolver cierres forzados y ralentización en tu TV Box o Smart TV:
+      </p>
+      <ol class="steps-list">
+        <li>Abre la <strong style="color: var(--text-title);">Configuración / Ajustes</strong> general del sistema.</li>
+        <li>Ingresa al menú de <strong style="color: var(--text-title);">Aplicaciones</strong> y selecciona la app a optimizar.</li>
+        <li>Selecciona únicamente la opción <strong style="color: var(--text-title);">Borrar memoria caché</strong>.</li>
+        <li>Reinicia la aplicación para aplicar los cambios en la memoria RAM.</li>
+      </ol>
+    </div>
+
+    <!-- Ecosistemas y Hardware Compatibles -->
+    <div class="card-pro">
+      <div class="card-header-pro">
+        <div class="card-icon">
+          <i class="fa-solid fa-tv"></i>
+        </div>
+        <h2 class="card-title">Compatibilidad y Hardware</h2>
+      </div>
+      <p class="card-text">
+        Repositorios y herramientas optimizados para alta tasa de refresco y estabilidad en:
+      </p>
+      <div class="chips-grid">
+        <div class="chip-item"><i class="fa-brands fa-android"></i> Android TV</div>
+        <div class="chip-item"><i class="fa-solid fa-play"></i> Google TV</div>
+        <div class="chip-item"><i class="fa-solid fa-fire"></i> Fire TV Stick</div>
+        <div class="chip-item"><i class="fa-solid fa-microchip"></i> Watch Onn / TV Box</div>
       </div>
     </div>
 
-    <!-- Bloque Técnico de Dispositivos -->
-    <div class="card tech-card my-4 shadow">
-      <div class="card-body p-4">
-        <div class="d-flex align-items-center mb-3">
-          <i class="fa-solid fa-tv text-primary fs-3 me-3"></i>
-          <h4 class="card-title fw-bold m-0">Compatibilidad y Hardware</h4>
+    <!-- Asistencia VPN Integrada -->
+    <div class="card-pro">
+      <div class="card-header-pro">
+        <div class="card-icon green">
+          <i class="fa-solid fa-shield-halved"></i>
         </div>
-        <p class="text-secondary mb-3">
-          Nuestras herramientas, repositorios y guías han sido probadas en los siguientes ecosistemas de streaming:
-        </p>
-        <div class="d-flex flex-wrap gap-2 pt-1">
-          <span class="badge-chip"><i class="fa-brands fa-android text-success"></i> Android TV</span>
-          <span class="badge-chip"><i class="fa-solid fa-play text-danger"></i> Google TV</span>
-          <span class="badge-chip"><i class="fa-solid fa-fire text-warning"></i> Fire TV Stick</span>
-          <span class="badge-chip"><i class="fa-solid fa-box text-info"></i> TV Box Certificados</span>
-        </div>
+        <h2 class="card-title">Asistencia VPN Integrada</h2>
       </div>
+      <p class="card-text" style="margin-bottom: 0;">
+        Configuraciones y recomendaciones sobre el uso de protocolos de alta velocidad (<strong style="color: var(--text-title);">WireGuard / NordVPN</strong>) para optimizar la privacidad y estabilidad de tu red doméstica.
+      </p>
     </div>
 
-    <!-- Sección Asistencia VPN Integrada -->
-    <div class="card tech-card my-4 shadow">
-      <div class="card-body p-4">
-        <div class="d-flex align-items-center mb-3">
-          <i class="fa-solid fa-shield-halved text-success fs-3 me-3"></i>
-          <h4 class="card-title fw-bold m-0">Asistencia VPN Integrada</h4>
-        </div>
-        <p class="text-secondary m-0">
-          Recomendaciones técnicas y configuraciones sobre el uso de protocolos de alta velocidad (<strong class="text-white">WireGuard / NordVPN</strong>) para omitir bloqueos regionales y proteger el tráfico de tu red doméstica.
-        </p>
-      </div>
-    </div>
+  </main>
 
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
