@@ -27,11 +27,22 @@
       background-color: #0b5ed7;
       color: #ffffff;
     }
+    .badge-tech {
+      background-color: #e9ecef;
+      color: #495057;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
 
   <div class="container main-container py-4">
+
+    <!-- Encabezado Principal -->
+    <div class="text-center mb-4">
+      <h1 class="fw-bold">Centro de Soporte Técnico y Descargas</h1>
+      <p class="text-muted">Optimización, utilidades y guías para Android TV, Google TV y Fire TV</p>
+    </div>
 
     <!-- Sección Listas 2025 -->
     <div class="card my-3 shadow-sm">
@@ -46,8 +57,40 @@
            onclick="alert('lista2025');" 
            target="_blank" 
            rel="noopener noreferrer">
-          Acceder a Listas 2025
+          2025
         </a>
+      </div>
+    </div>
+
+    <!-- Guía: Limpieza de Memoria Caché -->
+    <div class="card my-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">🧹 Guía Rápida: Limpieza de Caché</h5>
+        <p class="card-text text-secondary">
+          Si notas lentitud en tu dispositivo TV Box o Smart TV, sigue estos pasos:
+        </p>
+        <ol class="text-secondary ps-3">
+          <li>Abre la <strong>Ajustes / Configuración</strong> del sistema.</li>
+          <li>Ingresa a la sección <strong>Aplicaciones</strong>.</li>
+          <li>Selecciona la app que deseas optimizar.</li>
+          <li>Haz clic en <strong>Borrar memoria caché</strong> (no selecciones "Borrar datos" para no perder tus inicios de sesión).</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Bloque Técnico de Dispositivos -->
+    <div class="card my-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">📺 Compatibilidad y Hardware</h5>
+        <p class="card-text text-secondary mb-3">
+          Nuestras herramientas y aplicaciones están probadas y optimizadas para los siguientes ecosistemas:
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge badge-tech p-2">Android TV</span>
+          <span class="badge badge-tech p-2">Google TV</span>
+          <span class="badge badge-tech p-2">Fire TV Stick</span>
+          <span class="badge badge-tech p-2">TV Box Certificados</span>
+        </div>
       </div>
     </div>
 
