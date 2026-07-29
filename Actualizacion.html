@@ -121,25 +121,6 @@
             max-width: 800px;
         }
 
-        /* ESTILO DEL BOTÓN 2025 */
-        .btn-2025 {
-            display: inline-block;
-            background-color: var(--accent-green);
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 15px;
-            padding: 12px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            margin-top: 10px;
-        }
-
-        .btn-2025:hover {
-            background-color: #145224;
-            transform: translateY(-1px);
-        }
-
         /* GRID ADAPTATIVO */
         .grid-devices {
             display: grid;
@@ -299,6 +280,52 @@
         .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
         .solution-steps li { margin-bottom: 10px; }
 
+        /* BANNER DE ESPAÑA CAMPEÓN 2026 (ENLACE A DRIVE) */
+        .spain-banner-card {
+            display: block;
+            background: linear-gradient(135deg, #ffffff 0%, #fff9f9 100%);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 0 0 40px 0;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-left: 4px solid #aa151b;
+        }
+
+        .spain-banner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(170, 21, 27, 0.12);
+            border-left-color: #d11a22;
+        }
+
+        .legend-badge {
+            display: inline-block;
+            background-color: rgba(170, 21, 27, 0.1);
+            color: #aa151b;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .legend-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
+        .legend-action-text { font-size: 12.5px; font-weight: 700; color: #aa151b; display: inline-block; transition: color 0.2s; }
+        .spain-banner-card:hover .legend-action-text { color: #d11a22; text-decoration: underline; }
+
         /* TARJETA DE PAÍSES BAJOS */
         .netherlands-champion-card {
             display: block;
@@ -364,52 +391,6 @@
         .nl-reasons-list strong { color: #ff6600; }
         .nl-footer-note { font-size: 12.5px; font-style: italic; color: var(--text-muted); display: inline-block; }
 
-        /* TARJETA DE ESPAÑA CAMPEÓN 2026 */
-        .history-legend-card {
-            display: block;
-            background: linear-gradient(135deg, #ffffff 0%, #fff9f9 100%);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0;
-            text-decoration: none;
-            color: var(--text-main);
-            box-shadow: var(--shadow-card);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-left: 4px solid #aa151b;
-        }
-
-        .history-legend-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(170, 21, 27, 0.12);
-            border-left-color: #d11a22;
-        }
-
-        .legend-badge {
-            display: inline-block;
-            background-color: rgba(170, 21, 27, 0.1);
-            color: #aa151b;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-        }
-
-        .legend-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-            color: var(--text-main);
-        }
-
-        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
-        .legend-action-text { font-size: 12.5px; font-weight: 700; color: #aa151b; display: inline-block; transition: color 0.2s; }
-        .history-legend-card:hover .legend-action-text { color: #d11a22; text-decoration: underline; }
-
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
             .host-flags-container { flex-direction: column; gap: 15px; }
@@ -442,19 +423,18 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
-            <!-- SECCIÓN HISTÓRICO Y EVOLUCIÓN TECNOLÓGICA 2025 -->
-            <div class="solution-box" style="margin-top: 0; text-align: center;">
-                <h3 class="solution-title" style="color: var(--accent-green); justify-content: center;">
-                    🚀 Avances de Software y Optimización 2025
-                </h3>
-                <p class="solution-text" style="max-width: 780px; margin: 0 auto 20px auto; font-size: 13.5px; color: var(--text-muted); line-height: 1.5;">
-                    El año 2025 consolidó la adopción masiva del códec AV1 y la estandarización de Android 14 para TV. Este repositorio almacena la compilación histórica de herramientas, utilidades de diagnóstico e integraciones de sistema desarrolladas durante esa etapa para garantizar fluidez, eficiencia de red y rendimiento térmico en dispositivos Smart TV.
+            <!-- BANNER DE ESPAÑA CAMPEÓN 2026 (EN LA PARTE SUPERIOR Y CON ENLACE DIRECTO A GOOGLE DRIVE) -->
+            <a href="https://drive.google.com/file/d/1OVGVzr4V4giZQXRHGg8ycSvnSYflNUAI/view?usp=sharing" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="spain-banner-card">
+                <div class="legend-badge">🏆🇪🇸 CAMPEÓN 2026</div>
+                <h3 class="legend-title">¡ESPAÑA CAMPEÓN DEL MUNDO 2026!</h3>
+                <p class="legend-text">
+                    El torneo continental cierra con broche de oro histórico. España se corona en lo más alto del fútbol mundial tras vencer 1-0 con un gol magistral de Ferran Torres.
                 </p>
-                <a href="https://app.mediafire.com/folder/3haonxq0hd2zl" 
-                   class="btn-2025" 
-                   target="_blank" 
-                   rel="noopener noreferrer">2025</a>
-            </div>
+                <span class="legend-action-text">Acceder al repositorio en Google Drive ↗</span>
+            </a>
 
             <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
@@ -595,19 +575,6 @@
                 </ul>
                 <span class="nl-footer-note">Un fútbol vistoso y efectivo que podría consagrar un nuevo monarca en la historia del balompié.</span>
             </div>
-
-            <!-- BANNER DE ESPAÑA CAMPEÓN 2026 CON ENLACE DIRECTO A GOOGLE DRIVE -->
-            <a href="https://drive.google.com/file/d/1OVGVzr4V4giZQXRHGg8ycSvnSYflNUAI/view?usp=sharing" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="history-legend-card">
-                <div class="legend-badge">🏆🇪🇸 CAMPEÓN 2026</div>
-                <h3 class="legend-title">¡ESPAÑA CAMPEÓN DEL MUNDO 2026!</h3>
-                <p class="legend-text">
-                    El torneo continental cierra con broche de oro histórico. España se corona en lo más alto del fútbol mundial tras vencer 1-0 con un gol magistral de Ferran Torres.
-                </p>
-                <span class="legend-action-text">Acceder al repositorio en Google Drive ↗</span>
-            </a>
             
         </div>
     </div>
