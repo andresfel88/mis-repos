@@ -6,23 +6,20 @@
     <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
     <style>
         :root {
-            /* Paleta Premium Estilo Apple adaptada a la temporada */
-            --bg-page: #e5e5e0; 
-            --bg-canvas: #fafdfa; 
-            --card-bg: #ffffff; 
-            --text-main: #1d1d1f;
-            --text-muted: #6e6e73;
-            --accent-gray: #86868b;
-            --border-card: rgba(0, 0, 0, 0.05);
-            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-            --accent-blue: #0066cc;
-            --accent-green: #1d7032; 
+            --bg-page: #0d0d0e;
+            --bg-canvas: #161618;
+            --card-bg: #1c1c1e;
+            --text-main: #f5f5f7;
+            --text-muted: #a1a1a6;
+            --accent-blue: #2997ff;
+            --accent-green: #30d158;
+            --border-card: rgba(255, 255, 255, 0.08);
+            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.5);
             
-            /* Colores de los países anfitriones de la fiesta del fútbol */
             --host-mexico: #006847;
             --host-usa: #002868;
             --host-canada: #da291c;
-            --alert-orange: #d97706;
+            --alert-orange: #ff9f0a;
         }
 
         body {
@@ -34,7 +31,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* BARRA SUPERIOR EXCLUSIVA */
         .world-cup-bar {
             background: linear-gradient(90deg, var(--host-mexico) 0%, var(--host-usa) 50%, var(--host-canada) 100%);
             color: #ffffff;
@@ -47,7 +43,7 @@
         }
 
         .nav-bar {
-            background-color: rgba(29, 29, 31, 0.85);
+            background-color: rgba(22, 22, 24, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             padding: 14px 20px;
@@ -57,7 +53,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid var(--border-card);
         }
 
         .nav-bar a {
@@ -88,9 +84,9 @@
             background-color: var(--bg-canvas);
             border-radius: 28px;
             padding: 50px;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
             box-sizing: border-box;
-            border: 1px solid rgba(0,0,0,0.02);
+            border: 1px solid var(--border-card);
         }
 
         .header-title {
@@ -105,7 +101,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background-color: rgba(29, 112, 50, 0.1);
+            background-color: rgba(48, 209, 88, 0.15);
             color: var(--accent-green);
             font-size: 11px;
             font-weight: 600;
@@ -122,6 +118,86 @@
             margin: 0 0 45px 0;
             line-height: 1.5;
             max-width: 800px;
+        }
+
+        /* SECCIÓN HIDRA DE LERNA ENCABEZADO ULTIMATE H */
+        .hydra-hero-card {
+            background: linear-gradient(135deg, #1c1c1e 0%, #121214 100%);
+            border: 1px solid rgba(41, 151, 255, 0.2);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 40px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .hydra-badge {
+            display: inline-block;
+            background-color: rgba(41, 151, 255, 0.15);
+            color: var(--accent-blue);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .hydra-hero-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        .hydra-hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .hydra-hero-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0 0 12px 0;
+        }
+
+        .hydra-hero-text strong {
+            color: #ffffff;
+        }
+
+        .hydra-hero-img-box {
+            width: 100%;
+            height: 180px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-card);
+        }
+
+        .hydra-hero-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hydra-hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: color 0.2s;
+        }
+
+        .hydra-hero-link:hover {
+            color: #64b5f6;
+            text-decoration: underline;
         }
 
         /* GRID ADAPTATIVO */
@@ -146,7 +222,7 @@
 
         .card-device:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
         }
 
         .card-tag {
@@ -161,14 +237,14 @@
         .img-container {
             width: 100%;
             height: 130px;
-            background-color: #f5f5f7;
+            background-color: #121214;
             border-radius: 16px;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.02);
+            border: 1px solid var(--border-card);
         }
 
         .img-container img, .img-container svg {
@@ -177,10 +253,6 @@
             object-fit: contain;
             padding: 10px;
             box-sizing: border-box;
-        }
-
-        .img-container.dark-bg {
-            background-color: #1a1a1a;
         }
 
         .card-heading {
@@ -214,7 +286,7 @@
             color: var(--text-muted);
         }
 
-        /* WIDGET PARA EL CALENDARIO REAL */
+        /* CALENDARIO DE ENCUENTROS */
         .match-calendar-widget {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -230,7 +302,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-card);
             padding-bottom: 12px;
         }
 
@@ -250,10 +322,10 @@
         }
 
         .match-box {
-            background: #f5f5f7;
+            background: #121214;
             padding: 16px;
             border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.02);
+            border: 1px solid var(--border-card);
         }
 
         .match-date {
@@ -283,7 +355,7 @@
             font-size: 10px;
             font-weight: 600;
             color: var(--text-muted);
-            background: rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.05);
             padding: 2px 6px;
             border-radius: 4px;
             align-self: center;
@@ -292,7 +364,7 @@
             width: fit-content;
         }
 
-        /* SECCIÓN DEL BALÓN ABSTRACTO */
+        /* BALÓN DE TRANSMISIÓN */
         .football-showcase {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -324,8 +396,9 @@
             color: var(--text-muted);
         }
 
+        /* OPTIMIZACIÓN */
         .solution-box {
-            background-color: #ffffff;
+            background-color: var(--card-bg);
             border: 1px solid var(--border-card);
             border-radius: 24px;
             padding: 30px;
@@ -362,94 +435,10 @@
             margin-bottom: 10px;
         }
 
-        /* SECCIÓN MITOLÓGICA / HIDRA DE LERNA DEPURADA */
-        .hydra-section-card {
-            background: linear-gradient(135deg, #1d1d1f 0%, #000000 100%);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 32px;
-            margin: 40px 0;
-            color: #f5f5f7;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .hydra-badge {
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            width: fit-content;
-        }
-
-        .hydra-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin: 0;
-            letter-spacing: -0.5px;
-            color: #ffffff;
-        }
-
-        .hydra-content-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .hydra-text {
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: #a1a1a6;
-            margin: 0;
-        }
-
-        .hydra-text strong {
-            color: #ffffff;
-        }
-
-        .hydra-img-box {
-            width: 100%;
-            height: 160px;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hydra-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hydra-action-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #2997ff;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: color 0.2s;
-        }
-
-        .hydra-action-link:hover {
-            color: #64b5f6;
-            text-decoration: underline;
-        }
-
-        /* ESTILOS DE LA LEYENDA HISTÓRICA */
+        /* CRÓNICA HISTÓRICA URUGUAY 1930 */
         .history-legend-card {
             display: block;
-            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+            background: linear-gradient(135deg, #1c1c1e 0%, #151517 100%);
             border: 1px solid var(--border-card);
             border-radius: 24px;
             padding: 30px;
@@ -463,14 +452,14 @@
 
         .history-legend-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6);
             border-left-color: #d4af37;
         }
 
         .legend-badge {
             display: inline-block;
-            background-color: rgba(179, 146, 17, 0.1);
-            color: #b39211;
+            background-color: rgba(179, 146, 17, 0.15);
+            color: #d4af37;
             font-size: 11px;
             font-weight: 600;
             padding: 4px 10px;
@@ -500,15 +489,9 @@
             font-weight: 600;
             color: var(--accent-blue);
             display: inline-block;
-            transition: color 0.2s;
         }
 
-        .history-legend-card:hover .legend-action-text {
-            color: #004499;
-            text-decoration: underline;
-        }
-
-        /* ESTILOS: IMPACTO CLIMÁTICO Y DOMO DE CALOR */
+        /* DOMO DE CALOR */
         .climate-impact-card {
             display: block;
             background-color: var(--card-bg);
@@ -525,13 +508,12 @@
 
         .climate-impact-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
-            border-left-color: #ea580c;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6);
         }
 
         .climate-badge {
             display: inline-block;
-            background-color: rgba(217, 119, 6, 0.1);
+            background-color: rgba(255, 159, 10, 0.15);
             color: var(--alert-orange);
             font-size: 11px;
             font-weight: 600;
@@ -558,11 +540,6 @@
             margin-bottom: 16px;
         }
 
-        .climate-impact-card:hover .climate-action-text {
-            color: #004499;
-            text-decoration: underline;
-        }
-
         .climate-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -583,7 +560,7 @@
             font-size: 14px;
         }
 
-        /* SECCIÓN DE ESPECIFICACIONES TÉCNICAS */
+        /* ESPECIFICACIONES TÉCNICAS */
         .tech-specs-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
@@ -611,7 +588,7 @@
             font-weight: 600;
             color: var(--text-muted);
             padding: 12px 16px;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid var(--border-card);
             text-transform: uppercase;
             font-size: 11px;
             letter-spacing: 0.5px;
@@ -619,7 +596,7 @@
 
         .specs-table td {
             padding: 14px 16px;
-            border-bottom: 1px solid rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
             color: var(--text-main);
             vertical-align: top;
         }
@@ -636,12 +613,12 @@
             border-radius: 12px;
         }
 
-        .badge-ok { background-color: rgba(29, 112, 50, 0.1); color: var(--accent-green); }
-        .badge-info { background-color: rgba(0, 102, 204, 0.1); color: var(--accent-blue); }
+        .badge-ok { background-color: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .badge-info { background-color: rgba(41, 151, 255, 0.15); color: var(--accent-blue); }
 
         @media (max-width: 992px) {
             .grid-devices { grid-template-columns: repeat(2, 1fr); }
-            .hydra-content-grid { grid-template-columns: 1fr; }
+            .hydra-hero-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -675,15 +652,37 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
+            <!-- SECCIÓN MITOLÓGICA: LA HIDRA DE LERNA Y ULTIMATE H -->
+            <div class="hydra-hero-card">
+                <span class="hydra-badge">⚡ Mito & Tecnología</span>
+                <h2 class="hydra-hero-title">La Leyenda de la Hidra de Lerna y el Resurgir de Ultimate H</h2>
+                <div class="hydra-hero-grid">
+                    <div>
+                        <p class="hydra-hero-text">
+                            En las proximidades de las fuentes de Amimone, en los oscuros pantanos del lago de Lerna, habitaba la <strong>Hidra de Lerna</strong>. Hija de Tifón y Equidna, esta bestia de aliento venenoso y múltiples cabezas poseía una fuerza invencible: cada vez que una de sus cabezas era cercenada, dos nuevas brotaban en su lugar.
+                        </p>
+                        <p class="hydra-hero-text">
+                            En la era digital, ese mito renace con <strong>Ultimate H</strong>. Cuando los servidores colapsan y las rutas de transmisión caen por el tráfico, Ultimate H activa sus núcleos adaptativos: por cada nodo saturado, genera instantáneamente múltiples vías de transmisión paralelas para mantener el flujo constante.
+                        </p>
+                        <a href="https://aftv.news/6683837" target="_blank" class="hydra-hero-link">
+                            Descubrir la fuerza de Ultimate H →
+                        </a>
+                    </div>
+                    <div class="hydra-hero-img-box">
+                        <img src="https://www.ecured.cu/images/d/d4/Hidra.jpg" alt="Hidra de Lerna">
+                    </div>
+                </div>
+            </div>
+
             <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
 
                 <div class="card-device">
                     <div class="card-tag">Lion TV Ecosystem</div>
-                    <div class="img-container dark-bg">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff9500' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%23121214'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff9500' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
                     </div>
-                    <h2 class="card-heading">Resumen Operativo</h2>
+                    <h3 class="card-heading">Resumen Operativo</h3>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Arquitectura de Streaming</span>
@@ -699,9 +698,9 @@
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%23121214'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
                     </div>
-                    <h2 class="card-heading">Componentes TV</h2>
+                    <h3 class="card-heading">Componentes TV</h3>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Sistema Operativo</span>
@@ -719,7 +718,7 @@
                     <div class="img-container">
                         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%23e47911'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>FIRE STICK</text></svg>" alt="Fire Stick">
                     </div>
-                    <h2 class="card-heading">Componentes Stick</h2>
+                    <h3 class="card-heading">Componentes Stick</h3>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Dongle HDMI</span>
@@ -737,7 +736,7 @@
                     <div class="img-container">
                         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230071dc'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>WATCH ONN</text></svg>" alt="Watch Onn">
                     </div>
-                    <h2 class="card-heading">Componentes Box</h2>
+                    <h3 class="card-heading">Componentes Box</h3>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. TV Box Square</span>
@@ -755,7 +754,7 @@
             <!-- CALENDARIO DE ENCUENTROS -->
             <div class="match-calendar-widget">
                 <div class="widget-header">
-                    <a href="https://aftv.news/6683837" target="_blank" style="text-decoration: none; color: inherit; transition: color 0.2s ease;" onmouseover="this.style.color='var(--accent-green)'" onmouseout="this.style.color='inherit'">
+                    <a href="https://aftv.news/6683837" target="_blank" style="text-decoration: none; color: inherit;">
                         <h3 class="widget-title">📅 Próximos Encuentros Destacados - Primera Ronda</h3>
                     </a>
                     <span style="font-size: 12px; font-weight: 500; color: var(--text-muted);">Fase de Grupos</span>
@@ -798,18 +797,18 @@
             <div class="football-showcase">
                 <a href="https://aftv.news/7103900" class="football-link-wrapper" target="_blank" title="Ir al servidor de descarga">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-                        <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>
-                        <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#1A1A1A"/>
-                        <line x1="50" y1="38" x2="50" y2="20" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="61" y1="47" x2="78" y2="42" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="57" y1="59" x2="68" y2="75" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="43" y1="59" x2="32" y2="75" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="39" y1="47" x2="22" y2="42" stroke="#1A1A1A" stroke-width="2"/>
-                        <polygon points="50,20 40,10 60,10" fill="#1A1A1A"/>
-                        <polygon points="78,42 88,32 88,52" fill="#1A1A1A"/>
-                        <polygon points="68,75 78,85 58,85" fill="#1A1A1A"/>
-                        <polygon points="32,75 22,85 42,85" fill="#1A1A1A"/>
-                        <polygon points="22,42 12,52 12,32" fill="#1A1A1A"/>
+                        <circle cx="50" cy="50" r="46" fill="#121214" stroke="#ffffff" stroke-width="2"/>
+                        <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#ffffff"/>
+                        <line x1="50" y1="38" x2="50" y2="20" stroke="#ffffff" stroke-width="2"/>
+                        <line x1="61" y1="47" x2="78" y2="42" stroke="#ffffff" stroke-width="2"/>
+                        <line x1="57" y1="59" x2="68" y2="75" stroke="#ffffff" stroke-width="2"/>
+                        <line x1="43" y1="59" x2="32" y2="75" stroke="#ffffff" stroke-width="2"/>
+                        <line x1="39" y1="47" x2="22" y2="42" stroke="#ffffff" stroke-width="2"/>
+                        <polygon points="50,20 40,10 60,10" fill="#ffffff"/>
+                        <polygon points="78,42 88,32 88,52" fill="#ffffff"/>
+                        <polygon points="68,75 78,85 58,85" fill="#ffffff"/>
+                        <polygon points="32,75 22,85 42,85" fill="#ffffff"/>
+                        <polygon points="22,42 12,52 12,32" fill="#ffffff"/>
                     </svg>
                 </a>
                 <div class="football-text-box">
@@ -831,28 +830,6 @@
                 </ul>
             </div>
 
-            <!-- SECCIÓN INTEGRADA: LA HIDRA DE LERNA Y ULTIMATE H -->
-            <div class="hydra-section-card">
-                <div class="hydra-badge">⚡ Mito & Tecnología</div>
-                <h3 class="hydra-title">La Leyenda de la Hidra de Lerna y el Resurgir de Ultimate H</h3>
-                <div class="hydra-content-grid">
-                    <div>
-                        <p class="hydra-text">
-                            En las proximidades de las fuentes de Amimone, en los oscuros pantanos del lago de Lerna, habitaba la <strong>Hidra de Lerna</strong>. Hija de Tifón y Equidna, esta bestia de aliento venenoso y múltiples cabezas poseía una fuerza invencible: cada vez que una de sus cabezas era cercenada, dos nuevas brotaban en su lugar.
-                        </p>
-                        <p class="hydra-text" style="margin-top: 12px;">
-                            En la era digital, ese mito renace con <strong>Ultimate H</strong>. Cuando los servidores colapsan y las rutas de transmisión caen por el tráfico alto, Ultimate H activa sus núcleos adaptativos: por cada nodo saturado, genera instantáneamente múltiples vías de transmisión paralelas para mantener el flujo constante sin interrupciones.
-                        </p>
-                        <a href="https://aftv.news/6683837" target="_blank" class="hydra-action-link">
-                            Descubrir la fuerza de Ultimate H →
-                        </a>
-                    </div>
-                    <div class="hydra-img-box">
-                        <img src="https://www.ecured.cu/images/d/d4/Hidra.jpg" alt="Hidra de Lerna">
-                    </div>
-                </div>
-            </div>
-
             <!-- CRÓNICA HISTÓRICA -->
             <a href="https://upload.wikimedia.org/wikipedia/commons/e/ee/Uruguay_1930_World_Cup_Opening_Ceremony.jpg" target="_blank" class="history-legend-card">
                 <div class="legend-badge">📜 Crónica Histórica</div>
@@ -863,7 +840,7 @@
                 <span class="legend-action-text">Haz clic aquí para ver la fotografía de la inauguración del primer mundial →</span>
             </a>
 
-            <!-- SECCIÓN: DESAFÍO CLIMÁTICO -->
+            <!-- DESAFÍO CLIMÁTICO -->
             <a href="https://aftv.news/9567344" target="_blank" class="climate-impact-card">
                 <div class="climate-badge">⚠️ Desafío Climático</div>
                 <h3 class="climate-title">Domo de Calor Extremo en EE.UU.: El Impacto Crítico en el Desarrollo del Mundial</h3>
@@ -887,7 +864,7 @@
                 </div>
             </a>
 
-            <!-- SECCIÓN DE ESPECIFICACIONES TÉCNICAS -->
+            <!-- ESPECIFICACIONES TÉCNICAS -->
             <div class="tech-specs-section">
                 <h3 class="tech-title">📊 Matriz de Validación de Codecs y Red (Verano 2026)</h3>
                 <table class="specs-table">
