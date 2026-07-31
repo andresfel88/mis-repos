@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Ultimate H & Soporte Técnico</title>
+    <title>Mundo APK - Centro Técnico & Aceleración Streaming</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -15,6 +15,7 @@
             --accent-purple-glow: rgba(168, 85, 247, 0.25);
             --accent-blue: #38bdf8;
             --accent-green: #238636;
+            --accent-gold: #f59e0b;
         }
 
         * {
@@ -111,12 +112,12 @@
             font-size: 15px;
         }
 
-        /* ESTILOS TARJETA LEYENDA ULTIMATE H */
+        /* TARJETA DESTACADA: ULTIMATE H & HIDRA */
         .ultimate-h-card {
             background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1a0b2e 100%);
             border: 1px solid rgba(147, 51, 234, 0.3);
             border-radius: 24px;
-            padding: 36px;
+            padding: 30px;
             margin: 30px 0;
             box-shadow: 0 20px 40px rgba(13, 17, 23, 0.3), 0 0 20px rgba(147, 51, 234, 0.15);
             border-left: 5px solid var(--accent-purple);
@@ -148,11 +149,36 @@
         .h-title {
             font-size: 24px;
             font-weight: 800;
-            margin: 0 0 14px 0;
+            margin: 0 0 16px 0;
             letter-spacing: -0.5px;
             background: linear-gradient(90deg, #ffffff, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        .h-content-wrapper {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .h-text-side {
+            flex: 1;
+        }
+
+        .h-img-side {
+            flex-shrink: 0;
+            width: 200px;
+            text-align: center;
+        }
+
+        .h-img-side img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 16px;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            object-fit: cover;
         }
 
         .h-text {
@@ -184,7 +210,7 @@
             transform: scale(1.02);
         }
 
-        /* ESTILOS DE LA TABLA */
+        /* BLOQUES SECUNDARIOS Y TABLAS */
         .section-box {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -201,6 +227,9 @@
             color: var(--text-primary);
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .table-responsive {
@@ -240,7 +269,7 @@
             border-bottom: none;
         }
 
-        /* INSIGNIAS / BADGES */
+        /* BADGES */
         .badge-status {
             display: inline-block;
             padding: 4px 10px;
@@ -261,6 +290,56 @@
             border: 1px solid rgba(56, 189, 248, 0.3);
         }
 
+        .badge-gold {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: var(--accent-gold);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        /* GUÍAS DE MANTENIMIENTO */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        .guide-item {
+            background: #21262d;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .guide-item h4 {
+            color: var(--text-primary);
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .guide-item p {
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* MÓVIL RESPONSIVE */
+        @media (max-width: 650px) {
+            .h-content-wrapper {
+                flex-direction: column-reverse;
+                text-align: left;
+            }
+
+            .h-img-side {
+                width: 100%;
+            }
+
+            .h-img-side img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
         /* FOOTER */
         footer {
             margin-top: 50px;
@@ -279,9 +358,10 @@
         <div class="nav-container">
             <a href="#" class="brand">MUNDO <span>APK</span></a>
             <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Guías</a></li>
-                <li><a href="#">Repositorio</a></li>
+                <li><a href="#ultimate">Ultimate H</a></li>
+                <li><a href="#partidos">Partidos</a></li>
+                <li><a href="#tecnico">Especificaciones</a></li>
+                <li><a href="#mantenimiento">Mantenimiento</a></li>
             </ul>
         </div>
     </header>
@@ -292,27 +372,76 @@
         <!-- TÍTULO PRINCIPAL -->
         <div class="hero-section">
             <h1 class="hero-title">Centro de Optimización & Archivos</h1>
-            <p class="hero-subtitle">Estructura técnica, rendimiento de streaming y módulos de aceleración.</p>
+            <p class="hero-subtitle">Módulo AT-APK, rendimiento de streaming para Android TV y repositorios técnicos.</p>
         </div>
 
-        <!-- TARJETA DESTACADA: ULTIMATE H -->
-        <div class="ultimate-h-card">
+        <!-- TARJETA DESTACADA: ULTIMATE H + IMAGEN ECURED -->
+        <div id="ultimate" class="ultimate-h-card">
             <div class="h-badge">⚡ Mito & Tecnología</div>
-            <h2 class="h-title">La Leyenda de Hydra y el Resurgir de Ultimate H</h2>
-            <p class="h-text">
-                En las profundidades del pantano de Lerna habitaba la Hydra, una criatura de múltiples cabezas cuyos cortes de espada solo fortalecían su poder duplicando su aliento. En la era digital, ese mito renace: <strong>Ultimate H</strong> sintetiza la capacidad camaleónica de la criatura ancestral adaptada al flujo de redes y datos.
-            </p>
-            <p class="h-text">
-                Cuando los servidores colapsan y las rutas de transmisión caen por el tráfico de millones de espectadores, Ultimate H despliega sus núcleos adaptativos. Por cada nodo saturado, genera nuevas rutas paralelas e ininterrumpidas, garantizando la velocidad definitiva y convirtiendo la presión extrema en rendimiento puro.
-            </p>
-            <a href="https://aftv.news/6683837" target="_blank" class="h-btn">
-                Descubrir la fuerza de Ultimate H →
-            </a>
+            <h2 class="h-title">La Leyenda de la Hidra de Lerna y el Resurgir de Ultimate H</h2>
+            
+            <div class="h-content-wrapper">
+                <div class="h-text-side">
+                    <p class="h-text">
+                        En las proximidades de las fuentes de Amimone, en los oscuros pantanos del lago de Lerna, habitaba la <strong>Hidra de Lerna</strong>. Hija de Tifón y Equidna, esta bestia de aliento venenoso y múltiples cabezas poseía una fuerza invencible: cada vez que una de sus cabezas era cercenada, dos nuevas brotaban en su lugar para duplicar su ataque.
+                    </p>
+                    <p class="h-text">
+                        En la era digital, ese principio milenario renace con <strong>Ultimate H</strong>. Ante el colapso de servidores, bloqueos de red o la saturación masiva de usuarios durante eventos de alta demanda, Ultimate H activa sus núcleos adaptativos: por cada ruta de datos que cae, regenera instantáneamente múltiples vías de transmisión paralelas sin perder estabilidad.
+                    </p>
+                    <a href="https://aftv.news/6683837" target="_blank" class="h-btn">
+                        Descubrir la fuerza de Ultimate H →
+                    </a>
+                </div>
+                
+                <div class="h-img-side">
+                    <img src="https://www.ecured.cu/images/d/d4/Hidra.jpg" alt="Hidra de Lerna - Mitología Griega">
+                </div>
+            </div>
         </div>
 
-        <!-- TABLA TÉCNICA -->
-        <div class="section-box">
-            <div class="section-title">Requisitos y Entornos de Ejecución</div>
+        <!-- CALENDARIO DINÁMICO DE PARTIDOS (MUNDIAL 2026) -->
+        <div id="partidos" class="section-box">
+            <div class="section-title">
+                <span>🏆 Monitoreo de Transmisiones en Vivo</span>
+                <span class="badge-status badge-gold">Mundial 2026</span>
+            </div>
+            <div class="table-responsive">
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Encuentro</th>
+                            <th>Estado / Marcador</th>
+                            <th>Canal / Vía</th>
+                            <th>Optimización</th>
+                        </tr>
+                    </thead>
+                    <tbody id="matches-body">
+                        <tr>
+                            <td><strong>México vs. Rival A</strong></td>
+                            <td>En Espera (16:00)</td>
+                            <td>Señal Principal 01</td>
+                            <td><span class="badge-status badge-ok">Ultimate H Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Colombia vs. Rival B</strong></td>
+                            <td>En Espera (19:00)</td>
+                            <td>Señal Directa 02</td>
+                            <td><span class="badge-status badge-ok">Ultimate H Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>EE.UU. vs. Rival C</strong></td>
+                            <td>En Espera (21:30)</td>
+                            <td>Reserva Backup</td>
+                            <td><span class="badge-status badge-info">Buffer Estándar</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TABLA DE ESPECIFICACIONES TÉCNICAS -->
+        <div id="tecnico" class="section-box">
+            <div class="section-title">Requisitos y Entornos de Ejecución (Codec & Kernel)</div>
             <div class="table-responsive">
                 <table class="tech-table">
                     <thead>
@@ -347,9 +476,28 @@
             </div>
         </div>
 
+        <!-- SECCIÓN DE MANTENIMIENTO Y MÓDULOS AT-APK -->
+        <div id="mantenimiento" class="section-box">
+            <div class="section-title">Guías de Mantenimiento y Rendimiento</div>
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <h4>🧹 Depuración de Caché</h4>
+                    <p>Accede a Configuración > Aplicaciones > Ver todas. Selecciona tu app de transmisión y ejecuta "Borrar memoria caché" antes de cada evento masivo.</p>
+                </div>
+                <div class="guide-item">
+                    <h4>⚙️ Restablecimiento de Fábrica</h4>
+                    <p>Para errores de decodificación en Smart TVs antiguos, realiza una restauración de fábrica limpia y reinstala únicamente el paquete optimizado AT-APK.</p>
+                </div>
+                <div class="guide-item">
+                    <h4>📡 Configuración de Red</h4>
+                    <p>Usa conexiones de 5 GHz o cable Ethernet. Desactiva la aceleración por software si el dispositivo cuenta con GPU compatible con HEVC.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- FOOTER -->
         <footer>
-            <p>© Mundo APK — Todos los derechos reservados. Desarrollado para optimización de streaming.</p>
+            <p>© Mundo APK — Proyecto AT-APK. Repositorio de recursos y optimización para Android TV & TV Box.</p>
         </footer>
 
     </div>
