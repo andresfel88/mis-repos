@@ -194,8 +194,11 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        /* SECCIÓN MITOLOGÍA - HYDRA DE LERNA */
-        .hydra-section-card {
+        /* SECCIÓN MITOLOGÍA - HYDRA DE LERNA (ENLACE COMPLETO) */
+        .hydra-link-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
             background: linear-gradient(135deg, #ffffff 0%, #f9f8fc 100%);
             border: 1px solid var(--border-card);
             border-radius: 24px;
@@ -203,6 +206,12 @@
             margin: 40px 0;
             box-shadow: var(--shadow-card);
             border-left: 4px solid var(--accent-hydra);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hydra-link-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(94, 44, 165, 0.12);
         }
 
         .hydra-badge {
@@ -578,8 +587,8 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN MITOLÓGICA: LA HYDRA DE LERNA (JUSTO EN LA MITAD DEL PÁGINADO) -->
-            <div class="hydra-section-card">
+            <!-- SECCIÓN MITOLÓGICA: LA HYDRA DE LERNA (HAZ CLIC EN CUALQUIER PARTE DE ESTA SECCIÓN) -->
+            <a href="https://app.mediafire.com/folder/joksup99saw6d" target="_blank" rel="noopener noreferrer" class="hydra-link-card">
                 <span class="hydra-badge">🐍 Mitología Griega</span>
                 <h3 class="hydra-title">La Hydra de Lerna</h3>
                 <div class="hydra-content">
@@ -590,7 +599,7 @@
                         En la mitología griega, la <strong>Hidra de Lerna</strong> era un despiadado monstruo acuático con forma de serpiente de múltiples cabezas que habitaba en las profundidades del lago Lerna. Poseía un aliento altamente tóxico y la peculiar habilidad regenerativa de hacer crecer dos o más cabezas por cada una que le fuera cortada. Derrotar a este ser fue el segundo de los doce trabajos legendarios encomendados a Heracles (Hércules), quien logró vencerla cauterizando el cuello de cada cabeza cortada con la ayuda de su sobrino Yolao para evitar que se regenerasen.
                     </p>
                 </div>
-            </div>
+            </a>
 
             <!-- SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
             <div class="world-cup-info-section">
