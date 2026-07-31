@@ -3,507 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Centro Técnico & Aceleración Streaming</title>
+    <title>Ultimate H</title>
     <style>
-        :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --border-color: #30363d;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --accent-purple: #a855f7;
-            --accent-purple-glow: rgba(168, 85, 247, 0.25);
-            --accent-blue: #38bdf8;
-            --accent-green: #238636;
-            --accent-gold: #f59e0b;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.5;
-            padding-bottom: 40px;
-        }
-
-        /* HEADER & NAVBAR */
-        header {
-            background-color: rgba(22, 27, 34, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 14px 20px;
-        }
-
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
         }
 
-        .brand {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--text-primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border: 1px solid #333;
         }
 
-        .brand span {
-            color: var(--accent-purple);
+        .badge {
+            background-color: #bb86fc;
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 12px;
         }
 
-        .nav-links {
+        .title {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .content-container {
             display: flex;
             gap: 20px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        /* CONTENEDOR PRINCIPAL */
-        .container {
-            width: 100%;
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        /* HERO HEADER */
-        .hero-section {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .hero-title {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #ffffff, #8b949e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            color: var(--text-secondary);
-            font-size: 15px;
-        }
-
-        /* TARJETA DESTACADA: ULTIMATE H & HIDRA DE LERNA */
-        .ultimate-h-card {
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1a0b2e 100%);
-            border: 1px solid rgba(147, 51, 234, 0.35);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 20px 40px rgba(13, 17, 23, 0.5), 0 0 20px rgba(147, 51, 234, 0.15);
-            border-left: 5px solid var(--accent-purple);
-            color: var(--text-primary);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .ultimate-h-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 25px 50px rgba(13, 17, 23, 0.6), 0 0 30px var(--accent-purple-glow);
-        }
-
-        .h-badge {
-            display: inline-block;
-            background-color: rgba(168, 85, 247, 0.15);
-            color: #c084fc;
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            align-items: center;
             margin-bottom: 16px;
         }
 
-        .h-title {
-            font-size: 24px;
-            font-weight: 800;
-            margin: 0 0 16px 0;
-            letter-spacing: -0.5px;
-            background: linear-gradient(90deg, #ffffff, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .h-content-wrapper {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .h-text-side {
+        .text-container {
             flex: 1;
         }
 
-        .h-img-side {
+        .image-container {
             flex-shrink: 0;
-            width: 200px;
-            text-align: center;
         }
 
-        .h-img-side img {
-            width: 100%;
-            max-width: 200px;
-            border-radius: 16px;
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            object-fit: cover;
+        .image-container img {
+            width: 140px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #444;
         }
 
-        .h-text {
+        .description {
             font-size: 14px;
             line-height: 1.6;
-            color: var(--text-secondary);
-            margin: 0 0 16px 0;
+            color: #ccc;
+            margin-bottom: 12px;
         }
 
-        .h-text strong {
-            color: var(--text-primary);
-        }
-
-        .h-btn {
+        .btn {
             display: inline-block;
-            background: linear-gradient(90deg, #7e22ce, #9333ea);
-            color: #ffffff;
+            background-color: #bb86fc;
+            color: #000;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 12px;
-            margin-top: 8px;
-            transition: opacity 0.2s ease, transform 0.2s ease;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 10px;
         }
 
-        .h-btn:hover {
-            opacity: 0.9;
-            transform: scale(1.02);
+        .btn:hover {
+            background-color: #9955e8;
         }
 
-        /* SECCIONES Y TABLAS */
-        .section-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-            margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: var(--text-primary);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .table-responsive {
-            width: 100%;
+        .table-container {
+            margin-top: 24px;
             overflow-x: auto;
         }
 
-        .tech-table {
+        table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 13px;
             text-align: left;
-            font-size: 14px;
         }
 
-        .tech-table th {
-            background-color: #21262d;
-            color: var(--text-secondary);
-            font-weight: 600;
-            padding: 12px 16px;
-            border-bottom: 1px solid var(--border-color);
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 0.5px;
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #333;
         }
 
-        .tech-table td {
-            padding: 14px 16px;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-secondary);
+        th {
+            color: #bb86fc;
         }
 
-        .tech-table td strong {
-            color: var(--text-primary);
-        }
-
-        .tech-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* INSIGNIAS / BADGES */
         .badge-status {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
         }
 
         .badge-ok {
-            background-color: rgba(35, 134, 54, 0.2);
-            color: #3fb950;
-            border: 1px solid rgba(63, 185, 80, 0.3);
+            background-color: #03dac6;
+            color: #000;
         }
 
         .badge-info {
-            background-color: rgba(56, 189, 248, 0.2);
-            color: var(--accent-blue);
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            background-color: #03a9f4;
+            color: #000;
         }
 
-        .badge-gold {
-            background-color: rgba(245, 158, 11, 0.2);
-            color: var(--accent-gold);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        /* GUÍAS DE MANTENIMIENTO */
-        .guide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            margin-top: 15px;
-        }
-
-        .guide-item {
-            background: #21262d;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px;
-        }
-
-        .guide-item h4 {
-            color: var(--text-primary);
-            font-size: 15px;
-            margin-bottom: 8px;
-        }
-
-        .guide-item p {
-            color: var(--text-secondary);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        /* ADAPTABLE MÓVIL */
-        @media (max-width: 650px) {
-            .h-content-wrapper {
+        @media (max-width: 500px) {
+            .content-container {
                 flex-direction: column-reverse;
-                text-align: left;
+                text-align: center;
             }
 
-            .h-img-side {
+            .image-container img {
                 width: 100%;
+                max-width: 200px;
             }
-
-            .h-img-side img {
-                max-width: 100%;
-                height: auto;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-
-        /* FOOTER */
-        footer {
-            margin-top: 50px;
-            text-align: center;
-            font-size: 13px;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVEGACIÓN -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="brand">MUNDO <span>APK</span></a>
-            <ul class="nav-links">
-                <li><a href="#ultimate">Ultimate H</a></li>
-                <li><a href="#partidos">Transmisiones</a></li>
-                <li><a href="#tecnico">Especificaciones</a></li>
-                <li><a href="#mantenimiento">Mantenimiento</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <!-- CONTENEDOR PRINCIPAL -->
-    <div class="container">
-
-        <!-- ENCABEZADO PRINCIPAL -->
-        <div class="hero-section">
-            <h1 class="hero-title">Centro de Optimización & Archivos</h1>
-            <p class="hero-subtitle">Módulo AT-APK, rendimiento de streaming para Android TV y repositorios técnicos.</p>
-        </div>
-
-        <!-- TARJETA DESTACADA: ULTIMATE H & HIDRA DE LERNA -->
-        <div id="ultimate" class="ultimate-h-card">
-            <div class="h-badge">⚡ Mito & Tecnología</div>
-            <h2 class="h-title">La Leyenda de la Hidra de Lerna y el Resurgir de Ultimate H</h2>
+    <div class="card">
+        <div class="badge">⚡ Mito & Tecnología</div>
+        <h2 class="title">La Leyenda de la Hidra de Lerna y el Resurgir de Ultimate H</h2>
+        
+        <div class="content-container">
+            <div class="text-container">
+                <p class="description">
+                    En las proximidades de las fuentes de Amimone, en los oscuros pantanos del lago de Lerna, habitaba la <strong>Hidra de Lerna</strong>. Hija de Tifón y Equidna, esta bestia de aliento venenoso y múltiples cabezas poseía una fuerza invencible: cada vez que una de sus cabezas era cercenada, dos nuevas brotaban en su lugar.
+                </p>
+                <p class="description">
+                    En la era digital, ese mito renace con <strong>Ultimate H</strong>. Cuando los servidores colapsan y las rutas de transmisión caen por el tráfico, Ultimate H activa sus núcleos adaptativos: por cada nodo saturado, genera instantáneamente múltiples vías de transmisión paralelas para mantener el flujo constante.
+                </p>
+                <a href="https://aftv.news/6683837" target="_blank" class="btn">
+                    Descubrir la fuerza de Ultimate H →
+                </a>
+            </div>
             
-            <div class="h-content-wrapper">
-                <div class="h-text-side">
-                    <p class="h-text">
-                        En las proximidades de las fuentes de Amimone, en los oscuros pantanos del lago de Lerna, habitaba la <strong>Hidra de Lerna</strong>. Hija de Tifón y Equidna, esta bestia de aliento venenoso y múltiples cabezas poseía una fuerza invencible: cada vez que una de sus cabezas era cercenada, dos nuevas brotaban en su lugar para duplicar su ataque.
-                    </p>
-                    <p class="h-text">
-                        En la era digital, ese principio milenario renace con <strong>Ultimate H</strong>. Ante el colapso de servidores, bloqueos de red o la saturación masiva de usuarios durante eventos de alta demanda, Ultimate H activa sus núcleos adaptativos: por cada ruta de datos que cae, regenera instantáneamente múltiples vías de transmisión paralelas sin perder estabilidad.
-                    </p>
-                    <a href="https://aftv.news/6683837" target="_blank" class="h-btn">
-                        Descubrir la fuerza de Ultimate H →
-                    </a>
-                </div>
-                
-                <div class="h-img-side">
-                    <img src="https://www.ecured.cu/images/d/d4/Hidra.jpg" alt="Hidra de Lerna - Mitología Griega">
-                </div>
+            <div class="image-container">
+                <img src="https://www.ecured.cu/images/d/d4/Hidra.jpg" alt="Hidra de Lerna">
             </div>
         </div>
 
-        <!-- MONITOREO DE EVENTOS / TRANSMISIONES -->
-        <div id="partidos" class="section-box">
-            <div class="section-title">
-                <span>🏆 Monitoreo de Transmisiones en Vivo</span>
-                <span class="badge-status badge-gold">Mundial 2026</span>
-            </div>
-            <div class="table-responsive">
-                <table class="tech-table">
-                    <thead>
-                        <tr>
-                            <th>Encuentro</th>
-                            <th>Estado / Marcador</th>
-                            <th>Canal / Vía</th>
-                            <th>Optimización</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>México vs. Rival A</strong></td>
-                            <td>En Espera (16:00)</td>
-                            <td>Señal Principal 01</td>
-                            <td><span class="badge-status badge-ok">Ultimate H Activo</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Colombia vs. Rival B</strong></td>
-                            <td>En Espera (19:00)</td>
-                            <td>Señal Directa 02</td>
-                            <td><span class="badge-status badge-ok">Ultimate H Activo</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>EE.UU. vs. Rival C</strong></td>
-                            <td>En Espera (21:30)</td>
-                            <td>Reserva Backup</td>
-                            <td><span class="badge-status badge-info">Buffer Estándar</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Entorno / Perfil</th>
+                        <th>Códec Recomendado</th>
+                        <th>Velocidad Mínima</th>
+                        <th>Estado de Validación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Google TV (4K UHD)</strong></td>
+                        <td>HEVC / H.265 (Main 10)</td>
+                        <td>25 Mbps (5 GHz Wi-Fi)</td>
+                        <td><span class="badge-status badge-ok">Optimizado</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fire Stick / TV Box (1080p60)</strong></td>
+                        <td>H.264 / AVC (High Profile)</td>
+                        <td>15 Mbps (Wi-Fi / Ethernet)</td>
+                        <td><span class="badge-status badge-ok">Estable</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hardware Limitado / Conexión Variable</strong></td>
+                        <td>AV1 / H.264 (Baseline)</td>
+                        <td>8 Mbps (2.4 GHz Wi-Fi)</td>
+                        <td><span class="badge-status badge-info">Adaptativo</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <!-- ESPECIFICACIONES TÉCNICAS -->
-        <div id="tecnico" class="section-box">
-            <div class="section-title">Requisitos y Entornos de Ejecución (Codec & Kernel)</div>
-            <div class="table-responsive">
-                <table class="tech-table">
-                    <thead>
-                        <tr>
-                            <th>Entorno / Perfil</th>
-                            <th>Códec Recomendado</th>
-                            <th>Velocidad Mínima</th>
-                            <th>Estado de Validación</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Google TV (4K UHD)</strong></td>
-                            <td>HEVC / H.265 (Main 10)</td>
-                            <td>25 Mbps (5 GHz Wi-Fi)</td>
-                            <td><span class="badge-status badge-ok">Optimizado</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Fire Stick / TV Box (1080p60)</strong></td>
-                            <td>H.264 / AVC (High Profile)</td>
-                            <td>15 Mbps (Wi-Fi / Ethernet)</td>
-                            <td><span class="badge-status badge-ok">Estable</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hardware Limitado / Conexión Variable</strong></td>
-                            <td>AV1 / H.264 (Baseline)</td>
-                            <td>8 Mbps (2.4 GHz Wi-Fi)</td>
-                            <td><span class="badge-status badge-info">Adaptativo</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- GUÍAS DE MANTENIMIENTO Y SOPORTE -->
-        <div id="mantenimiento" class="section-box">
-            <div class="section-title">Guías de Mantenimiento y Rendimiento</div>
-            <div class="guide-grid">
-                <div class="guide-item">
-                    <h4>🧹 Depuración de Caché</h4>
-                    <p>Accede a Configuración > Aplicaciones > Ver todas. Selecciona tu app de transmisión y ejecuta "Borrar memoria caché" antes de cada evento masivo.</p>
-                </div>
-                <div class="guide-item">
-                    <h4>⚙️ Restablecimiento de Fábrica</h4>
-                    <p>Para errores de decodificación en Smart TVs antiguos, realiza una restauración de fábrica limpia y reinstala únicamente el paquete optimizado AT-APK.</p>
-                </div>
-                <div class="guide-item">
-                    <h4>📡 Configuración de Red</h4>
-                    <p>Usa conexiones de 5 GHz o cable Ethernet. Desactiva la aceleración por software si el dispositivo cuenta con GPU compatible con HEVC.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- FOOTER -->
-        <footer>
-            <p>© Mundo APK — Proyecto AT-APK. Repositorio de recursos y optimización para Android TV & TV Box.</p>
-        </footer>
-
     </div>
 
 </body>
