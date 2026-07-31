@@ -34,7 +34,7 @@
 
         /* HEADER & NAVBAR */
         header {
-            background-color: rgba(22, 27, 34, 0.8);
+            background-color: rgba(22, 27, 34, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
@@ -112,14 +112,14 @@
             font-size: 15px;
         }
 
-        /* TARJETA DESTACADA: ULTIMATE H & HIDRA */
+        /* TARJETA DESTACADA: ULTIMATE H & HIDRA DE LERNA */
         .ultimate-h-card {
             background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1a0b2e 100%);
-            border: 1px solid rgba(147, 51, 234, 0.3);
+            border: 1px solid rgba(147, 51, 234, 0.35);
             border-radius: 24px;
             padding: 30px;
             margin: 30px 0;
-            box-shadow: 0 20px 40px rgba(13, 17, 23, 0.3), 0 0 20px rgba(147, 51, 234, 0.15);
+            box-shadow: 0 20px 40px rgba(13, 17, 23, 0.5), 0 0 20px rgba(147, 51, 234, 0.15);
             border-left: 5px solid var(--accent-purple);
             color: var(--text-primary);
             position: relative;
@@ -129,7 +129,7 @@
 
         .ultimate-h-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 25px 50px rgba(13, 17, 23, 0.4), 0 0 30px var(--accent-purple-glow);
+            box-shadow: 0 25px 50px rgba(13, 17, 23, 0.6), 0 0 30px var(--accent-purple-glow);
         }
 
         .h-badge {
@@ -177,7 +177,7 @@
             max-width: 200px;
             border-radius: 16px;
             border: 1px solid rgba(168, 85, 247, 0.4);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             object-fit: cover;
         }
 
@@ -210,14 +210,14 @@
             transform: scale(1.02);
         }
 
-        /* BLOQUES SECUNDARIOS Y TABLAS */
+        /* SECCIONES Y TABLAS */
         .section-box {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 24px;
             margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .section-title {
@@ -269,7 +269,7 @@
             border-bottom: none;
         }
 
-        /* BADGES */
+        /* INSIGNIAS / BADGES */
         .badge-status {
             display: inline-block;
             padding: 4px 10px;
@@ -323,7 +323,7 @@
             line-height: 1.5;
         }
 
-        /* MÓVIL RESPONSIVE */
+        /* ADAPTABLE MÓVIL */
         @media (max-width: 650px) {
             .h-content-wrapper {
                 flex-direction: column-reverse;
@@ -337,6 +337,10 @@
             .h-img-side img {
                 max-width: 100%;
                 height: auto;
+            }
+
+            .nav-links {
+                display: none;
             }
         }
 
@@ -353,29 +357,29 @@
 </head>
 <body>
 
-    <!-- NAV BAR -->
+    <!-- NAVEGACIÓN -->
     <header>
         <div class="nav-container">
             <a href="#" class="brand">MUNDO <span>APK</span></a>
             <ul class="nav-links">
                 <li><a href="#ultimate">Ultimate H</a></li>
-                <li><a href="#partidos">Partidos</a></li>
+                <li><a href="#partidos">Transmisiones</a></li>
                 <li><a href="#tecnico">Especificaciones</a></li>
                 <li><a href="#mantenimiento">Mantenimiento</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- CONTENEDOR PRINCIPAL -->
     <div class="container">
 
-        <!-- TÍTULO PRINCIPAL -->
+        <!-- ENCABEZADO PRINCIPAL -->
         <div class="hero-section">
             <h1 class="hero-title">Centro de Optimización & Archivos</h1>
             <p class="hero-subtitle">Módulo AT-APK, rendimiento de streaming para Android TV y repositorios técnicos.</p>
         </div>
 
-        <!-- TARJETA DESTACADA: ULTIMATE H + IMAGEN ECURED -->
+        <!-- TARJETA DESTACADA: ULTIMATE H & HIDRA DE LERNA -->
         <div id="ultimate" class="ultimate-h-card">
             <div class="h-badge">⚡ Mito & Tecnología</div>
             <h2 class="h-title">La Leyenda de la Hidra de Lerna y el Resurgir de Ultimate H</h2>
@@ -399,7 +403,7 @@
             </div>
         </div>
 
-        <!-- CALENDARIO DINÁMICO DE PARTIDOS (MUNDIAL 2026) -->
+        <!-- MONITOREO DE EVENTOS / TRANSMISIONES -->
         <div id="partidos" class="section-box">
             <div class="section-title">
                 <span>🏆 Monitoreo de Transmisiones en Vivo</span>
@@ -415,7 +419,7 @@
                             <th>Optimización</th>
                         </tr>
                     </thead>
-                    <tbody id="matches-body">
+                    <tbody>
                         <tr>
                             <td><strong>México vs. Rival A</strong></td>
                             <td>En Espera (16:00)</td>
@@ -439,7 +443,7 @@
             </div>
         </div>
 
-        <!-- TABLA DE ESPECIFICACIONES TÉCNICAS -->
+        <!-- ESPECIFICACIONES TÉCNICAS -->
         <div id="tecnico" class="section-box">
             <div class="section-title">Requisitos y Entornos de Ejecución (Codec & Kernel)</div>
             <div class="table-responsive">
@@ -476,7 +480,7 @@
             </div>
         </div>
 
-        <!-- SECCIÓN DE MANTENIMIENTO Y MÓDULOS AT-APK -->
+        <!-- GUÍAS DE MANTENIMIENTO Y SOPORTE -->
         <div id="mantenimiento" class="section-box">
             <div class="section-title">Guías de Mantenimiento y Rendimiento</div>
             <div class="guide-grid">
