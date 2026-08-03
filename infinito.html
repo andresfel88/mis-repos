@@ -23,8 +23,8 @@
             --host-usa: #002868;
             --host-canada: #da291c;
 
-            /* Color temático para sección Hydra */
-            --accent-hydra: #5e2ca5;
+            /* Color temático para sección Infinito */
+            --accent-infinity: #2c5ee5;
         }
 
         body {
@@ -194,30 +194,30 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        /* SECCIÓN MITOLOGÍA - HYDRA DE LERNA (ENLACE COMPLETO) */
-        .hydra-link-card {
+        /* SECCIÓN INFINITO (ENLACE COMPLETO) */
+        .infinity-link-card {
             display: block;
             text-decoration: none;
             color: inherit;
-            background: linear-gradient(135deg, #ffffff 0%, #f9f8fc 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f4f7fe 100%);
             border: 1px solid var(--border-card);
             border-radius: 24px;
             padding: 35px;
             margin: 40px 0;
             box-shadow: var(--shadow-card);
-            border-left: 4px solid var(--accent-hydra);
+            border-left: 4px solid var(--accent-infinity);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .hydra-link-card:hover {
+        .infinity-link-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(94, 44, 165, 0.12);
+            box-shadow: 0 12px 30px rgba(44, 94, 229, 0.12);
         }
 
-        .hydra-badge {
+        .infinity-badge {
             display: inline-block;
-            background-color: rgba(94, 44, 165, 0.1);
-            color: var(--accent-hydra);
+            background-color: rgba(44, 94, 229, 0.1);
+            color: var(--accent-infinity);
             font-size: 11px;
             font-weight: 600;
             padding: 4px 10px;
@@ -227,7 +227,7 @@
             margin-bottom: 14px;
         }
 
-        .hydra-title {
+        .infinity-title {
             font-size: 22px;
             font-weight: 700;
             margin: 0 0 15px 0;
@@ -235,28 +235,33 @@
             letter-spacing: -0.5px;
         }
 
-        .hydra-content {
+        .infinity-content {
             display: flex;
             gap: 25px;
             align-items: center;
         }
 
-        .hydra-image-wrapper {
+        .infinity-image-wrapper {
             flex: 0 0 280px;
             height: 200px;
-            background-color: #f5f5f7;
+            background-color: #ffffff;
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
         }
 
-        .hydra-image-wrapper img {
+        .infinity-image-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
-        .hydra-text {
+        .infinity-text {
             flex: 1;
             font-size: 14px;
             line-height: 1.6;
@@ -465,8 +470,8 @@
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
             .host-flags-container { flex-direction: column; gap: 15px; }
-            .hydra-content { flex-direction: column; }
-            .hydra-image-wrapper { flex: auto; width: 100%; }
+            .infinity-content { flex-direction: column; }
+            .infinity-image-wrapper { flex: auto; width: 100%; }
         }
         @media (max-width: 768px) {
             .apple-container { padding: 30px 20px; }
@@ -496,7 +501,7 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
 
-            <!-- BANNER DE ESPAÑA CAMPEÓN 2026 (SIN TEXTO INFERIOR DE REDIRECCIÓN) -->
+            <!-- BANNER DE ESPAÑA CAMPEÓN 2026 -->
             <a href="https://drive.google.com/file/d/1OVGVzr4V4giZQXRHGg8ycSvnSYflNUAI/view?usp=sharing" 
                target="_blank" 
                rel="noopener noreferrer" 
@@ -587,16 +592,16 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN MITOLÓGICA: LA HYDRA DE LERNA (HAZ CLIC EN CUALQUIER PARTE DE ESTA SECCIÓN) -->
-            <a href="https://app.mediafire.com/folder/joksup99saw6d" target="_blank" rel="noopener noreferrer" class="hydra-link-card">
-                <span class="hydra-badge">🐍 Mitología Griega</span>
-                <h3 class="hydra-title">La Hydra de Lerna</h3>
-                <div class="hydra-content">
-                    <div class="hydra-image-wrapper">
-                        <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTn-Vq_5cKtGG0m5Ru6GnxMXsDAS_x0f_U7HsHXLlXVqCtMbXecVIbb7y8IsuOLMHmz_nyFpyqkGuG9CNs" alt="Hydra de Lerna - Mitología Griega">
+            <!-- SECCIÓN INFINITO: ORIGEN Y CONCEPTO -->
+            <a href="https://muyinteresante.okdiario.com/ciencia/15451.html" target="_blank" rel="noopener noreferrer" class="infinity-link-card">
+                <span class="infinity-badge">∞ Ciencias & Matemáticas</span>
+                <h3 class="infinity-title">¿Qué es el Infinito y cuál es el origen de su símbolo?</h3>
+                <div class="infinity-content">
+                    <div class="infinity-image-wrapper">
+                        <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQ74ykf1H0eLUdKmIsyCbziuzHaH-bmKOV922DLVjrcwrx7fWraPAE2HcYwVi_K6LTP7WqmLwSh5ZyV6as" alt="Símbolo del Infinito - Lemniscata">
                     </div>
-                    <p class="hydra-text">
-                        En la mitología griega, la <strong>Hidra de Lerna</strong> era un despiadado monstruo acuático con forma de serpiente de múltiples cabezas que habitaba en las profundidades del lago Lerna. Poseía un aliento altamente tóxico y la peculiar habilidad regenerativa de hacer crecer dos o más cabezas por cada una que le fuera cortada. Derrotar a este ser fue el segundo de los doce trabajos legendarios encomendados a Heracles (Hércules), quien logró vencerla cauterizando el cuello de cada cabeza cortada con la ayuda de su sobrino Yolao para evitar que se regenerasen.
+                    <p class="infinity-text">
+                        Proveniente del latín <em>infinitas</em> ("ilimitación"), el <strong>infinito</strong> representa un concepto fundamental que designa aquello que no tiene fin ni límite. No es un número medible, sino una cantidad abstracta interminable. Su reconocido símbolo (<strong>∞</strong>), conocido geométricamente como <em>lemniscata</em> (lazo o cinta), fue introducido en el ámbito matemático por el inglés John Wallis en 1655. Históricamente se le relaciona tanto con el número romano para mil (<em>CIƆ</em>) como con el antiguo símbolo mítico del <em>Uróboros</em> (la serpiente que se muerde la cola), representando la eternidad, el flujo continuo y lo inabarcable en las ciencias y la filosofía.
                     </p>
                 </div>
             </a>
@@ -666,4 +671,3 @@
     </div>
 </body>
 </html>
-
