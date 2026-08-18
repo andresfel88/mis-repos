@@ -1,685 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
-    <style>
-        :root {
-            /* Paleta Premium Estilo Apple adaptada a la temporada */
-            --bg-page: #e5e5e0; 
-            --bg-canvas: #fafdfa; 
-            --card-bg: #ffffff; 
-            --text-main: #1d1d1f;
-            --text-muted: #6e6e73;
-            --accent-gray: #86868b;
-            --border-card: rgba(0, 0, 0, 0.05);
-            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-            --accent-blue: #0066cc;
-            --accent-green: #1d7032; 
-            --accent-orange: #ff9500;
-            
-            /* Colores de los países anfitriones de la fiesta del fútbol */
-            --host-mexico: #006847;
-            --host-usa: #002868;
-            --host-canada: #da291c;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia de los Mundiales</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-        }
+    .card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
 
-        /* BARRA SUPERIOR EXCLUSIVA */
-        .world-cup-bar {
-            background: linear-gradient(90deg, var(--host-mexico) 0%, var(--host-usa) 50%, var(--host-canada) 100%);
-            color: #ffffff;
-            text-align: center;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.2px;
-            padding: 8px 10px;
-            text-transform: uppercase;
-        }
+    h2 {
+      color: #1a1a1a;
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
 
-        .nav-bar {
-            background-color: rgba(29, 29, 31, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 14px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
+    h3 {
+      color: #2c3e50;
+      font-size: 1.1rem;
+      margin-top: 16px;
+    }
 
-        .nav-bar a {
-            color: #f5f5f7;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
+    p {
+      line-height: 1.6;
+      color: #4a5568;
+    }
 
-        .nav-bar a:hover { opacity: 1; }
+    .user-info-note {
+      background-color: #f0f7ff;
+      border-left: 4px solid #3182ce;
+      padding: 12px 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
 
-        .main-wrapper {
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+    .user-info-note h4 {
+      margin: 0 0 6px 0;
+      color: #2b6cb0;
+      font-size: 0.95rem;
+    }
 
-        .apple-container {
-            width: 100%;
-            max-width: 1100px;
-            background-color: var(--bg-canvas);
-            border-radius: 28px;
-            padding: 50px;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
-            box-sizing: border-box;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
+    .user-info-note p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #2d3748;
+    }
 
-        .header-title {
-            font-size: 34px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin: 0 0 10px 0;
-            color: var(--text-main);
-        }
+    .btn-link {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 20px;
+      background-color: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
 
-        .season-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background-color: rgba(0, 40, 104, 0.1);
-            color: var(--host-usa);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-
-        .header-subtitle {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin: 0 0 35px 0;
-            line-height: 1.5;
-            max-width: 800px;
-        }
-
-        /* SECCIÓN DE SOPORTE TÉCNICO URGENTE */
-        .quick-support-section {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-bottom: 45px;
-        }
-
-        .support-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: var(--shadow-card);
-            box-sizing: border-box;
-        }
-
-        .support-card.cache-style { border-top: 4px solid var(--accent-blue); }
-        .support-card.reset-style { border-top: 4px solid var(--accent-orange); }
-
-        .support-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin: 0 0 16px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-main);
-        }
-
-        .steps-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .step-row {
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-        }
-
-        .step-number {
-            width: 24px;
-            height: 24px;
-            background-color: #f5f5f7;
-            color: var(--text-main);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 700;
-            flex-shrink: 0;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .cache-style .step-number { background-color: rgba(0, 102, 204, 0.08); color: var(--accent-blue); }
-        .reset-style .step-number { background-color: rgba(255, 149, 0, 0.08); color: var(--accent-orange); }
-
-        .step-text {
-            font-size: 13px;
-            line-height: 1.5;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        .step-text strong {
-            color: var(--text-main);
-        }
-
-        /* GRID ADAPTATIVO DE DISPOSITIVOS */
-        .grid-devices {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .card-device {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: var(--shadow-card);
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .card-device:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-        }
-
-        .card-tag {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            color: var(--text-muted);
-        }
-
-        .img-container {
-            width: 100%;
-            height: 130px;
-            background-color: #f5f5f7;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-
-        .img-container img, .img-container svg {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .img-container.dark-bg { background-color: #1a1a1a; }
-
-        .card-heading {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0 0 14px 0;
-            letter-spacing: -0.3px;
-            color: var(--text-main);
-        }
-
-        .component-list { list-style: none; padding: 0; margin: 0; }
-        .component-item { margin-bottom: 12px; font-size: 12.5px; line-height: 1.4; }
-        .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
-        .component-desc { color: var(--text-muted); }
-
-        /* SECCIÓN DETALLADA DEL MUNDIAL 2026 */
-        .world-cup-info-section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
-            border-top: 4px solid var(--host-usa);
-        }
-
-        .wc-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding-bottom: 15px;
-        }
-
-        .wc-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0;
-            color: var(--text-main);
-            letter-spacing: -0.5px;
-        }
-
-        .host-flags-container {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .host-flag-card {
-            flex: 1;
-            background: #f5f5f7;
-            padding: 15px;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-
-        .host-flag-card h4 {
-            margin: 0 0 6px 0;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .host-flag-card p {
-            margin: 0;
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        .wc-tech-note {
-            background: rgba(0, 102, 204, 0.04);
-            border-left: 4px solid var(--accent-blue);
-            padding: 15px 20px;
-            border-radius: 0 16px 16px 0;
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: var(--text-main);
-        }
-
-        /* SECCIÓN DEL BALÓN ABSTRACTO */
-        .football-showcase {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .football-link-wrapper {
-            width: 80px;
-            height: 80px;
-            flex-shrink: 0;
-            display: block;
-            transition: transform 0.2s ease;
-            cursor: pointer;
-        }
-
-        .football-link-wrapper:hover { transform: scale(1.08) rotate(10deg); }
-        .football-text-box { font-size: 13.5px; line-height: 1.5; color: var(--text-muted); }
-
-        /* ESTILOS PREMIUM PARA LAS TARJETAS DE LEYENDAS Y SUS FORMULARIOS */
-        .history-legend-card {
-            display: block;
-            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0 0 0;
-            text-decoration: none;
-            color: var(--text-main);
-            box-shadow: var(--shadow-card);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .history-legend-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
-        }
-
-        .legend-badge {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-        }
-
-        .legend-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-            color: var(--text-main);
-        }
-
-        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
-        
-        /* ESTILOS DE LOS CAMPOS DE TEXTO */
-        .user-inputs-container {
-            margin: 20px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 400px;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .input-group label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .input-group input {
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid #d2d2d7;
-            font-size: 13px;
-            background-color: #ffffff;
-            color: var(--text-main);
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
-        }
-
-        .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
-        .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
-
-        /* Variantes de color */
-        .uruguay-theme { border-left: 4px solid #b39211; }
-        .uruguay-theme .legend-badge { background-color: rgba(179, 146, 17, 0.1); color: #b39211; }
-        .uruguay-theme:hover { border-left-color: #d4af37; }
-
-        @media (max-width: 992px) { 
-            .grid-devices { grid-template-columns: repeat(2, 1fr); } 
-            .quick-support-section { grid-template-columns: 1fr; gap: 20px; }
-            .host-flags-container { flex-direction: column; gap: 15px; }
-        }
-        @media (max-width: 768px) {
-            .apple-container { padding: 30px 20px; }
-            .grid-devices { grid-template-columns: 1fr; }
-            .header-title { font-size: 26px; }
-            .football-showcase { flex-direction: column; text-align: center; }
-        }
-    </style>
+    .btn-link:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="world-cup-bar">
-        ⚡ Edición Especial: Infraestructura Multimedia y Optimización para el Mundial de la FIFA 2026 ⚡
+  <div class="card">
+    <h2>🏆 Historia de los Mundiales</h2>
+    
+    <h3>Uruguay 1930: La Primera Gran Final de la Historia</h3>
+    <p>
+      El Estadio Centenario de Montevideo fue testigo del nacimiento del torneo más grande del planeta. 
+      Uruguay derrotó 4-2 a Argentina en un vibrante encuentro dirigido por el árbitro belga John Langenus, 
+      consagrándose como el primer Campeón del Mundo.
+    </p>
+
+    <div class="user-info-note">
+      <h4>Información del Usuario / Nota:</h4>
+      <p>
+        🚀 <strong>¡OPTIMIZA TU EXPERIENCIA DE STREAMING!</strong><br>
+        Es muy importante dejar cargar el servicio al menos 5 minutos antes de iniciar la reproducción; 
+        esto permite estabilizar la red, procesar el buffer y asegurar que puedas ver toda la información sin ninguna falla ni interrupción.
+      </p>
     </div>
 
-    <div class="nav-bar">
-        <a href="#">Documentación</a>
-        <a href="#">Arquitectura Kernel</a>
-        <a href="#">Tablas de Validación</a>
-        <a href="#">Optimización Google TV</a>
-        <a href="#">Soporte Android TV</a>
-    </div>
-
-    <div class="main-wrapper">
-        <div class="apple-container">
-            
-            <span class="season-badge">⚽ Megatorneo Anfitrión Norteamérica 2026</span>
-            <h1 class="header-title">Mundo APK - AT-APK</h1>
-            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas de TV durante el mes de transmisiones de alta definición.</p>
-
-            <!-- SECCIÓN DE SOPORTE TÉCNICO RÁPIDO: CACHÉ Y RESTAURACIÓN -->
-            <div class="quick-support-section">
-                <!-- Tarjeta Borrar Caché -->
-                <div class="support-card cache-style">
-                    <h3>⚡ Mantenimiento: Liberar Memoria Caché</h3>
-                    <div class="steps-container">
-                        <div class="step-row">
-                            <div class="step-number">1</div>
-                            <p class="step-text">Ve a la pantalla principal y abre la sección de <strong>Ajustes / Configuración</strong> (ícono de engranaje).</p>
-                        </div>
-                        <div class="step-row">
-                            <div class="step-number">2</div>
-                            <p class="step-text">Ingresa al apartado de <strong>Aplicaciones</strong> y selecciona <strong>Ver todas las aplicaciones</strong>.</p>
-                        </div>
-                        <div class="step-row">
-                            <div class="step-number">3</div>
-                            <p class="step-text">Busca la app de streaming que presenta lentitud o fallas y selecciónala.</p>
-                        </div>
-                        <div class="step-row">
-                            <div class="step-number">4</div>
-                            <p class="step-text">Baja hasta encontrar la opción <strong>Borrar Caché</strong> y confirma la acción (No borra tus cuentas).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tarjeta Restaurar TV -->
-                <div class="support-card reset-style">
-                    <h3>⚠️ Recuperación: Restaurar TV de Fábrica</h3>
-                    <div class="steps-container">
-                        <div class="step-row">
-                            <div class="step-number">1</div>
-                            <p class="step-text">Entra a los <strong>Ajustes</strong> del sistema desde el control remoto.</p>
-                        </div>
-                        <div class="step-row">
-                            <div class="step-number">2</div>
-                            <p class="step-text">Navega hasta <strong>Preferencias del dispositivo</strong> o <strong>Sistema</strong>.</p>
-                        </div>
-                        <div class="step-row">
-                            <div class="step-number">3</div>
-                            <p class="step-text">Selecciona la pestaña llamada <strong>Información / Acerca de</strong>.</p>
-                        </div>
-                        <div class="step-row">
-                            <div class="step-number">4</div>
-                            <p class="step-text">Haz clic en <strong>Restablecer estado de fábrica</strong>. <em>(Nota: Esto borrará todas las apps instaladas).</em></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CONTENEDOR GRID DE HARDWARE -->
-            <div class="grid-devices">
-                <!-- Tarjeta Lion TV -->
-                <div class="card-device">
-                    <div class="card-tag">Lion TV Ecosystem</div>
-                    <div class="img-container dark-bg">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='11' fill='%23ff9500' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
-                    </div>
-                    <h2 class="card-heading">Resumen Operativo</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. Arquitectura de Streaming</span>
-                            <span class="component-desc">Entorno multimedia alternativo para maximizar el rendimiento gráfico en hardware limitado.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Núcleo Optimizado</span>
-                            <span class="component-desc">Estructura adaptativa de buffers para evitar caídas de frames en Android.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Tarjeta Google TV -->
-                <div class="card-device">
-                    <div class="card-tag">Google TV Parts</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%231a1a1a'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
-                    </div>
-                    <h2 class="card-heading">Componentes TV</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. Sistema Operativo</span>
-                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Perfil de Usuario</span>
-                            <span class="component-desc">Espacio personalizado para separar historiales y configuraciones de apps.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Tarjeta Fire Stick -->
-                <div class="card-device">
-                    <div class="card-tag">Fire Stick Parts</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%23e47911'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>FIRE STICK</text></svg>" alt="Fire Stick">
-                    </div>
-                    <h2 class="card-heading">Componentes Stick</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. Dongle HDMI</span>
-                            <span class="component-desc">Cuerpo de hardware que se conecta directo a la entrada de video de la pantalla.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Puerto Micro-USB</span>
-                            <span class="component-desc">Entrada lateral encargada de recibir alimentación eléctrica o adaptadores.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Tarjeta Watch Onn -->
-                <div class="card-device">
-                    <div class="card-tag">Watch Onn Parts</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230071dc'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ffffff' font-weight='bold' text-anchor='middle'>WATCH ONN</text></svg>" alt="Watch Onn">
-                    </div>
-                    <h2 class="card-heading">Componentes Box</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. TV Box Square</span>
-                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad en surfaces planas.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Conectividad Interna</span>
-                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth para accesorios.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- SECCIÓN DEL MUNDIAL DE NORTEAMÉRICA 2026 -->
-            <div class="world-cup-info-section">
-                <div class="wc-header">
-                    <h3 class="wc-title">🌎 Análisis de Infraestructura: Copa Mundial de la FIFA 2026</h3>
-                    <span style="font-size: 11px; font-weight: 700; color: #ffffff; background: var(--host-usa); padding: 4px 10px; border-radius: 20px;">EDICIÓN HISTÓRICA</span>
-                </div>
-                
-                <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-main);">
-                    La Copa Mundial de 2026 plantea un desafío tecnológico colosal para las redes globales de transmisión de contenidos multimedia en Ultra Alta Definición (4K UHD).
-                </p>
-
-                <div class="host-flags-container">
-                    <div class="host-flag-card" style="border-top: 3px solid var(--host-usa);">
-                        <h4>Estados Unidos 🇺🇸</h4>
-                        <p>Aporta la mayor cantidad de sedes, incluyendo imponentes estadios tecnológicos como el MetLife Stadium de Nueva York y el SoFi Stadium de Los Ángeles.</p>
-                    </div>
-                    <div class="host-flag-card" style="border-top: 3px solid var(--host-mexico);">
-                        <h4>México 🇲🇽</h4>
-                        <p>Aporta el misticismo histórico con el colosal Estadio Azteca de Ciudad de México, convirtiéndose en el primer estadio en albergar tres partidos inaugurales.</p>
-                    </div>
-                    <div class="host-flag-card" style="border-top: 3px solid var(--host-canada);">
-                        <h4>Canadá 🇨🇦</h4>
-                        <p>Suma la infraestructura moderna del BMO Field en Toronto y el BC Place en Vancouver, garantizando transmisiones estables y seguras.</p>
-                    </div>
-                </div>
-
-                <div class="wc-tech-note">
-                    <strong>Nota del Repositorio para Creadores y Desarrolladores:</strong> La dispersión geográfica obliga a los servidores a soportar cargas asíncronas masivas. Se recomienda usar reproductores eficientes para gestionar las CDN alternativas de vídeo en Smart TVs.
-                </div>
-            </div>
-
-            <!-- SECCIÓN DEL BALÓN ABSTRACTO -->
-            <div class="football-showcase">
-                <div class="football-link-wrapper" title="Módulo Multimedia">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-                        <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>
-                        <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#1A1A1A"/>
-                        <line x1="50" y1="38" x2="50" y2="20" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="61" y1="47" x2="78" y2="42" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="57" y1="59" x2="68" y2="74" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="43" y1="59" x2="32" y2="74" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="39" y1="47" x2="22" y2="42" stroke="#1A1A1A" stroke-width="2"/>
-                    </svg>
-                </div>
-                <div class="football-text-box">
-                    <strong style="color: var(--text-main); font-size: 15px; display: block; margin-bottom: 4px;">Optimización de Stream de Video</strong>
-                    Módulo de Renderizado SVG vectorial ligero para íconos de interfaz sin impacto en el rendimiento de dispositivos TV BOX o Sticks de gama de entrada.
-                </div>
-            </div>
-
-            <!-- TARJETA LEYENDA DEL FÚTBOL CON RECOMENDACIÓN TÉCNICA Y FORMULARIO INTEGRADOS -->
-            <a href="https://drive.google.com" target="_blank" class="history-legend-card uruguay-theme">
-                <span class="legend-badge">🏆 Historia de los Mundiales</span>
-                <h3 class="legend-title">Uruguay 1930: La Primera Gran Final de la Historia</h3>
-                <p class="legend-text">
-                    El Estadio Centenario de Montevideo fue testigo del nacimiento del torneo más grande del planeta. Uruguay derrotó 4-2 a Argentina en un vibrante encuentro dirigido por el árbitro belga John Langenus, consagrándose como el primer Campeón del Mundo.
-                </p>
-
-                <!-- FORMULARIO DE ENTRADA -->
-                <div class="user-inputs-container" onclick="event.stopPropagation();">
-                    <div class="input-group">
-                        <label for="campo-usuario">Información del Usuario / Nota:</label>
-                        <input type="text" id="campo-usuario" placeholder="Escribe aquí tu información...">
-                    </div>
-                </div>
-
-                <!-- CAMPO DE RECOMENDACIÓN TÉCNICA CON TÍTULO LLAMATIVO -->
-                <div class="wc-tech-note" style="margin-top: 18px; margin-bottom: 18px; border-left-color: var(--accent-orange); background: rgba(255, 149, 0, 0.05);">
-                    <strong style="color: var(--accent-orange); font-size: 14px; display: block; margin-bottom: 4px;">
-                        🚀 ¡OPTIMIZA TU EXPERIENCIA DE STREAMING!
-                    </strong>
-                    Es muy importante dejar cargar el servicio al menos <strong>5 minutos</strong> antes de iniciar la reproducción; esto permite estabilizar la red, procesar el buffer y asegurar que puedas ver toda la información sin ninguna falla ni interrupción.
-                </div>
-
-                <span class="legend-action-text">Ver archivo histórico e información completa en Google Drive &rarr;</span>
-            </a>
-
-        </div>
-    </div>
+    <a href="https://app.mediafire.com/folder/b25gfsprxlosc" target="_blank" class="btn-link">
+      Ver archivo histórico e información completa →
+    </a>
+  </div>
 
 </body>
 </html>
