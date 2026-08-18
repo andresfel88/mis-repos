@@ -3,219 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - AT-APK</title>
+    <title>Mundo APK - Repositorio AT-APK (Modo Diabólico)</title>
     <style>
         :root {
-            --bg-color: #000000;
-            --card-bg: #1c1c1e;
-            --card-border: rgba(255, 255, 255, 0.1);
-            --text-primary: #f5f5f7;
-            --text-secondary: #86868b;
-            --accent-blue: #0071e3;
-            --accent-green: #34c759;
-            --worldcup-bg: linear-gradient(90deg, #002f6c 0%, #008000 50%, #c8102e 100%);
-            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --bg-page: #080808; 
+            --bg-canvas: #0f0f0f; 
+            --card-bg: #141414; 
+            --text-main: #e0e0e0;
+            --text-muted: #8c8c8c;
+            --border-card: rgba(255, 0, 0, 0.2);
+            --shadow-card: 0 8px 24px rgba(255, 0, 0, 0.15);
+            --accent-red: #ff1e1e;
+            --accent-dark-red: #8b0000;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: var(--font-family);
-            line-height: 1.5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
             -webkit-font-smoothing: antialiased;
-            padding-bottom: 60px;
         }
 
-        /* Header Principal */
-        header {
+        .world-cup-bar {
+            background: linear-gradient(90deg, #300000 0%, #8b0000 50%, #1a0000 100%);
+            color: #ff3333;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 8px 10px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--accent-red);
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+        }
+
+        .nav-bar {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 14px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--card-border);
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border-bottom: 1px solid rgba(255, 0, 0, 0.2);
         }
 
-        .logo-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
+        .nav-bar a {
+            color: #d1d1d1;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: all 0.2s;
         }
 
-        /* Banner Superior / Mundial 2026 */
-        .banner-top {
-            background: var(--worldcup-bg);
-            padding: 12px 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 500;
+        .nav-bar a:hover { 
+            color: var(--accent-red);
+            opacity: 1; 
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+        }
+
+        .main-wrapper {
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
 
-        .banner-top a {
+        .apple-container {
+            width: 100%;
+            max-width: 1100px;
+            background-color: var(--bg-canvas);
+            border-radius: 28px;
+            padding: 50px;
+            box-shadow: 0 0 50px rgba(139, 0, 0, 0.25);
+            box-sizing: border-box;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+
+        .header-title {
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin: 0 0 10px 0;
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 4px 12px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .season-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(139, 0, 0, 0.3);
+            color: var(--accent-red);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
             border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border: 1px solid rgba(255, 0, 0, 0.4);
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 30px 16px;
+        .header-subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin: 0 0 45px 0;
+            line-height: 1.5;
+            max-width: 800px;
         }
 
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            letter-spacing: -0.015em;
-            margin: 30px 0 16px 0;
-        }
-
-        /* Grid de Aplicaciones y Repositorios */
-        .grid-apps {
+        .grid-devices {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
-        .app-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 20px;
+        .card-device {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .app-card:hover {
-            transform: scale(1.02);
+        .card-device:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+            border-color: var(--accent-red);
         }
 
-        .app-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-        }
-
-        .app-card p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
+        .card-tag {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-bottom: 16px;
+            color: var(--accent-red);
         }
 
-        .btn-link {
-            display: inline-block;
-            background: var(--accent-blue);
-            color: #ffffff;
-            text-align: center;
-            padding: 10px 16px;
-            border-radius: 980px;
-            font-size: 0.88rem;
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        /* Caja de Soporte Técnico */
-        .info-box {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid var(--accent-green);
-            padding: 16px;
-            border-radius: 6px;
-            margin-top: 24px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .info-box strong {
-            color: var(--text-primary);
-        }
-
-        .svg-container {
+        .img-container {
+            width: 100%;
+            height: 130px;
+            background-color: #0a0a0a;
+            border-radius: 16px;
+            margin-bottom: 20px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            margin: 20px 0;
+            overflow: hidden;
+            border: 1px solid rgba(255,0,0,0.1);
+        }
+
+        .img-container img, .img-container svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .card-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 14px 0;
+            color: #ffffff;
+        }
+
+        .component-list { list-style: none; padding: 0; margin: 0; }
+        .component-item { margin-bottom: 12px; font-size: 12.5px; line-height: 1.4; }
+        .component-name { font-weight: 600; color: #f0f0f0; display: block; margin-bottom: 2px; }
+        .component-desc { color: var(--text-muted); }
+
+        .spain-banner-card {
+            display: block;
+            background: linear-gradient(135deg, #180505 0%, #0f0000 100%);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 0 0 40px 0;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .spain-banner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        }
+
+        .legend-badge {
+            display: inline-block;
+            background-color: rgba(255, 0, 0, 0.2);
+            color: var(--accent-red);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .legend-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+        }
+
+        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0; }
+
+        /* SECCIÓN TARJETA PROSPECTIVA CLICABLE */
+        .nn-section-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+            border-left: 4px solid var(--accent-dark-red);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+
+        .nn-section-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            border-color: var(--accent-red);
+        }
+
+        .nn-badge {
+            display: inline-block;
+            background-color: rgba(139, 0, 0, 0.3);
+            color: #ff4d4d;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .nn-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        @media (max-width: 992px) { 
+            .grid-devices { grid-template-columns: repeat(2, 1fr); } 
+        }
+        @media (max-width: 768px) {
+            .apple-container { padding: 30px 20px; }
+            .grid-devices { grid-template-columns: 1fr; }
+            .header-title { font-size: 26px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-title">Mundo APK - AT-APK</div>
-        <a href="https://drive.google.com" target="_blank" class="btn-link">Google Drive</a>
-    </header>
-
-    <div class="banner-top">
-        <span>🏆 Cobertura Especial Mundial 2026</span>
-        <a href="https://drive.google.com" target="_blank">Ver Repositorio</a>
+    <div class="world-cup-bar">
+        🩸 Edición Sangrienta: Infraestructura Multimedia y Optimización Subterránea 🩸
     </div>
 
-    <div class="container">
+    <div class="nav-bar">
+        <a href="#">Documentación</a>
+        <a href="#">Arquitectura Kernel</a>
+        <a href="#">Tablas de Validación</a>
+        <a href="#">Optimización Google TV</a>
+        <a href="#">Soporte Android TV</a>
+    </div>
 
-        <h2 class="section-title">Aplicaciones y Descargas</h2>
-        <div class="grid-apps">
-            <div class="app-card">
-                <div>
-                    <h3>Xuper TV / Magma Player</h3>
-                    <p>Módulo de reproducción, listas de streaming y configuración para Fire Stick y Android TV.</p>
-                </div>
-                <a href="https://drive.google.com" target="_blank" class="btn-link">Descargar APK</a>
-            </div>
-
-            <div class="app-card">
-                <div>
-                    <h3>Gnula TV</h3>
-                    <p>Servidor optimizado para reproductores multimedia y TV Box.</p>
-                </div>
-                <a href="https://drive.google.com" target="_blank" class="btn-link">Abrir Enlace</a>
-            </div>
-
-            <div class="app-card">
-                <div>
-                    <h3>Mantenimiento y Caché</h3>
-                    <p>Instrucciones de limpieza de datos y optimización de memoria en tu dispositivo.</p>
-                </div>
-                <a href="#" class="btn-link" onclick="alert('Iniciando limpieza...'); return false;">Limpiar Caché</a>
-            </div>
-        </div>
-
-        <h2 class="section-title">Soporte Técnico</h2>
-        <div class="info-box">
-            <strong>Optimización de Reproducción:</strong> Si el reproductor no abre correctamente en tu TV Box o Fire Stick, borra la caché del dispositivo antes de volver a ejecutar la APK.
+    <div class="main-wrapper">
+        <div class="apple-container">
             
-            <div class="svg-container">
-                <svg width="80" height="80" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="45" stroke="#0071e3" stroke-width="3" fill="none"/>
-                    <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#1A1A1A"/>
-                    <line x1="50" y1="38" x2="50" y2="12" stroke="#1A1A1A" stroke-width="2"/>
-                    <line x1="61" y1="47" x2="84" y2="38" stroke="#1A1A1A" stroke-width="2"/>
-                    <line x1="57" y1="59" x2="71" y2="82" stroke="#1A1A1A" stroke-width="2"/>
-                    <line x1="43" y1="59" x2="29" y2="82" stroke="#1A1A1A" stroke-width="2"/>
-                    <line x1="39" y1="47" x2="16" y2="38" stroke="#1A1A1A" stroke-width="2"/>
-                </svg>
+            <span class="season-badge">🩸 Dominio Oscuro 2026</span>
+            <h1 class="header-title">Mundo APK - AT-APK</h1>
+            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas en la sombra.</p>
+
+            <!-- BANNER DE ESPAÑA CAMPEÓN -->
+            <a href="https://drive.google.com/file/d/1OVGVzr4V4giZQXRHGg8ycSvnSYflNUAI/view?usp=sharing" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="spain-banner-card">
+                <div class="legend-badge">🏆⚔️ CAMPEÓN 2026</div>
+                <h3 class="legend-title">¡ESPAÑA CAMPEÓN DEL MUNDO 2026!</h3>
+                <p class="legend-text">
+                    El torneo continental cierra con una victoria implacable. España se corona en lo más alto tras vencer 1-0 con un gol de Ferran Torres.
+                </p>
+            </a>
+
+            <!-- SECCIÓN PROSPECTIVA TECNOLÓGICA CLICABLE A MEDIAFIRE -->
+            <a href="https://app.mediafire.com/folder/tpa5hk2r20ib3" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="nn-section-link">
+                <span class="nn-badge">🔥 Prospectiva Tecnológica 2026 - 2030</span>
+                <h2 class="nn-title">La Evolución de las Pantallas y la Viabilidad Total de la TV por Internet</h2>
+                <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 20px 0;">
+                    La televisión tradicional por cable y satélite ha entrado en una fase irreversible de sustitución. La confluencia de paneles de nueva generación con redes de alta velocidad consolidan a la TV por Internet (IPTV / OTT) como la arquitectura estándar y más viable del planeta.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
+                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">🔥 Paneles MicroLED y OLED Transparentes</h4>
+                        <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
+                            Los televisores del futuro inmediato eliminan los marcos y el grosor por completo. La tecnología MicroLED autoemisiva sustituye al LED convencional, ofreciendo negros absolutos, brillo extremo y un consumo energético reducido en un 40%.
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
+                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">🧠 Procesadores NPU con IA Integrada</h4>
+                        <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
+                            Los SoCs modernos ya no solo escalan resolución: utilizan Redes Neuronales en tiempo real para reconstruir señales comprimidas de streaming, ajustando la fluidez del bitrate antes de que el ojo humano note caídas de calidad.
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
+                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">🌐 ¿Es viable la TV por Internet?</h4>
+                        <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
+                            Totalmente viable y superior. Gracias a la masificación de códecs como AV1 y H.265 (HEVC), sumados a redes Wi-Fi 7 y fibra óptica, transmitir señales 4K a 60 fps con latencias menores a 3 segundos es hoy una realidad cotidiana.
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
+                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">📲 Ecosistemas Modulares y TV Box</h4>
+                        <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
+                            La TV física pasa a ser un simple monitor de alta fidelidad, delegando la inteligencia a dongles y TV Boxes desvinculables. Esto garantiza que la televisión no quede obsoleta cuando cambie la versión del sistema operativo.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- CONTENEDOR GRID DE HARDWARE -->
+            <div class="grid-devices">
+                <div class="card-device">
+                    <div class="card-tag">Lion TV Ecosystem</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
+                    </div>
+                    <h2 class="card-heading">Resumen Operativo</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Arquitectura de Streaming</span>
+                            <span class="component-desc">Entorno multimedia alternativo para maximizar el rendimiento gráfico.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Núcleo Optimizado</span>
+                            <span class="component-desc">Estructura adaptativa de buffers para evitar caídas de frames.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-device">
+                    <div class="card-tag">Google TV Parts</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
+                    </div>
+                    <h2 class="card-heading">Componentes TV</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Sistema Operativo</span>
+                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Perfil de Usuario</span>
+                            <span class="component-desc">Espacio personalizado para separar historiales y configuraciones.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-device">
+                    <div class="card-tag">Fire Stick Parts</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>FIRE STICK</text></svg>" alt="Fire Stick">
+                    </div>
+                    <h2 class="card-heading">Componentes Stick</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Dongle HDMI</span>
+                            <span class="component-desc">Cuerpo de hardware que se conecta directo a la pantalla.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Puerto Micro-USB</span>
+                            <span class="component-desc">Entrada encargada de recibir alimentación eléctrica.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-device">
+                    <div class="card-tag">Watch Onn Parts</div>
+                    <div class="img-container">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>WATCH ONN</text></svg>" alt="Watch Onn">
+                    </div>
+                    <h2 class="card-heading">Componentes Box</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. TV Box Square</span>
+                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Conectividad Interna</span>
+                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth.</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
+            
         </div>
-
     </div>
-
 </body>
 </html>
