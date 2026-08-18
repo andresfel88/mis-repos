@@ -354,29 +354,6 @@
         .football-link-wrapper:hover { transform: scale(1.08) rotate(10deg); }
         .football-text-box { font-size: 13.5px; line-height: 1.5; color: var(--text-muted); }
 
-        .solution-box {
-            background-color: #ffffff;
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 40px 0;
-            box-shadow: var(--shadow-card);
-        }
-
-        .solution-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--accent-blue);
-            margin: 0 0 14px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .solution-text { font-size: 14px; color: var(--text-main); line-height: 1.6; margin: 0 0 20px 0; }
-        .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
-        .solution-steps li { margin-bottom: 10px; }
-
         /* ESTILOS PREMIUM PARA LAS TARJETAS DE LEYENDAS Y SUS FORMULARIOS */
         .history-legend-card {
             display: block;
@@ -417,7 +394,7 @@
 
         .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
         
-        /* ESTILOS DE LOS CAMPOS DE TEXTO ADICIONADOS */
+        /* ESTILOS DE LOS CAMPOS DE TEXTO */
         .user-inputs-container {
             margin: 20px 0;
             display: flex;
@@ -461,10 +438,6 @@
         .uruguay-theme { border-left: 4px solid #b39211; }
         .uruguay-theme .legend-badge { background-color: rgba(179, 146, 17, 0.1); color: #b39211; }
         .uruguay-theme:hover { border-left-color: #d4af37; }
-
-        .video-theme { border-left: 4px solid var(--accent-blue); }
-        .video-theme .legend-badge { background-color: rgba(0, 102, 204, 0.1); color: var(--accent-blue); }
-        .video-theme:hover { border-left-color: #3385ff; }
 
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
@@ -549,7 +522,7 @@
                 </div>
             </div>
 
-            <!-- CONTENEDOR GRID DE HARDWARE ORIGINAL -->
+            <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
                 <!-- Tarjeta Lion TV -->
                 <div class="card-device">
@@ -618,7 +591,7 @@
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. TV Box Square</span>
-                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad en superficies planas.</span>
+                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad en surfaces planas.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Conectividad Interna</span>
@@ -667,66 +640,46 @@
                         <polygon points="50,38 61,47 57,59 43,59 39,47" fill="#1A1A1A"/>
                         <line x1="50" y1="38" x2="50" y2="20" stroke="#1A1A1A" stroke-width="2"/>
                         <line x1="61" y1="47" x2="78" y2="42" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="57" y1="59" x2="68" y2="75" stroke="#1A1A1A" stroke-width="2"/>
-                        <line x1="43" y1="59" x2="32" y2="75" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="57" y1="59" x2="68" y2="74" stroke="#1A1A1A" stroke-width="2"/>
+                        <line x1="43" y1="59" x2="32" y2="74" stroke="#1A1A1A" stroke-width="2"/>
                         <line x1="39" y1="47" x2="22" y2="42" stroke="#1A1A1A" stroke-width="2"/>
                     </svg>
                 </div>
                 <div class="football-text-box">
-                    <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; font-weight: 600;">Módulo de Transmisión de Alta Velocidad (En Vivo)</h4>
-                    <p style="margin: 0;">Durante este mes de máxima exigencia en redes, el repositorio implementa una segmentación inteligente de paquetes APK que reduce el buffer.</p>
+                    <strong style="color: var(--text-main); font-size: 15px; display: block; margin-bottom: 4px;">Optimización de Stream de Video</strong>
+                    Módulo de Renderizado SVG vectorial ligero para íconos de interfaz sin impacto en el rendimiento de dispositivos TV BOX o Sticks de gama de entrada.
                 </div>
             </div>
 
-            <!-- CAJA DE SOLUCIONES -->
-            <div class="solution-box">
-                <h3 class="solution-title">🚀 Optimización Avanzada para Streaming en Vivo de Verano</h3>
-                <p class="solution-text">Las transmisiones en directo de eventos masivos demandan un rendimiento crítico en tu Smart TV:</p>
-                <ul class="solution-steps">
-                    <li><strong>Priorizar el Decodificador por Hardware (H.265/HEVC):</strong> Procesa el video de los partidos de forma directa en el chip gráfico.</li>
-                    <li><strong>Limpieza Extrema de Caché de Red:</strong> Borrar archivos temporales libera ancho de banda interno crítico.</li>
-                </ul>
-            </div>
-
-            <!-- TARJETA DE ESTÁNDARES DE VIDEO (CON LOS CAMPOS DE TEXTO NUEVOS) -->
-            <!-- Nota: Para evitar que hacer clic en los campos active el enlace, se intercepta con 'onclick' -->
-            <a href="https://aftv.news/9135696" target="_blank" class="history-legend-card video-theme">
-                <div class="legend-badge">📺 Estándares de Video</div>
-                <h3 class="legend-title">Entendiendo la Calidad de Imagen: 1080p vs. 4K vs. HDR</h3>
+            <!-- TARJETA LEYENDA DEL FÚTBOL CON RECOMENDACIÓN TÉCNICA Y FORMULARIO INTEGRADOS -->
+            <a href="https://drive.google.com" target="_blank" class="history-legend-card uruguay-theme">
+                <span class="legend-badge">🏆 Historia de los Mundiales</span>
+                <h3 class="legend-title">Uruguay 1930: La Primera Gran Final de la Historia</h3>
                 <p class="legend-text">
-                    Para disfrutar de transmisiones y aplicaciones de streaming al máximo nivel, es vital comprender la evolución del video. <strong>1080p (Full HD)</strong> ofrece una resolución sólida de 1920x1080 píxeles, ideal para conexiones estándar. Por otro lado, el formato <strong>4K (Ultra HD)</strong> cuadriplica esa nitidez con un lienzo masivo de 3840x2160 píxeles, entregando texturas ultra definidas. Sin embargo, la verdadera revolución la hace el <strong>HDR (High Dynamic Range)</strong>, tecnología que no añade más píxeles, sino que expande el contraste y la paleta de colores para lograr blancos brillantes y negros puros y profundos.
+                    El Estadio Centenario de Montevideo fue testigo del nacimiento del torneo más grande del planeta. Uruguay derrotó 4-2 a Argentina en un vibrante encuentro dirigido por el árbitro belga John Langenus, consagrándose como el primer Campeón del Mundo.
                 </p>
-                
-                <!-- SECCIÓN DE CAMPOS DE TEXTO SOLICITADOS -->
+
+                <!-- FORMULARIO DE ENTRADA -->
                 <div class="user-inputs-container" onclick="event.stopPropagation();">
                     <div class="input-group">
-                        <label for="userName">Escribe tu nombre:</label>
-                        <input type="text" id="userName" placeholder="Tu nombre completo">
-                    </div>
-                    <div class="input-group">
-                        <label for="userAge">Edad:</label>
-                        <input type="number" id="userAge" placeholder="Tu edad">
-                    </div>
-                    <div class="input-group">
-                        <label for="userEmail">Correo Electrónico:</label>
-                        <input type="email" id="userEmail" placeholder="ejemplo@correo.com">
+                        <label for="campo-usuario">Información del Usuario / Nota:</label>
+                        <input type="text" id="campo-usuario" placeholder="Escribe aquí tu información...">
                     </div>
                 </div>
 
-                <span class="legend-action-text">Haz clic aquí para ver la guía completa de configuración en tu TVBox →</span>
+                <!-- CAMPO DE RECOMENDACIÓN TÉCNICA CON TÍTULO LLAMATIVO -->
+                <div class="wc-tech-note" style="margin-top: 18px; margin-bottom: 18px; border-left-color: var(--accent-orange); background: rgba(255, 149, 0, 0.05);">
+                    <strong style="color: var(--accent-orange); font-size: 14px; display: block; margin-bottom: 4px;">
+                        🚀 ¡OPTIMIZA TU EXPERIENCIA DE STREAMING!
+                    </strong>
+                    Es muy importante dejar cargar el servicio al menos <strong>5 minutos</strong> antes de iniciar la reproducción; esto permite estabilizar la red, procesar el buffer y asegurar que puedas ver toda la información sin ninguna falla ni interrupción.
+                </div>
+
+                <span class="legend-action-text">Ver archivo histórico e información completa en Google Drive &rarr;</span>
             </a>
 
-            <!-- TARJETA DE LA LEYENDA HISTÓRICA ORIGINAL -->
-            <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card uruguay-theme">
-                <div class="legend-badge">📜 Crónica Histórica</div>
-                <h3 class="legend-title">El Nacimiento de un Mito: Uruguay 1930</h3>
-                <p class="legend-text">
-                    En julio de 1930, el sueño de Jules Rimet cobró vida en Sudamérica. Trece selecciones desafiaron las distancias de la época para inaugurar el primer Campeonato Mundial de Fútbol. En una final mítica teñida de pasión rioplatense, <strong>Uruguay</strong> derrotó 4-2 a Argentina en el Estadio Centenario.
-                </p>
-                <span class="legend-action-text">Haz clic aquí para descubrir la historia completa del origen de los mundiales →</span>
-            </a>
-            
         </div>
     </div>
+
 </body>
 </html>
