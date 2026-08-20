@@ -112,31 +112,17 @@
             max-width: 760px;
         }
 
-        .spain-banner-card {
+        /* SECCIÓN LEGAL Y RESUMEN DE ACTUALIZACIONES */
+        .legal-summary-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
             border-radius: 18px;
-            padding: 0;
+            padding: 32px;
             margin: 0 0 32px 0;
             box-shadow: var(--shadow-card);
-            overflow: hidden;
         }
 
-        .spain-banner-card details {
-            padding: 28px;
-            cursor: pointer;
-        }
-
-        .spain-banner-card summary {
-            list-style: none;
-            outline: none;
-        }
-
-        .spain-banner-card summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .legend-badge {
+        .legal-badge {
             display: inline-block;
             background-color: rgba(41, 151, 255, 0.15);
             color: var(--accent-blue);
@@ -149,35 +135,35 @@
             margin-bottom: 12px;
         }
 
-        .legend-title {
+        .legal-title {
             font-size: 22px;
             font-weight: 600;
-            margin: 0 0 8px 0;
+            margin: 0 0 16px 0;
             color: #ffffff;
             letter-spacing: -0.3px;
         }
 
-        .legend-text { 
-            font-size: 14px; 
-            line-height: 1.5; 
+        .legal-text { 
+            font-size: 14.5px; 
+            line-height: 1.6; 
             color: var(--text-muted); 
-            margin: 0; 
+            margin: 0 0 16px 0; 
         }
 
-        .btn-download {
-            display: inline-block;
-            background-color: var(--accent-blue);
-            color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 980px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
+        .legal-list {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        .btn-download:hover {
-            background-color: var(--accent-dark-blue);
+        .legal-list li {
+            margin-bottom: 8px;
+        }
+
+        .legal-list strong {
+            color: var(--text-main);
         }
 
         .nn-section-link {
@@ -265,7 +251,7 @@
             border: 1px solid var(--border-card);
         }
 
-        .img-container img, .img-container svg {
+        .img-container svg {
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -316,36 +302,18 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas.</p>
 
-            <!-- REGISTRO DE ACTUALIZACIONES DESPLEGABLE -->
-            <div class="spain-banner-card">
-                <details>
-                    <summary>
-                        <div class="legend-badge">🏆 Actualización 2026</div>
-                        <h3 class="legend-title">España Campeón del Mundo 2026</h3>
-                        <p class="legend-text">
-                            El torneo continental cierra con una victoria de la selección española (1-0). Haz clic para desplegar los detalles de la transmisión y el registro de cambios.
-                        </p>
-                    </summary>
-                    
-                    <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border-card);">
-                        <p style="font-size: 13.5px; color: var(--text-main); line-height: 1.5; margin-bottom: 16px;">
-                            <strong>Resumen:</strong> Cierre de torneo con victoria tras el gol de Ferran Torres en el minuto 84. Los repositorios de streaming quedan actualizados con la cobertura final.
-                        </p>
-                        
-                        <span style="font-size: 12px; font-weight: 600; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.5px;">Historial de cambios del sistema:</span>
-                        <ul style="margin: 10px 0 20px 0; padding-left: 18px; font-size: 13px; color: var(--text-muted); line-height: 1.6;">
-                            <li><strong>v2.4:</strong> Integración de reproductores de baja latencia para eventos en directo.</li>
-                            <li><strong>v2.3:</strong> Optimización del buffer de entrada en dispositivos Smart TV y TV Box.</li>
-                        </ul>
-
-                        <a href="https://drive.google.com/file/d/1OVGVzr4V4giZQXRHGg8ycSvnSYflNUAI/view?usp=sharing" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="btn-download">
-                           Descargar Reporte (Google Drive)
-                        </a>
-                    </div>
-                </details>
+            <!-- NUEVA SECCIÓN DE ANÁLISIS LEGAL -->
+            <div class="legal-summary-card">
+                <span class="legal-badge">Aviso Legal y de Licencia</span>
+                <h2 class="legal-title">¿Qué significa que una aplicación se actualice nunca jamás es legal?</h2>
+                <p class="legal-text">
+                    La expresión implica que prometer actualizaciones "vitalicias" o "de por vida" sin términos de servicio vigentes carece de validez legal y técnica. En el desarrollo de software, ningún soporte puede garantizarse indefinidamente por las siguientes razones:
+                </p>
+                <ul class="legal-list">
+                    <li><strong>Ciclo de vida del software (EOL):</strong> Legalmente, los desarrolladores limitan la responsabilidad de soporte cuando los sistemas operativos base evolucionan y vuelven obsoleta la arquitectura anterior.</li>
+                    <li><strong>Cambios en Términos y Condiciones:</strong> Las licencias de uso no otorgan propiedad sobre el código, sino un derecho de uso temporal sujeto a modificaciones del desarrollador o del ecosistema (Android/Google).</li>
+                    <li><strong>Dependencia de terceros:</strong> Las aplicaciones dependen de servidores, APIs y protocolos que cambian con el tiempo; ningún contrato legal obliga a mantener servidores activos de forma infinita.</li>
+                </ul>
             </div>
 
             <!-- SECCIÓN TV OPTIMIZACIÓN CLICABLE A MEDIAFIRE -->
@@ -468,7 +436,7 @@
         </div>
     </div>
 
-    <!-- SCRIPT DE REFRESTO INTELIGENTE -->
+    <!-- SCRIPT DE REFRESCADO INTELIGENTE -->
     <script>
         (function() {
             let timeoutID;
