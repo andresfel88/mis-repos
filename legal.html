@@ -112,14 +112,24 @@
             max-width: 760px;
         }
 
-        /* SECCIÓN LEGAL Y RESUMEN DE ACTUALIZACIONES */
+        /* SECCIÓN LEGAL Y RESUMEN DE ACTUALIZACIONES CLICABLE */
         .legal-summary-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
             border-radius: 18px;
             padding: 32px;
             margin: 0 0 32px 0;
             box-shadow: var(--shadow-card);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .legal-summary-card:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
         }
 
         .legal-badge {
@@ -302,8 +312,12 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas.</p>
 
-            <!-- NUEVA SECCIÓN DE ANÁLISIS LEGAL -->
-            <div class="legal-summary-card">
+            <!-- TARJETA AVISO LEGAL Y LICENCIA (ENLACE MEDIAFIRE CON ALERTA) -->
+            <a href="https://app.mediafire.com/folder/fb4ulaorwd0f1" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               onclick="alert('¡Descárgalo y a disfrutar !');"
+               class="legal-summary-card">
                 <span class="legal-badge">Aviso Legal y de Licencia</span>
                 <h2 class="legal-title">¿Qué significa que una aplicación se actualice nunca jamás es legal?</h2>
                 <p class="legal-text">
@@ -314,7 +328,7 @@
                     <li><strong>Cambios en Términos y Condiciones:</strong> Las licencias de uso no otorgan propiedad sobre el código, sino un derecho de uso temporal sujeto a modificaciones del desarrollador o del ecosistema (Android/Google).</li>
                     <li><strong>Dependencia de terceros:</strong> Las aplicaciones dependen de servidores, APIs y protocolos que cambian con el tiempo; ningún contrato legal obliga a mantener servidores activos de forma infinita.</li>
                 </ul>
-            </div>
+            </a>
 
             <!-- SECCIÓN TV OPTIMIZACIÓN CLICABLE A MEDIAFIRE -->
             <a href="https://app.mediafire.com/folder/b25gfsprxlosc" 
