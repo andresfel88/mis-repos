@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Repositorio AT-APK (Modo Diabólico)</title>
+    <title>Mundo APK - Repositorio AT-APK</title>
     <style>
         :root {
-            --bg-page: #080808; 
-            --bg-canvas: #0f0f0f; 
-            --card-bg: #141414; 
-            --text-main: #e0e0e0;
-            --text-muted: #8c8c8c;
-            --border-card: rgba(255, 0, 0, 0.2);
-            --shadow-card: 0 8px 24px rgba(255, 0, 0, 0.15);
-            --accent-red: #ff1e1e;
-            --accent-dark-red: #8b0000;
+            --bg-page: #000000; 
+            --bg-canvas: #161617; 
+            --card-bg: #1d1d1f; 
+            --text-main: #f5f5f7;
+            --text-muted: #86868b;
+            --border-card: rgba(255, 255, 255, 0.1);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --accent-blue: #2997ff;
+            --accent-dark-blue: #0071e3;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
             background-color: var(--bg-page);
             color: var(--text-main);
             margin: 0;
@@ -27,49 +27,44 @@
         }
 
         .world-cup-bar {
-            background: linear-gradient(90deg, #300000 0%, #8b0000 50%, #1a0000 100%);
-            color: #ff3333;
+            background: #1d1d1f;
+            color: var(--text-muted);
             text-align: center;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 8px 10px;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--accent-red);
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-card);
         }
 
         .nav-bar {
-            background-color: rgba(10, 10, 10, 0.95);
+            background-color: rgba(22, 22, 23, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             padding: 14px 20px;
             display: flex;
             justify-content: center;
-            gap: 35px;
+            gap: 32px;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+            border-bottom: 1px solid var(--border-card);
         }
 
         .nav-bar a {
-            color: #d1d1d1;
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 12px;
             font-weight: 400;
-            opacity: 0.8;
-            transition: all 0.2s;
+            transition: color 0.2s ease;
         }
 
         .nav-bar a:hover { 
-            color: var(--accent-red);
-            opacity: 1; 
-            text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+            color: var(--text-main);
         }
 
         .main-wrapper {
-            padding: 40px 20px;
+            padding: 60px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -78,200 +73,217 @@
 
         .apple-container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1080px;
             background-color: var(--bg-canvas);
-            border-radius: 28px;
+            border-radius: 20px;
             padding: 50px;
-            box-shadow: 0 0 50px rgba(139, 0, 0, 0.25);
+            box-shadow: var(--shadow-card);
             box-sizing: border-box;
-            border: 1px solid rgba(255, 0, 0, 0.2);
+            border: 1px solid var(--border-card);
         }
 
         .header-title {
-            font-size: 34px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin: 0 0 10px 0;
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin: 0 0 8px 0;
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
         }
 
         .season-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background-color: rgba(139, 0, 0, 0.3);
-            color: var(--accent-red);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--accent-blue);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 12px;
             margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            border: 1px solid rgba(255, 0, 0, 0.4);
+            letter-spacing: 0.2px;
         }
 
         .header-subtitle {
-            font-size: 15px;
+            font-size: 17px;
             color: var(--text-muted);
-            margin: 0 0 45px 0;
-            line-height: 1.5;
-            max-width: 800px;
+            margin: 0 0 40px 0;
+            line-height: 1.47059;
+            font-weight: 400;
+            max-width: 760px;
+        }
+
+        .spain-banner-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 18px;
+            padding: 0;
+            margin: 0 0 32px 0;
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+        }
+
+        .spain-banner-card details {
+            padding: 28px;
+            cursor: pointer;
+        }
+
+        .spain-banner-card summary {
+            list-style: none;
+            outline: none;
+        }
+
+        .spain-banner-card summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .legend-badge {
+            display: inline-block;
+            background-color: rgba(41, 151, 255, 0.15);
+            color: var(--accent-blue);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .legend-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+        }
+
+        .legend-text { 
+            font-size: 14px; 
+            line-height: 1.5; 
+            color: var(--text-muted); 
+            margin: 0; 
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 980px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-download:hover {
+            background-color: var(--accent-dark-blue);
+        }
+
+        .nn-section-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 18px;
+            padding: 32px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nn-section-link:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .nn-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            font-size: 11px;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .nn-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.3px;
+            color: #ffffff;
         }
 
         .grid-devices {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
         }
 
         .card-device {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
-            border-radius: 24px;
+            border-radius: 18px;
             padding: 24px;
             box-shadow: var(--shadow-card);
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.2s ease, transform 0.2s ease;
         }
 
         .card-device:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
-            border-color: var(--accent-red);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
         }
 
         .card-tag {
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 16px;
-            color: var(--accent-red);
+            color: var(--accent-blue);
         }
 
         .img-container {
             width: 100%;
-            height: 130px;
-            background-color: #0a0a0a;
-            border-radius: 16px;
+            height: 120px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border: 1px solid rgba(255,0,0,0.1);
+            border: 1px solid var(--border-card);
         }
 
         .img-container img, .img-container svg {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            padding: 10px;
+            padding: 12px;
             box-sizing: border-box;
         }
 
         .card-heading {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
-            margin: 0 0 14px 0;
+            margin: 0 0 12px 0;
             color: #ffffff;
         }
 
         .component-list { list-style: none; padding: 0; margin: 0; }
-        .component-item { margin-bottom: 12px; font-size: 12.5px; line-height: 1.4; }
-        .component-name { font-weight: 600; color: #f0f0f0; display: block; margin-bottom: 2px; }
+        .component-item { margin-bottom: 12px; font-size: 13px; line-height: 1.4; }
+        .component-name { font-weight: 500; color: #f5f5f7; display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
-
-        .spain-banner-card {
-            display: block;
-            background: linear-gradient(135deg, #180505 0%, #0f0000 100%);
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 0 0 40px 0;
-            text-decoration: none;
-            color: var(--text-main);
-            box-shadow: var(--shadow-card);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-left: 4px solid var(--accent-red);
-        }
-
-        .spain-banner-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-        }
-
-        .legend-badge {
-            display: inline-block;
-            background-color: rgba(255, 0, 0, 0.2);
-            color: var(--accent-red);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-        }
-
-        .legend-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            color: #ffffff;
-        }
-
-        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0; }
-
-        /* SECCIÓN TARJETA PROSPECTIVA CLICABLE A MEDIAFIRE */
-        .nn-section-link {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
-            border-left: 4px solid var(--accent-dark-red);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
-        }
-
-        .nn-section-link:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-            border-color: var(--accent-red);
-        }
-
-        .nn-badge {
-            display: inline-block;
-            background-color: rgba(139, 0, 0, 0.3);
-            color: #ff4d4d;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-        }
-
-        .nn-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin: 0 0 12px 0;
-            letter-spacing: -0.5px;
-            color: #ffffff;
-        }
 
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
@@ -279,14 +291,14 @@
         @media (max-width: 768px) {
             .apple-container { padding: 30px 20px; }
             .grid-devices { grid-template-columns: 1fr; }
-            .header-title { font-size: 26px; }
+            .header-title { font-size: 30px; }
         }
     </style>
 </head>
 <body>
 
     <div class="world-cup-bar">
-        🩸 Edición Sangrienta: Infraestructura Multimedia y Optimización Subterránea 🩸
+        Infraestructura Multimedia y Optimización de Rendimiento
     </div>
 
     <div class="nav-bar">
@@ -300,21 +312,41 @@
     <div class="main-wrapper">
         <div class="apple-container">
             
-            <span class="season-badge">🩸 Dominio Oscuro 2026</span>
+            <span class="season-badge">Plataforma 2026</span>
             <h1 class="header-title">Mundo APK - AT-APK</h1>
-            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas en la sombra.</p>
+            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas.</p>
 
-            <!-- BANNER DE ESPAÑA CAMPEÓN -->
-            <a href="https://drive.google.com/file/d/1OVGVzr4V4giZQXRHGg8ycSvnSYflNUAI/view?usp=sharing" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="spain-banner-card">
-                <div class="legend-badge">🏆⚔️ CAMPEÓN 2026</div>
-                <h3 class="legend-title">¡ESPAÑA CAMPEÓN DEL MUNDO 2026!</h3>
-                <p class="legend-text">
-                    El torneo continental cierra con una victoria implacable. España se corona en lo más alto tras vencer 1-0 con un gol de Ferran Torres.
-                </p>
-            </a>
+            <!-- REGISTRO DE ACTUALIZACIONES DESPLEGABLE -->
+            <div class="spain-banner-card">
+                <details>
+                    <summary>
+                        <div class="legend-badge">🏆 Actualización 2026</div>
+                        <h3 class="legend-title">España Campeón del Mundo 2026</h3>
+                        <p class="legend-text">
+                            El torneo continental cierra con una victoria de la selección española (1-0). Haz clic para desplegar los detalles de la transmisión y el registro de cambios.
+                        </p>
+                    </summary>
+                    
+                    <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border-card);">
+                        <p style="font-size: 13.5px; color: var(--text-main); line-height: 1.5; margin-bottom: 16px;">
+                            <strong>Resumen:</strong> Cierre de torneo con victoria tras el gol de Ferran Torres en el minuto 84. Los repositorios de streaming quedan actualizados con la cobertura final.
+                        </p>
+                        
+                        <span style="font-size: 12px; font-weight: 600; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.5px;">Historial de cambios del sistema:</span>
+                        <ul style="margin: 10px 0 20px 0; padding-left: 18px; font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+                            <li><strong>v2.4:</strong> Integración de reproductores de baja latencia para eventos en directo.</li>
+                            <li><strong>v2.3:</strong> Optimización del buffer de entrada en dispositivos Smart TV y TV Box.</li>
+                        </ul>
+
+                        <a href="https://drive.google.com/file/d/1OVGVzr4V4giZQXRHGg8ycSvnSYflNUAI/view?usp=sharing" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-download">
+                           Descargar Reporte (Google Drive)
+                        </a>
+                    </div>
+                </details>
+            </div>
 
             <!-- SECCIÓN TV OPTIMIZACIÓN CLICABLE A MEDIAFIRE -->
             <a href="https://app.mediafire.com/folder/b25gfsprxlosc" 
@@ -322,37 +354,37 @@
                rel="noopener noreferrer" 
                class="nn-section-link">
                 <span class="nn-badge">📺 Rendimiento y Carga en Smart TV</span>
-                <h2 class="nn-title">¿Por qué debes esperar al menos 2 minutos para que la página abra o cargue bien en tu TV?</h2>
-                <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 20px 0;">
-                    Los navegadores web en Smart TV, Fire Stick y TV Box procesan los scripts y el buffer de los reproductores de forma diferente a un PC o celular. Esperar 2 minutos garantiza la estabilidad total del sistema sin cierres forzados.
+                <h2 class="nn-title">¿Por qué debes esperar al menos 2 minutos para la carga inicial en TV?</h2>
+                <p style="font-size: 14px; line-height: 1.5; color: var(--text-muted); margin: 0 0 24px 0;">
+                    Los navegadores en Smart TV, Fire Stick y TV Box procesan los scripts y el buffer de los reproductores de forma secuencial. Una espera de 2 minutos garantiza la máxima estabilidad operativa.
                 </p>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px;">
-                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
-                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">⏱️ Asignación de Memoria RAM</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 18px; border-radius: 12px; border: 1px solid var(--border-card);">
+                        <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 13.5px; font-weight: 600;">⏱️ Asignación de RAM</h4>
                         <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
-                            Los TV Box suelen liberar memoria de fondo lentamente. Al abrir el sitio, el sistema necesita hasta 120 segundos para estabilizar la caché de renderizado y evitar cuelgues.
+                            Permite al sistema estabilizar la caché de renderizado y liberar memoria de fondo antes de iniciar la reproducción.
                         </p>
                     </div>
 
-                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
-                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">📡 Precarga de Buffer de Streaming</h4>
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 18px; border-radius: 12px; border: 1px solid var(--border-card);">
+                        <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 13.5px; font-weight: 600;">📡 Precarga de Buffer</h4>
                         <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
-                            Durante los primeros 2 minutos se establecen los sockets de conexión y la lista de reproducción interna, asegurando que el contenido cargue fluido sin almacenamiento en búfer.
+                            Establece los sockets de conexión y sincroniza la lista de reproducción interna para prevenir interrupciones.
                         </p>
                     </div>
 
-                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
-                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">⚙️ Compatibilidad WebKit / Android</h4>
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 18px; border-radius: 12px; border: 1px solid var(--border-card);">
+                        <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 13.5px; font-weight: 600;">⚙️ Compatibilidad WebKit</h4>
                         <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
-                            Los motores Chromium integrados en las TV compilan el CSS y los módulos JS progresivamente. La pausa inicial de 2 minutos permite completar la ejecución gráfica.
+                            Facilita la compilación progresiva de CSS y módulos JavaScript en motores Chromium integrados.
                         </p>
                     </div>
 
-                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
-                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">📁 Acceso Directo a Repositorio</h4>
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 18px; border-radius: 12px; border: 1px solid var(--border-card);">
+                        <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 13.5px; font-weight: 600;">📁 Acceso al Repositorio</h4>
                         <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
-                            Haz clic en cualquier parte de este bloque para ir directamente a la carpeta de archivos y herramientas optimizadas en MediaFire.
+                            Haz clic en esta tarjeta para acceder directamente a la carpeta de herramientas optimizadas en MediaFire.
                         </p>
                     </div>
                 </div>
@@ -363,17 +395,17 @@
                 <div class="card-device">
                     <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Dispositivo Lion TV compatible con streaming">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#161617"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#86868b" font-weight="500" text-anchor="middle">LION TV</text></svg>
                     </div>
                     <h2 class="card-heading">Resumen Operativo</h2>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Arquitectura de Streaming</span>
-                            <span class="component-desc">Entorno multimedia alternativo para maximizar el rendimiento gráfico.</span>
+                            <span class="component-desc">Entorno optimizado para maximizar el rendimiento gráfico del dispositivo.</span>
                         </li>
                         <li class="component-item">
-                            <span class="component-name">2. Núcleo Optimizado</span>
-                            <span class="component-desc">Estructura adaptativa de buffers para evitar caídas de frames.</span>
+                            <span class="component-name">2. Núcleo Adaptativo</span>
+                            <span class="component-desc">Gestión inteligente de buffers para mantener una reproducción fluida.</span>
                         </li>
                     </ul>
                 </div>
@@ -381,17 +413,17 @@
                 <div class="card-device">
                     <div class="card-tag">Google TV Parts</div>
                     <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Dispositivo Google TV con Android TV integrado">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#161617"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#86868b" font-weight="500" text-anchor="middle">GOOGLE TV</text></svg>
                     </div>
                     <h2 class="card-heading">Componentes TV</h2>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Sistema Operativo</span>
-                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla.</span>
+                            <span class="component-desc">Capa de interfaz basada en Android TV diseñada para pantallas grandes.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Perfil de Usuario</span>
-                            <span class="component-desc">Espacio personalizado para separar historiales y configuraciones.</span>
+                            <span class="component-desc">Gestión de datos e historiales de reproducción independientes.</span>
                         </li>
                     </ul>
                 </div>
@@ -399,17 +431,17 @@
                 <div class="card-device">
                     <div class="card-tag">Fire Stick Parts</div>
                     <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>FIRE STICK</text></svg>" alt="Dispositivo Amazon Fire TV Stick Dongle HDMI">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#161617"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#86868b" font-weight="500" text-anchor="middle">FIRE STICK</text></svg>
                     </div>
                     <h2 class="card-heading">Componentes Stick</h2>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Dongle HDMI</span>
-                            <span class="component-desc">Cuerpo de hardware que se conecta directo a la pantalla.</span>
+                            <span class="component-desc">Factor de forma compacto con conexión directa al monitor o TV.</span>
                         </li>
                         <li class="component-item">
-                            <span class="component-name">2. Puerto Micro-USB</span>
-                            <span class="component-desc">Entrada encargada de recibir alimentación eléctrica.</span>
+                            <span class="component-name">2. Alimentación USB</span>
+                            <span class="component-desc">Entrada dedicada para el suministro eléctrico estable del procesador.</span>
                         </li>
                     </ul>
                 </div>
@@ -417,17 +449,17 @@
                 <div class="card-device">
                     <div class="card-tag">Watch Onn Parts</div>
                     <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>WATCH ONN</text></svg>" alt="Caja Smart TV Box Watch Onn con Wi-Fi">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#161617"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#86868b" font-weight="500" text-anchor="middle">WATCH ONN</text></svg>
                     </div>
                     <h2 class="card-heading">Componentes Box</h2>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. TV Box Square</span>
-                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad.</span>
+                            <span class="component-desc">Chasis optimizado para una mejor disipación térmica.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Conectividad Interna</span>
-                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth.</span>
+                            <span class="component-desc">Módulos integrados de Wi-Fi de doble banda y conexión Bluetooth.</span>
                         </li>
                     </ul>
                 </div>
@@ -449,7 +481,6 @@
                 }, INTERVALO);
             }
 
-            // Detectar interacción del usuario para posponer la recarga
             ['mousemove', 'keydown', 'touchstart', 'scroll'].forEach(evento => {
                 window.addEventListener(evento, reiniciarTemporizador, { passive: true });
             });
