@@ -1,499 +1,219 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Repositorio AT-APK (Modo Diabólico)</title>
-    <style>
-        :root {
-            --bg-page: #080808; 
-            --bg-canvas: #0f0f0f; 
-            --card-bg: #141414; 
-            --text-main: #e0e0e0;
-            --text-muted: #8c8c8c;
-            --border-card: rgba(255, 0, 0, 0.2);
-            --shadow-card: 0 8px 24px rgba(255, 0, 0, 0.15);
-            --accent-red: #ff1e1e;
-            --accent-dark-red: #8b0000;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Producto — Estilo Apple</title>
+  
+  <style>
+    /* Reset básico y sistema de fuentes nativas de Apple */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-        }
+    body {
+      background-color: #000000;
+      color: #f5f5f7;
+      overflow-x: hidden;
+    }
 
-        .world-cup-bar {
-            background: linear-gradient(90deg, #300000 0%, #8b0000 50%, #1a0000 100%);
-            color: #ff3333;
-            text-align: center;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 8px 10px;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--accent-red);
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
-        }
+    /* Barra de Navegación con Efecto Vidrio Esmerilado */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 44px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 9999;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .nav-bar {
-            background-color: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 14px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 0, 0, 0.2);
-        }
+    .nav-container {
+      max-width: 1024px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 22px;
+    }
 
-        .nav-bar a {
-            color: #d1d1d1;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 400;
-            opacity: 0.8;
-            transition: all 0.2s;
-        }
+    .logo {
+      color: #f5f5f7;
+      text-decoration: none;
+      font-size: 18px;
+    }
 
-        .nav-bar a:hover { 
-            color: var(--accent-red);
-            opacity: 1; 
-            text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
-        }
+    .nav-links a {
+      color: rgba(245, 245, 247, 0.8);
+      text-decoration: none;
+      font-size: 12px;
+      margin-left: 24px;
+      transition: color 0.3s ease;
+    }
 
-        .main-wrapper {
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+    .nav-links a:hover {
+      color: #ffffff;
+    }
 
-        .apple-container {
-            width: 100%;
-            max-width: 1100px;
-            background-color: var(--bg-canvas);
-            border-radius: 28px;
-            padding: 50px;
-            box-shadow: 0 0 50px rgba(139, 0, 0, 0.25);
-            box-sizing: border-box;
-            border: 1px solid rgba(255, 0, 0, 0.2);
-        }
+    /* Hero Section (Sección Principal) */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        /* ESTILOS PARA LA SECCIÓN DE AGRADECIMIENTO A EMAGOPLAY */
-        .emagoplay-card {
-            background: linear-gradient(135deg, #1a0505 0%, #0d0101 100%);
-            border: 1px solid rgba(255, 30, 30, 0.4);
-            border-radius: 20px;
-            padding: 24px 30px;
-            margin-bottom: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
-            border-left: 4px solid var(--accent-red);
-        }
+    .tagline {
+      color: #f56300;
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
-        .emagoplay-content h3 {
-            margin: 0 0 6px 0;
-            font-size: 18px;
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
-        }
+    .title {
+      font-size: 56px;
+      line-height: 1.07;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      max-width: 700px;
+      background: linear-gradient(180deg, #ffffff 0%, #86868b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .emagoplay-content p {
-            margin: 0;
-            font-size: 13.5px;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
+    .subtitle {
+      font-size: 28px;
+      line-height: 1.14;
+      font-weight: 400;
+      color: #86868b;
+      margin-top: 15px;
+      margin-bottom: 28px;
+    }
 
-        .emagoplay-badge {
-            background-color: rgba(255, 30, 30, 0.2);
-            color: var(--accent-red);
-            font-size: 11px;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 30, 30, 0.4);
-            white-space: nowrap;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    /* Botones Estilo Apple */
+    .cta-group {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
 
-        .header-title {
-            font-size: 34px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin: 0 0 10px 0;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
+    .btn {
+      font-size: 17px;
+      border-radius: 980px;
+      padding: 11px 21px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
 
-        .season-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background-color: rgba(139, 0, 0, 0.3);
-            color: var(--accent-red);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            border: 1px solid rgba(255, 0, 0, 0.4);
-        }
+    .btn-primary {
+      background-color: #0071e3;
+      color: #ffffff;
+    }
 
-        .header-subtitle {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin: 0 0 45px 0;
-            line-height: 1.5;
-            max-width: 800px;
-        }
+    .btn-primary:hover {
+      background-color: #0077ed;
+    }
 
-        .grid-devices {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
+    .btn-secondary {
+      color: #2997ff;
+    }
 
-        .card-device {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-card);
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: var(--shadow-card);
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    .btn-secondary:hover {
+      text-decoration: underline;
+    }
 
-        .card-device:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
-            border-color: var(--accent-red);
-        }
+    /* Contenedor Visual del Producto */
+    .product-preview {
+      margin-top: 50px;
+      width: 320px;
+      height: 420px;
+      border-radius: 40px;
+      background: #161617;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-        .card-tag {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            color: var(--accent-red);
-        }
+    .glow-effect {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(41,151,255,0.35) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(30px);
+    }
 
-        .img-container {
-            width: 100%;
-            height: 130px;
-            background-color: #0a0a0a;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid rgba(255,0,0,0.1);
-        }
+    .product-text {
+      color: #86868b;
+      font-size: 14px;
+      z-index: 1;
+    }
 
-        .img-container img, .img-container svg {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .card-heading {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0 0 14px 0;
-            color: #ffffff;
-        }
-
-        .component-list { list-style: none; padding: 0; margin: 0; }
-        .component-item { margin-bottom: 12px; font-size: 12.5px; line-height: 1.4; }
-        .component-name { font-weight: 600; color: #f0f0f0; display: block; margin-bottom: 2px; }
-        .component-desc { color: var(--text-muted); }
-
-        .spain-banner-card {
-            display: block;
-            background: linear-gradient(135deg, #180505 0%, #0f0000 100%);
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            border-radius: 24px;
-            padding: 30px;
-            margin: 0 0 40px 0;
-            text-decoration: none;
-            color: var(--text-main);
-            box-shadow: var(--shadow-card);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-left: 4px solid var(--accent-red);
-        }
-
-        .spain-banner-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-        }
-
-        .legend-badge {
-            display: inline-block;
-            background-color: rgba(255, 0, 0, 0.2);
-            color: var(--accent-red);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-        }
-
-        .legend-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            color: #ffffff;
-        }
-
-        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0; }
-
-        .nn-section-link {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: var(--shadow-card);
-            margin-bottom: 40px;
-            border-left: 4px solid var(--accent-dark-red);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
-        }
-
-        .nn-section-link:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-            border-color: var(--accent-red);
-        }
-
-        .nn-badge {
-            display: inline-block;
-            background-color: rgba(139, 0, 0, 0.3);
-            color: #ff4d4d;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-        }
-
-        .nn-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin: 0 0 12px 0;
-            letter-spacing: -0.5px;
-            color: #ffffff;
-        }
-
-        @media (max-width: 992px) { 
-            .grid-devices { grid-template-columns: repeat(2, 1fr); } 
-        }
-        @media (max-width: 768px) {
-            .apple-container { padding: 30px 20px; }
-            .grid-devices { grid-template-columns: 1fr; }
-            .header-title { font-size: 26px; }
-            .emagoplay-card { flex-direction: column; align-items: flex-start; }
-        }
-    </style>
+    /* Adaptación para pantallas móviles */
+    @media (max-width: 734px) {
+      .title {
+        font-size: 40px;
+        padding: 0 20px;
+      }
+      .subtitle {
+        font-size: 21px;
+        padding: 0 20px;
+      }
+      .nav-links a {
+        margin-left: 12px;
+        font-size: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="world-cup-bar">
-        🩸 Edición Sangrienta: Infraestructura Multimedia y Optimización Subterránea 🩸
+  <!-- Navegación -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo"></a>
+      <div class="nav-links">
+        <a href="#">Tienda</a>
+        <a href="#">Mac</a>
+        <a href="#">iPad</a>
+        <a href="#">iPhone</a>
+        <a href="#">Soporte</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="tagline">Nuevo</p>
+      <h1 class="title">Titanio. Tan fuerte. Tan ligero. Tan Pro.</h1>
+      <p class="subtitle">El diseño más refinado que jamás hayas visto.</p>
+      
+      <div class="cta-group">
+        <a href="#" class="btn btn-primary">Comprar</a>
+        <a href="#" class="btn btn-secondary">Más información &gt;</a>
+      </div>
     </div>
 
-    <div class="nav-bar">
-        <a href="#">Documentación</a>
-        <a href="#">Arquitectura Kernel</a>
-        <a href="#">Tablas de Validación</a>
-        <a href="#">Optimización Google TV</a>
-        <a href="#">Soporte Android TV</a>
+    <!-- Espacio para la imagen o demo de tu producto -->
+    <div class="product-preview">
+      <div class="glow-effect"></div>
+      <p class="product-text">[ Coloca la imagen de tu producto aquí ]</p>
     </div>
+  </section>
 
-    <div class="main-wrapper">
-        <div class="apple-container">
-            
-            <span class="season-badge">🩸 Dominio Oscuro 2026</span>
-            
-            <!-- TÍTULO CHÉVERE Y LLamativo -->
-            <h1 class="header-title">🔥 El Nexo Definitivo: AT-APK Core & Streaming Matrix</h1>
-            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización para capas operativas en la sombra.</p>
-
-            <!-- TARJETA DE AGRADECIMIENTO A EMAGOPLAY -->
-            <div class="emagoplay-card">
-                <div class="emagoplay-content">
-                    <h3>⚡ Mención de Honor y Agradecimientos</h3>
-                    <p>Un agradecimiento especial a <strong>emagoplay</strong> por compartir esta herramienta tan fabulosa que eleva al máximo el rendimiento de nuestros dispositivos.</p>
-                </div>
-                <div class="emagoplay-badge">✨ Gracias Emagoplay</div>
-            </div>
-
-            <!-- BANNER DE ESPAÑA CAMPEÓN -->
-            <a href="https://drive.google.com/file/d/1OVGVzr4V4giZQXRHGg8ycSvnSYflNUAI/view?usp=sharing" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="spain-banner-card">
-                <div class="legend-badge">🏆⚔️ CAMPEÓN 2026</div>
-                <h3 class="legend-title">¡ESPAÑA CAMPEÓN DEL MUNDO 2026!</h3>
-                <p class="legend-text">
-                    El torneo continental cierra con una victoria implacable. España se corona en lo más alto tras vencer 1-0 con un gol de Ferran Torres.
-                </p>
-            </a>
-
-            <!-- SECCIÓN TV OPTIMIZACIÓN CLICABLE A MEDIAFIRE -->
-            <a href="https://app.mediafire.com/folder/b25gfsprxlosc" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="nn-section-link">
-                <span class="nn-badge">📺 Rendimiento y Carga en Smart TV</span>
-                <h2 class="nn-title">¿Por qué debes esperar al menos 2 minutos para que la página abra o cargue bien en tu TV?</h2>
-                <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 20px 0;">
-                    Los navegadores web en Smart TV, Fire Stick y TV Box procesan los scripts y el buffer de los reproductores de forma diferente a un PC o celular. Esperar 2 minutos garantiza la estabilidad total del sistema sin cierres forzados.
-                </p>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px;">
-                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
-                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">⏱️ Asignación de Memoria RAM</h4>
-                        <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
-                            Los TV Box suelen liberar memoria de fondo lentamente. Al abrir el sitio, el sistema necesita hasta 120 segundos para estabilizar la caché de renderizado y evitar cuelgues.
-                        </p>
-                    </div>
-
-                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
-                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">📡 Precarga de Buffer de Streaming</h4>
-                        <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
-                            Durante los primeros 2 minutos se establecen los sockets de conexión y la lista de reproducción interna, asegurando que el contenido cargue fluido sin almacenamiento en búfer.
-                        </p>
-                    </div>
-
-                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
-                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">⚙️ Compatibilidad WebKit / Android</h4>
-                        <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
-                            Los motores Chromium integrados en las TV compilan el CSS y los módulos JS progresivamente. La pausa inicial de 2 minutos permite completar la ejecución gráfica.
-                        </p>
-                    </div>
-
-                    <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.15);">
-                        <h4 style="margin: 0 0 8px 0; color: var(--accent-red); font-size: 14px;">📁 Acceso Directo a Repositorio</h4>
-                        <p style="margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
-                            Haz clic en cualquier parte de este bloque para ir directamente a la carpeta de archivos y herramientas optimizadas en MediaFire.
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- CONTENEDOR GRID DE HARDWARE -->
-            <div class="grid-devices">
-                <div class="card-device">
-                    <div class="card-tag">Lion TV Ecosystem</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>LION TV</text></svg>" alt="Lion TV">
-                    </div>
-                    <h2 class="card-heading">Resumen Operativo</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. Arquitectura de Streaming</span>
-                            <span class="component-desc">Entorno multimedia alternativo para maximizar el rendimiento gráfico.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Núcleo Optimizado</span>
-                            <span class="component-desc">Estructura adaptativa de buffers para evitar caídas de frames.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-device">
-                    <div class="card-tag">Google TV Parts</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>GOOGLE TV</text></svg>" alt="Google TV">
-                    </div>
-                    <h2 class="card-heading">Componentes TV</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. Sistema Operativo</span>
-                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Perfil de Usuario</span>
-                            <span class="component-desc">Espacio personalizado para separar historiales y configuraciones.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-device">
-                    <div class="card-tag">Fire Stick Parts</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>FIRE STICK</text></svg>" alt="Fire Stick">
-                    </div>
-                    <h2 class="card-heading">Componentes Stick</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. Dongle HDMI</span>
-                            <span class="component-desc">Cuerpo de hardware que se conecta directo a la pantalla.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Puerto Micro-USB</span>
-                            <span class="component-desc">Entrada encargada de recibir alimentación eléctrica.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-device">
-                    <div class="card-tag">Watch Onn Parts</div>
-                    <div class="img-container">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'><rect width='100%' height='100%' fill='%230f0f0f'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23ff1e1e' font-weight='bold' text-anchor='middle'>WATCH ONN</text></svg>" alt="Watch Onn">
-                    </div>
-                    <h2 class="card-heading">Componentes Box</h2>
-                    <ul class="component-list">
-                        <li class="component-item">
-                            <span class="component-name">1. TV Box Square</span>
-                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad.</span>
-                        </li>
-                        <li class="component-item">
-                            <span class="component-name">2. Conectividad Interna</span>
-                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-
-    <!-- SCRIPT PARA REFRESCO AUTOMÁTICO CADA 5 MINUTOS -->
-    <script>
-        setTimeout(function() {
-            location.reload();
-        }, 300000); // 300,000 ms = 5 minutos
-    </script>
 </body>
 </html>
