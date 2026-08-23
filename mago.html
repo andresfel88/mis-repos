@@ -134,7 +134,7 @@
             max-width: 800px;
         }
 
-        /* TARJETA ESPECIAL EMAGOPLAY */
+        /* TARJETA ESPECIAL EMAGOPLAY (AHORA ES UN ENLACE CLICKEABLE) */
         .emagoplay-card {
             display: block;
             background: linear-gradient(135deg, rgba(41, 151, 255, 0.1) 0%, rgba(175, 82, 222, 0.15) 100%);
@@ -146,11 +146,13 @@
             color: var(--text-main);
             box-shadow: var(--shadow-card);
             transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
         }
 
         .emagoplay-card:hover {
             transform: translateY(-4px);
             border-color: rgba(175, 82, 222, 0.6);
+            background: linear-gradient(135deg, rgba(41, 151, 255, 0.15) 0%, rgba(175, 82, 222, 0.25) 100%);
         }
 
         .emago-badge {
@@ -172,6 +174,20 @@
             margin: 0 0 12px 0;
             letter-spacing: -0.5px;
             color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .emago-title::after {
+            content: "↗";
+            font-size: 22px;
+            color: var(--accent-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .emagoplay-card:hover .emago-title::after {
+            transform: translate(3px, -3px);
         }
 
         .emago-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0; }
@@ -366,14 +382,17 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Centro de conocimiento técnico, distribución de recursos y optimización avanzada de capas del sistema para dispositivos Smart TV y Google TV.</p>
 
-            <!-- AGRADECIMIENTOS ESPECIALES A EMAGOPLAY -->
-            <div class="emagoplay-card">
-                <div class="emago-badge">🙏 Reconocimiento Especial</div>
+            <!-- AGRADECIMIENTOS ESPECIALES A EMAGOPLAY (AHORA ES ENLACE COMPLETO) -->
+            <a href="https://app.mediafire.com/folder/ychz0p7qziirs" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="emagoplay-card">
+                <div class="emago-badge">🙏 RECONOCIMIENTO ESPECIAL</div>
                 <h2 class="emago-title">Un Agradecimiento Especial a Emagoplay</h2>
                 <p class="emago-text">
                     Queremos expresar nuestro más sincero agradecimiento al equipo de <strong>Emagoplay</strong> por el desarrollo de su fabulosa aplicación. Su constante compromiso con la innovación, la fluidez visual y la estabilidad en la reproducción de contenido multimedia ha marcado un estándar de excelencia para todo el ecosistema Android TV y Google TV. ¡Gracias por transformar la experiencia de uso en nuestras pantallas!
                 </p>
-            </div>
+            </a>
 
             <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
