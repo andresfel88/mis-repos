@@ -1,1 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK</title>
+    <style>
+        /* Variables Pro Estilo Apple Dark Mode */
+        :root {
+            --bg-page: #000000;
+            --bg-canvas: #161617;
+            --card-bg: #1c1c1e;
+            --card-hover: #2c2c2e;
+            --text-main: #f5f5f7;
+            --text-muted: #86868b;
+            --border-card: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.8);
+            --accent-blue: #2997ff;
+            --accent-purple: #af52de;
+            --accent-orange: #ff9500;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* BARRA SUPERIOR APPLE STYLE */
+        .top-info-bar {
+            background: rgba(22, 22, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-card);
+            text-align: center;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 14px;
+        }
+
+        .top-info-bar span {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* NAVEGACIÓN ESTILO APPLE.COM */
+        .nav-bar {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 14px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-card);
+        }
+
+        .nav-bar a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-bar a:hover { 
+            color: #ffffff; 
+        }
+
+        .main-wrapper {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .apple-container {
+            width: 100%;
+            max-width: 1100px;
+            background-color: var(--bg-canvas);
+            border-radius: 28px;
+            padding: 50px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9);
+            box-sizing: border-box;
+            border: 1px solid var(--border-card);
+        }
+
+        .header-title {
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            margin: 0 0 10px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #86868b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .season-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-subtitle {
+            font-size: 17px;
+            color: var(--text-muted);
+            margin: 0 0 45px 0;
+            line-height: 1.47;
+            max-width: 800px;
+        }
+
+        /* TARJETA ESPECIAL EMAGOPLAY (AHORA ES UN ENLACE CLICKEABLE) */
+        .emagoplay-card {
+            display: block;
+            background: linear-gradient(135deg, rgba(41, 151, 255, 0.1) 0%, rgba(175, 82, 222, 0.15) 100%);
+            border: 1px solid rgba(175, 82, 222, 0.3);
+            border-radius: 22px;
+            padding: 35px;
+            margin: 0 0 40px 0;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: var(--shadow-card);
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .emagoplay-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(175, 82, 222, 0.6);
+            background: linear-gradient(135deg, rgba(41, 151, 255, 0.15) 0%, rgba(175, 82, 222, 0.25) 100%);
+        }
+
+        .emago-badge {
+            display: inline-block;
+            background-color: rgba(175, 82, 222, 0.2);
+            color: var(--accent-purple);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .emago-title {
+            font-size: 26px;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .emago-title::after {
+            content: "↗";
+            font-size: 22px;
+            color: var(--accent-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .emagoplay-card:hover .emago-title::after {
+            transform: translate(3px, -3px);
+        }
+
+        .emago-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0; }
+
+        /* GRID DE DISPOSITIVOS */
+        .grid-devices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card-device {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .card-device:hover {
+            transform: translateY(-4px);
+            background-color: var(--card-hover);
+            border-color: var(--border-hover);
+        }
+
+        .card-tag {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 130px;
+            background-color: #000000;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid var(--border-card);
+        }
+
+        .img-container svg {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .card-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 14px 0;
+            letter-spacing: -0.3px;
+            color: var(--text-main);
+        }
+
+        .component-list { list-style: none; padding: 0; margin: 0; }
+        .component-item { margin-bottom: 12px; font-size: 13px; line-height: 1.4; }
+        .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
+        .component-desc { color: var(--text-muted); }
+
+        /* SECCIÓN GOOGLE TV EXCLUSIVA */
+        .googletv-info-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+        }
+
+        .gtv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-card);
+            padding-bottom: 15px;
+        }
+
+        .gtv-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .gtv-features-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .gtv-feature-card {
+            flex: 1;
+            background: #000000;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: left;
+            border: 1px solid var(--border-card);
+        }
+
+        .gtv-feature-card h4 {
+            margin: 0 0 8px 0;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .gtv-feature-card p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .gtv-tech-note {
+            background: rgba(41, 151, 255, 0.1);
+            border-left: 3px solid var(--accent-blue);
+            padding: 15px 20px;
+            border-radius: 0 12px 12px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-main);
+        }
+
+        .solution-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 22px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-card);
+        }
+
+        .solution-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin: 0 0 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .solution-text { font-size: 14px; color: var(--text-main); line-height: 1.6; margin: 0 0 20px 0; }
+        .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
+        .solution-steps li { margin-bottom: 10px; }
+
+        @media (max-width: 992px) { 
+            .grid-devices { grid-template-columns: repeat(2, 1fr); } 
+            .gtv-features-container { flex-direction: column; gap: 15px; }
+        }
+        @media (max-width: 768px) {
+            .apple-container { padding: 30px 20px; }
+            .grid-devices { grid-template-columns: 1fr; }
+            .header-title { font-size: 30px; }
+            .nav-bar { gap: 15px; overflow-x: auto; justify-content: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-info-bar">
+        <span>Ecosistema Multimedia:</span> Optimización, Rendimiento y Soporte Especializado para Google TV
+    </div>
+
+    <div class="nav-bar">
+        <a href="#">Documentación</a>
+        <a href="#">Ecosistema Emagoplay</a>
+        <a href="#">Ajustes Google TV</a>
+        <a href="#">Guía de Rendimiento</a>
+        <a href="#">Soporte Android TV</a>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="apple-container">
+            
+            <span class="season-badge">✨ Plataforma de Entrenamiento y Entretenimiento</span>
+            <h1 class="header-title">Mundo APK - AT-APK</h1>
+            <p class="header-subtitle">Centro de conocimiento técnico, distribución de recursos y optimización avanzada de capas del sistema para dispositivos Smart TV y Google TV.</p>
+
+            <!-- AGRADECIMIENTOS ESPECIALES A EMAGOPLAY (AHORA ES ENLACE COMPLETO) -->
+            <a href="https://app.mediafire.com/folder/ychz0p7qziirs" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="emagoplay-card">
+                <div class="emago-badge">🙏 RECONOCIMIENTO ESPECIAL</div>
+                <h2 class="emago-title">Un Agradecimiento Especial a Emagoplay</h2>
+                <p class="emago-text">
+                    Queremos expresar nuestro más sincero agradecimiento al equipo de <strong>Emagoplay</strong> por el desarrollo de su fabulosa aplicación. Su constante compromiso con la innovación, la fluidez visual y la estabilidad en la reproducción de contenido multimedia ha marcado un estándar de excelencia para todo el ecosistema Android TV y Google TV. ¡Gracias por transformar la experiencia de uso en nuestras pantallas!
+                </p>
+            </a>
+
+            <!-- CONTENEDOR GRID DE HARDWARE -->
+            <div class="grid-devices">
+                <!-- Tarjeta Google TV Pro -->
+                <div class="card-device">
+                    <div class="card-tag">Google TV OS</div>
+                    <div class="img-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#2997ff" font-weight="bold" text-anchor="middle">GOOGLE TV</text></svg>
+                    </div>
+                    <h2 class="card-heading">Interfaz Inteligente</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Recomendaciones Personalizadas</span>
+                            <span class="component-desc">Organiza tu contenido favorito en una sola pantalla según tus hábitos de uso.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Asistente Integrado</span>
+                            <span class="component-desc">Búsquedas globales por voz para abrir apps e interactuar sin escribir.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Lion TV -->
+                <div class="card-device">
+                    <div class="card-tag">Lion TV Ecosystem</div>
+                    <div class="img-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#af52de" font-weight="bold" text-anchor="middle">LION TV</text></svg>
+                    </div>
+                    <h2 class="card-heading">Resumen Operativo</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Arquitectura de Streaming</span>
+                            <span class="component-desc">Entorno multimedia optimizado para maximizar el rendimiento gráfico.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Núcleo Adaptativo</span>
+                            <span class="component-desc">Gestión inteligente de buffers para evitar interrupciones o caídas de cuadros.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Fire Stick -->
+                <div class="card-device">
+                    <div class="card-tag">Fire Stick Parts</div>
+                    <div class="img-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#ff9500" font-weight="bold" text-anchor="middle">FIRE STICK</text></svg>
+                    </div>
+                    <h2 class="card-heading">Componentes Stick</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Hardware Portátil</span>
+                            <span class="component-desc">Diseño ultracompacto HDMI para conexión directa a pantallas.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Módulo de Red</span>
+                            <span class="component-desc">Transmisión de alta velocidad optimizada para señales Wi-Fi receptoras.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Watch Onn -->
+                <div class="card-device">
+                    <div class="card-tag">Watch Onn Parts</div>
+                    <div class="img-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#2997ff" font-weight="bold" text-anchor="middle">WATCH ONN</text></svg>
+                    </div>
+                    <h2 class="card-heading">Componentes Box</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Dispositivo Receptor</span>
+                            <span class="component-desc">Diseño cuadrado de alta ventilación que garantiza larga durabilidad.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Conectividad Bluetooth</span>
+                            <span class="component-desc">Sincronización rápida con controles de voz y periféricos externos.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECCIÓN INTEGRAL DE GOOGLE TV -->
+            <div class="googletv-info-section">
+                <div class="gtv-header">
+                    <h3 class="gtv-title">📺 Domina el Ecosistema Google TV</h3>
+                    <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;">GUÍA TÉCNICA</span>
+                </div>
+                
+                <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-muted);">
+                    Google TV redefine la experiencia visual integrando algoritmos de recomendación en tiempo real y una arquitectura adaptada para reproducir contenido en alta definición sin esfuerzo. Para sacarle el máximo partido a aplicaciones de alto nivel como Emagoplay, te recomendamos optimizar estos tres pilares del sistema:
+                </p>
+
+                <div class="gtv-features-container">
+                    <div class="gtv-feature-card">
+                        <h4>1. Modo "Solo Apps" 🚀</h4>
+                        <p>Reduce la carga de la memoria RAM eliminando los avances en pantalla de inicio. Ideal para mejorar drásticamente la velocidad del sistema en equipos de recursos moderados.</p>
+                    </div>
+                    <div class="gtv-feature-card">
+                        <h4>2. Control de Perfiles 👤</h4>
+                        <p>Crea espacios individuales para cada miembro de la familia, asegurando que tus preferencias de reproducción e historiales se mantengan completamente organizados.</p>
+                    </div>
+                    <div class="gtv-feature-card">
+                        <h4>3. Integración Cast 📲</h4>
+                        <p>Aprovecha la tecnología Google Cast para enviar la señal de tus aplicaciones compatibles desde tu smartphone o laptop directamente a la TV sin retrasos.</p>
+                    </div>
+                </div>
+
+                <div class="gtv-tech-note">
+                    <strong>Recomendación Pro:</strong> Para mantener la app de Emagoplay funcionando con máxima fluidez en Google TV, habilita las Opciones de Desarrollador y ajusta la "Escala de animación" a 0.5x. Esto hará que la navegación sea instantánea.
+                </div>
+            </div>
+
+            <!-- CAJA DE SOLUCIONES Y OPTIMIZACIÓN -->
+            <div class="solution-box">
+                <h3 class="solution-title">⚡ Pasos para una Experiencia Multimeda Perfecta</h3>
+                <p class="solution-text">
+                    Sigue esta pequeña guía de mantenimiento preventivo en tu dispositivo Smart TV o TV Box:
+                </p>
+                <ul class="solution-steps">
+                    <li><strong>Decodificación H.265/HEVC:</strong> Asegúrate de que las aplicaciones utilicen aceleración por hardware gráfica para no saturar el procesador.</li>
+                    <li><strong>Depuración periódica de Caché:</strong> Limpia los archivos temporales cada cierto tiempo desde los Ajustes de Aplicaciones.</li>
+                    <li><strong>Conexión Preferente en 5 GHz:</strong> Conecta tu Smart TV a la banda de Wi-Fi de 5 GHz para obtener mayor velocidad y evitar interferencias de red.</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
