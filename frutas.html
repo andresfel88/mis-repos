@@ -1,1 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent: #0071e3;
+            --accent-hover: #0077ed;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.45;
+            margin-bottom: 24px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            color: var(--accent-hover);
+        }
+
+        .card-link svg {
+            margin-left: 4px;
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        .featured-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .featured-header {
+            margin-bottom: 24px;
+        }
+
+        .featured-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .spec-item {
+            border-left: 2px solid var(--accent);
+            padding-left: 16px;
+        }
+
+        .spec-title {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .spec-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Mundo APK</h1>
+            <p class="subtitle">Repositorio de Soporte Técnico AT-APK (Edición 2026)</p>
+        </header>
+
+        <main>
+            <section class="grid-container">
+                <!-- Tarjeta 1: Lion TV Ecosystem -->
+                <article class="card">
+                    <div>
+                        <span class="card-tag">Plataforma</span>
+                        <h2>Lion TV Ecosystem</h2>
+                        <p>Arquitectura optimizada para streaming en tiempo real. Análisis de núcleos y prevención de caídas de cuadros en transmisiones continentales.</p>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 2: Google TV Parts -->
+                <article class="card">
+                    <div>
+                        <span class="card-tag">Sistema Operativo</span>
+                        <h2>Google TV Parts</h2>
+                        <p>Configuración del ecosistema nativo de Google, personalización de perfiles y optimización de almacenamiento en reproductores multimedia.</p>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 3: Fire Stick Parts -->
+                <article class="card">
+                    <div>
+                        <span class="card-tag">Hardware Dongle</span>
+                        <h2>Fire Stick Parts</h2>
+                        <p>Guía de mantenimiento para la línea Fire TV. Gestión de componentes HDMI, alimentación micro-USB y parches de compatibilidad.</p>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 4: Watch Onn Parts -->
+                <article class="card">
+                    <div>
+                        <span class="card-tag">TV Box</span>
+                        <h2>Watch Onn Parts</h2>
+                        <p>Análisis técnico de los dispositivos Onn de diseño cuadrado. Optimización de Wi-Fi de doble banda y conectividad Bluetooth.</p>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 5: Kiwim TV / KiwiTV (Nueva Adición) -->
+                <article class="card">
+                    <div>
+                        <span class="card-tag">App / Streaming</span>
+                        <h2>Kiwim TV Enhancements</h2>
+                        <p>Reproductor multimedia especializado en VOD y canales en vivo. Soporta decodificación H.265/HEVC, guías EPG dinámicas y motor ExoPlayer para evitar buffering en directos.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Sección Destacada: Copa Mundial 2026 -->
+            <section class="featured-section">
+                <div class="featured-header">
+                    <h2>Copa Mundial de la FIFA 2026: Infraestructura de Streaming</h2>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">
+                        Preparación de redes y aplicaciones para la primera copa organizada por tres países en simultáneo.
+                    </p>
+                </div>
+
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-title">🇺🇸 Estados Unidos</div>
+                        <div class="spec-value">MetLife & SoFi Stadiums</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">🇲🇽 México</div>
+                        <div class="spec-value">Estadio Azteca (Histórico)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">🇨🇦 Canadá</div>
+                        <div class="spec-value">BMO Field & BC Place</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">Recomendación Player</div>
+                        <div class="spec-value">ExoPlayer / HW Decoder</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Enlaces de Soporte Técnico -->
+            <section class="featured-section">
+                <div class="featured-header">
+                    <h2>Optimización Avanzada y Soporte</h2>
+                </div>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-title">Redes & Seguridad</div>
+                        <div class="spec-value"><a href="https://aftv.news/7766987" style="color: var(--accent); text-decoration: none;">aftv.news/7766987</a></div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Uso de VpnService y túnel dividido para evitar estrangulamiento de ISP.</p>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">Reseña Histórica</div>
+                        <div class="spec-value"><a href="https://aftv.news/6518523" style="color: var(--accent); text-decoration: none;">aftv.news/6518523</a></div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Crónica de Uruguay 1930: De Montevideo a la era digital de 2026.</p>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">Ajuste Kiwim TV</div>
+                        <div class="spec-value">Buffer Cache Clear</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Limpieza periódica de memoria asignada a streaming en vivo y VOD.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Mundo APK - Soporte Técnico AT-APK. Diseñado bajo lineamientos visuales de interfaz limpia.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
