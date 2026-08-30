@@ -3,294 +3,620 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Edición 2026)</title>
+    <title>Mundo APK - Repositorio de Soporte Técnico AT-APK (Next-Gen Hub)</title>
     <style>
         :root {
-            --bg-color: #f5f5f7;
-            --card-bg: #ffffff;
-            --text-primary: #1d1d1f;
-            --text-secondary: #86868b;
-            --accent: #0071e3;
-            --accent-hover: #0077ed;
-            --border-color: rgba(0, 0, 0, 0.08);
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
-            --radius-lg: 20px;
-            --radius-md: 12px;
-            --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
+            /* Paleta Premium Estilo Apple Pro & Tech 2026-2027 */
+            --bg-page: #e9ecef; 
+            --bg-canvas: #fafdfa; 
+            --card-bg: #ffffff; 
+            --text-main: #1d1d1f;
+            --text-muted: #6e6e73;
+            --accent-gray: #86868b;
+            --border-card: rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --accent-blue: #0066cc;
+            --accent-purple: #5856d6;
+            --accent-cyan: #00b4d8;
+            --accent-gold: #b39211;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.5;
-            padding: 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
+        /* BARRA SUPERIOR DE ALTA TECNOLOGÍA */
+        .tech-bar {
+            background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 50%, #0369a1 100%);
+            color: #ffffff;
             text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 2.8rem;
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: -0.015em;
-            margin-bottom: 8px;
-        }
-
-        p.subtitle {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            font-weight: 400;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 60px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .card-tag {
-            font-size: 0.75rem;
-            font-weight: 600;
+            letter-spacing: 1.2px;
+            padding: 8px 10px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent);
-            margin-bottom: 12px;
         }
 
-        .card h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
+        .nav-bar {
+            background-color: rgba(29, 29, 31, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 14px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.45;
-            margin-bottom: 24px;
+        .nav-bar a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
         }
 
-        .card-link {
+        .nav-bar a:hover { opacity: 1; }
+
+        .main-wrapper {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .apple-container {
+            width: 100%;
+            max-width: 1100px;
+            background-color: var(--bg-canvas);
+            border-radius: 28px;
+            padding: 50px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
+            box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .header-title {
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin: 0 0 10px 0;
+            color: var(--text-main);
+        }
+
+        .season-badge {
             display: inline-flex;
             align-items: center;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--accent);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .card-link:hover {
-            color: var(--accent-hover);
-        }
-
-        .card-link svg {
-            margin-left: 4px;
-            width: 14px;
-            height: 14px;
-            fill: currentColor;
-        }
-
-        .featured-section {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-            margin-bottom: 60px;
-        }
-
-        .featured-header {
-            margin-bottom: 24px;
-        }
-
-        .featured-header h2 {
-            font-size: 1.8rem;
+            gap: 6px;
+            background-color: rgba(0, 102, 204, 0.1);
+            color: var(--accent-blue);
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
         }
 
-        .specs-grid {
+        .header-subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin: 0 0 45px 0;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        /* GRID ADAPTATIVO */
+        .grid-devices {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-top: 24px;
+            margin-bottom: 40px;
         }
 
-        .spec-item {
-            border-left: 2px solid var(--accent);
-            padding-left: 16px;
+        .card-device {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .spec-title {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
+        .card-device:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
         }
 
-        .spec-value {
-            font-size: 1.1rem;
+        .card-tag {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 130px;
+            background-color: #f5f5f7;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .img-container img, .img-container svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .img-container.dark-bg { background-color: #1a1a1a; }
+        .img-container.kiwi-bg { background-color: #0f172a; }
+
+        .card-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 14px 0;
+            letter-spacing: -0.3px;
+            color: var(--text-main);
+        }
+
+        .component-list { list-style: none; padding: 0; margin: 0; }
+        .component-item { margin-bottom: 12px; font-size: 12.5px; line-height: 1.4; }
+        .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
+        .component-desc { color: var(--text-muted); }
+
+        /* NUEVA SECCIÓN DETALLADA DE INFRAESTRUCTURA DE STREAMING Y IA */
+        .tech-info-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+            border-top: 4px solid var(--accent-blue);
+        }
+
+        .tech-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 15px;
+        }
+
+        .tech-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .tech-cards-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .tech-feature-card {
+            flex: 1;
+            background: #f5f5f7;
+            padding: 15px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .tech-feature-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 14px;
             font-weight: 600;
         }
 
-        footer {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 30px;
+        .tech-feature-card p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .tech-note {
+            background: rgba(0, 102, 204, 0.04);
+            border-left: 4px solid var(--accent-blue);
+            padding: 15px 20px;
+            border-radius: 0 16px 16px 0;
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--text-main);
+        }
+
+        /* SECCIÓN DEL NÚCLEO DE PROCESAMIENTO ABSTRACTO */
+        .showcase-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .icon-link-wrapper {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            display: block;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .icon-link-wrapper:hover { transform: scale(1.08) rotate(5deg); }
+        .showcase-text-box { font-size: 13.5px; line-height: 1.5; color: var(--text-muted); }
+
+        .solution-box {
+            background-color: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-card);
+        }
+
+        /* TARJETA INTERACTIVA DE INTEGRACIÓN VPN TIPO ANYDESK */
+        .vpn-interactivity-card {
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-card);
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-top: 4px solid var(--accent-purple);
+        }
+
+        .vpn-interactivity-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+            background: rgba(88, 86, 214, 0.01);
+        }
+
+        .solution-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin: 0 0 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .solution-text { font-size: 14px; color: var(--text-main); line-height: 1.6; margin: 0 0 20px 0; }
+        .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
+        .solution-steps li { margin-bottom: 10px; }
+
+        /* ESTILOS PARA LA TARJETA HISTÓRICA DE EVOLUCIÓN DIGITAL */
+        .history-legend-card {
+            display: block;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 0;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .history-legend-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+            border-left-color: #d4af37;
+        }
+
+        .legend-badge {
+            display: inline-block;
+            background-color: rgba(179, 146, 17, 0.1);
+            color: var(--accent-gold);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .legend-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .legend-text { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 16px 0; }
+        .legend-action-text { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); display: inline-block; transition: color 0.2s; }
+        .history-legend-card:hover .legend-action-text { color: #004499; text-decoration: underline; }
+
+        .tech-specs-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .grid-devices { grid-template-columns: repeat(2, 1fr); } 
+            .tech-cards-container { flex-direction: column; gap: 15px; }
+        }
+        @media (max-width: 768px) {
+            .apple-container { padding: 30px 20px; }
+            .grid-devices { grid-template-columns: 1fr; }
+            .header-title { font-size: 26px; }
+            .showcase-box { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Mundo APK</h1>
-            <p class="subtitle">Repositorio de Soporte Técnico AT-APK (Edición 2026)</p>
-        </header>
-
-        <main>
-            <section class="grid-container">
-                <!-- Tarjeta 1: Lion TV Ecosystem -->
-                <article class="card">
-                    <div>
-                        <span class="card-tag">Plataforma</span>
-                        <h2>Lion TV Ecosystem</h2>
-                        <p>Arquitectura optimizada para streaming en tiempo real. Análisis de núcleos y prevención de caídas de cuadros en transmisiones continentales.</p>
-                    </div>
-                </article>
-
-                <!-- Tarjeta 2: Google TV Parts -->
-                <article class="card">
-                    <div>
-                        <span class="card-tag">Sistema Operativo</span>
-                        <h2>Google TV Parts</h2>
-                        <p>Configuración del ecosistema nativo de Google, personalización de perfiles y optimización de almacenamiento en reproductores multimedia.</p>
-                    </div>
-                </article>
-
-                <!-- Tarjeta 3: Fire Stick Parts -->
-                <article class="card">
-                    <div>
-                        <span class="card-tag">Hardware Dongle</span>
-                        <h2>Fire Stick Parts</h2>
-                        <p>Guía de mantenimiento para la línea Fire TV. Gestión de componentes HDMI, alimentación micro-USB y parches de compatibilidad.</p>
-                    </div>
-                </article>
-
-                <!-- Tarjeta 4: Watch Onn Parts -->
-                <article class="card">
-                    <div>
-                        <span class="card-tag">TV Box</span>
-                        <h2>Watch Onn Parts</h2>
-                        <p>Análisis técnico de los dispositivos Onn de diseño cuadrado. Optimización de Wi-Fi de doble banda y conectividad Bluetooth.</p>
-                    </div>
-                </article>
-
-                <!-- Tarjeta 5: Kiwim TV / KiwiTV (Nueva Adición) -->
-                <article class="card">
-                    <div>
-                        <span class="card-tag">App / Streaming</span>
-                        <h2>Kiwim TV Enhancements</h2>
-                        <p>Reproductor multimedia especializado en VOD y canales en vivo. Soporta decodificación H.265/HEVC, guías EPG dinámicas y motor ExoPlayer para evitar buffering en directos.</p>
-                    </div>
-                </article>
-            </section>
-
-            <!-- Sección Destacada: Copa Mundial 2026 -->
-            <section class="featured-section">
-                <div class="featured-header">
-                    <h2>Copa Mundial de la FIFA 2026: Infraestructura de Streaming</h2>
-                    <p style="color: var(--text-secondary); margin-top: 8px;">
-                        Preparación de redes y aplicaciones para la primera copa organizada por tres países en simultáneo.
-                    </p>
-                </div>
-
-                <div class="specs-grid">
-                    <div class="spec-item">
-                        <div class="spec-title">🇺🇸 Estados Unidos</div>
-                        <div class="spec-value">MetLife & SoFi Stadiums</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-title">🇲🇽 México</div>
-                        <div class="spec-value">Estadio Azteca (Histórico)</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-title">🇨🇦 Canadá</div>
-                        <div class="spec-value">BMO Field & BC Place</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-title">Recomendación Player</div>
-                        <div class="spec-value">ExoPlayer / HW Decoder</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Enlaces de Soporte Técnico -->
-            <section class="featured-section">
-                <div class="featured-header">
-                    <h2>Optimización Avanzada y Soporte</h2>
-                </div>
-                <div class="specs-grid">
-                    <div class="spec-item">
-                        <div class="spec-title">Redes & Seguridad</div>
-                        <div class="spec-value"><a href="https://aftv.news/7766987" style="color: var(--accent); text-decoration: none;">aftv.news/7766987</a></div>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Uso de VpnService y túnel dividido para evitar estrangulamiento de ISP.</p>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-title">Reseña Histórica</div>
-                        <div class="spec-value"><a href="https://aftv.news/6518523" style="color: var(--accent); text-decoration: none;">aftv.news/6518523</a></div>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Crónica de Uruguay 1930: De Montevideo a la era digital de 2026.</p>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-title">Ajuste Kiwim TV</div>
-                        <div class="spec-value">Buffer Cache Clear</div>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Limpieza periódica de memoria asignada a streaming en vivo y VOD.</p>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2026 Mundo APK - Soporte Técnico AT-APK. Diseñado bajo lineamientos visuales de interfaz limpia.</p>
-        </footer>
+    <div class="tech-bar">
+        ⚡ Infraestructura Multimedia Next-Gen: Decodificación 8K UHD, IA Predictiva y Optimización Kernel ⚡
     </div>
 
+    <div class="nav-bar">
+        <a href="#">Documentación API</a>
+        <a href="#">Arquitectura Kernel</a>
+        <a href="#">Kiwim TV Core</a>
+        <a href="#">Optimización Google TV</a>
+        <a href="#">Soporte Android TV</a>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="apple-container">
+            
+            <span class="season-badge">🚀 Plataforma Global de Rendimiento Multimedia</span>
+            <h1 class="header-title">Mundo APK - AT-APK</h1>
+            <p class="header-subtitle">Índice global de distribución de recursos, análisis de fragmentación de firmware y guías de optimización avanzada para ecosistemas de televisión digital y reproductores de alta definición.</p>
+
+            <!-- CONTENEDOR GRID DE HARDWARE Y SOFTWARE -->
+            <div class="grid-devices">
+                <!-- Tarjeta Lion TV -->
+                <div class="card-device">
+                    <div class="card-tag">Lion TV Ecosystem</div>
+                    <div class="img-container dark-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#1a1a1a"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#ff9500" font-weight="bold" text-anchor="middle">LION TV</text></svg>
+                    </div>
+                    <h2 class="card-heading">Resumen Operativo</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Arquitectura de Streaming</span>
+                            <span class="component-desc">Entorno multimedia alternativo para maximizar el rendimiento gráfico en hardware limitado.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Núcleo Optimizado</span>
+                            <span class="component-desc">Estructura adaptativa de buffers para evitar caídas de frames en Android.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Google TV -->
+                <div class="card-device">
+                    <div class="card-tag">Google TV Parts</div>
+                    <div class="img-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#1a1a1a"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">GOOGLE TV</text></svg>
+                    </div>
+                    <h2 class="card-heading">Componentes TV</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Sistema Operativo</span>
+                            <span class="component-desc">Capa superior basada en Android TV que organiza la pantalla de inicio.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Perfil de Usuario</span>
+                            <span class="component-desc">Espacio personalizado para separar historiales y configuraciones de apps.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Fire Stick -->
+                <div class="card-device">
+                    <div class="card-tag">Fire Stick Parts</div>
+                    <div class="img-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#e47911"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">FIRE STICK</text></svg>
+                    </div>
+                    <h2 class="card-heading">Componentes Stick</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. Dongle HDMI</span>
+                            <span class="component-desc">Cuerpo de hardware que se conecta directo a la entrada de video de la pantalla.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Puerto Micro-USB</span>
+                            <span class="component-desc">Entrada lateral encargada de recibir alimentación eléctrica o adaptadores.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Watch Onn -->
+                <div class="card-device">
+                    <div class="card-tag">Watch Onn Parts</div>
+                    <div class="img-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#0071dc"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">WATCH ONN</text></svg>
+                    </div>
+                    <h2 class="card-heading">Componentes Box</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. TV Box Square</span>
+                            <span class="component-desc">Caja receptora con mayor ventilación y estabilidad en superficies planas.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. Conectividad Interna</span>
+                            <span class="component-desc">Módulos integrados Wi-Fi de doble banda y Bluetooth para accesorios.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Kiwim TV (INCORPORACIÓN CLAVE) -->
+                <div class="card-device">
+                    <div class="card-tag">Kiwim TV Suite</div>
+                    <div class="img-container kiwi-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#0f172a"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#10b981" font-weight="bold" text-anchor="middle">KIWIM TV</text></svg>
+                    </div>
+                    <h2 class="card-heading">Mejoras de App</h2>
+                    <ul class="component-list">
+                        <li class="component-item">
+                            <span class="component-name">1. ExoPlayer & HW Decoding</span>
+                            <span class="component-desc">Integración de decodificación H.265/HEVC por GPU para una aceleración fluida.</span>
+                        </li>
+                        <li class="component-item">
+                            <span class="component-name">2. EPG Dinámica & Zero-Buffer</span>
+                            <span class="component-desc">Gestión eficiente de caché para cambios de canal instantáneos sin pausas.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECCIÓN DE NUEVA INFRAESTRUCTURA Y TECNOLOGÍA MULTIMEDIA -->
+            <div class="tech-info-section">
+                <div class="tech-header">
+                    <h3 class="tech-title">🌐 Redes de Distribución y Redes de Cero Latencia</h3>
+                    <span style="font-size: 11px; font-weight: 700; color: #ffffff; background: var(--accent-blue); padding: 4px 10px; border-radius: 20px;">NEXT-GEN STREAMING</span>
+                </div>
+                
+                <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-main);">
+                    El panorama actual del consumo audiovisual exige infraestructuras capaces de transmitir flujos concurrentes en 4K y 8K UHD a 60 fps sin interrupciones. La combinación de redes de fibra óptica ultra rápidas, códecs de compresión AV1/HEVC y enrutamiento inteligente por IA garantiza la mejor calidad en cada pantalla.
+                </p>
+
+                <div class="tech-cards-container">
+                    <div class="tech-feature-card" style="border-top: 3px solid var(--accent-blue);">
+                        <h4>Decodificación AV1 / HEVC ⚡</h4>
+                        <p>Optimización del ancho de banda hasta un 30% más eficiente que H.264, ofreciendo máxima fidelidad de color y nitidez sin saturar tu red doméstica.</p>
+                    </div>
+                    <div class="tech-feature-card" style="border-top: 3px solid var(--accent-purple);">
+                        <h4>Gestión Activa de Caché 🧠</h4>
+                        <p>Algoritmos de predicción que precargan los paquetes de datos esenciales en la memoria RAM, eliminando por completo el búfer de espera.</p>
+                    </div>
+                    <div class="tech-feature-card" style="border-top: 3px solid var(--accent-cyan);">
+                        <h4>Integración Multi-Dispositivo 📱</h4>
+                        <p>Sincronización fluida entre sistemas Android TV, dongles HDMI y reproductores dedicados con soporte para mandos por voz y bluetooth.</p>
+                    </div>
+                </div>
+
+                <div class="tech-note">
+                    <strong>Nota de Rendimiento para Kiwim TV y Android TV:</strong> Para maximizar la velocidad de reproducción, se sugiere deshabilitar la aceleración por software en dispositivos antiguos y forzar el uso del motor <em>ExoPlayer</em> nativo en los ajustes del repositorio.
+                </div>
+            </div>
+
+            <!-- SECCIÓN DEL NÚCLEO ABSTRACTO -->
+            <div class="showcase-box">
+                <div class="icon-link-wrapper" title="Módulo Multimedia">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+                        <circle cx="50" cy="50" r="46" fill="#1e293b" stroke="#00b4d8" stroke-width="2"/>
+                        <polygon points="40,30 70,50 40,70" fill="#00b4d8"/>
+                    </svg>
+                </div>
+                <div class="showcase-text-box">
+                    <h4 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; font-weight: 600;">Módulo de Transmisión de Alta Velocidad (Ultra HD)</h4>
+                    <p style="margin: 0;">Nuestra arquitectura distribuye inteligentemente las peticiones APK y los datos de transmisión. Esto disminuye la carga sobre los procesadores móviles y TV Box, garantizando fluidez constante a 60 fps en cualquier plataforma.</p>
+                </div>
+            </div>
+
+            <!-- CAJA DE SOLUCIONES -->
+            <div class="solution-box">
+                <h3 class="solution-title">🚀 Pasos para la Optimización de Tu Smart TV</h3>
+                <p class="solution-text">
+                    Sigue estos sencillos pasos para asegurar la máxima velocidad de respuesta en tus aplicaciones de streaming favoritas:
+                </p>
+                <ul class="solution-steps">
+                    <li><strong>Activar Decodificador por Hardware (H.265/HEVC):</strong> Procesa el video de forma directa en el procesador gráfico (GPU), manteniendo la CPU libre para la interfaz.</li>
+                    <li><strong>Limpieza Extrema de Caché de Red:</strong> Elimina datos residuales acumulados en la app para liberar memoria RAM y velocidad Wi-Fi.</li>
+                    <li><strong>Ajuste de Tunneling en Apps:</strong> Configura Kiwim TV o reproductores compatibles con ExoPlayer para evitar paradas durante eventos de alta concurrencia.</li>
+                </ul>
+            </div>
+
+            <!-- TARJETA VPN CON ENLACE REDIRIGIDO -->
+            <a href="https://aftv.news/7766987" target="_blank" class="vpn-interactivity-card">
+                <h3 class="solution-title" style="color: var(--accent-purple); margin-bottom: 4px;">
+                    🔒 Integración de Redes Virtuales y Conectividad Remota Segura
+                </h3>
+                <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--accent-purple); letter-spacing: 0.5px; margin: 0 0 16px 0;">
+                    🔗 Clic aquí para acceder a la guía de integración externa →
+                </p>
+                <p class="solution-text">
+                    La implementación de una infraestructura de red privada o túneles de comunicación remota debe garantizar la máxima privacidad del usuario y un rendimiento óptimo de datos punto a punto (P2P).
+                </p>
+                
+                <div class="tech-cards-container" style="gap: 20px; margin-bottom: 20px;">
+                    <div class="tech-feature-card" style="background: #fafdfa; text-align: left; padding: 20px; border-top: 3px solid var(--accent-blue);">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 8px;">🛠️ Enlace Punto a Punto (P2P)</h4>
+                        <p style="font-size: 12.5px; color: var(--text-muted);">El túnel cifrado interconecta dispositivos de forma segura, permitiendo telemetría o soporte técnico remoto con encriptación de extremo a extremo (E2EE).</p>
+                    </div>
+
+                    <div class="tech-feature-card" style="background: #fafdfa; text-align: left; padding: 20px; border-top: 3px solid #10b981;">
+                        <h4 style="color: #10b981; margin-bottom: 8px;">📲 Consentimiento Android VpnService</h4>
+                        <p style="font-size: 12.5px; color: var(--text-muted);">Cumpliendo con las normativas oficiales, el uso de la API <code>VpnService</code> requiere la autorización directa e inalterable del usuario antes de establecer cualquier túnel de datos.</p>
+                    </div>
+
+                    <div class="tech-feature-card" style="background: #fafdfa; text-align: left; padding: 20px; border-top: 3px solid #ff9500;">
+                        <h4 style="color: #ff9500; margin-bottom: 8px;">🛰️ Split Tunneling Eficiente</h4>
+                        <p style="font-size: 12.5px; color: var(--text-muted);">Implementa librerías como WireGuard para direccionar únicamente el tráfico técnico deseado, asegurando que tu conexión de internet habitual conserve su velocidad nativa.</p>
+                    </div>
+                </div>
+
+                <div class="tech-note" style="background: rgba(88, 86, 214, 0.04); border-left-color: var(--accent-purple); color: var(--text-main);">
+                    <strong>⚖️ Protocolo de Privacidad:</strong> Operamos bajo el estándar "Zero Logs", garantizando que la navegación y datos del usuario jamás sean inspeccionados o almacenados.
+                </div>
+            </a>
+
+            <!-- TARJETA DE LEYENDA HISTÓRICA DE EVOLUCIÓN CON ENLACE REDIRIGIDO -->
+            <a href="https://aftv.news/6518523" target="_blank" class="history-legend-card">
+                <div class="legend-badge">📜 Archivo & Evolución Tecnológica</div>
+                <h3 class="legend-title">La Transformación Digital del Streaming</h3>
+                <p class="legend-text">
+                    Desde las primeras transmisiones analógicas hasta los actuales ecosistemas de ultra alta definición movidos por Inteligencia Artificial y reproductores avanzados como <strong>Kiwim TV</strong>, la evolución del software ha cambiado para siempre nuestra forma de conectarnos y disfrutar del contenido audiovisual.
+                </p>
+                <span class="legend-action-text">Haz clic aquí para explorar la cronología completa de la evolución digital →</span>
+            </a>
+
+            <div class="tech-specs-section">
+                <!-- Fin del contenido principal -->
+            </div>
+            
+        </div>
+    </div>
 </body>
 </html>
