@@ -135,7 +135,7 @@
             max-width: 800px;
         }
 
-        /* TARJETA ESPECIAL LEGACY MODE */
+        /* TARJETA ESPECIAL LEGACY MODE INTERACTIVA */
         .legacy-card {
             display: block;
             background: linear-gradient(135deg, rgba(41, 151, 255, 0.1) 0%, rgba(48, 209, 88, 0.15) 100%);
@@ -143,9 +143,11 @@
             border-radius: 22px;
             padding: 35px;
             margin: 0 0 40px 0;
+            text-decoration: none;
             color: var(--text-main);
             box-shadow: var(--shadow-card);
             transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
         }
 
         .legacy-card:hover {
@@ -173,6 +175,20 @@
             margin: 0 0 12px 0;
             letter-spacing: -0.5px;
             color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .legacy-title::after {
+            content: "↗";
+            font-size: 22px;
+            color: var(--accent-green);
+            transition: transform 0.3s ease;
+        }
+
+        .legacy-card:hover .legacy-title::after {
+            transform: translate(3px, -3px);
         }
 
         .legacy-text { 
@@ -359,7 +375,7 @@
 
     <nav class="nav-bar">
         <a href="#">Documentación</a>
-        <a href="#">Modo Legacy x86</a>
+        <a href="http://aftv.news/6486781" target="_blank" rel="noopener noreferrer">Modo Legacy x86</a>
         <a href="#">Ajustes Google TV</a>
         <a href="#">Guía de Rendimiento</a>
         <a href="#">Soporte Android TV</a>
@@ -372,14 +388,14 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Centro de conocimiento técnico, distribución de recursos y optimización avanzada de capas del sistema para dispositivos Smart TV y Google TV.</p>
 
-            <!-- TARJETA DESTACADA MODO LEGACY -->
-            <div class="legacy-card">
+            <!-- TARJETA DESTACADA MODO LEGACY CON ENLACE DIRECTO -->
+            <a href="http://aftv.news/6486781" target="_blank" rel="noopener noreferrer" class="legacy-card">
                 <div class="legacy-badge">💾 ARQUITECTURA X86 & BIOS</div>
                 <h2 class="legacy-title">Modo Legacy en Discos Duros con Android TV</h2>
                 <p class="legacy-text">
                     El <strong>Modo Legacy</strong> en un disco duro con Android TV se refiere al sistema de arranque tradicional por <strong>BIOS (MBR)</strong>, necesario para instalar y ejecutar distribuciones de Android TV x86 en computadoras o discos reutilizados antiguos que no soportan el estándar moderno UEFI.
                 </p>
-            </div>
+            </a>
 
             <!-- CONTENEDOR GRID DE HARDWARE -->
             <div class="grid-devices">
