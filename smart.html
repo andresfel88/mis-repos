@@ -293,6 +293,15 @@
             letter-spacing: -0.5px;
         }
 
+        .gtv-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
         .gtv-features-container {
             display: flex;
             gap: 20px;
@@ -332,12 +341,12 @@
             color: var(--text-main);
         }
 
+        /* CAJA DE SOLUCIONES Y OPTIMIZACIÓN */
         .solution-box {
             background-color: var(--card-bg);
             border: 1px solid var(--border-card);
             border-radius: 22px;
             padding: 30px;
-            margin: 40px 0;
             box-shadow: var(--shadow-card);
         }
 
@@ -355,10 +364,12 @@
         .solution-steps { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 20px; margin: 0; }
         .solution-steps li { margin-bottom: 10px; }
 
+        /* MEDIA QUERIES */
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
             .gtv-features-container { flex-direction: column; gap: 15px; }
         }
+
         @media (max-width: 768px) {
             .apple-container { padding: 30px 20px; }
             .grid-devices { grid-template-columns: 1fr; }
@@ -369,16 +380,16 @@
 </head>
 <body>
 
-    <div class="top-info-bar">
+    <header class="top-info-bar">
         <span>Ecosistema Multimedia:</span> Optimización, Rendimiento y Soporte Especializado para Google TV
-    </div>
+    </header>
 
     <nav class="nav-bar">
-        <a href="#">Documentación</a>
-        <a href="http://aftv.news/6486781" target="_blank" rel="noopener noreferrer">Modo Legacy x86</a>
-        <a href="#">Ajustes Google TV</a>
-        <a href="#">Guía de Rendimiento</a>
-        <a href="#">Soporte Android TV</a>
+        <a href="#documentacion">Documentación</a>
+        <a href="https://app.mediafire.com/folder/18np16fv9uhpr" target="_blank" rel="noopener noreferrer">Modo Legacy x86</a>
+        <a href="#ajustes">Ajustes Google TV</a>
+        <a href="#rendimiento">Guía de Rendimiento</a>
+        <a href="#soporte">Soporte Android TV</a>
     </nav>
 
     <main class="main-wrapper">
@@ -388,9 +399,9 @@
             <h1 class="header-title">Mundo APK - AT-APK</h1>
             <p class="header-subtitle">Centro de conocimiento técnico, distribución de recursos y optimización avanzada de capas del sistema para dispositivos Smart TV y Google TV.</p>
 
-            <!-- TARJETA DESTACADA MODO LEGACY CON ENLACE DIRECTO -->
-            <a href="http://aftv.news/6486781" target="_blank" rel="noopener noreferrer" class="legacy-card">
-                <div class="legacy-badge">💾 ARQUITECTURA X86 & BIOS</div>
+            <!-- TARJETA DESTACADA MODO LEGACY COMPLETAMENTE CLICKEABLE CON LINK DE MEDIAFIRE -->
+            <a href="https://app.mediafire.com/folder/18np16fv9uhpr" target="_blank" rel="noopener noreferrer" class="legacy-card">
+                <span class="legacy-badge">💾 ARQUITECTURA X86 &amp; BIOS</span>
                 <h2 class="legacy-title">Modo Legacy en Discos Duros con Android TV</h2>
                 <p class="legacy-text">
                     El <strong>Modo Legacy</strong> en un disco duro con Android TV se refiere al sistema de arranque tradicional por <strong>BIOS (MBR)</strong>, necesario para instalar y ejecutar distribuciones de Android TV x86 en computadoras o discos reutilizados antiguos que no soportan el estándar moderno UEFI.
@@ -398,10 +409,10 @@
             </a>
 
             <!-- CONTENEDOR GRID DE HARDWARE -->
-            <div class="grid-devices">
+            <section class="grid-devices">
                 <!-- Tarjeta Google TV Pro -->
-                <div class="card-device">
-                    <div class="card-tag">Google TV OS</div>
+                <article class="card-device">
+                    <span class="card-tag">Google TV OS</span>
                     <div class="img-container">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#2997ff" font-weight="bold" text-anchor="middle">GOOGLE TV</text></svg>
                     </div>
@@ -416,11 +427,11 @@
                             <span class="component-desc">Búsquedas globales por voz para abrir apps e interactuar sin escribir.</span>
                         </li>
                     </ul>
-                </div>
+                </article>
 
                 <!-- Tarjeta Lion TV -->
-                <div class="card-device">
-                    <div class="card-tag">Lion TV Ecosystem</div>
+                <article class="card-device">
+                    <span class="card-tag">Lion TV Ecosystem</span>
                     <div class="img-container">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#af52de" font-weight="bold" text-anchor="middle">LION TV</text></svg>
                     </div>
@@ -435,11 +446,11 @@
                             <span class="component-desc">Gestión inteligente de buffers para evitar interrupciones o caídas de cuadros.</span>
                         </li>
                     </ul>
-                </div>
+                </article>
 
                 <!-- Tarjeta Fire Stick -->
-                <div class="card-device">
-                    <div class="card-tag">Fire Stick Parts</div>
+                <article class="card-device">
+                    <span class="card-tag">Fire Stick Parts</span>
                     <div class="img-container">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#ff9500" font-weight="bold" text-anchor="middle">FIRE STICK</text></svg>
                     </div>
@@ -454,11 +465,11 @@
                             <span class="component-desc">Transmisión de alta velocidad optimizada para señales Wi-Fi receptoras.</span>
                         </li>
                     </ul>
-                </div>
+                </article>
 
                 <!-- Tarjeta Watch Onn -->
-                <div class="card-device">
-                    <div class="card-tag">Watch Onn Parts</div>
+                <article class="card-device">
+                    <span class="card-tag">Watch Onn Parts</span>
                     <div class="img-container">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#2997ff" font-weight="bold" text-anchor="middle">WATCH ONN</text></svg>
                     </div>
@@ -473,14 +484,14 @@
                             <span class="component-desc">Sincronización rápida con controles de voz y periféricos externos.</span>
                         </li>
                     </ul>
-                </div>
-            </div>
+                </article>
+            </section>
 
             <!-- SECCIÓN INTEGRAL DE GOOGLE TV -->
-            <div class="googletv-info-section">
+            <section class="googletv-info-section" id="ajustes">
                 <div class="gtv-header">
                     <h3 class="gtv-title">📺 Domina el Ecosistema Google TV</h3>
-                    <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;">GUÍA TÉCNICA</span>
+                    <span class="gtv-badge">GUÍA TÉCNICA</span>
                 </div>
                 
                 <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-muted);">
@@ -505,10 +516,10 @@
                 <div class="gtv-tech-note">
                     <strong>Recomendación Pro:</strong> Para mantener las aplicaciones funcionando con máxima fluidez en Google TV, habilita las Opciones de Desarrollador y ajusta la "Escala de animación" a 0.5x. Esto hará que la navegación sea instantánea.
                 </div>
-            </div>
+            </section>
 
             <!-- CAJA DE SOLUCIONES Y OPTIMIZACIÓN -->
-            <div class="solution-box">
+            <section class="solution-box" id="rendimiento">
                 <h3 class="solution-title">⚡ Pasos para una Experiencia Multimedia Perfecta</h3>
                 <p class="solution-text">
                     Sigue esta pequeña guía de mantenimiento preventivo en tu dispositivo Smart TV o TV Box:
@@ -518,9 +529,10 @@
                     <li><strong>Depuración periódica de Caché:</strong> Limpia los archivos temporales cada cierto tiempo desde los Ajustes de Aplicaciones.</li>
                     <li><strong>Conexión Preferente en 5 GHz:</strong> Conecta tu Smart TV a la banda de Wi-Fi de 5 GHz para obtener mayor velocidad y evitar interferencias de red.</li>
                 </ul>
-            </div>
+            </section>
             
         </div>
     </main>
+
 </body>
 </html>
