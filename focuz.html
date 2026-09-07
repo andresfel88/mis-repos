@@ -203,14 +203,24 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        /* SECCIÓN FOCUZ (NUEVA) */
+        /* SECCIÓN FOCUZ CON ENLACE INTERACTIVO */
         .focuz-section {
+            display: block;
+            text-decoration: none;
             background: linear-gradient(135deg, rgba(175, 82, 222, 0.1) 0%, rgba(41, 151, 255, 0.1) 100%);
             border: 1px solid rgba(175, 82, 222, 0.3);
             border-radius: 22px;
             padding: 35px;
             margin-bottom: 40px;
             box-shadow: var(--shadow-card);
+            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+        }
+
+        .focuz-section:hover {
+            transform: translateY(-4px);
+            border-color: rgba(175, 82, 222, 0.6);
+            background: linear-gradient(135deg, rgba(175, 82, 222, 0.18) 0%, rgba(41, 151, 255, 0.18) 100%);
         }
 
         .focuz-header {
@@ -230,6 +240,17 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .focuz-title::after {
+            content: "↗";
+            font-size: 20px;
+            color: var(--accent-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .focuz-section:hover .focuz-title::after {
+            transform: translate(3px, -3px);
         }
 
         .focuz-grid {
@@ -380,7 +401,7 @@
 
     <nav class="nav-bar">
         <a href="#">Documentación</a>
-        <a href="#">Protocolo Focuz</a>
+        <a href="http://aftv.news/528593710:12 AM" target="_blank" rel="noopener noreferrer">Protocolo Focuz</a>
         <a href="#">Ajustes Google TV</a>
         <a href="#">Guía de Rendimiento</a>
         <a href="#">Soporte Android TV</a>
@@ -472,8 +493,8 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN FOCUZ (EL PAJARRACO NEGRO VIRTUAL) -->
-            <div class="focuz-section">
+            <!-- SECCIÓN FOCUZ COMPLETAMENTE CLICKEABLE -->
+            <a href="http://aftv.news/528593710:12 AM" target="_blank" rel="noopener noreferrer" class="focuz-section">
                 <div class="focuz-header">
                     <h3 class="focuz-title">🦅 Protocolo Focuz (El Guardián Nocturno)</h3>
                     <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(175,82,222,0.2); padding: 4px 10px; border-radius: 20px;">MÓDULO DE RED NEGRO</span>
@@ -499,7 +520,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- SECCIÓN INTEGRAL DE GOOGLE TV -->
             <div class="googletv-info-section">
