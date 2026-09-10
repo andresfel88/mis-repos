@@ -217,7 +217,7 @@
         .component-desc { color: var(--text-muted); }
 
         /* SECCIÓN LEGACYTV CLICKEABLE */
-        .mxl-section {
+        .legacy-section {
             display: block;
             text-decoration: none;
             background: linear-gradient(135deg, rgba(175, 82, 222, 0.2) 0%, rgba(41, 151, 255, 0.08) 100%);
@@ -232,13 +232,13 @@
             cursor: pointer;
         }
 
-        .mxl-section:hover {
+        .legacy-section:hover {
             transform: translateY(-4px);
             border-color: rgba(175, 82, 222, 0.7);
             background: linear-gradient(135deg, rgba(175, 82, 222, 0.35) 0%, rgba(41, 151, 255, 0.18) 100%);
         }
 
-        .mxl-header {
+        .legacy-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -247,7 +247,7 @@
             padding-bottom: 15px;
         }
 
-        .mxl-title {
+        .legacy-title {
             font-size: 22px;
             font-weight: 600;
             color: var(--text-main);
@@ -257,32 +257,32 @@
             gap: 10px;
         }
 
-        .mxl-title::after {
+        .legacy-title::after {
             content: "↗";
             font-size: 20px;
             color: var(--accent-purple);
             transition: transform 0.3s ease;
         }
 
-        .mxl-section:hover .mxl-title::after {
+        .legacy-section:hover .legacy-title::after {
             transform: translate(3px, -3px);
         }
 
-        .mxl-grid {
+        .legacy-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-top: 20px;
         }
 
-        .mxl-col {
+        .legacy-col {
             background: rgba(0, 0, 0, 0.55);
             padding: 20px;
             border-radius: 16px;
             border: 1px solid var(--border-card);
         }
 
-        .mxl-col h5 {
+        .legacy-col h5 {
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 10px;
@@ -290,10 +290,10 @@
             letter-spacing: 0.5px;
         }
 
-        .mxl-col.advantages h5 { color: var(--accent-green); }
-        .mxl-col.disadvantages h5 { color: var(--accent-orange); }
+        .legacy-col.advantages h5 { color: var(--accent-green); }
+        .legacy-col.disadvantages h5 { color: var(--accent-orange); }
 
-        .mxl-col ul {
+        .legacy-col ul {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -302,7 +302,7 @@
             line-height: 1.6;
         }
 
-        .mxl-col ul li {
+        .legacy-col ul li {
             margin-bottom: 8px;
         }
 
@@ -402,7 +402,7 @@
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
             .gtv-features-container { flex-direction: column; gap: 15px; }
-            .mxl-grid { grid-template-columns: 1fr; }
+            .legacy-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .apple-container { padding: 30px 20px; }
@@ -420,7 +420,7 @@
 
     <nav class="nav-bar">
         <a href="#">Documentación</a>
-        <a href="#">LegacyTV</a>
+        <a href="http://aftv.news/6486781" target="_blank" rel="noopener noreferrer">LegacyTV</a>
         <a href="#">Ajustes Google TV</a>
         <a href="#">Guía de Rendimiento</a>
         <a href="#">Soporte Android TV</a>
@@ -512,16 +512,16 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN LEGACYTV CLICKEABLE -->
-            <a href="#" class="mxl-section">
-                <div class="mxl-header">
-                    <h3 class="mxl-title">📱 LegacyTV (MXL IPTV)</h3>
+            <!-- SECCIÓN LEGACYTV CLICKEABLE CON ENLACE DIRECTO -->
+            <a href="http://aftv.news/6486781" target="_blank" rel="noopener noreferrer" class="legacy-section">
+                <div class="legacy-header">
+                    <h3 class="legacy-title">📱 LegacyTV</h3>
                 </div>
                 <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-muted);">
                     <strong>LegacyTV</strong> es un reproductor multimedia multiformato orientado al procesamiento de listas de reproducción de contenido en streaming (M3U, JSON y enlaces directos HTTP/HTTPS). Permite decodificar emisiones de televisión en vivo, series y películas en dispositivos Android y Smart TV mediante protocolos de red optimizados.
                 </p>
-                <div class="mxl-grid">
-                    <div class="mxl-col advantages">
+                <div class="legacy-grid">
+                    <div class="legacy-col advantages">
                         <h5>Ventajas</h5>
                         <ul>
                             <li><strong>Compatibilidad de Listas:</strong> Soporta múltiples formatos de listas de reproducción M3U y URLs remotas.</li>
@@ -529,7 +529,7 @@
                             <li><strong>Gestión de Canales:</strong> Categorización automática de canales, guía de programación EPG y soporte para listas de favoritos.</li>
                         </ul>
                     </div>
-                    <div class="mxl-col disadvantages">
+                    <div class="legacy-col disadvantages">
                         <h5>Desventajas</h5>
                         <ul>
                             <li><strong>Dependencia de Listas Externas:</strong> No provee contenido propio; requiere la carga manual de listas remotas o locales.</li>
