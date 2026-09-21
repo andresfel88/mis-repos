@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mundo APK - Repositorio de Soporte Técnico AT-APK</title>
     
-    <!-- Preconexión a CDNs globales sin restricciones de región -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     
     <style>
@@ -205,84 +204,22 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        .androidtv-section {
-            background: linear-gradient(135deg, rgba(41, 151, 255, 0.15) 0%, rgba(175, 82, 222, 0.08) 100%);
+        .legacy-section {
+            background-color: var(--card-bg);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(41, 151, 255, 0.3);
+            border: 1px solid var(--border-card);
             border-radius: 22px;
             padding: 35px;
             margin-bottom: 40px;
             box-shadow: var(--shadow-card);
         }
 
-        .androidtv-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border-card);
-            padding-bottom: 15px;
-        }
-
-        .androidtv-title {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--text-main);
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .androidtv-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .androidtv-col {
-            background: rgba(0, 0, 0, 0.55);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid var(--border-card);
-        }
-
-        .androidtv-col h5 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .androidtv-col.features h5 { color: var(--accent-blue); }
-        .androidtv-col.requirements h5 { color: var(--accent-purple); }
-
-        .androidtv-col ul { list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-        .androidtv-col ul li { margin-bottom: 8px; }
-
-        .features-table-container { margin-top: 25px; overflow-x: auto; }
-
-        .features-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-            text-align: left;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border-card);
-        }
-
-        .features-table th, .features-table td { padding: 12px 16px; border-bottom: 1px solid var(--border-card); }
-        .features-table th { background: rgba(255, 255, 255, 0.05); color: var(--text-main); font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
-        .features-table td { color: var(--text-muted); }
-        .features-table tr:last-child td { border-bottom: none; }
-
-        /* SECCIÓN GOOGLE TV CONFIGURADA COMO BOTÓN INTERACTIVO */
-        .googletv-info-section {
+        /* ENLACE EN LA SECCIÓN GOOGLE TV */
+        .googletv-link-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
             background-color: var(--card-bg);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -291,15 +228,14 @@
             padding: 35px;
             box-shadow: var(--shadow-card);
             margin-bottom: 40px;
-            cursor: pointer;
             transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .googletv-info-section:hover {
+        .googletv-link-card:hover {
             transform: translateY(-4px);
             border-color: var(--accent-blue);
             background-color: rgba(35, 35, 42, 0.9);
-            box-shadow: 0 15px 35px rgba(41, 151, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(41, 151, 255, 0.25);
         }
 
         .gtv-header {
@@ -355,7 +291,6 @@
         @media (max-width: 992px) { 
             .grid-devices { grid-template-columns: repeat(2, 1fr); } 
             .gtv-features-container { flex-direction: column; gap: 15px; }
-            .androidtv-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .apple-container { padding: 30px 20px; }
@@ -368,12 +303,12 @@
 <body>
 
     <div class="top-info-bar">
-        <span>Ecosistema Multimedia:</span> Optimización, Rendimiento y Soporte Especializado para Android TV
+        <span>Ecosistema Multimedia:</span> Optimización, Rendimiento y Soporte Especializado para Google TV
     </div>
 
     <nav class="nav-bar">
         <a href="#">Documentación</a>
-        <a href="#">Aplicaciones TV</a>
+        <a href="#">LegacyTV</a>
         <a href="#">Ajustes Google TV</a>
         <a href="#">Guía de Rendimiento</a>
         <a href="#">Soporte Android TV</a>
@@ -384,7 +319,7 @@
             
             <span class="season-badge">✨ Plataforma de Entrenamiento y Entretenimiento</span>
             <h1 class="header-title">Mundo APK - AT-APK</h1>
-            <p class="header-subtitle">Centro de conocimiento técnico, distribución de recursos y optimización avanzada de aplicaciones para Smart TV y Android TV.</p>
+            <p class="header-subtitle">Centro de conocimiento técnico, distribución de recursos y optimización avanzada de capas del sistema para dispositivos Smart TV y Google TV.</p>
 
             <div class="grid-devices">
                 <div class="card-device">
@@ -405,17 +340,16 @@
                     </ul>
                 </div>
 
-                <!-- LEGACY TV SIN ENLACES NI DESCARGAS -->
                 <div class="card-device">
-                    <div class="card-tag">Legacy TV System</div>
+                    <div class="card-tag">Lion TV Ecosystem</div>
                     <div class="img-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#af52de" font-weight="bold" text-anchor="middle">LEGACY TV</text></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#af52de" font-weight="bold" text-anchor="middle">LION TV</text></svg>
                     </div>
                     <h2 class="card-heading">Resumen Operativo</h2>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Arquitectura de Streaming</span>
-                            <span class="component-desc">Entorno multimedia optimizado para maximizar el rendimiento gráfico en TV.</span>
+                            <span class="component-desc">Entorno multimedia optimizado para maximizar el rendimiento gráfico.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Núcleo Adaptativo</span>
@@ -461,72 +395,30 @@
                 </div>
             </div>
 
-            <div class="androidtv-section">
-                <div class="androidtv-header">
-                    <h3 class="androidtv-title">📺 ¿Qué es una Aplicación para Android TV?</h3>
+            <!-- SECCIÓN LEGACY TV (INFORMATIVA SIN ENLACE) -->
+            <div class="legacy-section">
+                <div class="gtv-header">
+                    <h3 class="gtv-title">📱 LegacyTV</h3>
                 </div>
                 <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-muted);">
-                    Una <strong>aplicación para Android TV</strong> es un software empaquetado en formato APK diseñado específicamente para ejecutarse en pantallas grandes (televisores o proyectores) y ser navegado utilizando un control remoto estándar (D-Pad) en lugar de una pantalla táctil.
+                    <strong>LegacyTV</strong> es un reproductor multimedia multiformato orientado al procesamiento de listas de reproducción de contenido en streaming (M3U, JSON y enlaces directos HTTP/HTTPS). Permite decodificar emisiones de televisión en vivo, series y películas en dispositivos Android y Smart TV mediante protocolos de red optimizados.
                 </p>
-                
-                <div class="androidtv-grid">
-                    <div class="androidtv-col features">
-                        <h5>Características Clave</h5>
-                        <ul>
-                            <li><strong>Navegación por D-Pad:</strong> Todos los elementos responden a los botones direccionales.</li>
-                            <li><strong>Interfaz Leanback:</strong> Enfoque visual con tarjetas grandes y legibles a distancia.</li>
-                            <li><strong>Soporte de Códecs AV:</strong> Integración con decodificadores de hardware para 4K/HDR10.</li>
-                        </ul>
+                <div class="gtv-features-container">
+                    <div class="gtv-feature-card">
+                        <h4 style="color: var(--accent-blue);">Ventajas</h4>
+                        <p>• <strong>Compatibilidad de Listas:</strong> Soporta múltiples formatos de listas de reproducción M3U y URLs remotas.<br>• <strong>Aceleración por Hardware:</strong> Decodificación eficiente de video para reducir el consumo de recursos.<br>• <strong>Gestión de Canales:</strong> Categorización automática de canales, guía de programación EPG y soporte para listas de favoritos.</p>
                     </div>
-                    <div class="androidtv-col requirements">
-                        <h5>Requisitos de Desarrollo</h5>
-                        <ul>
-                            <li><strong>Manifest Adaptado:</strong> Declaración de actividad `CATEGORY_LEANBACK_LAUNCHER`.</li>
-                            <li><strong>Sin Touch Obligatorio:</strong> Compatibilidad con periféricos y controles remotos.</li>
-                            <li><strong>Banners HD:</strong> Previsualización de imágenes adaptada al formato 16:9.</li>
-                        </ul>
+                    <div class="gtv-feature-card">
+                        <h4 style="color: var(--accent-purple);">Desventajas</h4>
+                        <p>• <strong>Dependencia de Listas Externas:</strong> No provee contenido propio; requiere la carga manual de listas remotas o locales.<br>• <strong>Ancho de Banda Requerido:</strong> El rendimiento y estabilidad de las transmisiones dependen de la calidad de la fuente y de la conexión del usuario.<br>• <strong>Configuración Inicial:</strong> Requiere conocimientos básicos para ingresar y sincronizar adecuadamente los enlaces de transmisión.</p>
                     </div>
-                </div>
-
-                <div class="features-table-container">
-                    <table class="features-table">
-                        <thead>
-                            <tr>
-                                <th>Aspecto</th>
-                                <th>App Móvil Tradicional</th>
-                                <th>App Optimizada para Android TV</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Navegación</strong></td>
-                                <td>Táctil (Gestos, Tap)</td>
-                                <td>Control Remoto (D-Pad, Flechas, OK)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Orientación</strong></td>
-                                <td>Vertical / Horizontal dinámica</td>
-                                <td>Fija en Horizontal (16:9)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Uso de Recursos</strong></td>
-                                <td>Gestión de batería prioritaria</td>
-                                <td>Aceleración gráfica y decodificación HW prioritaria</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Visibilidad</strong></td>
-                                <td>Launcher de SmartPhone</td>
-                                <td>Fila de Canales y Recomendaciones en Android TV</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
 
-            <!-- SECCIÓN GOOGLE TV CON REDIRECCIÓN AL HACER CLIC -->
-            <div class="googletv-info-section" onclick="window.open('http://aftv.news/6348088', '_blank')">
+            <!-- SECCIÓN GOOGLE TV CON ENLACE INCORPORADO -->
+            <a href="http://aftv.news/6348088" target="_blank" rel="noopener noreferrer" class="googletv-link-card">
                 <div class="gtv-header">
-                    <h3 class="gtv-title">Domina el Ecosistema Google TV</h3>
+                    <h3 class="gtv-title">📺 Domina el Ecosistema Google TV</h3>
                     <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;">GUÍA TÉCNICA</span>
                 </div>
                 
@@ -552,24 +444,23 @@
                 <div class="gtv-tech-note">
                     <strong>Recomendación Pro:</strong> Para mantener las aplicaciones funcionando con máxima fluidez en Google TV, habilita las Opciones de Desarrollador y ajusta la "Escala de animación" a 0.5x. Esto hará que la navegación sea instantánea.
                 </div>
-            </div>
+            </a>
 
             <div class="solution-box">
                 <h3 class="solution-title">⚡ Pasos para una Experiencia Multimedia Perfecta</h3>
                 <p class="solution-text">
-                    Mantenimiento preventivo sugerido para dispositivos Smart TV o TV Box:
+                    Sigue esta pequeña guía de mantenimiento preventivo en tu dispositivo Smart TV o TV Box:
                 </p>
                 <ul class="solution-steps">
-                    <li><strong>Decodificación H.265/HEVC:</strong> Aceleración por hardware para no saturar el procesador.</li>
-                    <li><strong>Depuración de Caché:</strong> Limpieza periódica de temporales desde los Ajustes.</li>
-                    <li><strong>Conexión Preferente en 5 GHz:</strong> Mayor velocidad y menor interferencia de red.</li>
+                    <li><strong>Decodificación H.265/HEVC:</strong> Asegúrate de que las aplicaciones utilicen aceleración por hardware gráfica para no saturar el procesador.</li>
+                    <li><strong>Depuración periódica de Caché:</strong> Limpia los archivos temporales cada cierto tiempo desde los Ajustes de Aplicaciones.</li>
+                    <li><strong>Conexión Preferente en 5 GHz:</strong> Conecta tu Smart TV a la banda de Wi-Fi de 5 GHz para obtener mayor velocidad y evitar interferencias de red.</li>
                 </ul>
             </div>
             
         </div>
     </main>
 
-    <!-- SCRIPT DE CONTINGENCIA REGIONAL Y PREVENCIÓN DE ERRORES DE CARGA -->
     <script>
         (function() {
             const remoteImageUrl = .jpg'https://images.alphacoders.com/598/598073.jpg';
