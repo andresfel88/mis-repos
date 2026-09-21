@@ -36,7 +36,6 @@
 
         body {
             background-color: var(--bg-page);
-            /* Fondo por defecto en CSS puro (Garantiza visibilidad en cualquier país sin depender de internet externo) */
             background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(10, 10, 15, 0.8) 50%, rgba(0, 0, 0, 0.95) 100%);
             background-size: cover;
             background-position: center top;
@@ -396,16 +395,17 @@
                     </ul>
                 </div>
 
+                <!-- LEGACY TV SIN ENLACES DE MEDIAFIRE -->
                 <div class="card-device">
-                    <div class="card-tag">Lion TV Ecosystem</div>
+                    <div class="card-tag">Legacy TV System</div>
                     <div class="img-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#af52de" font-weight="bold" text-anchor="middle">LION TV</text></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100%" height="100%" fill="#000000"/><text x="50%" y="55%" font-family="sans-serif" font-size="10" fill="#af52de" font-weight="bold" text-anchor="middle">LEGACY TV</text></svg>
                     </div>
                     <h2 class="card-heading">Resumen Operativo</h2>
                     <ul class="component-list">
                         <li class="component-item">
                             <span class="component-name">1. Arquitectura de Streaming</span>
-                            <span class="component-desc">Entorno multimedia optimizado para maximizar el rendimiento gráfico.</span>
+                            <span class="component-desc">Entorno multimedia optimizado para maximizar el rendimiento gráfico en TV.</span>
                         </li>
                         <li class="component-item">
                             <span class="component-name">2. Núcleo Adaptativo</span>
@@ -561,21 +561,15 @@
     <!-- SCRIPT DE CONTINGENCIA REGIONAL Y PREVENCIÓN DE ERRORES DE CARGA -->
     <script>
         (function() {
-            // URL remota de la imagen
             const remoteImageUrl = .jpg'https://images.alphacoders.com/598/598073.jpg';
-            
-            // Probar carga de la imagen en segundo plano para verificar bloqueos de ISP regional
             const imgTester = new Image();
             imgTester.src = remoteImageUrl;
 
             imgTester.onload = function() {
-                // Si la imagen carga sin bloqueos en el país del usuario, la aplica como fondo
                 document.body.style.backgroundImage = `linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(10, 10, 15, 0.8) 50%, rgba(0, 0, 0, 0.95) 100%), url('${remoteImageUrl}')`;
             };
 
             imgTester.onerror = function() {
-                // Si el proveedor de internet regional (Argentina/Brasil/etc) o la red bloquea la imagen, se activa el respaldo local en CSS
-                console.warn('Recurso externo bloqueado o no disponible en la región del usuario. Se mantiene el gradiente seguro.');
                 document.body.style.backgroundImage = 'linear-gradient(180deg, rgba(5, 5, 10, 0.95) 0%, rgba(15, 15, 25, 0.9) 50%, rgba(0, 0, 0, 0.98) 100%)';
             };
         })();
