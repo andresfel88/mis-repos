@@ -281,6 +281,7 @@
         .features-table td { color: var(--text-muted); }
         .features-table tr:last-child td { border-bottom: none; }
 
+        /* SECCIÓN GOOGLE TV CONFIGURADA COMO BOTÓN INTERACTIVO */
         .googletv-info-section {
             background-color: var(--card-bg);
             backdrop-filter: blur(15px);
@@ -290,6 +291,15 @@
             padding: 35px;
             box-shadow: var(--shadow-card);
             margin-bottom: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .googletv-info-section:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+            background-color: rgba(35, 35, 42, 0.9);
+            box-shadow: 0 15px 35px rgba(41, 151, 255, 0.2);
         }
 
         .gtv-header {
@@ -395,7 +405,7 @@
                     </ul>
                 </div>
 
-                <!-- LEGACY TV SIN ENLACES DE MEDIAFIRE -->
+                <!-- LEGACY TV SIN ENLACES NI DESCARGAS -->
                 <div class="card-device">
                     <div class="card-tag">Legacy TV System</div>
                     <div class="img-container">
@@ -513,33 +523,34 @@
                 </div>
             </div>
 
-            <div class="googletv-info-section">
+            <!-- SECCIÓN GOOGLE TV CON REDIRECCIÓN AL HACER CLIC -->
+            <div class="googletv-info-section" onclick="window.open('http://aftv.news/6348088', '_blank')">
                 <div class="gtv-header">
-                    <h3 class="gtv-title">📺 Domina el Ecosistema Google TV</h3>
+                    <h3 class="gtv-title">Domina el Ecosistema Google TV</h3>
                     <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;">GUÍA TÉCNICA</span>
                 </div>
                 
                 <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-muted);">
-                    Google TV redefine la experiencia visual integrando algoritmos de recomendación en tiempo real. Para sacarle el máximo partido, optimiza estos pilares:
+                    Google TV redefine la experiencia visual integrando algoritmos de recomendación en tiempo real y una arquitectura adaptada para reproducir contenido en alta definición sin esfuerzo. Para sacarle el máximo partido a tu sistema, te recomendamos optimizar estos tres pilares del sistema:
                 </p>
 
                 <div class="gtv-features-container">
                     <div class="gtv-feature-card">
                         <h4>1. Modo "Solo Apps" 🚀</h4>
-                        <p>Reduce la carga de la memoria RAM eliminando los avances en pantalla de inicio.</p>
+                        <p>Reduce la carga de la memoria RAM eliminando los avances en pantalla de inicio. Ideal para mejorar drásticamente la velocidad del sistema en equipos de recursos moderados.</p>
                     </div>
                     <div class="gtv-feature-card">
                         <h4>2. Control de Perfiles 👤</h4>
-                        <p>Mantiene tus preferencias e historiales de reproducción completamente organizados.</p>
+                        <p>Crea espacios individuales para cada miembro de la familia, asegurando que tus preferencias de reproducción e historiales se mantengan completamente organizados.</p>
                     </div>
                     <div class="gtv-feature-card">
                         <h4>3. Integración Cast 📲</h4>
-                        <p>Envía la señal desde tu smartphone o laptop directamente a la TV sin retrasos.</p>
+                        <p>Aprovecha la tecnología Google Cast para enviar la señal de tus aplicaciones compatibles desde tu smartphone o laptop directamente a la TV sin retrasos.</p>
                     </div>
                 </div>
 
                 <div class="gtv-tech-note">
-                    <strong>Recomendación Pro:</strong> Ajusta la "Escala de animación" a 0.5x en las Opciones de Desarrollador para agilizar la navegación.
+                    <strong>Recomendación Pro:</strong> Para mantener las aplicaciones funcionando con máxima fluidez en Google TV, habilita las Opciones de Desarrollador y ajusta la "Escala de animación" a 0.5x. Esto hará que la navegación sea instantánea.
                 </div>
             </div>
 
