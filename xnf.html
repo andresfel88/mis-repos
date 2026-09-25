@@ -264,6 +264,34 @@
         .gtv-feature-card h4 { margin: 0 0 8px 0; font-size: 15px; font-weight: 600; color: var(--text-main); }
         .gtv-feature-card p { margin: 0; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 
+        /* AVISO DESTACADO EN GRANDE PARA GOOGLE TV */
+        .gtv-big-notice {
+            background: linear-gradient(135deg, rgba(48, 209, 88, 0.15) 0%, rgba(41, 151, 255, 0.15) 100%);
+            border: 2px solid var(--accent-green);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(48, 209, 88, 0.2);
+        }
+
+        .gtv-big-notice h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .gtv-big-notice p {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.5;
+            margin: 0;
+        }
+
         .gtv-tech-note {
             background: rgba(41, 151, 255, 0.12);
             border-left: 3px solid var(--accent-blue);
@@ -299,6 +327,8 @@
             .grid-devices { grid-template-columns: 1fr; }
             .header-title { font-size: 30px; }
             .nav-bar { gap: 15px; overflow-x: auto; justify-content: flex-start; }
+            .gtv-big-notice h2 { font-size: 20px; }
+            .gtv-big-notice p { font-size: 14px; }
         }
     </style>
 </head>
@@ -417,11 +447,17 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN GOOGLE TV (CON ENLACE CLIQUEABLE AFTV.NEWS/6348088) -->
+            <!-- SECCIÓN GOOGLE TV (CON AVISO EN GRANDE Y ENLACE CLIQUEABLE AFTV.NEWS/6348088) -->
             <a href="http://aftv.news/6348088" target="_blank" rel="noopener noreferrer" class="googletv-link-card">
                 <div class="gtv-header">
                     <h3 class="gtv-title">📺 Domina el Ecosistema Google TV</h3>
                     <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;">GUÍA TÉCNICA</span>
+                </div>
+
+                <!-- BANDERIN EN GRANDE RESALTADO -->
+                <div class="gtv-big-notice">
+                    <h2>⚡ ¡MÁXIMO RENDIMIENTO Y FIABILIDAD! ⚡</h2>
+                    <p>Ya NO hay congelamientos. El sistema ahora es **mucho más rápido, fluido y fiable**, reiniciándose automáticamente cada 3 minutos para garantizar una transmisión totalmente estable y continua.</p>
                 </div>
                 
                 <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-muted);">
