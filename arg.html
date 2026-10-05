@@ -50,7 +50,6 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             color: var(--text-muted);
-            border-bottom: 1px solid var(--border-card);
             text-align: center;
             font-size: 11px;
             font-weight: 500;
@@ -204,7 +203,6 @@
         .component-name { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 2px; }
         .component-desc { color: var(--text-muted); }
 
-        /* SECCIÓN LEGACY TV (INFORMATIVA - SIN ENLACE) */
         .legacy-section {
             background-color: var(--card-bg);
             backdrop-filter: blur(15px);
@@ -216,7 +214,6 @@
             box-shadow: var(--shadow-card);
         }
 
-        /* SECCIÓN GOOGLE TV (CON ENLACE CLIQUEABLE AFTV.NEWS/6348088) */
         .googletv-link-card {
             display: block;
             text-decoration: none;
@@ -417,36 +414,32 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN GOOGLE TV (CON ENLACE CLIQUEABLE AFTV.NEWS/6348088) -->
-            <a href="http://aftv.news/6348088" target="_blank" rel="noopener noreferrer" class="googletv-link-card">
+            <!-- SECCIÓN PROTON VPN (REEMPLAZADA) -->
+            <div class="googletv-link-card" style="cursor: default;">
                 <div class="gtv-header">
-                    <h3 class="gtv-title">📺 Domina el Ecosistema Google TV</h3>
-                    <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;">GUÍA TÉCNICA</span>
+                    <h3 class="gtv-title">🛡️ Proton VPN: La solución que sí elimina el falso Error 404</h3>
+                    <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(41,151,255,0.2); padding: 4px 10px; border-radius: 20px; border: 1px solid var(--accent-blue);">SEGURIDAD DE RED</span>
                 </div>
                 
                 <p style="font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; color: var(--text-muted);">
-                    Google TV redefine la experiencia visual integrando algoritmos de recomendación en tiempo real y una arquitectura adaptada para reproducir contenido en alta definición sin esfuerzo. Para sacarle el máximo partido a tu sistema, te recomendamos optimizar estos tres pilares del sistema:
+                    Cuando el Error 404 que te aparece en Argentina es en realidad un bloqueo camuflado (como ocurre con plataformas estilo Megafire o Magis TV), Proton VPN soluciona el problema por completo. Al activar el servicio, la VPN actúa directamente sobre la raíz del engaño:
                 </p>
 
                 <div class="gtv-features-container">
                     <div class="gtv-feature-card">
-                        <h4>1. Modo "Solo Apps" 🚀</h4>
-                        <p>Reduce la carga de la memoria RAM eliminando los avances en pantalla de inicio. Ideal para mejorar drásticamente la velocidad del sistema en equipos de recursos moderados.</p>
+                        <h4>1. Desbloquea los DNS manipulados</h4>
+                        <p>Al saltarse los servidores de tu proveedor de internet local (Claro, Personal, Movistar), desarma el falso desvío judicial que te hacía creer que la página "no existía".</p>
                     </div>
                     <div class="gtv-feature-card">
-                        <h4>2. Control de Perfiles 👤</h4>
-                        <p>Crea espacios individuales para cada miembro de la familia, asegurando que tus preferencias de reproducción e historiales se mantengan completamente organizados.</p>
-                    </div>
-                    <div class="gtv-feature-card">
-                        <h4>3. Integración Cast 📲</h4>
-                        <p>Aprovecha la tecnología Google Cast para enviar la señal de tus aplicaciones compatibles desde tu smartphone o laptop directamente a la TV sin retrasos.</p>
+                        <h4>2. Luz verde al servidor</h4>
+                        <p>Si el sitio web tenía restringido el ingreso a usuarios con IP de Argentina por geobloqueo, la VPN te asigna una dirección de otro país (como Estados Unidos o Brasil), haciendo que el servidor te abra las puertas de inmediato.</p>
                     </div>
                 </div>
 
                 <div class="gtv-tech-note">
-                    <strong>Recomendación Pro:</strong> Para mantener las aplicaciones funcionando con máxima fluidez en Google TV, habilita las Opciones de Desarrollador y ajusta la "Escala de animación" a 0.5x. Esto hará que la navegación sea instantánea.
+                    <strong>Recomendación Pro:</strong> Mantén Proton VPN configurado con conexión automática en tus dispositivos de streaming para evitar cortes imprevistos y proteger tu privacidad frente a restricciones del operador local.
                 </div>
-            </a>
+            </div>
 
             <!-- MANTENIMIENTO PREVENTIVO -->
             <div class="solution-box">
@@ -466,7 +459,7 @@
 
     <script>
         (function() {
-            const remoteImageUrl = .jpg.jpg'https://images.alphacoders.com/598/598073.jpg';
+            const remoteImageUrl = .jpg'https://images.alphacoders.com/598/598073.jpg';
             const imgTester = new Image();
             imgTester.src = remoteImageUrl;
 
