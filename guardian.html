@@ -299,6 +299,16 @@
             color: var(--text-main);
         }
 
+        .gtv-tech-note code {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-weight: bold;
+            color: var(--accent-orange);
+            font-size: 14px;
+        }
+
         .solution-box {
             background-color: var(--card-bg);
             backdrop-filter: blur(15px);
@@ -338,7 +348,7 @@
     <nav class="nav-bar">
         <a href="#">Documentación</a>
         <a href="#">LegacyTV</a>
-        <a href="http://aftv.news/7095828" target="_blank" rel="noopener noreferrer">Ajustes Google TV</a>
+        <a href="https://go.aftv.news/7095828" onclick="abrirAFTV(event, '7095828')">Ajustes Google TV</a>
         <a href="#">Guía de Rendimiento</a>
         <a href="#">Soporte Android TV</a>
     </nav>
@@ -444,11 +454,11 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN GUARDIÁN DE 1080P CON EL ENLACE 7095828 -->
-            <a href="http://aftv.news/7095828" target="_blank" rel="noopener noreferrer" class="googletv-link-card">
+            <!-- SECCIÓN GUARDIÁN DE 1080P CON ACCESO INTERNACIONAL -->
+            <a href="https://go.aftv.news/7095828" onclick="abrirAFTV(event, '7095828')" class="googletv-link-card">
                 <div class="gtv-header">
                     <h3 class="gtv-title">📺 El Guardián del 1080p en Smart TVs</h3>
-                    <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;">GUÍA TÉCNICA 1080P</span>
+                    <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px;">CÓDIGO DOWNLOADER: 7095828</span>
                 </div>
 
                 <div class="gtv-big-notice">
@@ -476,7 +486,9 @@
                 </div>
 
                 <div class="gtv-tech-note">
-                    <strong>Recomendación Pro:</strong> Si utilizas un TV Box de gama media o de entrada, fija la salida de video del sistema en <strong>1080p a 60 Hz</strong> en lugar de dejarla en "Auto". Esto libera carga inmediata al chip de video y hace que toda la interfaz vuele.
+                    <strong>📌 Instrucciones de Descarga Global:</strong>
+                    <br>• <strong>En Smart TV / TV Box:</strong> Abre la app <strong>Downloader</strong> e ingresa el código <code>7095828</code>.
+                    <br>• <strong>En PC o Celular:</strong> Haz clic en esta tarjeta para abrir el enlace directo vía protocolo HTTPS seguro.
                 </div>
             </a>
 
@@ -497,6 +509,7 @@
     </main>
 
     <script>
+        // Carga de imagen de fondo
         (function() {
             const remoteImageUrl = 'https://images.alphacoders.com/598/598073.jpg';
             const imgTester = new Image();
@@ -510,6 +523,16 @@
                 document.body.style.backgroundImage = 'linear-gradient(180deg, rgba(5, 5, 10, 0.95) 0%, rgba(15, 15, 25, 0.9) 50%, rgba(0, 0, 0, 0.98) 100%)';
             };
         })();
+
+        // Función para resolver redirección global sin error 404
+        function abrirAFTV(event, codigo) {
+            event.preventDefault();
+            const targetUrl = `https://go.aftv.news/${codigo}`;
+            const win = window.open(targetUrl, '_blank');
+            if (!win) {
+                window.location.href = targetUrl;
+            }
+        }
     </script>
 </body>
 </html>
