@@ -1,6 +1,6 @@
-Aquí tienes el código HTML completo con la sección de Proton VPN eliminada y reemplazada por la sección explicativa sobre la tecnología **Crystal UHD** en Smart TV, manteniendo los estilos y la interfaz.
+Para convertir toda la tarjeta de **Tecnología Crystal UHD** en un enlace cliqueable a `[http://aftv.news/9700525](http://aftv.news/9700525)`, se cambió la etiqueta contenedora de un `<div>` a una etiqueta de enlace `<a>` con las propiedades `href="[http://aftv.news/9700525](http://aftv.news/9700525)"`, `target="_blank"` y `rel="noopener noreferrer"`, además de agregarle efectos de resaltado al pasar el cursor (*hover*).
 
----
+Aquí tienes el código HTML completo con la modificación aplicada:
 
 ```html
 <!DOCTYPE html>
@@ -232,6 +232,14 @@ Aquí tienes el código HTML completo con la sección de Proton VPN eliminada y 
             box-shadow: var(--shadow-card);
             margin-bottom: 40px;
             transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .googletv-link-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+            background-color: rgba(35, 35, 42, 0.9);
+            box-shadow: 0 15px 35px rgba(41, 151, 255, 0.25);
         }
 
         .gtv-header {
@@ -411,8 +419,8 @@ Aquí tienes el código HTML completo con la sección de Proton VPN eliminada y 
                 </div>
             </div>
 
-            <!-- NUEVA SECCIÓN: TECNOLOGÍA CRYSTAL UHD EN TELEVISORES -->
-            <div class="googletv-link-card">
+            <!-- SECCIÓN CRYSTAL UHD CON ENLACE CLIQUEABLE EN TODA LA TARJETA -->
+            <a href="http://aftv.news/9700525" target="_blank" rel="noopener noreferrer" class="googletv-link-card">
                 <div class="gtv-header">
                     <h3 class="gtv-title">📺 Tecnología Crystal UHD: Rendimiento y Color</h3>
                     <span style="font-size: 11px; font-weight: 600; color: #ffffff; background: rgba(41,151,255,0.2); padding: 4px 10px; border-radius: 20px; border: 1px solid var(--accent-blue);">PANELES & PROCESAMIENTO</span>
@@ -436,7 +444,7 @@ Aquí tienes el código HTML completo con la sección de Proton VPN eliminada y 
                 <div class="gtv-tech-note">
                     <strong>Resumen Técnico:</strong> Los paneles Crystal UHD son la opción estándar ideal para streaming diario gracias a su diseño ultrafino (*AirSlim*) y equilibrio costo-rendimiento frente a tecnologías superiores como QLED u OLED.
                 </div>
-            </div>
+            </a>
 
             <!-- MANTENIMIENTO PREVENTIVO -->
             <div class="solution-box">
